@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aurora Trip — Туристическая компания</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: #222;
+    }
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+    .hero {
+      min-height: 100vh;
+      /* Замени на свою фотографию: background-image: url('images/aurora-bg.jpg'); */
+      background: #1a1c22 url('images/tour5.jpg') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      color: #fff;
+      position: relative;
+    }
+
+    /* Фолбэк-градиент если фото нет */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 60% 40%, rgba(40,120,80,0.35) 0%, transparent 60%),
+                  radial-gradient(ellipse at 30% 70%, rgba(20,80,60,0.25) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    /* ----- Навигация ----- */
+    .nav {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      padding: 20px 60px;
+      gap: 32px;
+    }
+
+    .logo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      flex-shrink: 0;
+      margin-right: 16px;
+    }
+
+    .logo svg { width: 58px; height: 48px; }
+
+    .logo-name {
+      color: #fff;
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      line-height: 1.1;
+      margin-top: 2px;
+    }
+
+    .logo-sub {
+      color: #fff;
+      font-size: 9px;
+      font-weight: 400;
+      letter-spacing: 7px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+      flex: 1;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.9);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: #fff; }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-left: auto;
+    }
+
+    .social-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: background 0.2s;
+      flex-shrink: 0;
+    }
+
+    .social-btn:hover { background: rgba(255,255,255,0.3); }
+
+    .social-btn svg { width: 16px; height: 16px; fill: #fff; }
+
+    .nav-phone {
+      color: #fff;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      margin-left: 6px;
+      white-space: nowrap;
+    }
+
+    /* ----- Тело hero ----- */
+    .hero-body {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 48px 60px 40px;
+      flex: 1;
+      gap: 40px;
+    }
+
+    .hero-left { max-width: 520px; }
+
+    .hero-title {
+      font-size: 54px;
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 22px;
+      color: #fff;
+    }
+
+    .hero-desc {
+      font-size: 15px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.78);
+      margin-bottom: 36px;
+    }
+
+    .btn-programs {
+      display: inline-block;
+      background: #6b5be8;
+      color: #fff;
+      border: none;
+      padding: 16px 44px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      cursor: pointer;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-family: inherit;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .btn-programs:hover { background: #5748d0; transform: translateY(-1px); }
+
+    /* ----- Форма ----- */
+    .hero-form {
+      background: rgba(20,22,30,0.55);
+      backdrop-filter: blur(12px);
+      border-radius: 14px;
+      padding: 28px 28px 24px;
+      width: 340px;
+      flex-shrink: 0;
+      color: #fff;
+    }
+
+    .hero-form h3 {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+
+    .hero-form .wait-label {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 18px;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .form-field {
+      width: 100%;
+      padding: 13px 16px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+      font-size: 14px;
+      margin-bottom: 10px;
+      outline: none;
+      font-family: inherit;
+      transition: border-color 0.2s;
+    }
+
+    .form-field::placeholder { color: rgba(255,255,255,0.45); }
+    .form-field:focus { border-color: rgba(255,255,255,0.4); }
+
+    .form-consent {
+      font-size: 10.5px;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+
+    .btn-send {
+      width: 100%;
+      padding: 13px;
+      background: #6b5be8;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      cursor: pointer;
+      text-transform: uppercase;
+      font-family: inherit;
+      transition: background 0.2s;
+    }
+
+    .btn-send:hover { background: #5748d0; }
+
+    /* ----- Статистика ----- */
+    .hero-stats {
+      position: relative;
+      z-index: 10;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      padding: 0 60px 56px;
+      gap: 3px;
+    }
+
+    .stat {
+      background: rgba(0,0,0,0.45);
+      padding: 26px 28px;
+    }
+
+    .stat:first-child { border-radius: 10px 0 0 10px; }
+    .stat:last-child  { border-radius: 0 10px 10px 0; }
+
+    .stat h4 {
+      font-size: 17px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .stat p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.55;
+    }
+
+    /* =========================================================
+       РАЗДЕЛИТЕЛЬ — стрелочки
+    ========================================================= */
+    .divider-chevrons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      padding: 36px 0 16px;
+      background: #fff;
+    }
+
+    .divider-chevrons span {
+      display: block;
+      width: 12px;
+      height: 12px;
+      border-right: 2.5px solid #444;
+      border-bottom: 2.5px solid #444;
+      transform: rotate(45deg);
+      opacity: 0.55;
+    }
+
+    /* =========================================================
+       БЛОК ТУРОВ
+    ========================================================= */
+    .tours {
+      background: #fff;
+      padding: 10px 60px 64px;
+    }
+
+    .tours-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 30px;
+      gap: 40px;
+    }
+
+    .tours-title {
+      font-size: 34px;
+      font-weight: 800;
+      line-height: 1.15;
+      max-width: 360px;
+    }
+
+    .tours-desc {
+      font-size: 15px;
+      color: #555;
+      max-width: 420px;
+      line-height: 1.6;
+      padding-top: 6px;
+    }
+
+    /* Вкладки сезонов */
+    .season-tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+
+    .tab {
+      padding: 11px 22px;
+      border: 2px solid #222;
+      border-radius: 50px;
+      background: transparent;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      text-transform: uppercase;
+      font-family: inherit;
+      color: #222;
+      transition: all 0.2s;
+    }
+
+    .tab:hover   { background: #333; color: #fff; border-color: #333; }
+    .tab.active  { background: #222; color: #fff; }
+
+    /* Слайдер */
+    .slider-wrap {
+      overflow: hidden;
+      border-radius: 16px;
+    }
+
+    .slider-track {
+      display: flex;
+      gap: 20px;
+      transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
+
+    /* Карточка тура */
+    .tour-card {
+      flex: 0 0 calc(33.333% - 14px);
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      height: 400px;
+      text-decoration: none;
+      display: block;
+      cursor: pointer;
+    }
+
+    .card-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.4s ease;
+    }
+
+    .tour-card:hover .card-bg { transform: scale(1.04); }
+
+    .card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top,
+        rgba(0,0,0,0.82) 0%,
+        rgba(0,0,0,0.35) 50%,
+        rgba(0,0,0,0.08) 100%);
+    }
+
+    .card-inner {
+      position: absolute;
+      inset: 0;
+      padding: 18px 20px 20px;
+      display: flex;
+      flex-direction: column;
+      color: #fff;
+    }
+
+    .badges {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      background: #27ae60;
+      color: #fff;
+      font-size: 10.5px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 50px;
+      letter-spacing: 0.2px;
+    }
+
+    .card-body {
+      margin-top: auto;
+    }
+
+    .card-title {
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    .card-text {
+      font-size: 12.5px;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      color: rgba(255,255,255,0.8);
+      font-weight: 500;
+    }
+
+    /* Управление слайдером */
+    .slider-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 22px;
+    }
+
+    .arrows {
+      display: flex;
+      gap: 8px;
+    }
+
+    .arrow {
+      width: 42px;
+      height: 42px;
+      border: 2px solid #222;
+      border-radius: 50%;
+      background: transparent;
+      cursor: pointer;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: inherit;
+      transition: all 0.2s;
+      color: #222;
+    }
+
+    .arrow:hover { background: #222; color: #fff; }
+    .arrow:disabled { opacity: 0.3; cursor: default; }
+    .arrow:disabled:hover { background: transparent; color: #222; }
+
+    .btn-all-tours {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 22px;
+      border: 2px solid #27ae60;
+      border-radius: 50px;
+      background: transparent;
+      color: #222;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-family: inherit;
+      transition: all 0.2s;
+    }
+
+    .btn-all-tours:hover { background: #27ae60; color: #fff; }
+
+    /* Волнистый разделитель */
+    .divider-wave {
+      text-align: center;
+      padding: 18px 0 30px;
+      font-size: 26px;
+      letter-spacing: 8px;
+      color: #555;
+    }
+
+    /* =========================================================
+       Скрытые туры по сезонам
+    ========================================================= */
+    .tour-card[data-season] { display: none; }
+    .tour-card.visible      { display: block; }
+  </style>
+</head>
+<body>
+
+<!-- ========================================================
+     HERO SECTION
+======================================================== -->
+<section class="hero">
+
+  <!-- Навигация -->
+  <nav class="nav">
+    <a href="/" class="logo">
+      <img src="images/logo.png" alt="Aurora Trip" style="width:70px;height:auto;">
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#">Наша команда</a></li>
+      <li><a href="#">Экскурсии</a></li>
+      <li><a href="#">Сотрудничество</a></li>
+      <li><a href="#">Блог</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <!-- ВКонтакте -->
+      <a href="https://vk.com/aurora_trip_murmansk" class="social-btn" title="ВКонтакте">
+        <svg viewBox="0 0 24 24"><path d="M12.785 16.241s.288-.032.436-.194c.136-.148.131-.427.131-.427s-.019-1.304.584-1.496c.595-.189 1.361 1.26 2.174 1.816.614.422 1.08.33 1.08.33l2.17-.03s1.135-.071.597-.964c-.044-.073-.314-.665-1.619-1.88-1.367-1.271-1.183-1.066.462-3.267.999-1.333 1.399-2.146 1.274-2.494-.12-.332-.852-.244-.852-.244l-2.444.015s-.181-.025-.315.056c-.132.079-.217.262-.217.262s-.387 1.035-.903 1.913c-1.088 1.862-1.524 1.961-1.703 1.846-.414-.269-.311-1.075-.311-1.648 0-1.792.271-2.539-.527-2.731-.265-.065-.46-.107-1.137-.114-.869-.009-1.605.003-2.02.207-.277.136-.49.439-.36.456.161.021.525.099.719.363.249.341.24 1.107.24 1.107s.143 2.11-.333 2.372c-.327.179-.775-.186-1.737-1.857-.494-.858-.867-1.807-.867-1.807s-.071-.177-.202-.272c-.157-.115-.376-.151-.376-.151l-2.322.015s-.348.01-.476.162C4.535 7.573 4.64 7.89 4.64 7.89s1.816 4.26 3.875 6.406c1.886 1.97 4.03 1.841 4.03 1.841l1.24-.014z"/></svg>
+      </a>
+      <!-- WhatsApp -->
+      <a href="https://wa.me/79211663315" class="social-btn" title="WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      </a>
+      <!-- Telegram -->
+      <a href="https://t.me/aurora_trip_murmansk" class="social-btn" title="Telegram">
+        <svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+      </a>
+      <a href="tel:+79211663315" class="nav-phone">+7 (921) 166-33-15</a>
+    </div>
+  </nav>
+
+  <!-- Заголовок + форма -->
+  <div class="hero-body">
+    <div class="hero-left">
+      <h1 class="hero-title">Путешествие<br>на Север России</h1>
+      <p class="hero-desc">
+        Туры и экскурсии<br>
+        по Мурманской области<br>
+        и самым интересным местам Кольского Заполярья<br>
+        Охота за Северным Сиянием, Териберка, Хибины,<br>
+        Саамская деревня, Хаски и северные олени
+      </p>
+      <a href="#tours" class="btn-programs">ВСЕ ПРОГРАММЫ</a>
+    </div>
+
+    <div class="hero-form">
+      <h3>Напишите нам и мы организуем ваше идеальное путешествие!</h3>
+      <p class="wait-label">Время ожидания ответа 30 минут</p>
+      <input type="tel" class="form-field" placeholder="+79211663315">
+      <input type="text" class="form-field" placeholder="Аверкий Иванович Палицын">
+      <p class="form-consent">Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь с политикой конфиденциальности.</p>
+      <button class="btn-send">ОТПРАВИТЬ</button>
+    </div>
+  </div>
+
+  <!-- Статистика -->
+  <div class="hero-stats">
+    <div class="stat">
+      <h4>Команда местных гидов</h4>
+      <p>Мы — коренные мурманчане с аттестацией. Хорошо знаем скрытые локации, логистику региона и специфику северной погоды.</p>
+    </div>
+    <div class="stat">
+      <h4>8 лет опыта в туризме</h4>
+      <p>Возьмем все заботы на себя, чтобы вы могли наслаждаться отдыхом.</p>
+    </div>
+    <div class="stat">
+      <h4>Приняли более 1000+ гостей</h4>
+      <p>Работаем с мини-группами до 40+ человек. В нашем автопарке более 10 современных машин.</p>
+    </div>
+  </div>
+
+</section>
+
+<!-- Разделитель: стрелочки вниз -->
+<div class="divider-chevrons">
+  <span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<!-- ========================================================
+     БЛОК ТУРОВ ПО СЕЗОНАМ
+======================================================== -->
+<section class="tours" id="tours">
+
+  <div class="tours-header">
+    <h2 class="tours-title">Топовые туры по Кольскому полуострову</h2>
+    <p class="tours-desc">Мы рады принять вас на Кольском полуострове: северное сияние, Баренцево море, бескрайняя тундра и многое другое.</p>
+  </div>
+
+  <!-- Вкладки сезонов -->
+  <div class="season-tabs">
+    <button class="tab active" data-season="summer">ЛЕТНИЕ ТУРЫ</button>
+    <button class="tab" data-season="autumn">ОСЕННИЕ ТУРЫ</button>
+    <button class="tab" data-season="winter">ЗИМНИЕ ТУРЫ</button>
+    <button class="tab" data-season="spring">ВЕСЕННИЕ ТУРЫ</button>
+  </div>
+
+  <!-- Слайдер карточек -->
+  <div class="slider-wrap">
+    <div class="slider-track" id="sliderTrack">
+
+      <!-- ===== ЛЕТНИЕ ТУРЫ ===== -->
+      <a href="page145318356.html" class="tour-card visible" data-season="summer">
+        <div class="card-bg" style="background: #1a3a4a url('images/aurora-bg.jpg') center/cover no-repeat;"></div>
+        <div class="card-overlay"></div>
+        <div class="card-inner">
+          <div class="badges">
+            <span class="badge">🔥 ХИТ ПРОДАЖ</span>
+            <span class="badge">🐳 ПОИСКИ КИТОВ</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">В Териберку<br>на поиски китов</h3>
+            <p class="card-text">Насыщенная экспедиция на край земли: двухчасовой поиск китов в открытом море и все знаковые локации Териберки за один день.</p>
+            <div class="card-footer">
+              <span>10-14 часов</span>
+              <span>от 12.000₽</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="tour-card visible" data-season="summer">
+        <div class="card-bg" style="background: #3a5a7a url('images/aurora-bg2.jpg') center/cover no-repeat;"></div>
+        <div class="card-overlay"></div>
+        <div class="card-inner">
+          <div class="badges">
+            <span class="badge">ПАНОРАМНЫЙ ВИД</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Обзорная экскурсия<br>по Мурманску</h3>
+            <p class="card-text">Комфортное знакомство со столицей Заполярья: легендарный ледокол «Ленин», монумент «Алёша» и лучшие панорамные виды на Кольский залив.</p>
+            <div class="card-footer">
+              <span>4-5 часов</span>
+              <span>от 5.000₽</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="tour-card visible" data-season="summer">
+        <div class="card-bg" style="background: #1a4a3a url('images/tour7.jpg') center/cover no-repeat;"></div>
+        <div class="card-overlay"></div>
+        <div class="card-inner">
+          <div class="badges">
+            <span class="badge">КРАСИВЫЙ ТУР</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Водопады<br>Кольского края</h3>
+            <p class="card-text">Живописный маршрут в сторону Норвегии: три мощных водопада, исследование исторических укреплений времён ВОВ и первозданная природа Севера за один день.</p>
+            <div class="card-footer">
+              <span>7-9 часов</span>
+              <span>от 7.000₽</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="tour-card visible" data-season="summer">
+        <div class="card-bg" style="background: #3a2a4a url('images/tour6.jpg') center/cover no-repeat;"></div>
+        <div class="card-overlay"></div>
+        <div class="card-inner">
+          <div class="badges">
+            <span class="badge">ЭТНО-ТУР</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Саамская деревня</h3>
+            <p class="card-text">Погружение в культуру коренных народов Кольского полуострова, знакомство с оленями и традиционным бытом саамов.</p>
+            <div class="card-footer">
+              <span>6-8 часов</span>
+              <span>от 6.000₽</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- ===== ОСЕННИЕ ТУРЫ ===== -->
+      <a href="#" class="tour-card" data-season="autumn">
+        <div class="card-bg" style="background: linear-gradient(160deg,#3a2a1a 0%,#6a4a2a 50%,#4a3a1a 100%); background-image: url('images/aurora-autumn.jpg');"></div>
+        <div class="card-overlay"></div>
+        <div class="card-inner">
+          <div class="badges">
+            <span class="badge">🌌 СЕВЕРНОЕ СИЯНИЕ</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Охота за<br>Северным Сиянием</h3>
+            <p class="card-text">Выезжаем в тундру подальше от городских огней в поисках неба, покрытого полярными огнями. Незабываемое зрелище.</p>
+            <div class="card-footer">
+              <span>4-6 часов</span>
+              <span>от 4.500₽</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="tour-card" data-season="autumn">
+        <div class="card-bg" style="background: linear-gradient(160deg,#2a3a1a 0%,#4a6a2a 50%,#3a4a1a 100%); background-image: url('images/khibiny-autumn.jpg');"></div>
+        <div class="card-overlay"></div>
+        <div class="card-inner">
+          <div class="badges">
+            <span class="badge">🏔️ ГОРНЫЙ ТУР</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Хибины осенью</h3>
+            <p class="card-text">Осенние Хибины — это буйство красок, горные озёра и хрустальный воздух Заполярья. Пешеходный маршрут для всей семьи.</p>
+            <div class="card-footer">
+              <span>10-12 часов</span>
+              <span>от 8.000₽</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="tour-card" data-season="autumn">
+        <div class="card-bg" style="background: linear-gradient(160deg,#1a2a3a 0%,#2a4a5a 50%,#1a3a4a 100%); background-image: url('images/teriberka-autumn.jpg');"></div>
+        <div class="card-overlay"></div>
+        <div class="card-inner">
+          <div class="badges">
+            <span class="badge">🌊 ОСЕННЯЯ ТУНДРА</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Осенняя Териберка</h3>
+            <p class="card-text">Сентябрь и октябрь — время, когда тундра становится золотой. Океан суровый, туристов мало, атмосфера особенная.</p>
+            <div class="card-footer">
+              <span>10-14 часов</span>
+              <span>от 9.000₽</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- ===== ЗИМНИЕ ТУРЫ ===== -->
+      <a href="#" class="tour-card" data-season="winter">
+        <div class="card-bg" style="background: linear-gradient(160deg,#0a1a2a 0%,#1a2a4a 50%,#0a1020 100%); background-image: url('images/aurora-winter.jpg');"></div>
+        <div class="card-overlay"></div>
+        <div class="card-inner">
+          <div class="badges">
+            <span class="badge">🌌 ХИТ ЗИМЫ</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Северное Сияние<br>на снегоходе</h3>
+            <p class="card-text">Мчимся в тундру на снегоходах, разводим костёр и ждём — пока небо не загорится зелёным. Романтика и адреналин.</p>
+            <div class="card-footer">
+              <span>5-7 часов</span>
+              <span>от 7.500₽</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="tour-card" data-season="winter">
+        <div class="card-bg" style="background: linear-gradient(160deg,#1a1a2a 0%,#2a2a4a 50%,#1a1a3a 100%); background-image: url('images/husky-winter.jpg');"></div>
+        <div class="card-overlay"></div>
+        <div class="card-inner">
+          <div class="badges">
+            <span class="badge">🐕 ХАСКИ</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Хаски и<br>северные олени</h3>
+            <p class="card-text">Катание на собачьей упряжке и знакомство с оленями — идеальный зимний день для всей семьи.</p>
+            <div class="card-footer">
+              <span>5-6 часов</span>
+              <span>от 6.000₽</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="tour-card" data-season="winter">
+        <div class="card-bg" style="background: linear-gradient(160deg,#0a2a2a 0%,#1a4a4a 50%,#0a3a3a 100%); background-image: url('images/khibiny-winter.jpg');"></div>
+        <div class="card-overlay"></div>
+        <div class="card-inner">
+          <div class="badges">
+            <span class="badge">⛷️ АКТИВНЫЙ ТУР</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Хибины зимой</h3>
+            <p class="card-text">Горные лыжи, сноуборд и ски-тур в одних из самых живописных гор Кольского полуострова.</p>
+            <div class="card-footer">
+              <span>Весь день</span>
+              <span>от 9.000₽</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- ===== ВЕСЕННИЕ ТУРЫ ===== -->
+      <a href="#" class="tour-card" data-season="spring">
+        <div class="card-bg" style="background: linear-gradient(160deg,#1a3a2a 0%,#2a5a3a 50%,#1a4a2a 100%); background-image: url('images/spring-tundra.jpg');"></div>
+        <div class="card-overlay"></div>
+        <div class="card-inner">
+          <div class="badges">
+            <span class="badge">🌸 ВЕСНА</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Пробуждение<br>тундры</h3>
+            <p class="card-text">Весенняя тундра просыпается — первые цветы, перелётные птицы, таящие снега и абсолютная тишина Севера.</p>
+            <div class="card-footer">
+              <span>8-10 часов</span>
+              <span>от 5.500₽</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="tour-card" data-season="spring">
+        <div class="card-bg" style="background: linear-gradient(160deg,#2a3a1a 0%,#4a5a2a 50%,#3a4a1a 100%); background-image: url('images/spring-whales.jpg');"></div>
+        <div class="card-overlay"></div>
+        <div class="card-inner">
+          <div class="badges">
+            <span class="badge">🐳 ПОИСКИ КИТОВ</span>
+            <span class="badge">ВЕСНА</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Киты Баренцева<br>моря весной</h3>
+            <p class="card-text">Весенняя миграция китов — лучшее время для морской экспедиции. Льды уходят, а киты приходят.</p>
+            <div class="card-footer">
+              <span>10-14 часов</span>
+              <span>от 11.000₽</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="tour-card" data-season="spring">
+        <div class="card-bg" style="background: linear-gradient(160deg,#3a2a1a 0%,#5a4a2a 50%,#4a3a1a 100%); background-image: url('images/sami-spring.jpg');"></div>
+        <div class="card-overlay"></div>
+        <div class="card-inner">
+          <div class="badges">
+            <span class="badge">🦌 ОЛЕНЕВОДСТВО</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Весенний<br>оленный перегон</h3>
+            <p class="card-text">Участвуем в традиционном весеннем перегоне оленей вместе с саамами. Редкое этнографическое путешествие.</p>
+            <div class="card-footer">
+              <span>Полный день</span>
+              <span>от 8.000₽</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+    </div><!-- /slider-track -->
+  </div><!-- /slider-wrap -->
+
+  <!-- Управление слайдером -->
+  <div class="slider-controls">
+    <div class="arrows">
+      <button class="arrow" id="prevBtn" disabled>&#8810;</button>
+      <button class="arrow" id="nextBtn">&#8811;</button>
+    </div>
+    <a href="#" class="btn-all-tours">ВСЕ ПРОГРАММЫ →</a>
+  </div>
+
+</section>
+
+<!-- Волнистый разделитель -->
+<div class="divider-wave">〜〜〜〜〜</div>
+
+
+<script>
+  // ─── Переключение вкладок сезонов ───────────────────────────────────────
+  const tabs   = document.querySelectorAll('.tab');
+  const track  = document.getElementById('sliderTrack');
+  let currentOffset = 0;
+
+  function showSeason(season) {
+    // Показываем нужные карточки
+    const all = track.querySelectorAll('.tour-card');
+    all.forEach(card => {
+      if (card.dataset.season === season) {
+        card.classList.add('visible');
+      } else {
+        card.classList.remove('visible');
+      }
+    });
+    // Сбрасываем слайдер в начало
+    currentOffset = 0;
+    updateSlider();
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      showSeason(tab.dataset.season);
+    });
+  });
+
+  // ─── Слайдер ─────────────────────────────────────────────────────────────
+  function getVisibleCards() {
+    return [...track.querySelectorAll('.tour-card.visible')];
+  }
+
+  function updateSlider() {
+    const cards = getVisibleCards();
+    if (!cards.length) return;
+
+    // Убираем карточки из потока чтобы слайдер правильно работал
+    track.style.display = 'flex';
+
+    const cardWidth = cards[0].offsetWidth + 20; // ширина + gap
+    track.style.transform = `translateX(-${currentOffset * cardWidth}px)`;
+
+    const maxOffset = Math.max(0, cards.length - 3);
+    document.getElementById('prevBtn').disabled = currentOffset <= 0;
+    document.getElementById('nextBtn').disabled = currentOffset >= maxOffset;
+  }
+
+  document.getElementById('prevBtn').addEventListener('click', () => {
+    if (currentOffset > 0) { currentOffset--; updateSlider(); }
+  });
+
+  document.getElementById('nextBtn').addEventListener('click', () => {
+    const cards = getVisibleCards();
+    const maxOffset = Math.max(0, cards.length - 3);
+    if (currentOffset < maxOffset) { currentOffset++; updateSlider(); }
+  });
+
+  // Инициализация — показываем летние туры
+  showSeason('summer');
+</script>
+
+</body>
+</html>
