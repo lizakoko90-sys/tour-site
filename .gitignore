@@ -1,0 +1,10 @@
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Внутренние заметки и секреты — не публиковать
+CONTEXT.md
+
+# Локальные dev-серверы (на хосте не нужны)
+serve.py
+serve_simple.py

@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Контакты — Aurora Trip</title>
+  <meta name="description" content="Контакты Aurora Trip: телефон, мессенджеры, email, график работы, адрес и реквизиты. Туры по Мурманску и Кольскому полуострову.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    /* Заголовочный шрифт (self-hosted, как на остальных страницах) */
+    @font-face {
+      font-family: 'aurora';
+      src: url('fonts/aurora-heading.woff') format('woff');
+      font-weight: 400; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'aurora';
+      src: url('fonts/aurora-heading-bold.woff') format('woff');
+      font-weight: 700; font-style: normal; font-display: swap;
+    }
+
+    :root { --aurora: linear-gradient(135deg, #3DDC84 0%, #00D4FF 100%); }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Montserrat', Arial, sans-serif; background: #fff; color: #111; }
+    a { color: inherit; }
+
+    /* ─── HEADER ─────────────────────────────────────────── */
+    .smart-header {
+      position: fixed; top: 0; left: 0; width: 100%; height: 70px;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      z-index: 9999; display: flex; align-items: center;
+    }
+    .hdr-inner {
+      width: 100%; max-width: 1400px; margin: 0 auto;
+      padding: 0 24px; display: flex; align-items: center;
+      justify-content: space-between; gap: 16px;
+    }
+    .hdr-left { display: flex; flex-direction: column; flex-shrink: 0; }
+    .hdr-crumb { display: flex; align-items: center; gap: 6px; font-size: 14px; }
+    .hdr-crumb a { font-weight: 800; color: #10B981; text-decoration: none; }
+    .hdr-crumb .sep { color: #bbb; }
+    .hdr-crumb .cur { font-weight: 700; color: #111; }
+    .hdr-sub { font-size: 12px; color: #718096; margin-top: 2px; }
+    .hdr-nav { display: flex; align-items: center; gap: 20px; flex: 1; justify-content: center; }
+    .hdr-nav a {
+      font-size: 11px; font-weight: 700; color: #4A5568; letter-spacing: .06em;
+      text-decoration: none; border-bottom: 2px solid transparent;
+      padding-bottom: 2px; transition: color .2s, border-color .2s; white-space: nowrap;
+    }
+    .hdr-nav a:hover {
+      background: var(--aurora); -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent; color: transparent;
+    }
+    .hdr-right { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
+    .hdr-phone { font-size: 15px; font-weight: 800; color: #111; text-decoration: none; white-space: nowrap; }
+    .hdr-socials { display: flex; gap: 8px; }
+    .hdr-socials .soc-link { width: 30px; height: 30px; display: grid; place-items: center; }
+    .hdr-socials svg { width: 26px; height: 26px; fill: #2b3a4a; transition: fill .2s; }
+    .hdr-socials .soc-link:hover svg { fill: #10B981; }
+    .hdr-burger {
+      display: none; flex-direction: column; gap: 5px; width: 30px; height: 24px;
+      background: none; border: 0; cursor: pointer; padding: 0; justify-content: center;
+    }
+    .hdr-burger span { display: block; height: 3px; width: 100%; background: #111; border-radius: 3px; transition: .25s; }
+    .hdr-burger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .hdr-burger.open span:nth-child(2) { opacity: 0; }
+    .hdr-burger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    /* Мобильное меню */
+    .mob-menu {
+      position: fixed; top: 70px; left: 0; width: 100%;
+      background: #fff; border-bottom: 1px solid rgba(0,0,0,0.08);
+      padding: 12px 24px 20px; z-index: 9998; display: none; flex-direction: column; gap: 4px;
+      box-shadow: 0 12px 24px rgba(0,0,0,.08);
+    }
+    .mob-menu.open { display: flex; }
+    .mob-menu a { padding: 12px 0; font-size: 15px; font-weight: 700; color: #2b3a4a; text-decoration: none; border-bottom: 1px solid #f0f2f5; }
+    .mob-menu a:last-child { border-bottom: 0; }
+
+    @media (max-width: 900px) {
+      .hdr-nav { display: none; }
+      .hdr-phone, .hdr-socials { display: none; }
+      .hdr-burger { display: flex; }
+    }
+
+    /* ─── HERO ───────────────────────────────────────────── */
+    .hero {
+      margin-top: 70px; padding: 64px 0 40px; position: relative; overflow: hidden;
+      background: radial-gradient(1200px 400px at 80% -10%, rgba(0,212,255,.14), transparent 60%),
+                  radial-gradient(900px 360px at 10% 0%, rgba(61,220,132,.14), transparent 55%);
+    }
+    .wrap { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+    .hero-crumb { display: flex; align-items: center; gap: 6px; font-size: 14px; color: #718096; margin-bottom: 18px; }
+    .hero-crumb a { color: #111; font-weight: 500; text-decoration: none; }
+    .hero-crumb .sep { color: #ccc; }
+    h1.hero-title { font-family: 'aurora','Montserrat',sans-serif; font-size: 52px; font-weight: 700; line-height: 1.05; letter-spacing: -.5px; }
+    .hero-lead { margin-top: 18px; font-size: 18px; color: #4A5568; line-height: 1.65; max-width: 620px; }
+
+    .status-chip {
+      display: inline-flex; align-items: center; gap: 10px; margin-top: 26px;
+      padding: 10px 18px; border-radius: 7px; background: #fff;
+      border: 1px solid rgba(0,0,0,.08); box-shadow: 0 6px 20px rgba(20,40,60,.06);
+      font-size: 14px; font-weight: 600; color: #2b3a4a;
+    }
+    .status-dot { width: 10px; height: 10px; border-radius: 50%; background: #10B981; box-shadow: 0 0 0 4px rgba(16,185,129,.18); }
+    .status-dot.off { background: #E8734A; box-shadow: 0 0 0 4px rgba(232,115,74,.18); }
+    .status-time { color: #718096; font-weight: 500; }
+    .status-time b { color: #111; font-weight: 700; }
+
+    /* ─── CONTACT CARDS ──────────────────────────────────── */
+    .section { padding: 40px 0; }
+    .section-title { font-family: 'aurora','Montserrat',sans-serif; font-size: 30px; font-weight: 700; margin-bottom: 8px; }
+    .section-sub { color: #718096; font-size: 15px; margin-bottom: 28px; }
+
+    .cards {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px;
+    }
+    .card {
+      background: #fff; border: 1px solid rgba(0,0,0,.07); border-radius: 7px;
+      padding: 26px 22px; transition: transform .2s, box-shadow .2s, border-color .2s;
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 16px 34px rgba(20,40,60,.10); border-color: transparent; }
+    .card-ico {
+      width: 46px; height: 46px; border-radius: 7px; background: var(--aurora);
+      display: grid; place-items: center; margin-bottom: 16px;
+    }
+    .card-ico svg { width: 24px; height: 24px; fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .card-label { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: #9aa5b1; font-weight: 700; margin-bottom: 6px; }
+    .card-value { font-size: 18px; font-weight: 700; color: #111; text-decoration: none; word-break: break-word; }
+    a.card-value:hover { background: var(--aurora); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    .card-note { font-size: 13px; color: #718096; margin-top: 6px; }
+
+    /* Мессенджеры */
+    .msgr-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+    .msgr {
+      display: inline-flex; align-items: center; gap: 10px; padding: 12px 18px;
+      border: 1px solid rgba(0,0,0,.08); border-radius: 7px; text-decoration: none;
+      font-weight: 700; font-size: 15px; color: #2b3a4a; transition: .2s;
+    }
+    .msgr:hover { border-color: transparent; box-shadow: 0 10px 24px rgba(20,40,60,.10); transform: translateY(-2px); }
+    .msgr svg { width: 22px; height: 22px; }
+    .msgr .wa { fill: #25D366; } .msgr .tg { fill: #2AABEE; } .msgr .vk { fill: #0077FF; }
+    .msgr .mx { fill: #6B5BE8; }
+
+    /* ─── ADDRESS + MAP ──────────────────────────────────── */
+    .addr-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: stretch; }
+    .addr-card { background: #fff; border: 1px solid rgba(0,0,0,.07); border-radius: 7px; padding: 30px; }
+    .addr-card h3 { font-size: 18px; margin-bottom: 14px; }
+    .addr-line { display: flex; gap: 12px; margin-bottom: 16px; font-size: 15px; color: #2b3a4a; line-height: 1.5; }
+    .addr-line svg { flex-shrink: 0; width: 22px; height: 22px; fill: none; stroke: #10B981; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .map-ph {
+      border-radius: 7px; border: 1.5px dashed rgba(0,0,0,.16); min-height: 280px;
+      display: grid; place-items: center; text-align: center; padding: 30px;
+      background: radial-gradient(600px 200px at 50% 0%, rgba(0,212,255,.10), transparent 60%); color: #718096;
+    }
+    .map-ph svg { width: 40px; height: 40px; fill: none; stroke: #9aa5b1; stroke-width: 1.6; margin-bottom: 12px; }
+
+    /* ─── FORM ───────────────────────────────────────────── */
+    .form-section { background: #0E1626; border-radius: 12px; padding: 44px; margin-top: 8px; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+    .form-grid h2 { font-family: 'aurora','Montserrat',sans-serif; font-size: 30px; color: #fff; line-height: 1.15; margin-bottom: 14px; }
+    .form-grid p { color: #B6C0CE; font-size: 15px; line-height: 1.65; }
+    .form-grid .wait { display: inline-flex; align-items: center; gap: 8px; margin-top: 18px; color: #3DDC84; font-weight: 700; font-size: 14px; }
+    .contact-form { display: flex; flex-direction: column; gap: 14px; }
+    .contact-form input, .contact-form textarea {
+      width: 100%; padding: 16px 18px; border-radius: 7px; border: 1px solid #33465A;
+      background: #16202F; color: #fff; font-family: inherit; font-size: 15px;
+    }
+    .contact-form textarea { min-height: 96px; resize: vertical; }
+    .contact-form input::placeholder, .contact-form textarea::placeholder { color: #7E8A99; }
+    .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: #3DDC84; }
+    .form-consent { font-size: 12px; color: #7E8A99; line-height: 1.5; }
+    .form-consent a { color: #B6C0CE; }
+    .btn-send {
+      background: var(--aurora); color: #0E1626; font-weight: 800; font-size: 15px;
+      letter-spacing: .04em; border: 0; border-radius: 7px; padding: 16px; cursor: pointer;
+      transition: filter .2s, transform .2s;
+    }
+    .btn-send:hover { filter: brightness(1.06); transform: translateY(-1px); }
+
+    /* ─── REQUISITES ─────────────────────────────────────── */
+    .req-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 24px; }
+    .req-card { border: 1px solid rgba(0,0,0,.08); border-radius: 7px; padding: 30px; }
+    .req-card h3 { font-size: 18px; margin-bottom: 18px; }
+    .req-list { list-style: none; }
+    .req-list li { display: flex; justify-content: space-between; gap: 16px; padding: 11px 0; border-bottom: 1px solid #f0f2f5; font-size: 15px; }
+    .req-list li:last-child { border-bottom: 0; }
+    .req-list .k { color: #718096; }
+    .req-list .v { font-weight: 700; color: #111; text-align: right; }
+    .req-badge {
+      display: inline-flex; align-items: center; gap: 8px; margin-top: 16px;
+      padding: 8px 14px; border-radius: 7px; font-size: 13px; font-weight: 700; color: #0E1626;
+      background: var(--aurora);
+    }
+    .legal-links { list-style: none; }
+    .legal-links li { padding: 10px 0; border-bottom: 1px solid #f0f2f5; }
+    .legal-links li:last-child { border-bottom: 0; }
+    .legal-links a { color: #2b3a4a; text-decoration: none; font-size: 15px; font-weight: 600; }
+    .legal-links a:hover { color: #10B981; }
+
+    /* ─── FOOTER ─────────────────────────────────────────── */
+    .site-footer { background: #0E1626; padding: 64px 0 44px; margin-top: 60px; }
+    .ft-inner { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+    .ft-top { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,.08); }
+    .ft-brand { font-family: 'aurora','Montserrat',sans-serif; font-size: 30px; font-weight: 800; color: #fff; margin: 0 0 22px; }
+    .ft-legal { font-size: 15px; color: #B6C0CE; line-height: 1.9; }
+    .ft-reg { display: block; margin-top: 16px; color: #E6ECF3; }
+    .ft-phone { font-size: 26px; font-weight: 700; color: #fff; margin: 0 0 16px; }
+    .ft-callback { display: inline-block; padding: 12px 22px; border: 1px solid #33465A; border-radius: 7px; color: #E6ECF3; text-decoration: none; font-weight: 700; font-size: 14px; transition: .2s; }
+    .ft-callback:hover { background: var(--aurora); color: #0E1626; border-color: transparent; }
+    .ft-schedule { font-size: 14px; color: #7E8A99; margin-top: 14px; }
+    .ft-label { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: #7E8A99; font-weight: 700; margin-bottom: 12px; }
+    .ft-email { font-size: 16px; color: #E8734A; text-decoration: none; word-break: break-word; }
+    .ft-email:hover { text-decoration: underline; }
+    .ft-socials { display: flex; gap: 12px; }
+    .ft-social { width: 44px; height: 44px; border-radius: 7px; background: #16202F; display: grid; place-items: center; border: 1px solid #33465A; }
+    .ft-social:hover { background: linear-gradient(#33465A,#33465A) padding-box, var(--aurora) border-box; }
+    .ft-social svg { width: 22px; height: 22px; fill: #C6D0DC; }
+    .ft-bottom { padding-top: 28px; font-size: 13px; color: #7E8A99; display: flex; flex-wrap: wrap; gap: 8px 20px; }
+    .ft-bottom a { color: #7E8A99; text-decoration: none; }
+    .ft-bottom a:hover { color: #B6C0CE; }
+
+    @media (max-width: 900px) {
+      h1.hero-title { font-size: 38px; }
+      .cards { grid-template-columns: 1fr 1fr; }
+      .addr-grid, .form-grid, .req-grid { grid-template-columns: 1fr; }
+      .form-section { padding: 30px 22px; }
+      .ft-top { grid-template-columns: 1fr 1fr; gap: 28px; }
+    }
+    @media (max-width: 560px) {
+      .cards { grid-template-columns: 1fr; }
+      .ft-top { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="smart-header">
+  <div class="hdr-inner">
+    <div class="hdr-left">
+      <div class="hdr-crumb">
+        <a href="index.html">Главная</a>
+        <span class="sep">·</span>
+        <span class="cur">Контакты</span>
+      </div>
+      <div class="hdr-sub">Aurora Trip · туры по Кольскому</div>
+    </div>
+    <nav class="hdr-nav">
+      <a href="#connect">СВЯЗЬ</a>
+      <a href="#address">АДРЕС</a>
+      <a href="#form">НАПИСАТЬ НАМ</a>
+      <a href="#requisites">РЕКВИЗИТЫ</a>
+      <a href="tury.html">ЭКСКУРСИИ</a>
+    </nav>
+    <div class="hdr-right">
+      <a href="tel:+79211663315" class="hdr-phone">+7 (921) 166-33-15</a>
+      <div class="hdr-socials">
+        <a href="https://t.me/aurora_trip_murmansk" target="_blank" class="soc-link" aria-label="Telegram">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.37.08 0 .27.02.39.12a.4.4 0 01.12.25c0 .06.01.21 0 .33z"/></svg>
+        </a>
+        <a href="https://vk.com/aurora_trip" target="_blank" class="soc-link" aria-label="ВКонтакте">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.12 12.84h-1.02c-.39 0-.52-.32-1.25-1.03-.64-.62-.92-.7-1.08-.7-.22 0-.29.06-.29.41v1.03c0 .26-.08.29-.62.29-1.03 0-2.18-.46-3.04-1.68-1.3-1.82-1.66-3.18-1.66-3.46 0-.16.06-.23.23-.23h1.03c.15 0 .21.07.27.23.53 1.54 1.34 2.53 1.66 2.53.12 0 .17-.05.17-.34V10.4c-.04-.42-.26-.45-.26-.6 0-.07.05-.13.15-.13h1.64c.13 0 .17.06.17.21v2.1c0 .23.05.3.16.3.12 0 .22-.07.44-.29a6.83 6.83 0 001.21-1.9c.04-.12.12-.22.3-.22h1.03c.3 0 .36.15.26.3-.21.46-.97 1.63-.97 1.63-.1.17-.14.24 0 .4.09.13.43.52.83.98.63.72.93 1.18.77 1.48-.1.15-.3.15-.47.15z"/></svg>
+        </a>
+      </div>
+    </div>
+    <button class="hdr-burger" id="hdr-burger" onclick="toggleMenu()" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Мобильное меню -->
+<nav class="mob-menu" id="mob-menu">
+  <a href="#connect" onclick="closeMenu()">Связь</a>
+  <a href="#address" onclick="closeMenu()">Адрес</a>
+  <a href="#form" onclick="closeMenu()">Написать нам</a>
+  <a href="#requisites" onclick="closeMenu()">Реквизиты</a>
+  <a href="tury.html">Экскурсии</a>
+  <a href="tel:+79211663315">+7 (921) 166-33-15</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-crumb">
+      <a href="index.html">Главная</a>
+      <span class="sep">/</span>
+      <span class="cur">Контакты</span>
+    </div>
+    <h1 class="hero-title">Свяжитесь с нами</h1>
+    <p class="hero-lead">Мы — команда местных гидов из Мурманска. Ответим на вопросы о турах, поможем выбрать программу и организуем поездку под ваши даты. Пишите удобным способом — отвечаем быстро.</p>
+    <div class="status-chip">
+      <span class="status-dot" id="status-dot"></span>
+      <span id="status-text">Проверяем режим работы…</span>
+      <span class="status-time">· Мурманск <b id="msk-time">--:--</b></span>
+    </div>
+  </div>
+</section>
+
+<!-- СВЯЗЬ -->
+<section class="section" id="connect">
+  <div class="wrap">
+    <h2 class="section-title">Как с нами связаться</h2>
+    <p class="section-sub">Звоните, пишите на почту или в мессенджеры — выберите, как удобно.</p>
+
+    <div class="cards">
+      <div class="card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+        <div class="card-label">Телефон</div>
+        <a href="tel:+79211663315" class="card-value">+7 (921) 166-33-15</a>
+        <div class="card-note">Звонок, WhatsApp, Telegram</div>
+      </div>
+
+      <div class="card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></div>
+        <div class="card-label">E-mail</div>
+        <a href="mailto:murmansk.aurora.people@gmail.com" class="card-value">murmansk.aurora.people@gmail.com</a>
+        <div class="card-note">Для заявок и вопросов</div>
+      </div>
+
+      <div class="card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <div class="card-label">График работы</div>
+        <div class="card-value">Ежедневно 9:00–21:00</div>
+        <div class="card-note">Время московское (МСК)</div>
+      </div>
+
+      <div class="card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <div class="card-label">Время ответа</div>
+        <div class="card-value">≈ 30 минут</div>
+        <div class="card-note">В рабочие часы</div>
+      </div>
+    </div>
+
+    <p class="section-sub" style="margin:32px 0 0;">Напишите нам в мессенджерах:</p>
+    <div class="msgr-row">
+      <a class="msgr" href="https://wa.me/79211663315" target="_blank">
+        <svg class="wa" viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.74-.86-2-.96-.27-.1-.47-.15-.66.15-.2.3-.76.96-.93 1.16-.17.2-.34.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.6.13-.14.3-.34.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.66-1.6-.9-2.18-.24-.57-.48-.5-.66-.5l-.57-.01c-.2 0-.52.07-.8.37s-1.05 1.02-1.05 2.5 1.08 2.9 1.23 3.1c.15.2 2.12 3.24 5.13 4.54.72.3 1.27.5 1.7.64.72.23 1.37.2 1.88.12.57-.08 1.74-.71 1.99-1.4.24-.68.24-1.27.17-1.4-.07-.12-.27-.19-.57-.34zM12.04 21.5a9.4 9.4 0 01-4.8-1.32l-.34-.2-3.57.94.95-3.48-.22-.36a9.42 9.42 0 01-1.44-5.02c0-5.2 4.24-9.44 9.46-9.44 2.52 0 4.9.99 6.68 2.77a9.38 9.38 0 012.77 6.68c-.01 5.2-4.24 9.44-9.44 9.44z"/></svg>
+        WhatsApp
+      </a>
+      <a class="msgr" href="https://t.me/aurora_trip_murmansk" target="_blank">
+        <svg class="tg" viewBox="0 0 24 24"><path d="M23.07 3.35 19.6 19.72c-.26 1.16-.95 1.44-1.92.9l-5.3-3.9-2.56 2.46c-.28.28-.52.52-1.07.52l.38-5.4L18.9 5.4c.43-.38-.1-.6-.66-.22L5.06 13.6l-5.24-1.64c-1.14-.36-1.16-1.14.24-1.68L21.6 1.72c.95-.35 1.78.22 1.47 1.63z"/></svg>
+        Telegram
+      </a>
+      <a class="msgr" href="https://vk.com/aurora_trip" target="_blank">
+        <svg class="vk" viewBox="0 0 24 24"><path d="M13.16 17.5c-5.52 0-8.67-3.78-8.8-10.08h2.77c.09 4.62 2.13 6.58 3.74 6.98V7.42h2.61v4c1.6-.17 3.27-1.98 3.83-4h2.6a7.7 7.7 0 01-3.53 5.02c1.9.72 3.32 2.16 4 4.06h-2.87c-.53-1.66-1.86-2.94-3.7-3.14v3.14h-.31z"/></svg>
+        ВКонтакте
+      </a>
+      <!-- TODO: нужна точная ссылка на MAX -->
+      <a class="msgr" href="#" data-need="max-link">
+        <svg class="mx" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
+        MAX
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- АДРЕС -->
+<section class="section" id="address">
+  <div class="wrap">
+    <h2 class="section-title">Адрес и точка встречи</h2>
+    <p class="section-sub">Работаем по Мурманску и Кольскому полуострову. Точное место сбора сообщаем при бронировании.</p>
+    <div class="addr-grid">
+      <div class="addr-card">
+        <h3>Где нас найти</h3>
+        <div class="addr-line">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>г. Мурманск, Мурманская область<br><span style="color:#9aa5b1;">Точный адрес офиса — уточняется</span></span>
+        </div>
+        <div class="addr-line">
+          <svg viewBox="0 0 24 24"><path d="M8 2v4M16 2v4M3 10h18"/><rect x="3" y="4" width="18" height="18" rx="2"/></svg>
+          <span>Точку и время сбора группы отправляем в подтверждении брони</span>
+        </div>
+        <div class="addr-line">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          <span>Ежедневно с 9:00 до 21:00 (МСК)</span>
+        </div>
+      </div>
+      <div class="map-ph">
+        <div>
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div style="font-weight:700;color:#4A5568;">Карта появится здесь</div>
+          <div style="font-size:13px;margin-top:6px;">Добавим Яндекс.Карту с точкой встречи,<br>как только определим постоянное место сбора</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ФОРМА -->
+<section class="section" id="form">
+  <div class="wrap">
+    <div class="form-section">
+      <div class="form-grid">
+        <div>
+          <h2>Напишите нам — и мы организуем ваше идеальное путешествие</h2>
+          <p>Оставьте контакты и коротко опишите, что интересно: даты, количество человек, какой тур. Мы свяжемся с вами и предложим программу.</p>
+          <span class="wait">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#3DDC84" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            Время ожидания ответа ≈ 30 минут
+          </span>
+        </div>
+        <form class="contact-form" data-tg="Страница «Контакты» — форма обратной связи">
+          <input type="text" name="name" placeholder="Ваше имя" required>
+          <input type="tel" name="phone" placeholder="Ваш номер телефона" required>
+          <textarea name="message" placeholder="Сообщение: даты, количество человек, интересующий тур"></textarea>
+          <p class="form-consent">Нажимая на кнопку, вы даёте согласие на обработку персональных данных и соглашаетесь с <a href="privacy.html">политикой конфиденциальности</a>.</p>
+          <button type="submit" class="btn-send">ОТПРАВИТЬ ЗАЯВКУ</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- РЕКВИЗИТЫ -->
+<section class="section" id="requisites">
+  <div class="wrap">
+    <h2 class="section-title">Реквизиты и правовая информация</h2>
+    <p class="section-sub">Работаем официально. Полные данные для договоров и оплаты предоставляем по запросу.</p>
+    <div class="req-grid">
+      <div class="req-card">
+        <h3>Реквизиты компании</h3>
+        <ul class="req-list">
+          <li><span class="k">Наименование</span><span class="v">ИП Трофименко Михаил Сергеевич</span></li>
+          <li><span class="k">ОГРНИП</span><span class="v">321519000010954</span></li>
+          <li><span class="k">ИНН</span><span class="v">519091956005</span></li>
+          <li><span class="k">Реестр туроператоров</span><span class="v">РТО02638</span></li>
+        </ul>
+        <span class="req-badge">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#0E1626" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          Компания в реестре Ростуризма
+        </span>
+      </div>
+      <div class="req-card">
+        <h3>Правовые документы</h3>
+        <ul class="legal-links">
+          <li><a href="oferta.html">Договор-оферта</a></li>
+          <li><a href="privacy.html">Политика обработки персональных данных</a></li>
+          <li><a href="consent.html">Согласие на обработку персональных данных</a></li>
+          <li><a href="marketing-consent.html">Согласие на рекламную рассылку</a></li>
+          <li><a href="cookies.html">Политика cookies</a></li>
+          <li><a href="terms.html">Определения и термины</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="ft-inner">
+    <div class="ft-top">
+      <div>
+        <h3 class="ft-brand">Aurora Trip</h3>
+        <div class="ft-legal">
+          ИП Трофименко Михаил Сергеевич<br>
+          ОГРНИП 321519000010954<br>
+          ИНН 519091956005
+          <span class="ft-reg">Мы в реестре Ростуризма РТО02638</span>
+        </div>
+      </div>
+      <div>
+        <div class="ft-phone">+7 (921) 166-33-15</div>
+        <a class="ft-callback" href="tel:+79211663315">Заказать звонок</a>
+        <div class="ft-schedule">График работы: с 9:00 до 21:00</div>
+      </div>
+      <div>
+        <p class="ft-label">E-mail для заявок</p>
+        <a class="ft-email" href="mailto:murmansk.aurora.people@gmail.com">murmansk.aurora.people@gmail.com</a>
+      </div>
+      <div>
+        <p class="ft-label">Мы в мессенджерах</p>
+        <div class="ft-socials">
+          <a class="ft-social" href="https://wa.me/79211663315" target="_blank" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.74-.86-2-.96-.27-.1-.47-.15-.66.15-.2.3-.76.96-.93 1.16-.17.2-.34.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.6.13-.14.3-.34.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.66-1.6-.9-2.18-.24-.57-.48-.5-.66-.5l-.57-.01c-.2 0-.52.07-.8.37s-1.05 1.02-1.05 2.5 1.08 2.9 1.23 3.1c.15.2 2.12 3.24 5.13 4.54.72.3 1.27.5 1.7.64.72.23 1.37.2 1.88.12.57-.08 1.74-.71 1.99-1.4.24-.68.24-1.27.17-1.4-.07-.12-.27-.19-.57-.34z"/></svg>
+          </a>
+          <a class="ft-social" href="https://t.me/aurora_trip_murmansk" target="_blank" aria-label="Telegram">
+            <svg viewBox="0 0 24 24"><path d="M23.07 3.35 19.6 19.72c-.26 1.16-.95 1.44-1.92.9l-5.3-3.9-2.56 2.46c-.28.28-.52.52-1.07.52l.38-5.4L18.9 5.4c.43-.38-.1-.6-.66-.22L5.06 13.6l-5.24-1.64c-1.14-.36-1.16-1.14.24-1.68L21.6 1.72c.95-.35 1.78.22 1.47 1.63z"/></svg>
+          </a>
+          <a class="ft-social" href="https://vk.com/aurora_trip" target="_blank" aria-label="VK">
+            <svg viewBox="0 0 24 24"><path d="M13.16 17.5c-5.52 0-8.67-3.78-8.8-10.08h2.77c.09 4.62 2.13 6.58 3.74 6.98V7.42h2.61v4c1.6-.17 3.27-1.98 3.83-4h2.6a7.7 7.7 0 01-3.53 5.02c1.9.72 3.32 2.16 4 4.06h-2.87c-.53-1.66-1.86-2.94-3.7-3.14v3.14h-.31z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <span>© Aurora Trip, 2026</span>
+      <a href="privacy.html">Политика конфиденциальности</a>
+      <a href="oferta.html">Договор-оферта</a>
+      <a href="tury.html">Все экскурсии</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Бургер-меню
+  function toggleMenu(){
+    document.getElementById('hdr-burger').classList.toggle('open');
+    document.getElementById('mob-menu').classList.toggle('open');
+  }
+  function closeMenu(){
+    document.getElementById('hdr-burger').classList.remove('open');
+    document.getElementById('mob-menu').classList.remove('open');
+  }
+
+  // Часы Мурманска (МСК) + статус «работаем / offline» по графику 9:00–21:00
+  (function(){
+    var timeEl = document.getElementById('msk-time');
+    var dot = document.getElementById('status-dot');
+    var txt = document.getElementById('status-text');
+    function tick(){
+      var now = new Date();
+      var parts = new Intl.DateTimeFormat('ru-RU', {
+        timeZone: 'Europe/Moscow', hour: '2-digit', minute: '2-digit', hour12: false
+      }).formatToParts(now);
+      var hh = 0, mm = 0, str = '--:--';
+      var h = parts.find(function(p){return p.type==='hour';});
+      var m = parts.find(function(p){return p.type==='minute';});
+      if(h && m){ hh = +h.value; mm = +m.value; str = h.value + ':' + m.value; }
+      if(timeEl) timeEl.textContent = str;
+      var open = (hh > 9 || (hh === 9 && mm >= 0)) && hh < 21;
+      if(dot && txt){
+        if(open){
+          dot.classList.remove('off');
+          txt.textContent = 'Сейчас работаем — ответим быстро';
+        } else {
+          dot.classList.add('off');
+          txt.textContent = 'Сейчас нерабочее время — напишите, ответим утром';
+        }
+      }
+    }
+    tick();
+    setInterval(tick, 1000 * 30);
+  })();
+</script>
+<script src="js/telegram-forms.js" defer></script>
+</body>
+</html>

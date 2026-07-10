@@ -3,9 +3,11 @@
   "configurations": [
     {
       "name": "tour-site",
-      "runtimeExecutable": "/usr/bin/python3",
-      "runtimeArgs": ["serve.py"],
-      "port": 8765
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server"],
+      "cwd": "/Users/elizaveta/Desktop/tour-site",
+      "port": 8765,
+      "autoPort": false
     }
   ]
 }

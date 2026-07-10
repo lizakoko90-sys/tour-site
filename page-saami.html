@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Однодневное путешествие в Териберку с поиском китов — Aurora Trip</title>
+  <title>Саамские традиции — Aurora Trip</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
@@ -255,6 +255,19 @@
     .excl-item img { width: 34px; height: 34px; flex-shrink: 0; margin-top: 1px; }
     .excl-item-text { font-size: 16px; color: #374151; line-height: 1.4; }
 
+    /* Program format note */
+    .prog-note {
+      position: relative; background: #F7FAFB; border-radius: 7px;
+      padding: 24px 26px 24px 30px; margin-bottom: 44px; overflow: hidden;
+      display: flex; flex-direction: column; gap: 14px;
+    }
+    .prog-note::before {
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+      background: var(--aurora);
+    }
+    .prog-note p { font-size: 16px; color: #374151; line-height: 1.7; margin: 0; }
+    .prog-note strong { color: #111; font-weight: 700; }
+
     /* Yandex Map */
     .ymap-wrap {
       border-radius: 7px; overflow: hidden; line-height: 0; margin-bottom: 48px;
@@ -282,9 +295,9 @@
       color: transparent; background-size: cover; background-position: center;
       opacity: 0.55; pointer-events: none;
     }
-    .pw-put  { background-image: url('https://optim.tildacdn.com/tild6337-6366-4763-a264-653036626466/-/format/webp/c177f1d66b9e70c09e72.jpg.webp'); }
-    .pw-more { background-image: url('https://optim.tildacdn.com/tild3532-3932-4965-a339-653131333831/-/format/webp/penistaya_voda_v_mor.jpg.webp'); }
-    .pw-mosh { background-image: url('https://optim.tildacdn.com/tild3036-6462-4631-a361-666431386366/-/format/webp/original.jpg.webp'); }
+    .pw-put  { background-image: url('images/saami.jpeg'); }
+    .pw-more { background-image: url('images/saami.jpeg'); }
+    .pw-mosh { background-image: url('images/saami.jpeg'); letter-spacing: 4px; }
 
     /* Timeline */
     .timeline { display: flex; flex-direction: column; }
@@ -779,9 +792,9 @@
       <div class="hdr-crumb">
         <a href="index.html">Главная</a>
         <span class="sep">·</span>
-        <span class="cur">В Териберку на поиски китов</span>
+        <span class="cur">Саамские традиции</span>
       </div>
-      <div class="hdr-price">от <span>4 500 ₽</span> / чел.</div>
+      <div class="hdr-price">от <span>7 500 ₽</span> / чел.</div>
     </div>
     <nav class="hdr-nav" id="hdr-nav">
       <a href="#section-desc" class="active">ОПИСАНИЕ</a>
@@ -815,12 +828,12 @@
       <div class="hero-crumb">
         <a href="index.html">Главная</a>
         <span class="sep">/</span>
-        <span class="cur">"В Териберку на поиски китов"</span>
+        <span class="cur">"Саамские традиции"</span>
       </div>
-      <h1 class="hero-title">Однодновное путешествие<br>в Териберку с поиском китов</h1>
+      <h1 class="hero-title">Саамские<br>традиции</h1>
     </div>
     <div class="hero-right">
-      <p class="hero-desc">Насыщенная экспедиция на край земли: двухчасовой поиск китов в открытом море и все знаковые локации Териберки за один день.</p>
+      <p class="hero-desc">Погружение в традиции Севера всего в часе езды от Мурманска: хаски и олени, обряд у костра в тёплом чуме и зимние катания — за один день.</p>
       <a href="#section-prog" class="btn-green">
         Программа тура
         <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
@@ -832,11 +845,11 @@
 <!-- WHALE PHOTO -->
 <div class="hero-photo-wrap">
   <div class="hero-photo">
-    <img src="https://static.tildacdn.com/tild6537-6431-4565-a437-386663663566/70bf708c-1f4.webp" alt="Поиск китов в Териберке">
+    <img src="images/saami.jpeg" alt="Саамская деревня зимой — катание на оленях">
     <div class="hero-tags">
-      <span class="hero-tag">📍 Териберка</span>
-      <span class="hero-tag white">🐋 Поиски китов</span>
-      <span class="hero-tag white">⭐ Хит продаж</span>
+      <span class="hero-tag">🦌 Хаски и олени</span>
+      <span class="hero-tag white">🔥 Обряд у костра</span>
+      <span class="hero-tag white">🎿 Зимние катания</span>
     </div>
   </div>
 </div>
@@ -851,40 +864,29 @@
     <div class="col-crumb">
       <a href="index.html">Главная</a>
       <span class="sep">/</span>
-      <span>"В Териберку на поиски китов"</span>
+      <span>"Саамские традиции"</span>
     </div>
 
     <!-- heading -->
-    <h2 class="section-title">Программа экспедиции в Териберку<br>за китами на край земли</h2>
+    <h2 class="section-title">Зимняя программа путешествия<br>в саамскую деревню</h2>
 
     <!-- description -->
     <div class="desc-text">
-      <p>Это путешествие создано для тех, кто хочет почувствовать дух настоящей Арктики и увидеть дикую природу без прикрас.</p>
-      <p>Сердце нашей программы — <strong>выход в акваторию Баренцева моря</strong>. Мы отправимся на катере вдоль отвесных скал, чтобы застать морских гигантов в их естественной среде. В разное время года в водах Баренцева моря появляются гренландские киты, финвалы, касатки и даже горбатые киты — встреча с ними остаётся в памяти на всю жизнь. Свежий ветер, солёные брызги и захватывающее ожидание — вот он, настоящий дух северной экспедиции.</p>
-      <p>До или после выхода в море вы пройдёте по тундре, увидите каменный пляж «Яйца Дракона», кладбище кораблей, водопад, падающий прямо в океан, и песчаные берега, где природа говорит на своём, древнем языке.</p>
-      <p>Это не просто тур — это шанс стать свидетелем жизни Арктики. Присоединяйтесь — Север зовёт, а киты уже близко.</p>
+      <p>Погружение в традиции Севера всего в часе езды от города. Насыщенная зимняя программа: от объятий с хаски до мистических обрядов у костра и порции адреналина на заснеженных трассах. Открывайте Арктику вместе с командой <strong>@aurora_trip</strong>!</p>
+      <p><em>Программа проводится в двух форматах: утренний слот с началом в 11:00 и дневной слот с началом в 13:00. Ниже представлен тайминг для утренней группы.</em></p>
+    </div>
+
+    <!-- Формат тура -->
+    <div class="prog-note">
+      <p>Это комфортный зимний тур всего в часе езды от Мурманска: активности на свежем воздухе чередуются с отдыхом в тёплом чуме, где горит настоящий очаг.</p>
+      <p>Маршрут <strong>лёгкий, специальной физической подготовки не требуется</strong>. Программа идеально сбалансирована: вы не успеете перемёрзнуть — середина тура проходит в жарком отапливаемом чуме.</p>
+      <p>На морозе предстоит провести около 45 минут в начале и около 45 минут в конце программы, поэтому важно одеться максимально тепло.</p>
     </div>
 
     <!-- description photos (2 equal) -->
     <div class="desc-photos">
-      <img src="https://static.tildacdn.com/tild3062-3039-4166-b162-613264653334/2026-05-30_123344.jpg" alt="Териберка">
-      <img src="https://static.tildacdn.com/tild3761-3633-4839-b562-316464616639/2026-05-30_123351.jpg" alt="Териберка — киты">
-    </div>
-
-    <!-- gallery button -->
-    <button class="show-more" id="show-more-btn" onclick="openGallery()">Показать еще <strong>→</strong></button>
-
-    <!-- PHOTO GALLERY MODAL -->
-    <div id="gallery-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.88); z-index:99999; overflow-y:auto; padding:60px 20px 40px;">
-      <button onclick="closeGallery()" style="position:fixed; top:20px; right:28px; background:none; border:none; color:#fff; font-size:36px; cursor:pointer; line-height:1; z-index:100000;">&times;</button>
-      <div style="max-width:900px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:10px;">
-        <img src="https://static.tildacdn.com/tild3062-3039-4166-b162-613264653334/2026-05-30_123344.jpg" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="">
-        <img src="https://static.tildacdn.com/tild3761-3633-4839-b562-316464616639/2026-05-30_123351.jpg" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="">
-        <img src="https://static.tildacdn.com/tild6537-6431-4565-a437-386663663566/70bf708c-1f4.webp" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="">
-        <img src="https://static.tildacdn.com/tild3835-3037-4561-b566-303336623138/IMG_8143_1.JPG" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="">
-        <img src="https://optim.tildacdn.com/tild6337-6366-4763-a264-653036626466/-/format/webp/c177f1d66b9e70c09e72.jpg.webp" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="">
-        <img src="https://static.tildacdn.com/tild3337-3763-4762-a134-623036663932/noroot.png" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="">
-      </div>
+      <img src="images/saami.jpeg" alt="Катание на оленьих упряжках">
+      <img src="images/gallery/khib_5.jpg" alt="Северный олень">
     </div>
 
     <!-- WHAT TO EXPECT -->
@@ -892,19 +894,19 @@
       <h2 class="what-title">Что вас ждет</h2>
       <div class="what-grid">
         <div class="what-card">
-          <img src="https://optim.tildacdn.com/tild6337-6366-4763-a264-653036626466/-/format/webp/c177f1d66b9e70c09e72.jpg.webp" alt="Бескрайняя тундра">
-          <div class="what-card-title">Бескрайняя тундра</div>
-          <div class="what-card-desc">Посетите уникальную природную зону, где ощущается вся Арктическая мощь</div>
+          <img src="images/gallery/khib_5.jpg" alt="Хаски и олени">
+          <div class="what-card-title">Хаски и олени</div>
+          <div class="what-card-desc">Познакомитесь с сибирскими хаски и северными оленями (их можно покормить ягелем) и сыграете в саамские игры на ловкость</div>
         </div>
         <div class="what-card">
-          <img src="https://static.tildacdn.com/tild3337-3763-4762-a134-623036663932/noroot.png" alt="Выход в море">
-          <div class="what-card-title">Выход в море</div>
-          <div class="what-card-desc">Отправитесь в морскую прогулку из Териберки на поиски китов и других обитателей</div>
+          <img src="images/saami.jpeg" alt="Чум, обед и обряд с шаманом">
+          <div class="what-card-title">Чум и обряд</div>
+          <div class="what-card-desc">Отогреетесь в тёплом чуме: похлёбка из оленины, чай из северных трав и мистический обряд с шаманом под звуки бубна</div>
         </div>
         <div class="what-card">
-          <img src="https://static.tildacdn.com/tild3835-3037-4561-b566-303336623138/IMG_8143_1.JPG" alt="Батарейский водопад">
-          <div class="what-card-title">Водопад на краю земли</div>
-          <div class="what-card-desc">Увидите Батарейский водопад, впадающий прямо в Баренцево море</div>
+          <img src="images/saami.jpeg" alt="Зимние катания">
+          <div class="what-card-title">Зимние катания</div>
+          <div class="what-card-desc">Прокатитесь на оленьих упряжках и на весёлом банане за снегоходом по заснеженному лесу</div>
         </div>
       </div>
     </div>
@@ -913,137 +915,73 @@
     <div class="prog-section" id="section-prog">
       <h2 class="prog-title">Программа тура</h2>
 
-      <!-- Yandex Map -->
-      <div class="ymap-wrap">
-        <iframe
-          src="https://yandex.ru/map-widget/v1/?um=constructor%3A65a3acf0c8e6109a2bc8aa3ae46b521992b2f28478b7814d4f45adbce136ad1f&source=constructor"
-          width="100%" height="225" frameborder="0" style="border-radius: 7px;"></iframe>
-      </div>
-
-      <!-- ФАЗА 1: ПУТЬ -->
+      <!-- ФАЗА 1: ПАРК -->
       <div class="phase-block">
         <div class="phase-banner">
-          <div class="phase-heading">ВСТРЕЧА С ГИДОМ И 120 КМ БЕСКРАЙНЕЙ ТУНДРЫ</div>
-          <div class="phase-word pw-put">ПУТЬ</div>
-        </div>
-        <div class="timeline">
-          <div class="tl-row">
-            <div class="tl-left"><div class="tl-dot"></div><div class="tl-time">07:20</div></div>
-            <div class="tl-right">
-              <div class="tl-head"><strong>Сбор</strong> группы и знакомство с гидом</div>
-              <div class="tl-body">Встречаемся у входа в отель/апартаменты.</div>
-            </div>
-          </div>
-          <div class="tl-row">
-            <div class="tl-left"><div class="tl-dot"></div><div class="tl-time">07:30</div></div>
-            <div class="tl-right">
-              <div class="tl-body">
-                Отправляемся в Териберку из Мурманска.<br>
-                Мы проедем около 120 км живописной тундры, а по дороге сделаем несколько остановок в самых живописных местах, чтобы насладиться удивительными пейзажами бескрайней арктической тундры:
-                <ul>
-                  <li><strong>кольский Ветропарк;</strong></li>
-                  <li><strong>сейды на горе Эривейв</strong>.</li>
-                </ul>
-                Дорога занимает 2–2,5 часа.
-              </div>
-            </div>
-          </div>
-          <div class="tl-row">
-            <div class="tl-left"><div class="tl-dot"></div><div class="tl-time">09:30</div></div>
-            <div class="tl-right">
-              <div class="tl-body">Прибытие в Териберку</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ФАЗА 2: МОРЕ -->
-      <div class="phase-block">
-        <div class="phase-banner">
-          <div class="phase-heading">МОРСКАЯ ПРОГУЛКА БАРЕНЦЕВО МОРЕ</div>
-          <div class="phase-word pw-more">МОРЕ</div>
+          <div class="phase-heading">ВЫЕЗД И ПАРК ЖИВОТНЫХ</div>
+          <div class="phase-word pw-put">ПАРК</div>
         </div>
         <div class="timeline">
           <div class="tl-row">
             <div class="tl-left"><div class="tl-dot"></div><div class="tl-time">10:00</div></div>
             <div class="tl-right">
-              <div class="tl-body">
-                Знакомимся с капитаном, проходим инструктаж по безопасности и <strong>отправляемся в Баренцево море</strong> на поиски китов. Чаще всего в этих водах мы встречаем малых полосатиков и горбачей, а компанию им составляют дельфины и любопытные тюлени.
-                <ul>
-                  <li><strong>Длительность:</strong> 2 часа в открытом океане.</li>
-                  <li><strong>Комфорт:</strong> Капитан выбирает самый мягкий курс, а у гида всегда с собой эффективные средства от укачивания.</li>
-                  <li><strong>Экипировка:</strong> Всем участникам выдаем спасательные жилеты.</li>
-                </ul>
-                <em>Шанс встретить китов высок, но даже если они решат остаться на глубине, нас ждут фантастические виды на скалистые берега и бескрайний суровый океан.</em>
-              </div>
+              <div class="tl-head"><strong>Сбор группы и выезд</strong></div>
+              <div class="tl-body">Встречаемся у входа в ваш отель или апартаменты в Мурманске, знакомимся с гидом и выезжаем в парк. Время в пути — около 50 минут, за которые гид расскажет о природе Кольского полуострова и жизни за Полярным кругом.</div>
             </div>
           </div>
           <div class="tl-row">
-            <div class="tl-left"><div class="tl-dot"></div><div class="tl-time">12:00</div></div>
+            <div class="tl-left"><div class="tl-dot"></div><div class="tl-time">11:00</div></div>
             <div class="tl-right">
-              <div class="tl-body">Возвращаемся на берег</div>
+              <div class="tl-head"><strong>Парк животных и саамские игры</strong></div>
+              <div class="tl-body">Прибытие в этнопарк. Знакомимся с главными обитателями — сибирскими хаски и северными оленями (оленей можно покормить ягелем), а затем переходим к традиционным саамским играм на ловкость и меткость.</div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- ФАЗА 3: МОЩЬ -->
+      <!-- ФАЗА 2: ЧУМ -->
       <div class="phase-block">
         <div class="phase-banner">
-          <div class="phase-heading">ВСЯ КРАСОТА ТЕРИБЕРКИ</div>
-          <div class="phase-word pw-mosh">МОЩЬ</div>
+          <div class="phase-heading">ТЁПЛЫЙ ЧУМ, ОБЕД И ОБРЯД</div>
+          <div class="phase-word pw-more">ЧУМ</div>
         </div>
         <div class="timeline">
           <div class="tl-row">
-            <div class="tl-left"><div class="tl-dot"></div><div class="tl-time">12:10</div></div>
+            <div class="tl-left"><div class="tl-dot"></div><div class="tl-time">11:45</div></div>
             <div class="tl-right">
-              <div class="tl-body">
-                Устраиваем гастрономическую паузу в панорамном ресторане на берегу океана: <strong>пробуем блюда из свежей рыбы</strong> и местных морепродуктов, приготовленных сразу после утреннего улова.
-              </div>
+              <div class="tl-head"><strong>Отогреваемся в чуме: обед, чай и шаманский обряд</strong></div>
+              <div class="tl-body">Заходим в традиционное жилище — тёплый чум, где горит настоящий очаг. Угощаемся наваристой горячей похлёбкой из оленины и ароматным чаем из северных трав. Здесь же нас ждёт погружение в мистическую атмосферу арктических легенд, общение с шаманом и настоящий саамский обряд под звуки бубна.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ФАЗА 3: ДРАЙВ -->
+      <div class="phase-block">
+        <div class="phase-banner">
+          <div class="phase-heading">ЗИМНИЕ КАТАНИЯ И ВОЗВРАЩЕНИЕ</div>
+          <div class="phase-word pw-mosh">ДРАЙВ</div>
+        </div>
+        <div class="timeline">
+          <div class="tl-row">
+            <div class="tl-left"><div class="tl-dot"></div><div class="tl-time">12:45</div></div>
+            <div class="tl-right">
+              <div class="tl-head"><strong>Зимние катания: олени и снегоходный банан</strong></div>
+              <div class="tl-body">Полностью согревшись, выходим на самую динамичную часть тура: традиционное катание на оленях, а затем — порция драйва на весёлом банане за снегоходом по заснеженному лесу.</div>
             </div>
           </div>
           <div class="tl-row">
             <div class="tl-left"><div class="tl-dot"></div><div class="tl-time">13:30</div></div>
             <div class="tl-right">
-              <div class="tl-body">
-                <strong>Гуляем по знаменитому песчаному побережью</strong> Тери берской бухты. Делаем атмосферные кадры на гигантских качелях у океана, примеряем на себя образ правителя Севера на деревянном троне и исследуем выброшенный штормом старый рыболовецкий корабль.
-                <ul>
-                  <li><strong>По желанию:</strong> Прямо у пляжа можно заглянуть на хаски-ферму, чтобы пообщаться и пофотографироваться с дружелюбными полярными собаками.</li>
-                </ul>
-              </div>
+              <div class="tl-head"><strong>Завершение программы и выезд</strong></div>
+              <div class="tl-body">Прощаемся с этнопарком, усаживаемся в тёплый автомобиль и отправляемся обратно в город. <em>(Для дневной группы выезд в 15:30.)</em></div>
             </div>
           </div>
           <div class="tl-row">
             <div class="tl-left"><div class="tl-dot"></div><div class="tl-time">14:30</div></div>
             <div class="tl-right">
-              <div class="tl-body">
-                Посещаем знаменитое <strong>кладбище поморских рыболовных кораблей</strong> 50х годов, застывших во времени траулеров и промысловых судов. Это фантастическая локация для глубоких и атмосферных кадров.
-              </div>
-            </div>
-          </div>
-          <div class="tl-row">
-            <div class="tl-left"><div class="tl-dot"></div><div class="tl-time">15:00</div></div>
-            <div class="tl-right">
-              <div class="tl-body">
-                Отправляемся на прогулку по охраняемому природному парку «Тери берка» вдоль скалистого побережья. Нас ждут две грандиозные локации:<br>
-                каменный пляж <strong>"Яйца драконов"</strong> и ревущий <strong>Батарейский водопад</strong>, падающий из озера прямиком в Ледовитый океан.
-                <ul>
-                  <li><strong>Протяженность:</strong> 7 км в обе стороны по живописной тундре.</li>
-                  <li><strong>Комфорт:</strong> Маршрут оборудован удобными современными эко-тропами. Настилы защищают от грязи летом и от гололеда зимой, поэтому прогулка комфортна для гостей с любым уровнем подготовки.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="tl-row">
-            <div class="tl-left"><div class="tl-dot"></div><div class="tl-time">17:00</div></div>
-            <div class="tl-right">
-              <div class="tl-body">Завершаем программу и выезжаем обратно в Мурманск.</div>
-            </div>
-          </div>
-          <div class="tl-row">
-            <div class="tl-left"><div class="tl-dot"></div><div class="tl-time">19:00</div></div>
-            <div class="tl-right">
-              <div class="tl-body">Возвращение в отель.</div>
+              <div class="tl-head"><strong>Возвращение в Мурманск</strong></div>
+              <div class="tl-body">Трансфер до вашего отеля. <em>(Для дневной группы возвращение в 16:30.)</em></div>
             </div>
           </div>
         </div>
@@ -1059,23 +997,35 @@
           <div class="incl-list">
             <div class="incl-item">
               <svg class="incl-ic" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="url(#auroraGrad)"/><path d="M6.8 12.3l3.4 3.4L17 8.8" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <div class="incl-item-text"><strong>Трансфер</strong> на комфортном подготовленном внедорожнике из Мурманска и обратно (забираем от отеля/апартаментов).</div>
+              <div class="incl-item-text"><strong>Комфортабельный четырёхместный автомобиль</strong></div>
             </div>
             <div class="incl-item">
               <svg class="incl-ic" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="url(#auroraGrad)"/><path d="M6.8 12.3l3.4 3.4L17 8.8" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <div class="incl-item-text"><strong>Сопровождение</strong> сертифицированного гида-эксперта на протяжении всего маршрута.</div>
+              <div class="incl-item-text"><strong>Сопровождение опытного гида</strong></div>
             </div>
             <div class="incl-item">
               <svg class="incl-ic" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="url(#auroraGrad)"/><path d="M6.8 12.3l3.4 3.4L17 8.8" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <div class="incl-item-text"><strong>Морская прогулка</strong> на катере в открытом Баренцевом море (2 часа) с поиском китов.</div>
+              <div class="incl-item-text"><strong>Входные билеты</strong> в парк «Северное Сияние»</div>
             </div>
             <div class="incl-item">
               <svg class="incl-ic" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="url(#auroraGrad)"/><path d="M6.8 12.3l3.4 3.4L17 8.8" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <div class="incl-item-text"><strong>Оформление официальных пропусков</strong> в природный парк «Териберка» и все сервисные сборы.</div>
+              <div class="incl-item-text"><strong>Посещение парка животных</strong> и саамские игры</div>
             </div>
             <div class="incl-item">
               <svg class="incl-ic" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="url(#auroraGrad)"/><path d="M6.8 12.3l3.4 3.4L17 8.8" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <div class="incl-item-text"><strong>Все локации по программе:</strong> песчаный пляж, качели, трон, кладбище кораблей, Батарейский водопад и пляж «Яйца дракона».</div>
+              <div class="incl-item-text"><strong>Обед в чуме</strong> (похлёбка из оленины и чай из северных трав)</div>
+            </div>
+            <div class="incl-item">
+              <svg class="incl-ic" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="url(#auroraGrad)"/><path d="M6.8 12.3l3.4 3.4L17 8.8" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div class="incl-item-text"><strong>Участие в обряде</strong> с шаманом</div>
+            </div>
+            <div class="incl-item">
+              <svg class="incl-ic" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="url(#auroraGrad)"/><path d="M6.8 12.3l3.4 3.4L17 8.8" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div class="incl-item-text"><strong>Катание на оленях</strong></div>
+            </div>
+            <div class="incl-item">
+              <svg class="incl-ic" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="url(#auroraGrad)"/><path d="M6.8 12.3l3.4 3.4L17 8.8" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div class="incl-item-text"><strong>Катание на банане</strong> за снегоходом</div>
             </div>
           </div>
         </div>
@@ -1085,14 +1035,6 @@
             <div class="excl-item">
               <img src="images/icon_included2.png" alt="">
               <div class="excl-item-text">Авиа и ж/д билеты до Мурманска</div>
-            </div>
-            <div class="excl-item">
-              <img src="images/icon_included2.png" alt="">
-              <div class="excl-item-text">Входные билеты на хаски-ферму / корм для оленей.</div>
-            </div>
-            <div class="excl-item">
-              <img src="images/icon_included2.png" alt="">
-              <div class="excl-item-text">Обед в ресторане</div>
             </div>
             <div class="excl-item">
               <img src="images/icon_included2.png" alt="">
@@ -1111,19 +1053,19 @@
         <div class="faq-item">
           <button class="faq-q" onclick="toggleFaq(this)">
             <span class="faq-num">1.</span>
-            <span class="faq-question">Что брать с собой в тур в Мурманск?</span>
+            <span class="faq-question">Что взять с собой в тур?</span>
             <span class="faq-chevron"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
           </button>
-          <div class="faq-a"><p>Паспорт, полис ОМС, наличные деньги, термокружку или личный термос (по желанию, для вашего личного комфорта), портативную зарядку, предметы личной гигиены, небольшую аптечку, рюкзак для личных вещей, пенку для сидения на природе, дождевик.</p></div>
+          <div class="faq-a"><p>Только заряженный телефон или камеру — кадры получатся яркими! Всё остальное для программы (входные билеты, обед в чуме, инвентарь для катаний) мы уже включили в стоимость.</p></div>
         </div>
 
         <div class="faq-item">
           <button class="faq-q" onclick="toggleFaq(this)">
             <span class="faq-num">2.</span>
-            <span class="faq-question">Как одеваться для поездки в Мурманск летом?</span>
+            <span class="faq-question">Как одеваться на зимнюю программу?</span>
             <span class="faq-chevron"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
           </button>
-          <div class="faq-a"><p>Возьмите непродуваемую одежду: треккинговые (походные) штаны, куртку. Также возьмите удобную обувь, желательно непромокаемую. Простые кроссовки не самый лучший вариант. Также не надевайте короткие штаны или джинсы. Можете взять дождевик на случай дождя или сильного ветра. Также рекомендуем брать синтетические вещи, т.к. они быстрее сохнут, чем вещи из натуральных материалов.</p></div>
+          <div class="faq-a"><p>Настоятельно рекомендуем самую тёплую зимнюю обувь, плотные непродуваемые куртки и штаны, термобельё, шерстяные носки и тёплые варежки. На морозе предстоит провести около 45 минут в начале и около 45 минут в конце программы — середина проходит в жарком отапливаемом чуме. <br><strong>Про запах костра:</strong> в чуме горит открытый огонь, поэтому одежда может слегка пропитаться дымом — это неотъемлемая часть кочевого колорита.</p></div>
         </div>
 
         <div class="faq-item">
@@ -1138,25 +1080,16 @@
         <div class="faq-item">
           <button class="faq-q" onclick="toggleFaq(this)">
             <span class="faq-num">4.</span>
-            <span class="faq-question">Каковы шансы увидеть китов в Териберке или других морских обитателей?</span>
+            <span class="faq-question">Каков уровень сложности тура? Есть ли минимальные требования к физической подготовке?</span>
             <span class="faq-chevron"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
           </button>
-          <div class="faq-a"><p>Выход в море организуется на подготовленных судах с опытными капитанами, которые знают места миграции и кормления морских млекопитающих. Шансы встретить китов, дельфинов или тюленей в акватории Баренцева моря в сезон очень высоки, однако природа непредсказуема, и стопроцентной гарантии дать невозможно. Мы делаем всё возможное для успешного поиска!</p></div>
+          <div class="faq-a"><p>Маршрут лёгкий, специальной физической подготовки не требуется. Программа идеально сбалансирована: вы не успеете перемёрзнуть, так как середина тура проходит в жарком отапливаемом чуме. Подойдёт гостям любого возраста.</p></div>
         </div>
 
         <div class="faq-item">
           <button class="faq-q" onclick="toggleFaq(this)">
             <span class="faq-num">5.</span>
-            <span class="faq-question">Каков уровень сложности тура? Есть ли минимальные требования к физической подготовке?</span>
-            <span class="faq-chevron"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
-          </button>
-          <div class="faq-a"><p>Тур имеет легкий/средний уровень сложности и доступен для людей любой базовой физической подготовки, включая детей от 6 лет и пожилых путешественников. Длительные переходы по пересеченной местности не планируются, однако программа включает пешие прогулки по тундре и скалистому побережью, а также двухчасовой выезд на катере в открытое море.</p></div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">
-            <span class="faq-num">6.</span>
-            <span class="faq-question">Как забронировать ваш тур в Мурманск?</span>
+            <span class="faq-question">Как забронировать тур в саамскую деревню?</span>
             <span class="faq-chevron"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
           </button>
           <div class="faq-a"><p>Для бронирования достаточно оставить заявку через форму на сайте, написать нам в Telegram или позвонить. Мы свяжемся с вами, поможем подобрать даты, обсудим детали и зафиксируем за вами места в группе после внесения небольшой предоплаты.</p></div>
@@ -1260,11 +1193,11 @@
     <div class="sidebar-sticky">
       <div class="price-card">
 
-        <div class="badge-hit">🔥 ХИТ ПРОДАЖ</div>
+        <div class="badge-hit">🦌 ЭТНО-ТУР</div>
 
         <div class="price-row">
           <span class="pr-from">от</span>
-          <span class="pr-amount">4 500 ₽</span>
+          <span class="pr-amount">7 500 ₽</span>
           <span class="pr-per">/ чел</span>
         </div>
         <div class="pr-date">Актуальная цена на <span id="cur-date"></span> года</div>
@@ -1285,21 +1218,21 @@
             <svg class="spec-ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="url(#auroraGrad)"/><g transform="translate(5.4 5.4) scale(0.55)" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></g></svg>
             <div class="spec-info">
               <div class="spec-lbl">Продолжительность тура</div>
-              <div class="spec-val">10–12 часов</div>
+              <div class="spec-val">4–5 часов</div>
             </div>
           </div>
           <div class="spec-row">
             <svg class="spec-ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="url(#auroraGrad)"/><g transform="translate(5.4 5.4) scale(0.55)" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></g></svg>
             <div class="spec-info">
               <div class="spec-lbl">Сезонность тура</div>
-              <div class="spec-val">Весна — лето</div>
+              <div class="spec-val">Зима</div>
             </div>
           </div>
           <div class="spec-row">
             <svg class="spec-ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="url(#auroraGrad)"/><g transform="translate(5.4 5.4) scale(0.55)" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></g></svg>
             <div class="spec-info">
               <div class="spec-lbl">Численность группы</div>
-              <div class="spec-val">До 17 человек</div>
+              <div class="spec-val">До 4 человек</div>
             </div>
           </div>
           <div class="spec-row">
@@ -1319,14 +1252,12 @@
           Программа путешествия:
         </div>
         <div class="mini-tl">
-          <div class="mini-tl-row">Сбор группы и знакомство с гидом</div>
-          <div class="mini-tl-row">Отправление в Териберку</div>
-          <div class="mini-tl-row">Прибытие в Териберку, выход в море</div>
-          <div class="mini-tl-row">Обед</div>
-          <div class="mini-tl-row">Песчаный пляж</div>
-          <div class="mini-tl-row">Кладбище кораблей</div>
-          <div class="mini-tl-row">"Яйца драконов"</div>
-          <div class="mini-tl-row">Батарейский водопад</div>
+          <div class="mini-tl-row">Сбор группы и выезд</div>
+          <div class="mini-tl-row">Парк животных: хаски и олени</div>
+          <div class="mini-tl-row">Саамские игры</div>
+          <div class="mini-tl-row">Чум: обед и обряд с шаманом</div>
+          <div class="mini-tl-row">Катание на оленях</div>
+          <div class="mini-tl-row">Банан за снегоходом</div>
           <div class="mini-tl-row">Возвращение в Мурманск</div>
         </div>
 
@@ -1336,13 +1267,13 @@
         <div class="spec-row" style="margin-bottom:14px">
           <svg class="spec-ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="url(#auroraGrad)"/><g transform="translate(5.4 5.4) scale(0.55)" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></g></svg>
           <div class="spec-info">
-            <div class="spec-lbl">Предоплата тура</div>
+            <div class="spec-lbl">Стоимость тура</div>
           </div>
         </div>
         <ul class="prepay-list">
-          <li><strong>Предоплата 5000 ₽ / чел</strong></li>
-          <li><strong>Безопасная гарантия возврата:</strong> вернём предоплату за 10 дней до тура</li>
-          <li><strong>100% гарантия выезда:</strong> тур состоится даже с 1 туристом в группе без изменения стоимости</li>
+          <li><strong>Групповой тур — 7 500 ₽ / чел</strong></li>
+          <li><strong>Индивидуальный тур</strong> — стоимость уточняйте у оператора</li>
+          <li><strong>Безопасная гарантия возврата</strong> предоплаты</li>
           <li>Мы на связи <strong>24/7</strong> по любым вопросам во время вашего путешествия</li>
         </ul>
 
@@ -1368,7 +1299,7 @@
             <svg class="spec-ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="url(#auroraGrad)"/><g transform="translate(5.4 5.4) scale(0.55)" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11l1.6-4.6A2 2 0 0 1 8.5 5h7a2 2 0 0 1 1.9 1.4L19 11"/><path d="M3 12h18v4h-2.5v-1H5.5v1H3z"/><circle cx="7.5" cy="15.5" r="1.4"/><circle cx="16.5" cy="15.5" r="1.4"/></g></svg>
             <div class="spec-info">
               <div class="spec-lbl">Транспорт</div>
-              <div class="spec-val">Комфортные кроссоверы, минивэны и микроавтобусы</div>
+              <div class="spec-val">Комфортабельный четырёхместный автомобиль</div>
             </div>
           </div>
         </div>
@@ -1381,14 +1312,14 @@
           <div class="wgt-info-wrap">
             <div class="wgt-info">i</div>
             <div class="wgt-tooltip">
-              <div class="tt-item">
+              <div class="tt-item active">
                 <div class="tt-row">
                   <span class="tt-name">Легкий</span>
                   <div class="tt-bar"><div class="tt-bar-fill" style="width:25%"></div></div>
                 </div>
                 <p class="tt-desc">Для туристов любой возрастной категории и физической подготовки. Предварительная подготовка не требуется.</p>
               </div>
-              <div class="tt-item active">
+              <div class="tt-item">
                 <div class="tt-row">
                   <span class="tt-name">Средний</span>
                   <div class="tt-bar"><div class="tt-bar-fill" style="width:50%"></div></div>
@@ -1414,11 +1345,11 @@
         </div>
         <div class="bars">
           <div class="bar on"></div>
-          <div class="bar on"></div>
+          <div class="bar"></div>
           <div class="bar"></div>
           <div class="bar"></div>
         </div>
-        <div class="wgt-status">Средний</div>
+        <div class="wgt-status">Лёгкий</div>
 
         <div class="divider"></div>
 
@@ -1564,7 +1495,7 @@
 
 <!-- Нижняя панель брони (моб.) -->
 <div class="mobile-cta">
-  <div class="mcta-price">от <b>4 500 ₽</b> / чел</div>
+  <div class="mcta-price">от <b>7 500 ₽</b> / чел</div>
   <button class="mcta-btn" onclick="openModal()">Узнать наличие мест</button>
 </div>
 
@@ -1780,14 +1711,14 @@
     track.scrollBy({ left: dir * step, behavior: 'smooth' });
   }
 
-  // Photo gallery
+  // Photo gallery (на этой странице отсутствует — защита от null)
   function openGallery(){
-    document.getElementById('gallery-modal').style.display='block';
-    document.body.style.overflow='hidden';
+    var m=document.getElementById('gallery-modal');
+    if(!m) return; m.style.display='block'; document.body.style.overflow='hidden';
   }
   function closeGallery(){
-    document.getElementById('gallery-modal').style.display='none';
-    document.body.style.overflow='';
+    var m=document.getElementById('gallery-modal');
+    if(!m) return; m.style.display='none'; document.body.style.overflow='';
   }
   document.addEventListener('keydown',function(e){
     if(e.key==='Escape'){ closeGallery(); closeModal(); }

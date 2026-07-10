@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Экскурсии на Кольский полуостров — Aurora Trip</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Slab:wght@500;600;700&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'aurora';
+      src: url('fonts/aurora-heading.woff') format('woff');
+      font-weight: 400; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'aurora';
+      src: url('fonts/aurora-heading-bold.woff') format('woff');
+      font-weight: 700; font-style: normal; font-display: swap;
+    }
+
+    :root {
+      --aurora: linear-gradient(135deg, #3DDC84 0%, #00D4FF 100%);
+      --teal: #0FC4AC;
+      --teal-dark: #00A6A3;
+      --ink: #242440;
+      --muted: #7B8997;
+      --line: #BEC6CE;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', Arial, sans-serif; background: #F4F7F8; color: var(--ink); }
+    a { color: inherit; text-decoration: none; }
+
+    /* HEADER */
+    .hdr {
+      position: sticky; top: 0; z-index: 100; background: #fff;
+      border-bottom: 1px solid #EAEEF1;
+    }
+    .hdr-in {
+      max-width: 1100px; margin: 0 auto; padding: 12px 24px;
+      display: flex; align-items: center; gap: 24px;
+    }
+    .hdr-logo img { width: 62px; height: auto; display: block; }
+    .hdr-nav { display: flex; gap: 26px; flex: 1; }
+    .hdr-nav a {
+      font-size: 15px; font-weight: 500; color: #3A4652;
+      transition: color .2s;
+    }
+    .hdr-nav a:hover, .hdr-nav a.active { color: var(--teal); }
+    .hdr-phone { font-size: 16px; font-weight: 700; color: var(--ink); white-space: nowrap; }
+    .hdr-burger { display: none; }
+
+    /* PAGE HEAD */
+    .catalog { max-width: 1100px; margin: 0 auto; padding: 40px 24px 70px; }
+    .crumb { font-size: 13px; color: var(--muted); margin-bottom: 16px; }
+    .crumb a:hover { color: var(--teal); }
+    .crumb .sep { margin: 0 6px; color: #C4CDD5; }
+    h1.cat-title {
+      font-family: 'Roboto Slab', serif; font-weight: 700; font-size: 34px;
+      color: var(--ink); line-height: 1.2; margin-bottom: 8px;
+    }
+    .cat-sub { font-size: 15px; color: var(--muted); margin-bottom: 30px; }
+    .cat-count { font-size: 14px; color: var(--muted); margin-bottom: 18px; }
+    .cat-count b { color: var(--ink); }
+
+    /* TOUR CARD (north4you-style) */
+    .tc-list { display: flex; flex-direction: column; gap: 24px; }
+    .tc-card {
+      display: grid; grid-template-columns: 280px 1fr 240px;
+      min-height: 300px; background: #fff; border: 1px solid var(--line);
+      border-radius: 7px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,.05);
+      transition: box-shadow .25s, transform .25s;
+    }
+    .tc-card:hover { box-shadow: 0 12px 30px rgba(0,0,0,.10); transform: translateY(-2px); }
+
+    .tc-photo { position: relative; overflow: hidden; display: block; }
+    .tc-photo img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s; }
+    .tc-card:hover .tc-photo img { transform: scale(1.05); }
+    .tc-photo::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(19,24,30,.35) 0%, rgba(19,24,30,.05) 40%);
+    }
+    .tc-tags {
+      position: absolute; left: 14px; top: 14px; z-index: 2;
+      display: flex; flex-wrap: wrap; gap: 5px;
+    }
+    .tc-tag {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 6px 9px; font-size: 11px; font-weight: 500; letter-spacing: .02em;
+      text-transform: uppercase; color: #fff; background: rgba(255,255,255,.22);
+      backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
+      border-radius: 7px; text-shadow: 0 1px 2px rgba(0,0,0,.3); white-space: nowrap;
+    }
+
+    .tc-info {
+      padding: 22px 24px; border-right: 1px solid var(--line);
+      display: flex; flex-direction: column;
+    }
+    .tc-name {
+      font-family: 'Roboto Slab', serif; font-weight: 700; font-size: 21px;
+      line-height: 1.25; color: var(--ink); margin-bottom: 10px; transition: color .2s;
+    }
+    .tc-name:hover { color: var(--teal); }
+    .tc-desc {
+      font-size: 14px; color: var(--muted); line-height: 1.55; margin-bottom: 20px;
+      display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+    }
+    .tc-meta { margin-top: auto; display: flex; flex-wrap: wrap; gap: 26px; }
+    .tc-meta-item { display: flex; flex-direction: column; gap: 7px; }
+    .tc-meta-label {
+      font-size: 11px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase;
+      color: var(--muted);
+    }
+    .tc-meta-val { font-size: 15px; font-weight: 600; color: var(--ink); }
+    .tc-bars { display: flex; gap: 4px; align-items: center; height: 15px; }
+    .tc-bars i { width: 22px; height: 6px; border-radius: 7px; background: #E1E6EA; display: block; }
+    .tc-bars i.on { background: var(--teal); }
+    .tc-bars .tc-lvl { margin-left: 6px; font-size: 13px; font-weight: 600; color: var(--ink); }
+
+    .tc-price {
+      padding: 22px 24px; display: flex; flex-direction: column;
+      justify-content: space-between; align-items: flex-start; gap: 18px;
+    }
+    .tc-price-sub { font-size: 12px; font-weight: 500; color: var(--muted); }
+    .tc-price-val { font-size: 24px; font-weight: 700; color: var(--ink); line-height: 1.2; margin: 3px 0; font-family: 'Roboto Slab', serif; }
+    .tc-btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      width: 100%; padding: 13px 20px; border-radius: 7px;
+      background: var(--teal); color: #fff; font-size: 15px; font-weight: 600;
+      transition: background .2s, transform .2s;
+    }
+    .tc-btn:hover { background: var(--teal-dark); transform: translateY(-1px); }
+    .tc-btn svg { width: 17px; height: 17px; }
+
+    @media (max-width: 860px) {
+      .hdr-nav { display: none; }
+      .tc-card { grid-template-columns: 1fr; min-height: 0; }
+      .tc-photo { height: 220px; }
+      .tc-info { border-right: none; border-bottom: 1px solid var(--line); }
+      .tc-price { flex-direction: row; align-items: center; }
+      .tc-price .tc-btn { width: auto; }
+      h1.cat-title { font-size: 27px; }
+    }
+    @media (max-width: 520px) {
+      .catalog { padding: 28px 16px 50px; }
+      .tc-price { flex-direction: column; align-items: stretch; }
+      .tc-price .tc-btn { width: 100%; }
+    }
+
+    /* FOOTER */
+    .site-footer { background: #0E1626; color: #fff; margin-top: 40px; padding: 70px 0 60px; }
+    .ft-inner { max-width: 1400px; margin: 0 auto; padding: 0 40px; }
+    .ft-top {
+      display: grid; grid-template-columns: 1.2fr 1fr 1fr 1fr; gap: 40px;
+      padding-bottom: 44px; border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+    .ft-brand { font-family: 'aurora','Montserrat',sans-serif; font-size: 30px; font-weight: 800; color: #fff; margin: 0 0 22px; }
+    .ft-legal { font-size: 15px; color: #B6C0CE; line-height: 1.9; }
+    .ft-legal .ft-reg { display: block; margin-top: 16px; color: #E6ECF3; }
+    .ft-phone { font-size: 28px; font-weight: 700; color: #fff; margin: 0 0 18px; letter-spacing: -.5px; }
+    .ft-callback {
+      display: block; width: 100%; text-align: center; padding: 16px;
+      border: 1.5px solid transparent; border-radius: 7px;
+      background: linear-gradient(#0E1626,#0E1626) padding-box, var(--aurora) border-box;
+      color: #E8734A; font-size: 16px; font-weight: 700; font-family: inherit;
+      cursor: pointer; transition: background .2s, color .2s; margin-bottom: 16px; text-decoration: none;
+    }
+    .ft-callback:hover { background: var(--aurora); color: #0E1626; }
+    .ft-schedule { font-size: 14px; color: #7E8A99; }
+    .ft-label {
+      font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+      color: #7E8A99; margin: 0 0 16px; line-height: 1.4;
+    }
+    .ft-email { font-size: 16px; color: #E8734A; text-decoration: none; word-break: break-word; }
+    .ft-email:hover { text-decoration: underline; }
+    .ft-socials { display: flex; gap: 12px; }
+    .ft-social {
+      width: 46px; height: 46px; border-radius: 50%; border: 1.5px solid transparent;
+      background: linear-gradient(#263241,#263241) padding-box, var(--aurora) border-box;
+      display: flex; align-items: center; justify-content: center; transition: background .2s;
+    }
+    .ft-social:hover { background: linear-gradient(#33465A,#33465A) padding-box, var(--aurora) border-box; }
+    .ft-social svg { width: 22px; height: 22px; fill: #C6D0DC; }
+    .ft-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; padding-top: 44px; }
+    .ft-col-title {
+      font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+      color: #7E8A99; margin: 0 0 22px;
+    }
+    .ft-links { list-style: none; display: flex; flex-direction: column; gap: 18px; }
+    .ft-links a { font-size: 15px; color: #E8734A; line-height: 1.4; transition: color .2s; }
+    .ft-links a:hover { color: #F29B7A; text-decoration: underline; }
+    @media (max-width:900px) {
+      .ft-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .ft-cols { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+    @media (max-width:640px) {
+      .site-footer { padding: 50px 0 40px; }
+      .ft-inner { padding: 0 20px; }
+      .ft-top, .ft-cols { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="hdr">
+  <div class="hdr-in">
+    <a href="index.html" class="hdr-logo"><img src="images/logo.png" alt="Aurora Trip"></a>
+    <nav class="hdr-nav">
+      <a href="#">Наша команда</a>
+      <a href="tury.html" class="active">Экскурсии</a>
+      <a href="contacts.html">Контакты</a>
+      <a href="#">Блог</a>
+    </nav>
+    <a href="tel:+79211663315" class="hdr-phone">+7 (921) 166-33-15</a>
+  </div>
+</header>
+
+<!-- CATALOG -->
+<main class="catalog">
+  <div class="crumb">
+    <a href="index.html">Главная</a><span class="sep">/</span>Экскурсии
+  </div>
+  <h1 class="cat-title">Туры на Кольский полуостров</h1>
+  <p class="cat-sub">Авторские экскурсии по Мурманску и Кольскому Заполярью с опытными гидами.</p>
+  <div class="cat-count">Найдено: <b>4 тура</b></div>
+
+  <div class="tc-list">
+
+    <!-- Тур 1: В Териберку на поиски китов -->
+    <article class="tc-card">
+      <a class="tc-photo" href="page145318356.html">
+        <img src="images/tour_teriberka_hero.webp" alt="В Териберку на поиски китов">
+        <div class="tc-tags">
+          <span class="tc-tag">🐋 Поиски китов</span>
+          <span class="tc-tag">⭐ Хит продаж</span>
+        </div>
+      </a>
+      <div class="tc-info">
+        <a href="page145318356.html"><h3 class="tc-name">В Териберку на поиски китов</h3></a>
+        <p class="tc-desc">Насыщенная экспедиция на край земли: двухчасовой поиск китов в открытом Баренцевом море и все знаковые локации Териберки за один день.</p>
+        <div class="tc-meta">
+          <div class="tc-meta-item">
+            <span class="tc-meta-label">Длительность</span>
+            <span class="tc-meta-val">10–12 часов</span>
+          </div>
+          <div class="tc-meta-item">
+            <span class="tc-meta-label">Сложность</span>
+            <div class="tc-bars"><i class="on"></i><i class="on"></i><i></i><i></i><span class="tc-lvl">Средний</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="tc-price">
+        <div>
+          <div class="tc-price-sub">Стоимость</div>
+          <div class="tc-price-val">от 4 500 ₽</div>
+          <div class="tc-price-sub">за человека</div>
+        </div>
+        <a class="tc-btn" href="page145318356.html">
+          Подробнее
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </article>
+
+    <!-- Тур 2: Обзорная экскурсия по Мурманску -->
+    <article class="tc-card">
+      <a class="tc-photo" href="page-murmansk-obzor.html">
+        <img src="images/murmansk_hero.jpeg" alt="Обзорная экскурсия по Мурманску">
+        <div class="tc-tags">
+          <span class="tc-tag">🌅 Панорамный вид</span>
+          <span class="tc-tag">🏛 История</span>
+        </div>
+      </a>
+      <div class="tc-info">
+        <a href="page-murmansk-obzor.html"><h3 class="tc-name">Обзорная экскурсия по Мурманску</h3></a>
+        <p class="tc-desc">Комфортное знакомство со столицей Заполярья: смотровые площадки, легендарный «Алёша», атомный ледокол «Ленин» и лучшие панорамы Кольского залива.</p>
+        <div class="tc-meta">
+          <div class="tc-meta-item">
+            <span class="tc-meta-label">Длительность</span>
+            <span class="tc-meta-val">4–5 часов</span>
+          </div>
+          <div class="tc-meta-item">
+            <span class="tc-meta-label">Сложность</span>
+            <div class="tc-bars"><i class="on"></i><i></i><i></i><i></i><span class="tc-lvl">Лёгкий</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="tc-price">
+        <div>
+          <div class="tc-price-sub">Стоимость</div>
+          <div class="tc-price-val">от 5 000 ₽</div>
+          <div class="tc-price-sub">за человека</div>
+        </div>
+        <a class="tc-btn" href="page-murmansk-obzor.html">
+          Подробнее
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </article>
+
+    <!-- Тур 3: Водопады Кольского края -->
+    <article class="tc-card">
+      <a class="tc-photo" href="page-vodopady.html">
+        <img src="images/waterfall_12.jpeg" alt="Водопады Кольского края">
+        <div class="tc-tags">
+          <span class="tc-tag">💧 Водопады</span>
+          <span class="tc-tag">🎖 Боевая слава</span>
+        </div>
+      </a>
+      <div class="tc-info">
+        <a href="page-vodopady.html"><h3 class="tc-name">Водопады Кольского края</h3></a>
+        <p class="tc-desc">Живописный маршрут в сторону Норвегии: два мощных водопада на реках Ура и Титовка, места боевой славы и первозданная северная природа за один день.</p>
+        <div class="tc-meta">
+          <div class="tc-meta-item">
+            <span class="tc-meta-label">Длительность</span>
+            <span class="tc-meta-val">6–7 часов</span>
+          </div>
+          <div class="tc-meta-item">
+            <span class="tc-meta-label">Сложность</span>
+            <div class="tc-bars"><i class="on"></i><i class="on"></i><i></i><i></i><span class="tc-lvl">Средний</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="tc-price">
+        <div>
+          <div class="tc-price-sub">Стоимость</div>
+          <div class="tc-price-val">от 7 000 ₽</div>
+          <div class="tc-price-sub">за человека</div>
+        </div>
+        <a class="tc-btn" href="page-vodopady.html">
+          Подробнее
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </article>
+
+    <!-- Тур 4: Саамские традиции -->
+    <article class="tc-card">
+      <a class="tc-photo" href="page-saami.html">
+        <img src="images/saami.jpeg" alt="Саамские традиции">
+        <div class="tc-tags">
+          <span class="tc-tag">🦌 Хаски и олени</span>
+          <span class="tc-tag">🔥 Обряд у костра</span>
+        </div>
+      </a>
+      <div class="tc-info">
+        <a href="page-saami.html"><h3 class="tc-name">Саамские традиции</h3></a>
+        <p class="tc-desc">Погружение в традиции Севера в часе езды от Мурманска: хаски и олени, обряд у костра в тёплом чуме и зимние катания — за один день.</p>
+        <div class="tc-meta">
+          <div class="tc-meta-item">
+            <span class="tc-meta-label">Длительность</span>
+            <span class="tc-meta-val">4–5 часов</span>
+          </div>
+          <div class="tc-meta-item">
+            <span class="tc-meta-label">Сложность</span>
+            <div class="tc-bars"><i class="on"></i><i></i><i></i><i></i><span class="tc-lvl">Лёгкий</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="tc-price">
+        <div>
+          <div class="tc-price-sub">Стоимость</div>
+          <div class="tc-price-val">от 7 500 ₽</div>
+          <div class="tc-price-sub">за человека</div>
+        </div>
+        <a class="tc-btn" href="page-saami.html">
+          Подробнее
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </article>
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="ft-inner">
+    <div class="ft-top">
+      <div class="ft-col-brand">
+        <h3 class="ft-brand">Aurora Trip</h3>
+        <div class="ft-legal">
+          ИП Трофименко Михаил Сергеевич<br>
+          ОГРНИП 321519000010954<br>
+          ИНН 519091956005
+          <span class="ft-reg">Мы в реестре Ростуризма РТО02638</span>
+        </div>
+      </div>
+      <div class="ft-col-phone">
+        <div class="ft-phone">+7 (921) 166-33-15</div>
+        <a class="ft-callback" href="tel:+79211663315">Заказать звонок</a>
+        <div class="ft-schedule">График работы: с 9:00 до 21:00</div>
+      </div>
+      <div class="ft-col-email">
+        <p class="ft-label">E-mail для заявок</p>
+        <a class="ft-email" href="mailto:murmansk.aurora.people@gmail.com">murmansk.aurora.people@gmail.com</a>
+      </div>
+      <div class="ft-col-social">
+        <p class="ft-label">Написать нам в<br>мессенджерах</p>
+        <div class="ft-socials">
+          <a class="ft-social" href="https://wa.me/79211663315" target="_blank" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.74-.86-2-.96-.27-.1-.47-.15-.66.15-.2.3-.76.96-.93 1.16-.17.2-.34.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.6.13-.14.3-.34.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.66-1.6-.9-2.18-.24-.57-.48-.5-.66-.5l-.57-.01c-.2 0-.52.07-.8.37s-1.05 1.02-1.05 2.5 1.08 2.9 1.23 3.1c.15.2 2.12 3.24 5.13 4.54.72.3 1.27.5 1.7.64.72.23 1.37.2 1.88.12.57-.08 1.74-.71 1.99-1.4.24-.68.24-1.27.17-1.4-.07-.12-.27-.19-.57-.34zM12.04 21.5h-.01a9.4 9.4 0 01-4.8-1.32l-.34-.2-3.57.94.95-3.48-.22-.36a9.42 9.42 0 01-1.44-5.02c0-5.2 4.24-9.44 9.46-9.44 2.52 0 4.9.99 6.68 2.77a9.38 9.38 0 012.77 6.68c-.01 5.2-4.24 9.44-9.44 9.44zm8.04-17.48A11.32 11.32 0 0012.04.7C5.8.7.72 5.77.72 12.02c0 1.99.52 3.94 1.51 5.65L.63 23.5l6-1.57a11.3 11.3 0 005.4 1.38h.01c6.24 0 11.32-5.08 11.32-11.32a11.25 11.25 0 00-3.3-8z"/></svg>
+          </a>
+          <a class="ft-social" href="https://t.me/aurora_trip" target="_blank" aria-label="Telegram">
+            <svg viewBox="0 0 24 24"><path d="M23.07 3.35 19.6 19.72c-.26 1.16-.95 1.44-1.92.9l-5.3-3.9-2.56 2.46c-.28.28-.52.52-1.07.52l.38-5.4L18.9 5.4c.43-.38-.1-.6-.66-.22L5.06 13.6l-5.24-1.64c-1.14-.36-1.16-1.14.24-1.68L21.6 1.72c.95-.35 1.78.22 1.47 1.63z"/></svg>
+          </a>
+          <a class="ft-social" href="https://vk.com/aurora_trip" target="_blank" aria-label="VK">
+            <svg viewBox="0 0 24 24"><path d="M13.16 17.5c-5.52 0-8.67-3.78-8.8-10.08h2.77c.09 4.62 2.13 6.58 3.74 6.98V7.42h2.61v4c1.6-.17 3.27-1.98 3.83-4h2.6a7.7 7.7 0 01-3.53 5.02c1.9.72 3.32 2.16 4 4.06h-2.87c-.53-1.66-1.86-2.94-3.7-3.14v3.14h-.31z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="ft-cols">
+      <div>
+        <p class="ft-col-title">Популярные туры</p>
+        <ul class="ft-links">
+          <li><a href="page145318356.html">В Териберку на поиски китов</a></li>
+          <li><a href="page-murmansk-obzor.html">Обзорная экскурсия по Мурманску</a></li>
+          <li><a href="#">Путешествие в саамскую деревню</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="ft-col-title">Для туристов</p>
+        <ul class="ft-links">
+          <li><a href="#">Прогноз северного сияния</a></li>
+          <li><a href="#">ТОП отелей Мурманска</a></li>
+          <li><a href="#">ТОП ресторанов Мурманска</a></li>
+          <li><a href="#">Где позавтракать в Мурманске</a></li>
+          <li><a href="#">Горнолыжные курорты Мурманской области</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="ft-col-title">О нас</p>
+        <ul class="ft-links">
+          <li><a href="#">О компании</a></li>
+          <li><a href="#">Календарь туров</a></li>
+          <li><a href="#">Наша команда</a></li>
+          <li><a href="#">Турагентствам</a></li>
+          <li><a href="#">Блог</a></li>
+          <li><a href="#">Отзывы наших гостей</a></li>
+          <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="ft-col-title">Правовая информация</p>
+        <ul class="ft-links">
+          <li><a href="oferta.html">Договор-оферта</a></li>
+          <li><a href="privacy.html">Политика обработки персональных данных</a></li>
+          <li><a href="consent.html">Согласие на обработку персональных данных</a></li>
+          <li><a href="marketing-consent.html">Согласие на получение рекламной рассылки</a></li>
+          <li><a href="cookies.html">Политика cookies</a></li>
+          <li><a href="terms.html">Определения и термины</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/cookie-banner.js" defer></script>
+</body>
+</html>
