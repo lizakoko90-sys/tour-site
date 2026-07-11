@@ -1136,6 +1136,14 @@
       .season-cal { padding: 40px 18px; }
       .gallery { padding: 40px 18px; }
       .blog { padding: 44px 18px 52px; }
+
+      /* --- Отзывы: свайп-слайдер --- */
+      .reviews { padding-left: 18px; padding-right: 18px; }
+      .rev-slider-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; scroll-snap-type: x mandatory; scroll-padding-left: 18px; }
+      .rev-slider-wrap::-webkit-scrollbar { display: none; }
+      .rev-grid { transform: none !important; gap: 12px; padding-bottom: 4px; }
+      .rev-card { flex: 0 0 86% !important; scroll-snap-align: center; }
+      .rev-controls { display: none; }
     }
     @media (max-width: 380px) {
       .hero-title { font-size: 29px; }
