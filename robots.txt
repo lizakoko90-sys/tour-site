@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /oferta.html
+Disallow: /privacy.html
+Disallow: /consent.html
+Disallow: /marketing-consent.html
+Disallow: /cookies.html
+Disallow: /terms.html
+
+Sitemap: https://auroratrip.ru/sitemap.xml
