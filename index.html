@@ -1064,6 +1064,84 @@
       /* 1 карточка на мобиле */
       .rev-card { flex: 0 0 calc(100vw - 40px); }
     }
+
+    /* =========================================================
+       МОБИЛЬНАЯ АДАПТАЦИЯ (шапка, hero, туры)
+    ========================================================= */
+    .nav-burger { display: none; }
+    .nav-mobile { display: none; }
+    @media (max-width: 768px) {
+      /* --- Шапка → бургер-меню --- */
+      .nav { padding: 13px 18px; gap: 10px; z-index: 60; }
+      .logo { margin-right: 0; }
+      .logo img { width: 52px !important; }
+      .nav-links, .nav-right .social-btn, .nav-phone { display: none; }
+      .nav-right { margin-left: auto; gap: 0; }
+      .nav-burger {
+        display: flex; flex-direction: column; align-items: center; justify-content: center;
+        gap: 5px; width: 42px; height: 42px; padding: 0; cursor: pointer;
+        background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.22); border-radius: 7px;
+      }
+      .nav-burger span { display: block; width: 20px; height: 2px; background: #fff; border-radius: 2px; transition: transform .25s, opacity .25s; }
+      .nav-burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      .nav-burger.open span:nth-child(2) { opacity: 0; }
+      .nav-burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+      .nav-mobile {
+        position: absolute; top: 100%; left: 0; right: 0; z-index: 50;
+        flex-direction: column; padding: 6px 18px 14px;
+        background: rgba(11,16,23,0.98); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+        border-bottom: 1px solid rgba(255,255,255,0.12);
+        box-shadow: 0 18px 34px rgba(0,0,0,0.45);
+      }
+      .nav-mobile.open { display: flex; }
+      .nav-mobile a { color: #fff; text-decoration: none; font-size: 16px; font-weight: 600; padding: 14px 2px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+      .nav-mobile a:last-child { border-bottom: 0; }
+      .nav-mobile-phone { color: #6EE7C7; }
+
+      /* --- Чипы: время / погода / сияние --- */
+      .hero-meta { padding: 10px 18px 0; gap: 8px; }
+      .hm-chip { font-size: 12px; padding: 8px 12px; flex-wrap: wrap; max-width: 100%; }
+
+      /* --- Тело hero в один столбец --- */
+      .hero { min-height: auto; }
+      .hero-body { flex-direction: column; padding: 24px 18px 30px; gap: 22px; }
+      .hero-left { max-width: 100%; }
+      .hero-title { font-size: 33px; margin-bottom: 14px; }
+      .hero-desc { font-size: 14px; line-height: 1.6; margin-bottom: 22px; }
+      .hero-desc br { display: none; }
+      .btn-programs { display: block; width: 100%; text-align: center; padding: 15px; box-sizing: border-box; }
+      .hero-form { width: 100%; padding: 22px 20px 20px; }
+
+      /* --- Преимущества: в столбик --- */
+      .hero-stats { grid-template-columns: 1fr; padding: 0 18px 34px; gap: 10px; }
+      .stat { border-radius: 7px !important; padding: 20px 22px; }
+
+      /* --- Блок туров: свайп-слайдер --- */
+      .tours { padding: 8px 0 44px; }
+      .tours-header { flex-direction: column; gap: 12px; margin-bottom: 20px; padding: 0 18px; }
+      .tours-title { font-size: 28px; max-width: 100%; }
+      .tours-desc { max-width: 100%; padding-top: 0; }
+      .season-tabs { padding: 0 18px; gap: 8px; margin-bottom: 22px; }
+      .tab { padding: 10px 15px; font-size: 11px; }
+      .slider-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; scroll-snap-type: x mandatory; }
+      .slider-wrap::-webkit-scrollbar { display: none; }
+      .slider-track { transform: none !important; gap: 14px; padding: 0 18px; }
+      .tour-card { flex: 0 0 84%; height: 440px; scroll-snap-align: center; }
+      .slider-controls { padding: 0 18px; margin-top: 16px; }
+      .slider-controls .arrows { display: none; }
+      .btn-all-tours { width: 100%; justify-content: center; padding: 14px; }
+
+      /* --- Прочие секции: паддинги --- */
+      .season { padding: 8px 18px 16px; }
+      .season-cal { padding: 40px 18px; }
+      .gallery { padding: 40px 18px; }
+      .blog { padding: 44px 18px 52px; }
+    }
+    @media (max-width: 380px) {
+      .hero-title { font-size: 29px; }
+      .tours-title { font-size: 25px; }
+      .hm-chip { font-size: 11.5px; }
+    }
   </style>
 </head>
 <body>
@@ -1100,8 +1178,23 @@
         <svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
       </a>
       <a href="tel:+79211663315" class="nav-phone">+7 (921) 166-33-15</a>
+      <button class="nav-burger" id="navBurger" onclick="toggleNav()" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile" id="navMobile">
+      <a href="#" onclick="closeNav()">Наша команда</a>
+      <a href="tury.html">Экскурсии</a>
+      <a href="contacts.html">Контакты</a>
+      <a href="#blog" onclick="closeNav()">Блог</a>
+      <a href="tel:+79211663315" class="nav-mobile-phone">+7 (921) 166-33-15</a>
     </div>
   </nav>
+
+  <script>
+    function toggleNav(){var b=document.getElementById('navBurger'),m=document.getElementById('navMobile');b.classList.toggle('open');m.classList.toggle('open');}
+    function closeNav(){document.getElementById('navBurger').classList.remove('open');document.getElementById('navMobile').classList.remove('open');}
+  </script>
 
   <!-- Время + погода -->
   <div class="hero-meta">
