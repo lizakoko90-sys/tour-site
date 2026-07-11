@@ -1,6 +1,11 @@
 {
   "redirects": [
     {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/page145318356.html",
       "destination": "/page-kity-teriberka.html",
       "permanent": true
