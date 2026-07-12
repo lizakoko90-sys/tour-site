@@ -939,6 +939,10 @@
       text-decoration: none; width: fit-content;
       opacity: 0.45; cursor: default;
     }
+    /* Опубликованные статьи: без бейджа «СКОРО», активная ссылка, фото-обложка */
+    .blog-card.published .blog-card-img::after { display: none; }
+    .blog-card.published .blog-read { opacity: 1; cursor: pointer; }
+    .blog-card-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 
     @media (max-width: 900px) {
       .blog { padding: 48px 20px 60px; }
@@ -1912,6 +1916,16 @@
 
   <div class="blog-grid">
 
+    <a class="blog-card published" href="blog/kity-v-teriberke.html" style="text-decoration:none;color:inherit;">
+      <div class="blog-card-img"><img class="blog-card-photo" src="images/blog-kity-teriberka.jpg" alt="Хвост кита у берега Териберки в Баренцевом море"></div>
+      <div class="blog-card-body">
+        <span class="blog-cat">Путешествия</span>
+        <h3 class="blog-card-title">Киты в Териберке: когда ехать и как увидеть</h3>
+        <p class="blog-card-text">Сезон с мая по сентябрь, каких китов и морских обитателей встречают в Баренцевом море, как проходит морская прогулка и сколько стоит тур из Мурманска.</p>
+        <span class="blog-read">Читать →</span>
+      </div>
+    </a>
+
     <div class="blog-card">
       <div class="blog-card-img">🌌</div>
       <div class="blog-card-body">
@@ -1921,16 +1935,6 @@
         <span class="blog-read">Читать →</span>
       </div>
     </div>
-
-    <a class="blog-card" href="blog/kity-v-teriberke.html" style="text-decoration:none;color:inherit;">
-      <div class="blog-card-img">🐋</div>
-      <div class="blog-card-body">
-        <span class="blog-cat">Путешествия</span>
-        <h3 class="blog-card-title">Киты в Териберке: когда ехать и как увидеть</h3>
-        <p class="blog-card-text">Сезон с мая по сентябрь, каких китов и морских обитателей встречают в Баренцевом море, как проходит морская прогулка и сколько стоит тур из Мурманска.</p>
-        <span class="blog-read">Читать →</span>
-      </div>
-    </a>
 
     <div class="blog-card">
       <div class="blog-card-img">🗺️</div>
