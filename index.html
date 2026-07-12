@@ -1057,8 +1057,8 @@
       transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
     }
     .rev-card {
-      /* 4 карточки: (ширина - 2×60px паддинга - 3×20px гэпов) / 4 */
-      flex: 0 0 calc((100vw - 180px) / 4);
+      /* 3 карточки: (ширина - 2×60px паддинга - 2×20px гэпов) / 3 */
+      flex: 0 0 calc((100vw - 160px) / 3);
       min-width: 0;
       background: #F5F8FA;
       border: 1px solid #E7EDF1;
@@ -2338,14 +2338,14 @@
     grid.innerHTML = html;
   })();
 
-  // ─── Слайдер отзывов (4 карточки видны, листать стрелками) ────
+  // ─── Слайдер отзывов (3 карточки видны, листать стрелками) ────
   (function(){
     var track   = document.getElementById('revTrack');
     var prevBtn = document.getElementById('revPrev');
     var nextBtn = document.getElementById('revNext');
     if (!track || !prevBtn || !nextBtn) return;
 
-    var VISIBLE = 4; // сколько карточек показываем сразу
+    var VISIBLE = 3; // сколько карточек показываем сразу
     var offset  = 0;
     var total   = track.children.length;
 
