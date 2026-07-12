@@ -1,3 +1,6 @@
+# robots.txt — auroratrip.ru
+# AI-краулеры приветствуются: разрешаем цитирование в ответах ИИ.
+
 User-agent: *
 Allow: /
 Disallow: /oferta.html
@@ -6,5 +9,45 @@ Disallow: /consent.html
 Disallow: /marketing-consent.html
 Disallow: /cookies.html
 Disallow: /terms.html
+
+# --- ИИ-поиск и ассистенты (явное разрешение) ---
+# ChatGPT / OpenAI
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Google Gemini / AI Overviews
+User-agent: Google-Extended
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Microsoft Copilot (Bing)
+User-agent: Bingbot
+Allow: /
+
+# Anthropic Claude
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Yandex / Алиса (нейропоиск)
+User-agent: YandexBot
+Allow: /
+
+User-agent: YandexAdditional
+Allow: /
 
 Sitemap: https://auroratrip.ru/sitemap.xml
