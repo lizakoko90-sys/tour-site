@@ -1459,7 +1459,7 @@
         </div>
       </a>
 
-      <a href="#" class="tour-card visible" data-season="summer">
+      <a href="page-saami.html" class="tour-card visible" data-season="summer">
         <div class="card-bg" style="background: #3a2a4a url('images/tour6.jpg') center/cover no-repeat;"></div>
         <div class="card-overlay"></div>
         <div class="card-inner">
@@ -1533,7 +1533,7 @@
         </div>
       </a>
 
-      <a href="#" class="tour-card" data-season="autumn">
+      <a href="page-saami.html" class="tour-card" data-season="autumn">
         <div class="card-bg" style="background: #3a2a4a url('images/tour6.jpg') center/cover no-repeat;"></div>
         <div class="card-overlay"></div>
         <div class="card-inner">
@@ -1663,7 +1663,7 @@
         </div>
       </a>
 
-      <a href="#" class="tour-card" data-season="spring">
+      <a href="page-saami.html" class="tour-card" data-season="spring">
         <div class="card-bg" style="background: #3a2a4a url('images/tour6.jpg') center/cover no-repeat;"></div>
         <div class="card-overlay"></div>
         <div class="card-inner">
@@ -2246,10 +2246,14 @@
       { c:'ter',  s:'images/gallery/ter_5.jpg' }, { c:'ter',  s:'images/gallery/ter_6.jpg' },
       { c:'ter',  s:'images/gallery/ter_7.jpg' }, { c:'ter',  s:'images/gallery/ter_8.jpg' },
       { c:'ter',  s:'images/gallery/ter_9.jpg' },
-      { c:'ter',  s:'images/gallery/ter_10.jpg' }, { c:'ter',  s:'images/gallery/ter_11.jpg' },
-      { c:'ter',  s:'images/gallery/ter_12.jpg' }, { c:'ter',  s:'images/gallery/ter_13.jpg' },
-      { c:'ter',  s:'images/gallery/ter_14.jpg' }, { c:'ter',  s:'images/gallery/ter_15.jpg' },
-      { c:'ter',  s:'images/gallery/ter_16.jpg' }, { c:'ter',  s:'images/gallery/ter_17.jpg' },
+      { c:'ter',  s:'images/gallery/ter_10.jpg', a:'Хвост кита над водой во время морской экскурсии в Териберке' },
+      { c:'ter',  s:'images/gallery/ter_11.jpg', a:'Дельфин в прыжке в Баренцевом море у Териберки' },
+      { c:'ter',  s:'images/gallery/ter_12.jpg', a:'Беломордый дельфин выпрыгивает из воды у Териберки' },
+      { c:'ter',  s:'images/gallery/ter_13.jpg', a:'Кит выпускает фонтан в Баренцевом море у Териберки' },
+      { c:'ter',  s:'images/gallery/ter_14.jpg', a:'Кит у побережья Териберки на фоне заснеженных сопок' },
+      { c:'ter',  s:'images/gallery/ter_15.jpg', a:'Гости Aurora Trip на морской прогулке к китам в Териберке' },
+      { c:'ter',  s:'images/gallery/ter_16.jpg', a:'Туристы на берегу Баренцева моря в Териберке' },
+      { c:'ter',  s:'images/gallery/ter_17.jpg', a:'Песчаный пляж и бирюзовое море в Териберке' },
       { c:'mur',  s:'images/gallery/mur_1.jpg' }, { c:'mur',  s:'images/gallery/mur_2.jpg' },
       { c:'mur',  s:'images/gallery/mur_3.jpg' }, { c:'mur',  s:'images/gallery/mur_4.jpg' },
       { c:'mur',  s:'images/gallery/mur_5.jpg' }, { c:'mur',  s:'images/gallery/mur_6.jpg' },
@@ -2266,7 +2270,14 @@
       d.className = 'gal-item';
       d.setAttribute('data-cat', p.c);
       d.setAttribute('data-i', i);
-      d.innerHTML = '<img loading="lazy" src="' + p.s + '" alt="Фото из тура Aurora Trip">';
+      var CATALT = {
+        ter:  'Тур в Териберку из Мурманска — киты, дельфины и побережье Баренцева моря',
+        mur:  'Обзорная экскурсия по Мурманску с Aurora Trip',
+        khib: 'Хибины и Кировск — экскурсии по Кольскому полуострову',
+        wf:   'Водопады Кольского полуострова — тур из Мурманска'
+      };
+      var alt = p.a || CATALT[p.c] || 'Фото из тура Aurora Trip';
+      d.innerHTML = '<img loading="lazy" src="' + p.s + '" alt="' + alt + '">';
       d.addEventListener('click', function(){ galOpen(parseInt(this.getAttribute('data-i'), 10)); });
       grid.appendChild(d);
     });
