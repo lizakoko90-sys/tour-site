@@ -8,3 +8,6 @@ CONTEXT.md
 # Локальные dev-серверы (на хосте не нужны)
 serve.py
 serve_simple.py
+
+# внутренний черновик статьи (не публиковать)
+blog/kity-v-teriberke.md
