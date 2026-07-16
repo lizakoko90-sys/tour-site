@@ -362,6 +362,8 @@
     .pw-more { background-image: url('https://optim.tildacdn.com/tild3532-3932-4965-a339-653131333831/-/format/webp/penistaya_voda_v_mor.jpg.webp'); }
     .pw-mosh { background-image: url('https://optim.tildacdn.com/tild3036-6462-4631-a361-666431386366/-/format/webp/original.jpg.webp'); }
     .pw-hib  { background-image: url('images/gallery/khib_1.jpg'); }
+    /* «ХИБИНЫ» — 6 букв, уменьшаем интервал и размер, чтобы слово помещалось */
+    .phase-word.pw-hib { font-size: 150px; letter-spacing: 6px; }
 
     /* Timeline */
     .timeline { display: flex; flex-direction: column; }
@@ -678,6 +680,7 @@
       /* Буквы ПУТЬ/МОРЕ/МОЩЬ: уменьшаем и обрезаем, чтобы не было гориз. прокрутки */
       .phase-banner { overflow: hidden; }
       .phase-word { font-size: 120px; letter-spacing: 16px; }
+      .phase-word.pw-hib { font-size: 96px; letter-spacing: 4px; }
     }
     @media (max-width:640px) {
       .hero-inner, .hero-photo-wrap, .page-content { padding-left: 20px; padding-right: 20px; }
@@ -690,12 +693,14 @@
       /* Большие буквы ПУТЬ/МОРЕ/МОЩЬ — уменьшаем и не даём вылезать за экран */
       .phase-banner { min-height: 150px; overflow: hidden; margin-bottom: 20px; }
       .phase-word { font-size: 115px; letter-spacing: 6px; }
+      .phase-word.pw-hib { font-size: 90px; letter-spacing: 2px; }
       .phase-heading { max-width: 100%; font-size: 24px; }
       .tl-row { grid-template-columns: 58px 1fr; }
       .faq-question, .faq-num { font-size: 15px; }
     }
     @media (max-width:400px) {
       .phase-word { font-size: 96px; letter-spacing: 3px; }
+      .phase-word.pw-hib { font-size: 74px; letter-spacing: 1px; }
       h1.hero-title { font-size: 25px; }
     }
 
