@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -790,7 +791,7 @@
       padding-bottom: 44px; border-bottom: 1px solid rgba(255,255,255,.1);
     }
     .ft-brand { font-size: 30px; font-weight: 800; color: #fff; margin: 0 0 22px; }
-    .ft-legal { font-size: 15px; color: #B6C0CE; line-height: 1.9; }
+    .ft-legal { font-size: 15px; color: #fff; line-height: 1.9; }
     .ft-legal .ft-reg { display: block; margin-top: 16px; color: #E6ECF3; }
     .ft-phone { font-size: 28px; font-weight: 700; color: #fff; margin: 0 0 18px; letter-spacing: -.5px; }
     .ft-callback {
@@ -840,6 +841,15 @@
       .site-footer { padding: 50px 0 40px; }
       .ft-inner { padding: 0 20px; }
       .ft-top, .ft-cols { grid-template-columns: 1fr; }
+      .ft-brand { font-size: 24px; margin-bottom: 16px; }
+      .ft-legal { font-size: 13px; line-height: 1.8; }
+      .ft-phone { font-size: 23px; }
+      .ft-schedule { font-size: 13px; }
+      .ft-label { font-size: 13px; }
+      .ft-email { font-size: 14px; }
+      .ft-col-title { font-size: 14px; }
+      .ft-links a { font-size: 14px; }
+      .ft-links { gap: 14px; }
     }
   </style>
   <script type="application/ld+json">
@@ -1878,6 +1888,16 @@
     document.getElementById('gallery-modal').style.display='none';
     document.body.style.overflow='';
   }
+  // Клик по фото в галерее → полноэкранный просмотр
+  (function(){
+    var gm=document.getElementById('gallery-modal');
+    if(!gm) return;
+    gm.querySelectorAll('img').forEach(function(im){ im.style.cursor='zoom-in'; });
+    gm.addEventListener('click', function(e){
+      if(e.target && e.target.tagName==='IMG'){ openReviewPhoto(e.target.src); }
+    });
+  })();
+
   document.addEventListener('keydown',function(e){
     if(e.key==='Escape'){ closeGallery(); closeModal(); }
   });

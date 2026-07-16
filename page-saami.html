@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -790,7 +791,7 @@
       padding-bottom: 44px; border-bottom: 1px solid rgba(255,255,255,.1);
     }
     .ft-brand { font-size: 30px; font-weight: 800; color: #fff; margin: 0 0 22px; }
-    .ft-legal { font-size: 15px; color: #B6C0CE; line-height: 1.9; }
+    .ft-legal { font-size: 15px; color: #fff; line-height: 1.9; }
     .ft-legal .ft-reg { display: block; margin-top: 16px; color: #E6ECF3; }
     .ft-phone { font-size: 28px; font-weight: 700; color: #fff; margin: 0 0 18px; letter-spacing: -.5px; }
     .ft-callback {
@@ -840,6 +841,15 @@
       .site-footer { padding: 50px 0 40px; }
       .ft-inner { padding: 0 20px; }
       .ft-top, .ft-cols { grid-template-columns: 1fr; }
+      .ft-brand { font-size: 24px; margin-bottom: 16px; }
+      .ft-legal { font-size: 13px; line-height: 1.8; }
+      .ft-phone { font-size: 23px; }
+      .ft-schedule { font-size: 13px; }
+      .ft-label { font-size: 13px; }
+      .ft-email { font-size: 14px; }
+      .ft-col-title { font-size: 14px; }
+      .ft-links a { font-size: 14px; }
+      .ft-links { gap: 14px; }
     }
   </style>
   <script type="application/ld+json">
@@ -979,8 +989,25 @@
 
     <!-- description photos (2 equal) -->
     <div class="desc-photos">
-      <img src="images/saami.jpeg" alt="Катание на оленьих упряжках">
-      <img src="images/gallery/khib_5.jpg" alt="Северный олень">
+      <img src="images/saami_cover.jpeg" alt="Северный олень крупным планом — тур под Мурманском">
+      <img src="images/saami_5.jpeg" alt="Гостьи в национальных саамских костюмах в тёплом чуме">
+    </div>
+
+    <!-- gallery button -->
+    <button class="show-more" id="show-more-btn" onclick="openGallery()">Показать еще <strong>→</strong></button>
+
+    <!-- PHOTO GALLERY MODAL -->
+    <div id="gallery-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.88); z-index:99999; overflow-y:auto; padding:60px 20px 40px;">
+      <button onclick="closeGallery()" style="position:fixed; top:20px; right:28px; background:none; border:none; color:#fff; font-size:36px; cursor:pointer; line-height:1; z-index:100000;">&times;</button>
+      <div style="max-width:900px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+        <img src="images/saami_cover.jpeg" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Северный олень с ветвистыми рогами">
+        <img src="images/saami_1.jpeg" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Северный олень в зимнем лесу под Мурманском">
+        <img src="images/saami_2.jpeg" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Гости у саамского чума">
+        <img src="images/saami_3.jpeg" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Хаски в домике-бочке на ферме">
+        <img src="images/saami_4.jpeg" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Ферма хаски в лесу под Мурманском">
+        <img src="images/saami_5.jpeg" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="В тёплом чуме в национальных саамских костюмах">
+        <img src="images/saami_6.jpeg" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Щенки хаски на ферме">
+      </div>
     </div>
 
     <!-- WHAT TO EXPECT -->
@@ -1813,6 +1840,16 @@
     var m=document.getElementById('gallery-modal');
     if(!m) return; m.style.display='none'; document.body.style.overflow='';
   }
+  // Клик по фото в галерее → полноэкранный просмотр
+  (function(){
+    var gm=document.getElementById('gallery-modal');
+    if(!gm) return;
+    gm.querySelectorAll('img').forEach(function(im){ im.style.cursor='zoom-in'; });
+    gm.addEventListener('click', function(e){
+      if(e.target && e.target.tagName==='IMG'){ openReviewPhoto(e.target.src); }
+    });
+  })();
+
   document.addEventListener('keydown',function(e){
     if(e.key==='Escape'){ closeGallery(); closeModal(); }
   });
