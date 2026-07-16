@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -88,6 +89,12 @@
           "priceCurrency": "RUB",
           "price": "6000",
           "itemOffered": { "@type": "Service", "name": "В гости к оленям и хаски", "url": "https://auroratrip.ru/page-saami.html" }
+        },
+        {
+          "@type": "Offer",
+          "priceCurrency": "RUB",
+          "price": "10000",
+          "itemOffered": { "@type": "Service", "name": "Знакомство с Хибинами. Кировск", "url": "https://auroratrip.ru/page-hibiny-kirovsk.html" }
         }
       ]
     }
@@ -1029,7 +1036,7 @@
       padding-bottom: 44px; border-bottom: 1px solid rgba(255,255,255,.1);
     }
     .ft-brand { font-family: 'aurora','Montserrat',sans-serif; font-size: 30px; font-weight: 800; color: #fff; margin: 0 0 22px; }
-    .ft-legal { font-size: 15px; color: #B6C0CE; line-height: 1.9; }
+    .ft-legal { font-size: 15px; color: #fff; line-height: 1.9; }
     .ft-legal .ft-reg { display: block; margin-top: 16px; color: #E6ECF3; }
     .ft-phone { font-size: 28px; font-weight: 700; color: #fff; margin: 0 0 18px; letter-spacing: -.5px; }
     .ft-callback {
@@ -1080,6 +1087,16 @@
       .site-footer { padding: 50px 0 40px; }
       .ft-inner { padding: 0 20px; }
       .ft-top, .ft-cols { grid-template-columns: 1fr; }
+      /* Уменьшенный текст подвала на телефоне */
+      .ft-brand { font-size: 24px; margin-bottom: 16px; }
+      .ft-legal { font-size: 13px; line-height: 1.8; }
+      .ft-phone { font-size: 23px; }
+      .ft-schedule { font-size: 13px; }
+      .ft-label { font-size: 13px; }
+      .ft-email { font-size: 14px; }
+      .ft-col-title { font-size: 14px; }
+      .ft-links a { font-size: 14px; }
+      .ft-links { gap: 14px; }
     }
 
     /* =========================================================
@@ -1216,7 +1233,7 @@
       /* --- Шапка → бургер-меню --- */
       .nav { padding: 13px 18px; gap: 10px; z-index: 60; }
       .logo { margin-right: 0; }
-      .logo img { width: 52px !important; }
+      .logo img { width: 66px !important; }
       .nav-links, .nav-right .social-btn, .nav-phone { display: none; }
       .nav-right { margin-left: auto; gap: 0; }
       .nav-burger {
@@ -1261,7 +1278,11 @@
       /* --- Блок туров: свайп-слайдер --- */
       .tours { padding: 8px 0 44px; }
       .tours-header { flex-direction: column; gap: 12px; margin-bottom: 20px; padding: 0 18px; }
-      .tours-usp { flex-direction: column; gap: 10px; padding: 0 18px; margin-bottom: 24px; }
+      .tours-usp { flex-direction: column; gap: 8px; padding: 0 18px; margin-bottom: 24px; }
+      .usp-item { flex: 0 0 auto; padding: 11px 14px; gap: 11px; }
+      .usp-ico { width: 38px; height: 38px; font-size: 19px; }
+      .usp-txt b { font-size: 13.5px; }
+      .usp-txt span { font-size: 12px; }
       .tours-title { font-size: 28px; max-width: 100%; }
       .tours-desc { max-width: 100%; padding-top: 0; }
       .season-tabs { padding: 0 18px; gap: 8px; margin-bottom: 22px; }
@@ -1507,7 +1528,7 @@
           </div>
           <div class="card-body">
             <h3 class="card-title">Выходные<br>в Мурманске</h3>
-            <p class="card-text">Пакетный тур на 3 дня: обзорная по Мурманску, Териберка с китами и водопады Кольского края. Трансфер и гид на все дни, выгоднее, чем по отдельности.</p>
+            <p class="card-text">Пакетный тур на 3 дня: обзорная экскурсия по Мурманску, Териберка с китами и водопады Кольского края. Трансфер и гид на все дни, выгоднее, чем по отдельности.</p>
             <div class="card-footer">
               <span>3 дня</span>
               <span>20 000₽</span>
@@ -1527,7 +1548,7 @@
           </div>
           <div class="card-body">
             <h3 class="card-title">Выходные<br>в Мурманске</h3>
-            <p class="card-text">Пакетный тур на 3 дня: обзорная по Мурманску, Териберка с китами и водопады Кольского края. Трансфер и гид на все дни, выгоднее, чем по отдельности.</p>
+            <p class="card-text">Пакетный тур на 3 дня: обзорная экскурсия по Мурманску, Териберка с китами и водопады Кольского края. Трансфер и гид на все дни, выгоднее, чем по отдельности.</p>
             <div class="card-footer">
               <span>3 дня</span>
               <span>20 000₽</span>
@@ -1609,8 +1630,27 @@
         </div>
       </a>
 
+      <a href="page-hibiny-kirovsk.html" class="tour-card visible" data-season="summer">
+        <div class="card-bg" style="background: #1a3a4a url('images/gallery/khib_1.jpg') center/cover no-repeat;"></div>
+        <div class="card-overlay"></div>
+        <div class="card-inner">
+          <div class="badges">
+            <span class="badge">⛰ ХИБИНЫ</span>
+            <span class="badge">🚠 КАНАТКА</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Знакомство с Хибинами<br>Кировск</h3>
+            <p class="card-text">Канатная дорога на гору Айкуайвенчорр, горное озеро Малый Вудъявр, Музей камня и светящийся арт-парк «Таинственный лес» за один день.</p>
+            <div class="card-footer">
+              <span>12-13 часов</span>
+              <span>10 000₽</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
       <a href="page-saami.html" class="tour-card visible" data-season="summer">
-        <div class="card-bg" style="background: #3a2a4a url('images/tour6.jpg') center/cover no-repeat;"></div>
+        <div class="card-bg" style="background: #3a2a4a url('images/saami_cover.jpeg') center/cover no-repeat;"></div>
         <div class="card-overlay"></div>
         <div class="card-inner">
           <div class="badges">
@@ -1684,7 +1724,7 @@
       </a>
 
       <a href="page-saami.html" class="tour-card" data-season="autumn">
-        <div class="card-bg" style="background: #3a2a4a url('images/tour6.jpg') center/cover no-repeat;"></div>
+        <div class="card-bg" style="background: #3a2a4a url('images/saami_cover.jpeg') center/cover no-repeat;"></div>
         <div class="card-overlay"></div>
         <div class="card-inner">
           <div class="badges">
@@ -1740,7 +1780,7 @@
       </a>
 
       <a href="page-saami.html" class="tour-card" data-season="winter">
-        <div class="card-bg" style="background: #3a2a4a url('images/saami.jpeg') center/cover no-repeat;"></div>
+        <div class="card-bg" style="background: #3a2a4a url('images/saami_cover.jpeg') center/cover no-repeat;"></div>
         <div class="card-overlay"></div>
         <div class="card-inner">
           <div class="badges">
@@ -1814,7 +1854,7 @@
       </a>
 
       <a href="page-saami.html" class="tour-card" data-season="spring">
-        <div class="card-bg" style="background: #3a2a4a url('images/tour6.jpg') center/cover no-repeat;"></div>
+        <div class="card-bg" style="background: #3a2a4a url('images/saami_cover.jpeg') center/cover no-repeat;"></div>
         <div class="card-overlay"></div>
         <div class="card-inner">
           <div class="badges">
