@@ -1144,11 +1144,12 @@
       background: var(--aurora);
       -webkit-background-clip: text; background-clip: text; color: transparent;
     }
-    .rev-slider-wrap { overflow: hidden; }
+    .rev-slider-wrap { overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; }
+    .rev-slider-wrap::-webkit-scrollbar { display: none; }
     .rev-grid {
       display: flex;
       gap: 20px;
-      transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+      transform: none !important;
     }
     .rev-card {
       /* 3 карточки: (ширина - 2×60px паддинга - 2×20px гэпов) / 3 */
@@ -2649,30 +2650,53 @@
     var track   = document.getElementById('revTrack');
     var prevBtn = document.getElementById('revPrev');
     var nextBtn = document.getElementById('revNext');
-    if (!track || !prevBtn || !nextBtn) return;
+    if (!track) return;
+    var wrap = track.parentElement; // .rev-slider-wrap — скролл-контейнер
 
-    var VISIBLE = 3; // сколько карточек показываем сразу
-    var offset  = 0;
-    var total   = track.children.length;
+    wrap.style.scrollBehavior = 'auto';
+    wrap.style.scrollSnapType = 'none';
 
-    function updateRev() {
-      var card  = track.children[0];
-      var cardW = card ? (card.offsetWidth + 20) : 0; // ширина + gap
-      track.style.transform = 'translateX(-' + (offset * cardW) + 'px)';
-      prevBtn.disabled = offset <= 0;
-      nextBtn.disabled = offset >= total - VISIBLE;
+    function stepPx(){
+      var c = track.querySelector('.rev-card');
+      return c ? (c.offsetWidth + 20) * 2 : wrap.clientWidth * 0.8;
     }
+    if (prevBtn) { prevBtn.disabled = false; prevBtn.addEventListener('click', function(){ wrap.scrollBy({ left: -stepPx(), behavior: 'smooth' }); }); }
+    if (nextBtn) { nextBtn.disabled = false; nextBtn.addEventListener('click', function(){ wrap.scrollBy({ left: stepPx(), behavior: 'smooth' }); }); }
 
-    prevBtn.addEventListener('click', function() {
-      if (offset > 0) { offset--; updateRev(); }
-    });
-    nextBtn.addEventListener('click', function() {
-      if (offset < total - VISIBLE) { offset++; updateRev(); }
-    });
-
-    // Пересчитываем при изменении размера окна
-    window.addEventListener('resize', function() { updateRev(); });
-    updateRev();
+    // ─── Плавное непрерывное авто-движение (как в галерее, чуть медленнее) ───
+    var section = document.getElementById('reviews');
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!section || reduce) return;
+    var SPEED = 0.05;   // пикселей в миллисекунду (~50 px/сек — медленнее галереи)
+    var dir = 1, running = false, hover = false, interacted = false, raf = null, last = 0;
+    function frame(now){
+      if (!running) { raf = null; return; }
+      if (!last) last = now;
+      var dt = now - last; last = now;
+      if (dt > 60) dt = 60;
+      if (!hover) {
+        var max = wrap.scrollWidth - wrap.clientWidth;
+        if (max > 4) {
+          var nx = wrap.scrollLeft + dir * SPEED * dt;
+          if (nx >= max) { nx = max; dir = -1; }
+          else if (nx <= 0) { nx = 0; dir = 1; }
+          wrap.scrollLeft = nx;
+        }
+      }
+      raf = requestAnimationFrame(frame);
+    }
+    function startA(){ if (running || interacted) return; running = true; last = 0; raf = requestAnimationFrame(frame); }
+    function stopA(){ running = false; if (raf) { cancelAnimationFrame(raf); raf = null; } }
+    wrap.addEventListener('mouseenter', function(){ hover = true; });
+    wrap.addEventListener('mouseleave', function(){ hover = false; });
+    wrap.addEventListener('touchstart', function(){ interacted = true; stopA(); }, { passive: true });
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function(entries){
+        entries.forEach(function(en){ if (en.isIntersecting) startA(); else stopA(); });
+      }, { threshold: 0.3 }).observe(section);
+    } else {
+      startA();
+    }
   })();
 
   // ─── Анимация чисел «Итоги сезона» ─────────────────────────────
