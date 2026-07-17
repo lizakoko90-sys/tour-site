@@ -843,7 +843,23 @@
       .ft-links a { font-size: 14px; }
       .ft-links { gap: 14px; }
     }
-  </style>
+
+    /* ===== Оживление страницы тура: появление, ховеры ===== */
+    .reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s cubic-bezier(.2,.6,.2,1), transform .7s cubic-bezier(.2,.6,.2,1); }
+    .reveal.reveal-in { opacity: 1; transform: none; }
+    .tl-row.reveal { transform: translateY(16px); }
+    .what-card { transition: transform .28s ease, box-shadow .28s ease; }
+    .what-card:hover { transform: translateY(-5px); box-shadow: 0 16px 34px rgba(10,16,26,.12); }
+    .what-card img { transition: transform .5s ease; }
+    .what-card:hover img { transform: scale(1.05); }
+    .desc-photos img { transition: transform .5s ease; }
+    .desc-photos img:hover { transform: scale(1.03); }
+    .btn-green, .btn-orange, .btn-tg, .mcta-btn { transition: transform .18s ease, box-shadow .2s ease, background .2s ease; }
+    .btn-green:hover, .btn-orange:hover, .btn-tg:hover, .mcta-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 26px rgba(0,0,0,.18); }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+      .what-card:hover, .btn-green:hover, .btn-orange:hover, .btn-tg:hover, .mcta-btn:hover { transform: none; }
+    }  </style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -1933,5 +1949,24 @@
 
 <script src="js/telegram-forms.js" defer></script>
 <script src="js/cookie-banner.js" defer></script>
+<script>
+  // ═══ Оживление страницы тура: появление при прокрутке ═══
+  (function(){
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce || !('IntersectionObserver' in window)) return;
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('reveal-in'); io.unobserve(e.target); } });
+    }, { threshold: 0.14, rootMargin: '0px 0px -6% 0px' });
+    ['.section-title', '.desc-text', '.prog-title', '.phase-heading', '.incl-title', '.faq-title', '.rev-title'].forEach(function(sel){
+      document.querySelectorAll(sel).forEach(function(el){ el.classList.add('reveal'); io.observe(el); });
+    });
+    document.querySelectorAll('.desc-photos img').forEach(function(el, i){ el.classList.add('reveal'); el.style.transitionDelay = (i * 100) + 'ms'; io.observe(el); });
+    [['.what-card', 90], ['.incl-item', 60], ['.excl-item', 60], ['.faq-item', 55], ['.rev-card', 80]].forEach(function(g){
+      document.querySelectorAll(g[0]).forEach(function(el, i){ el.classList.add('reveal'); el.style.transitionDelay = ((i % 4) * g[1]) + 'ms'; io.observe(el); });
+    });
+    // Таймлайн программы «прочерчивается»: строки проявляются по мере прокрутки
+    document.querySelectorAll('.timeline .tl-row').forEach(function(row){ row.classList.add('reveal'); io.observe(row); });
+  })();
+</script>
 </body>
 </html>
