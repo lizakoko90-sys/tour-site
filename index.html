@@ -1330,6 +1330,35 @@
       .tours-title { font-size: 25px; }
       .hm-chip { font-size: 11.5px; }
     }
+
+    /* ===== Оживление сайта: появление, ховеры, снег ===== */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s cubic-bezier(.2,.6,.2,1), transform .7s cubic-bezier(.2,.6,.2,1); }
+    .reveal.reveal-in { opacity: 1; transform: none; }
+    .cell-reveal { opacity: 0; transform: scale(.55); transition: opacity .4s ease, transform .4s ease; }
+    .cell-reveal.reveal-in { opacity: 1; transform: none; }
+
+    /* Ховеры карточек и кнопок */
+    .tour-card { transition: transform .28s ease, box-shadow .28s ease; }
+    .tour-card:hover { transform: translateY(-6px); box-shadow: 0 20px 42px rgba(10,16,26,.30); }
+    .blog-card { transition: transform .28s ease, box-shadow .28s ease; }
+    .blog-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(10,16,26,.14); }
+    .blog-card-photo { transition: transform .5s ease; }
+    .blog-card:hover .blog-card-photo { transform: scale(1.06); }
+    .btn-programs, .btn-all-tours { transition: transform .18s ease, background .2s ease, box-shadow .2s ease; }
+    .btn-programs:hover, .btn-all-tours:hover { transform: translateY(-2px); box-shadow: 0 12px 26px rgba(0,0,0,.24); }
+    .nav-links a { position: relative; }
+    .nav-links a::after { content: ''; position: absolute; left: 0; bottom: -5px; width: 100%; height: 2px; background: var(--aurora); border-radius: 2px; transform: scaleX(0); transform-origin: left; transition: transform .28s ease; }
+    .nav-links a:hover::after { transform: scaleX(1); }
+    .form-field { transition: border-color .2s ease, box-shadow .2s ease, background .2s ease; }
+    .form-field:focus { outline: none; border-color: rgba(110,231,199,.9); box-shadow: 0 0 0 3px rgba(61,220,132,.22); }
+
+    /* Снег на первом экране */
+    #hero-snow { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal, .cell-reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+      .tour-card:hover, .blog-card:hover, .btn-programs:hover, .btn-all-tours:hover { transform: none; }
+    }
   </style>
   <!-- Yandex.Metrika counter -->
   <script type="text/javascript">
@@ -2717,6 +2746,94 @@
       requestAnimationFrame(step);
     }
     nums.forEach(animate);
+  })();
+</script>
+
+<script>
+  // ═══ Оживление сайта: появление при прокрутке, волна календаря, снег ═══
+  (function(){
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce || !('IntersectionObserver' in window)) return;
+
+    // ── Появление секций/карточек с каскадом ──
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting) { en.target.classList.add('reveal-in'); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.14, rootMargin: '0px 0px -6% 0px' });
+
+    var singles = ['.tours-title', '.tours-desc', '.gal-title', '.gal-sub', '.rev-title', '.sc-title', '.sc-sub', '.blog-title', '.blog-sub'];
+    singles.forEach(function(sel){
+      document.querySelectorAll(sel).forEach(function(el){ el.classList.add('reveal'); io.observe(el); });
+    });
+    // группы с каскадом (задержка по позиции в строке)
+    [['.stat', 90], ['.usp-item', 100], ['.sc-card', 100], ['.blog-card', 100]].forEach(function(g){
+      document.querySelectorAll(g[0]).forEach(function(el, i){
+        el.classList.add('reveal');
+        el.style.transitionDelay = ((i % 4) * g[1]) + 'ms';
+        io.observe(el);
+      });
+    });
+
+    // ── Тепловая матрица «Когда ехать»: заливка волной ──
+    var cells = document.querySelectorAll('#sc-matrix .sc-cell');
+    if (cells.length) {
+      var cio = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){
+          if (!en.isIntersecting) return;
+          cells.forEach(function(c, i){ c.style.transitionDelay = Math.min(i * 9, 750) + 'ms'; c.classList.add('reveal-in'); });
+          cio.disconnect();
+        });
+      }, { threshold: 0.2 });
+      cells.forEach(function(c){ c.classList.add('cell-reveal'); });
+      cio.observe(document.getElementById('season-calendar'));
+    }
+
+    // ── Снег на первом экране ──
+    var hero = document.querySelector('.hero');
+    if (hero) {
+      var cv = document.createElement('canvas'); cv.id = 'hero-snow';
+      hero.appendChild(cv);
+      var ctx = cv.getContext('2d'), W = 0, H = 0, flakes = [];
+      function resize(){ W = cv.width = hero.offsetWidth; H = cv.height = hero.offsetHeight; }
+      resize();
+      window.addEventListener('resize', resize);
+      var N = Math.max(16, Math.min(38, Math.round((W || 1200) / 48)));
+      for (var i = 0; i < N; i++) {
+        flakes.push({ x: Math.random() * W, y: Math.random() * H, r: 1 + Math.random() * 2.3,
+                      sp: 0.25 + Math.random() * 0.65, dr: (Math.random() - 0.5) * 0.35,
+                      o: 0.3 + Math.random() * 0.5, ph: Math.random() * Math.PI * 2 });
+      }
+      function draw(){
+        ctx.clearRect(0, 0, W, H);
+        ctx.fillStyle = '#ffffff';
+        for (var i = 0; i < flakes.length; i++) {
+          var f = flakes[i];
+          f.y += f.sp; f.ph += 0.01; f.x += f.dr + Math.sin(f.ph) * 0.3;
+          if (f.y > H + 4) { f.y = -4; f.x = Math.random() * W; }
+          if (f.x > W + 4) f.x = -4; else if (f.x < -4) f.x = W + 4;
+          ctx.globalAlpha = f.o;
+          ctx.beginPath(); ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2); ctx.fill();
+        }
+        ctx.globalAlpha = 1;
+        requestAnimationFrame(draw);
+      }
+      requestAnimationFrame(draw);
+    }
+  })();
+
+  // ═══ Плавная прокрутка к якорям меню ═══
+  (function(){
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){
+      var id = a.getAttribute('href');
+      if (id.length < 2) return;
+      a.addEventListener('click', function(e){
+        var t = document.querySelector(id);
+        if (!t) return;
+        e.preventDefault();
+        t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
   })();
 </script>
 
