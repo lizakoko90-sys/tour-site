@@ -2052,6 +2052,20 @@
   <div class="rev-slider-wrap">
   <div class="rev-grid" id="revTrack">
 
+    <!-- Карточка — Териберка + водопады (реальный отзыв, гид Елизавета) -->
+    <div class="rev-card">
+      <span class="rev-tour-tag">🌊 Териберка и водопады</span>
+      <div class="rev-stars">★★★★★</div>
+      <p class="rev-quote">Спасибо за экскурсии в Териберку и на водопады! Встретили как родных, всё организовано быстро и качественно — работа настоящих профессионалов. Особая благодарность гиду Елизавете: она влюбила нас в Кольский полуостров. Мы в полном восторге и с морем позитивных эмоций. Успехов вам и новых красивых маршрутов!</p>
+      <div class="rev-author">
+        <div class="rev-avatar">ТМ</div>
+        <div>
+          <div class="rev-name">Татьяна М.</div>
+          <div class="rev-city">Москва · 7 июля 2026</div>
+        </div>
+      </div>
+    </div>
+
     <!-- Карточка 1 — Поиск китов (перефраз реального отзыва Марины, Tripster) -->
     <div class="rev-card">
       <span class="rev-tour-tag">🐳 В Териберку на поиски китов</span>
@@ -2565,29 +2579,32 @@
       else if (e.key === 'ArrowRight') galStep(1);
     });
 
-    // ─── Авто-пролистывание, когда блок в зоне видимости ──────────
+    // ─── Плавное непрерывное авто-движение, когда блок в зоне видимости ──
     (function(){
       var section = document.getElementById('gallery');
       var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       if (!section || reduce) return;
-      var timer = null, hover = false, interacted = false;
-      function stepPx(){
-        var items = grid.querySelectorAll('.gal-item');
-        for (var k = 0; k < items.length; k++) {
-          if (items[k].offsetWidth > 0) return items[k].offsetWidth + 14;
+      grid.style.scrollBehavior = 'auto'; // плавно двигаем сами, без пошагового «доводчика»
+      var SPEED = 0.08;   // пикселей в миллисекунду (~80 px/сек)
+      var dir = 1, running = false, hover = false, interacted = false, raf = null, last = 0;
+      function frame(now){
+        if (!running) { raf = null; return; }
+        if (!last) last = now;
+        var dt = now - last; last = now;
+        if (dt > 60) dt = 60; // защита от рывка после простоя вкладки
+        if (!hover && !(lb && lb.classList.contains('open'))) {
+          var max = grid.scrollWidth - grid.clientWidth;
+          if (max > 4) {
+            var nx = grid.scrollLeft + dir * SPEED * dt;
+            if (nx >= max) { nx = max; dir = -1; }
+            else if (nx <= 0) { nx = 0; dir = 1; }
+            grid.scrollLeft = nx;
+          }
         }
-        return grid.clientWidth * 0.6;
+        raf = requestAnimationFrame(frame);
       }
-      function tick(){
-        if (hover || (lb && lb.classList.contains('open'))) return;
-        if (grid.scrollLeft + grid.clientWidth >= grid.scrollWidth - 8) {
-          grid.scrollTo({ left: 0, behavior: 'smooth' });
-        } else {
-          grid.scrollBy({ left: stepPx(), behavior: 'smooth' });
-        }
-      }
-      function start(){ if (!timer && !interacted) timer = setInterval(tick, 2600); }
-      function stop(){ if (timer) { clearInterval(timer); timer = null; } }
+      function start(){ if (running || interacted) return; running = true; last = 0; raf = requestAnimationFrame(frame); }
+      function stop(){ running = false; if (raf) { cancelAnimationFrame(raf); raf = null; } }
       grid.addEventListener('mouseenter', function(){ hover = true; });
       grid.addEventListener('mouseleave', function(){ hover = false; });
       grid.addEventListener('touchstart', function(){ interacted = true; stop(); }, { passive: true });
