@@ -2585,6 +2585,7 @@
       var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       if (!section || reduce) return;
       grid.style.scrollBehavior = 'auto'; // плавно двигаем сами, без пошагового «доводчика»
+      grid.style.scrollSnapType = 'none'; // отключаем «примагничивание», иначе непрерывное движение гасится
       var SPEED = 0.08;   // пикселей в миллисекунду (~80 px/сек)
       var dir = 1, running = false, hover = false, interacted = false, raf = null, last = 0;
       function frame(now){
