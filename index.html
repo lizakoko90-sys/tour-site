@@ -155,10 +155,21 @@
     /* =========================================================
        HERO
     ========================================================= */
-    /* Единый непрерывный фон: hero + блок сияния листаются как одно фото */
+    /* Единый фон: одно фото-аврора стоит НЕПОДВИЖНО (fixed) за hero + блоком сияния */
     .sky-continuum {
       position: relative;
-      background: #0a1220 url('images/tour5.jpg') center/cover no-repeat;
+      background: #0a1220 url('images/tour5.jpg') center/cover no-repeat fixed;
+    }
+    /* Равномерный тёмный слой — одинаков по всей высоте, поэтому при статичном
+       фото весь блок выглядит цельно, без единого стыка */
+    .sky-continuum::before {
+      content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+      background: rgba(8,12,22,.45);
+    }
+    .sky-continuum > .hero, .sky-continuum > .aurb { position: relative; z-index: 1; }
+    /* На мобильных fixed-фон часто глючит — там оставляем обычный скролл */
+    @media (max-width: 768px) {
+      .sky-continuum { background-attachment: scroll; }
     }
     .hero {
       min-height: 100vh;
@@ -170,34 +181,9 @@
       overflow: hidden;
     }
 
-    /* Фолбэк-градиент если фото нет */
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at 60% 40%, rgba(40,120,80,0.35) 0%, transparent 60%),
-                  radial-gradient(ellipse at 30% 70%, rgba(20,80,60,0.25) 0%, transparent 50%);
-      pointer-events: none;
-    }
-
-    /* Живое сияние — переливающийся градиент поверх фото */
-    .hero::after {
-      content: '';
-      position: absolute;
-      inset: -25%;
-      z-index: 1;
-      pointer-events: none;
-      background:
-        radial-gradient(38% 55% at 28% 38%, rgba(46,255,160,0.62) 0%, transparent 68%),
-        radial-gradient(42% 52% at 62% 30%, rgba(0,214,255,0.55) 0%, transparent 70%),
-        radial-gradient(48% 60% at 52% 62%, rgba(150,90,255,0.45) 0%, transparent 72%),
-        radial-gradient(40% 45% at 80% 55%, rgba(46,255,190,0.42) 0%, transparent 70%);
-      mix-blend-mode: screen;
-      filter: blur(34px);
-      opacity: 1;
-      will-change: transform, opacity;
-      animation: auroraFlow 7s ease-in-out infinite alternate;
-    }
+    /* Оверлеи сияния убраны из hero: фон-фото уже настоящая аврора, а свой
+       оверлей давал складку на стыке с блоком сияния. Тёмный слой — единый на .sky-continuum. */
+    .hero::before, .hero::after { content: none; }
     @keyframes auroraFlow {
       0%   { transform: translate3d(-6%, -3%, 0) scale(1.05) rotate(0deg);  opacity: .7; }
       50%  { transform: translate3d(5%, 4%, 0)   scale(1.22) rotate(4deg);  opacity: 1; }
@@ -1530,18 +1516,8 @@
 ======================================================== -->
 <style>
   .aurb { position: relative; overflow: hidden; margin: 0; padding: 78px 24px 84px; background: transparent; isolation: isolate; }
-  .aurb::before {
-    content: ""; position: absolute; inset: -30% -10% auto -10%; height: 90%; z-index: -2;
-    background:
-      radial-gradient(60% 80% at 30% 40%, rgba(61,220,132,.55), transparent 60%),
-      radial-gradient(55% 75% at 70% 30%, rgba(0,212,255,.45), transparent 62%),
-      radial-gradient(50% 70% at 55% 55%, rgba(139,92,246,.40), transparent 60%);
-    filter: blur(30px); opacity: .38; transform: translateZ(0);
-  }
-  .aurb::after {
-    content: ""; position: absolute; inset: 0; z-index: -1;
-    background: linear-gradient(180deg, rgba(8,12,22,.30) 0%, rgba(8,12,22,.52) 55%, rgba(8,12,22,.78) 100%);
-  }
+  .aurb::before { content: none; }
+  .aurb::after { content: none; }
   @media (prefers-reduced-motion: no-preference) {
     .aurb::before { animation: aurbWave 12s ease-in-out infinite alternate; }
     @keyframes aurbWave {
