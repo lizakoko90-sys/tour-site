@@ -155,10 +155,14 @@
     /* =========================================================
        HERO
     ========================================================= */
+    /* Единый непрерывный фон: hero + блок сияния листаются как одно фото */
+    .sky-continuum {
+      position: relative;
+      background: #0a1220 url('images/tour5.jpg') center/cover no-repeat;
+    }
     .hero {
       min-height: 100vh;
-      /* Замени на свою фотографию: background-image: url('images/aurora-bg.jpg'); */
-      background: #1a1c22 url('images/tour5.jpg') center/cover no-repeat;
+      background: transparent;
       display: flex;
       flex-direction: column;
       color: #fff;
@@ -1377,8 +1381,9 @@
 <body>
 
 <!-- ========================================================
-     HERO SECTION
+     HERO SECTION + БЛОК СИЯНИЯ (единый фон-континуум)
 ======================================================== -->
+<div class="sky-continuum">
 <section class="hero">
 
   <!-- Навигация -->
@@ -1524,18 +1529,18 @@
      БЛОК-ГЕРОЙ «СЕВЕРНОЕ СИЯНИЕ» (флагман)
 ======================================================== -->
 <style>
-  .aurb { position: relative; overflow: hidden; margin: 8px 0 0; padding: 78px 24px; background: #070d1c; isolation: isolate; }
+  .aurb { position: relative; overflow: hidden; margin: 0; padding: 78px 24px 84px; background: transparent; isolation: isolate; }
   .aurb::before {
     content: ""; position: absolute; inset: -30% -10% auto -10%; height: 90%; z-index: -2;
     background:
       radial-gradient(60% 80% at 30% 40%, rgba(61,220,132,.55), transparent 60%),
       radial-gradient(55% 75% at 70% 30%, rgba(0,212,255,.45), transparent 62%),
       radial-gradient(50% 70% at 55% 55%, rgba(139,92,246,.40), transparent 60%);
-    filter: blur(30px); opacity: .85; transform: translateZ(0);
+    filter: blur(30px); opacity: .38; transform: translateZ(0);
   }
   .aurb::after {
     content: ""; position: absolute; inset: 0; z-index: -1;
-    background: linear-gradient(180deg, rgba(7,13,28,.35) 0%, rgba(7,13,28,.65) 55%, #070d1c 100%);
+    background: linear-gradient(180deg, rgba(8,12,22,.30) 0%, rgba(8,12,22,.52) 55%, rgba(8,12,22,.78) 100%);
   }
   @media (prefers-reduced-motion: no-preference) {
     .aurb::before { animation: aurbWave 12s ease-in-out infinite alternate; }
@@ -1605,6 +1610,7 @@
     </div>
   </div>
 </section>
+</div><!-- /sky-continuum -->
 
 <!-- Разделитель: стрелочки вниз -->
 <div class="divider-chevrons">
