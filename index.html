@@ -2097,6 +2097,7 @@
   <p class="gal-sub">Живые кадры из путешествий с Aurora Trip — киты, сияние, водопады и суровая красота Кольского полуострова. Выберите категорию и полистайте.</p>
   <div class="gal-filters" id="gal-filters">
     <button class="gal-f active" data-cat="all">Все</button>
+    <button class="gal-f" data-cat="aurora">Сияние</button>
     <button class="gal-f" data-cat="ter">Териберка</button>
     <button class="gal-f" data-cat="mur">Мурманск</button>
     <button class="gal-f" data-cat="khib">Хибины и Кировск</button>
@@ -2583,6 +2584,19 @@
       grid.scrollBy({ left: dir * step, behavior: 'smooth' });
     };
     var PHOTOS = [
+      { c:'aurora', s:'images/gallery/aurora_1.jpeg' },  { c:'aurora', s:'images/gallery/aurora_2.jpeg' },
+      { c:'aurora', s:'images/gallery/aurora_3.jpeg' },  { c:'aurora', s:'images/gallery/aurora_4.jpeg' },
+      { c:'aurora', s:'images/gallery/aurora_5.jpeg' },  { c:'aurora', s:'images/gallery/aurora_6.jpeg' },
+      { c:'aurora', s:'images/gallery/aurora_7.jpeg' },  { c:'aurora', s:'images/gallery/aurora_8.jpeg' },
+      { c:'aurora', s:'images/gallery/aurora_9.jpeg' },  { c:'aurora', s:'images/gallery/aurora_10.jpeg' },
+      { c:'aurora', s:'images/gallery/aurora_11.jpeg' }, { c:'aurora', s:'images/gallery/aurora_12.jpeg' },
+      { c:'aurora', s:'images/gallery/aurora_13.jpeg' }, { c:'aurora', s:'images/gallery/aurora_14.jpeg' },
+      { c:'aurora', s:'images/gallery/aurora_15.jpeg' }, { c:'aurora', s:'images/gallery/aurora_16.jpeg' },
+      { c:'aurora', s:'images/gallery/aurora_17.jpeg' }, { c:'aurora', s:'images/gallery/aurora_18.jpeg' },
+      { c:'aurora', s:'images/gallery/aurora_19.jpeg' }, { c:'aurora', s:'images/gallery/aurora_20.jpeg' },
+      { c:'aurora', s:'images/gallery/aurora_21.jpeg' }, { c:'aurora', s:'images/gallery/aurora_22.jpeg' },
+      { c:'aurora', s:'images/gallery/aurora_23.jpeg' }, { c:'aurora', s:'images/gallery/aurora_24.jpeg' },
+      { c:'aurora', s:'images/gallery/aurora_25.jpeg' }, { c:'aurora', s:'images/gallery/aurora_26.jpeg' },
       { c:'ter',  s:'images/gallery/ter_1.jpg' }, { c:'ter',  s:'images/gallery/ter_2.jpg' },
       { c:'ter',  s:'images/gallery/ter_3.jpg' }, { c:'ter',  s:'images/gallery/ter_4.jpg' },
       { c:'ter',  s:'images/gallery/ter_5.jpg' }, { c:'ter',  s:'images/gallery/ter_6.jpg' },
@@ -2613,6 +2627,7 @@
       d.setAttribute('data-cat', p.c);
       d.setAttribute('data-i', i);
       var CATALT = {
+        aurora: 'Северное сияние над Кольским полуостровом — тур «Охота за авророй» с Aurora Trip',
         ter:  'Тур в Териберку из Мурманска — киты, дельфины и побережье Баренцева моря',
         mur:  'Обзорная экскурсия по Мурманску с Aurora Trip',
         khib: 'Хибины и Кировск — экскурсии по Кольскому полуострову',
