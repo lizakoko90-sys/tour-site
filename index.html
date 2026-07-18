@@ -160,11 +160,11 @@
       position: relative;
       background: #0a1220 url('images/tour5.jpg') center/cover no-repeat fixed;
     }
-    /* Равномерный тёмный слой — одинаков по всей высоте, поэтому при статичном
-       фото весь блок выглядит цельно, без единого стыка */
+    /* Затемнение только слева (там текст) → справа аврора остаётся яркой.
+       По вертикали слой однородный, поэтому стыков нет. */
     .sky-continuum::before {
       content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none;
-      background: rgba(8,12,22,.45);
+      background: linear-gradient(90deg, rgba(6,10,20,.62) 0%, rgba(6,10,20,.46) 30%, rgba(6,10,20,.14) 62%, rgba(6,10,20,.03) 100%);
     }
     .sky-continuum > .hero, .sky-continuum > .aurb { position: relative; z-index: 1; }
     /* На мобильных fixed-фон часто глючит — там оставляем обычный скролл */
