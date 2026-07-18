@@ -1520,6 +1520,92 @@
 
 </section>
 
+<!-- ========================================================
+     БЛОК-ГЕРОЙ «СЕВЕРНОЕ СИЯНИЕ» (флагман)
+======================================================== -->
+<style>
+  .aurb { position: relative; overflow: hidden; margin: 8px 0 0; padding: 78px 24px; background: #070d1c; isolation: isolate; }
+  .aurb::before {
+    content: ""; position: absolute; inset: -30% -10% auto -10%; height: 90%; z-index: -2;
+    background:
+      radial-gradient(60% 80% at 30% 40%, rgba(61,220,132,.55), transparent 60%),
+      radial-gradient(55% 75% at 70% 30%, rgba(0,212,255,.45), transparent 62%),
+      radial-gradient(50% 70% at 55% 55%, rgba(139,92,246,.40), transparent 60%);
+    filter: blur(30px); opacity: .85; transform: translateZ(0);
+  }
+  .aurb::after {
+    content: ""; position: absolute; inset: 0; z-index: -1;
+    background: linear-gradient(180deg, rgba(7,13,28,.35) 0%, rgba(7,13,28,.65) 55%, #070d1c 100%);
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .aurb::before { animation: aurbWave 12s ease-in-out infinite alternate; }
+    @keyframes aurbWave {
+      0%   { transform: translateX(-4%) translateY(0) scale(1.05); opacity: .7; }
+      50%  { transform: translateX(3%)  translateY(-3%) scale(1.12); opacity: .95; }
+      100% { transform: translateX(6%)  translateY(1%) scale(1.06); opacity: .78; }
+    }
+  }
+  .aurb-inner { max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.15fr; gap: 44px; align-items: center; }
+  .aurb-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #8ff0c0; margin-bottom: 16px; }
+  .aurb-eyebrow::before { content: "🌌"; }
+  .aurb h2 { font-family: 'aurora', 'Montserrat', sans-serif; font-size: clamp(32px, 4.6vw, 54px); line-height: 1.05; color: #fff; margin: 0 0 16px; letter-spacing: -.01em; }
+  .aurb h2 .g { background: linear-gradient(120deg, #3DDC84, #00D4FF); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .aurb-lead { color: #c7d3e6; font-size: 17px; line-height: 1.6; max-width: 46ch; margin: 0 0 22px; }
+  .aurb-chips { display: flex; flex-wrap: wrap; gap: 9px; margin-bottom: 26px; }
+  .aurb-chip { font-size: 13px; font-weight: 600; color: #eafff4; padding: 7px 13px; border-radius: 40px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.16); backdrop-filter: blur(4px); }
+  .aurb-cta-row { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+  .aurb-btn { display: inline-flex; align-items: center; gap: 10px; padding: 15px 26px; border-radius: 7px; background: linear-gradient(135deg, #3DDC84, #00D4FF); color: #05261a; font-weight: 800; font-size: 16px; text-decoration: none; transition: transform .2s, box-shadow .2s; box-shadow: 0 10px 30px rgba(0,212,255,.28); }
+  .aurb-btn:hover { transform: translateY(-2px); box-shadow: 0 16px 40px rgba(0,212,255,.4); }
+  .aurb-btn svg { width: 20px; height: 20px; }
+  .aurb-price { color: #fff; font-size: 15px; font-weight: 600; }
+  .aurb-price b { font-size: 20px; }
+  .aurb-price s { color: #8ea3bf; font-weight: 500; margin-left: 4px; }
+
+  .aurb-mosaic { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 118px; gap: 10px; }
+  .aurb-mosaic a { position: relative; overflow: hidden; border-radius: 10px; display: block; }
+  .aurb-mosaic img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s ease; }
+  .aurb-mosaic a:hover img { transform: scale(1.08); }
+  .aurb-mosaic a::after { content: ""; position: absolute; inset: 0; box-shadow: inset 0 0 0 1px rgba(255,255,255,.09); border-radius: 10px; }
+  .aurb-big { grid-column: span 2; grid-row: span 2; }
+  .aurb-wide { grid-column: span 2; }
+  .aurb-count { position: absolute; right: 8px; bottom: 8px; font-size: 12px; font-weight: 700; color: #fff; background: rgba(7,13,28,.7); padding: 5px 10px; border-radius: 30px; backdrop-filter: blur(4px); }
+
+  @media (max-width: 900px) {
+    .aurb { padding: 56px 20px; }
+    .aurb-inner { grid-template-columns: 1fr; gap: 30px; }
+    .aurb-mosaic { grid-auto-rows: 96px; }
+  }
+</style>
+<section class="aurb" id="aurora-flagman" aria-label="Северное сияние">
+  <div class="aurb-inner">
+    <div class="aurb-copy">
+      <span class="aurb-eyebrow">Флагман сезона</span>
+      <h2>Охота за <span class="g">северным<br>сиянием</span></h2>
+      <p class="aurb-lead">Главное чудо Севера, за которым едут на Кольский. Мы увозим вас за город на поиски авроры, ловим ясное небо и снимаем вас на профессиональную камеру — а если сияние не показалось, вторая охота дешевле.</p>
+      <div class="aurb-chips">
+        <span class="aurb-chip">🗓 Сезон: конец авг — апрель</span>
+        <span class="aurb-chip">🌙 Ночная охота</span>
+        <span class="aurb-chip">📸 Профессиональные фото</span>
+        <span class="aurb-chip">🚙 Забираем от отеля</span>
+      </div>
+      <div class="aurb-cta-row">
+        <a href="page-severnoe-siyanie.html" class="aurb-btn">
+          Отправиться на охоту
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <span class="aurb-price"><b>4 000 ₽</b> <s>вторая охота 3 000 ₽</s></span>
+      </div>
+    </div>
+    <div class="aurb-mosaic">
+      <a href="page-severnoe-siyanie.html" class="aurb-big"><img src="images/aurora/aurora-23.jpg" alt="Северное сияние над лесом под Мурманском" loading="lazy"></a>
+      <a href="page-severnoe-siyanie.html"><img src="images/aurora/aurora-01.jpg" alt="Гость под северным сиянием" loading="lazy"></a>
+      <a href="page-severnoe-siyanie.html"><img src="images/aurora/aurora-16.jpg" alt="Аврора над Кольским полуостровом" loading="lazy"></a>
+      <a href="page-severnoe-siyanie.html" class="aurb-wide"><img src="images/aurora/aurora-08.jpg" alt="Яркое зелёное сияние в ночном небе" loading="lazy"><span class="aurb-count">+ 26 фото из туров →</span></a>
+      <a href="page-severnoe-siyanie.html"><img src="images/aurora/aurora-19.jpg" alt="Компания под северным сиянием" loading="lazy"></a>
+    </div>
+  </div>
+</section>
+
 <!-- Разделитель: стрелочки вниз -->
 <div class="divider-chevrons">
   <span></span><span></span><span></span><span></span><span></span>
