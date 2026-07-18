@@ -20,6 +20,8 @@
   var LABELS = {
     name: 'Имя',
     phone: 'Телефон',
+    company: 'Компания',
+    country: 'Страна / город',
     season: 'Сезон',
     guests: 'Человек',
     time: 'Удобное время',

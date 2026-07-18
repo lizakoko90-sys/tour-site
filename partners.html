@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+  <title>Партнёрам — Aurora Trip · приём на Кольском для турагентств</title>
+  <meta name="description" content="Aurora Trip — принимающий туроператор по Кольскому полуострову. Нетто-цены, комиссия до 20%, готовые пакеты и приём под ключ для турагентств и туроператоров. Мурманск, Териберка, северное сияние.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://auroratrip.ru/partners.html">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://auroratrip.ru/partners.html">
+  <meta property="og:title" content="Партнёрам — Aurora Trip">
+  <meta property="og:description" content="Принимающий туроператор по Кольскому полуострову. Нетто-цены, комиссия до 20%, готовые пакеты и приём под ключ для агентств.">
+  <meta property="og:image" content="https://auroratrip.ru/images/aurora-bg.jpg">
+  <meta property="og:image:width" content="1100">
+  <meta property="og:image:height" content="782">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Партнёрам — Aurora Trip">
+  <meta name="twitter:description" content="Приём на Кольском полуострове для турагентств: нетто, комиссия, готовые пакеты.">
+  <meta name="twitter:image" content="https://auroratrip.ru/images/aurora-bg.jpg">
+  <link rel="icon" href="favicon.ico">
+  <style>
+    @font-face { font-family:'aurora'; font-weight:400; src:url('fonts/aurora-heading.woff') format('woff'); font-display:swap; }
+    @font-face { font-family:'aurora'; font-weight:800; src:url('fonts/aurora-heading-bold.woff') format('woff'); font-display:swap; }
+    :root{ --ink:#17223A; --muted:#5B6B7A; --bg:#F5F8FA; --card:#fff; --line:#E6ECF3;
+      --navy:#0A111E; --cyan:#00D4FF; --green:#3DDC84; }
+    *{ margin:0; padding:0; box-sizing:border-box }
+    html{ scroll-behavior:smooth }
+    body{ background:var(--bg); color:var(--ink); font-family:'Montserrat',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif; line-height:1.55; -webkit-font-smoothing:antialiased }
+    .wrap{ max-width:1120px; margin:0 auto; padding:0 24px }
+    h1,h2,h3{ font-family:'aurora','Montserrat',sans-serif; font-weight:800; letter-spacing:.3px; text-wrap:balance }
+    a{ color:inherit }
+    .eyebrow{ font-size:13px; font-weight:800; letter-spacing:3px; text-transform:uppercase }
+    .btn{ display:inline-block; padding:15px 28px; border-radius:12px; font-weight:700; font-size:16px; text-decoration:none; cursor:pointer; border:0; font-family:inherit }
+    .btn-p{ background:linear-gradient(90deg,var(--cyan),var(--green)); color:#04121c }
+    .btn-g{ background:rgba(255,255,255,.12); color:#fff; border:1px solid rgba(255,255,255,.35) }
+
+    /* HEADER over hero */
+    .hero{ position:relative; color:#fff; overflow:hidden; background:var(--navy) }
+    .hero-bg{ position:absolute; inset:0; background:url('images/aurora-bg.jpg') center/cover; opacity:.5 }
+    .hero-sc{ position:absolute; inset:0; background:linear-gradient(180deg,rgba(10,17,30,.55),rgba(10,17,30,.88)) }
+    .hero-in{ position:relative; padding:22px 0 92px }
+    .nav{ display:flex; align-items:center; justify-content:space-between; padding:6px 0 58px }
+    .nav-l{ display:flex; align-items:center; text-decoration:none }
+    .nav-l img{ width:92px; height:auto }
+    .nav-links{ display:flex; gap:28px; list-style:none }
+    .nav-links a{ color:rgba(255,255,255,.85); text-decoration:none; font-size:15px; font-weight:600; position:relative; padding:4px 0 }
+    .nav-links a:hover{ color:#fff }
+    .nav-links a.active{ color:#fff }
+    .nav-links a.active::after{ content:''; position:absolute; left:0; bottom:-4px; width:100%; height:2px; border-radius:2px; background:linear-gradient(90deg,var(--cyan),var(--green)) }
+    .nav-phone{ color:#fff; text-decoration:none; font-weight:700; font-size:15px }
+    .nav-burger{ display:none; flex-direction:column; gap:5px; background:none; border:0; cursor:pointer; padding:6px }
+    .nav-burger span{ width:22px; height:2px; background:#fff; border-radius:2px }
+    .nav-mobile{ display:none; flex-direction:column; gap:2px; padding:8px 0 0 }
+    .nav-mobile a{ color:#fff; text-decoration:none; font-weight:600; padding:12px 2px; border-bottom:1px solid rgba(255,255,255,.08) }
+
+    .hero h1{ font-size:clamp(34px,5.5vw,58px); line-height:1.04; max-width:17ch; margin:12px 0 18px }
+    .hero .lead{ font-size:20px; color:rgba(255,255,255,.9); max-width:52ch; margin-bottom:32px }
+    .cyan{ color:var(--cyan) }
+    .cta-row{ display:flex; gap:14px; flex-wrap:wrap }
+    .facts{ display:flex; gap:38px; flex-wrap:wrap; margin-top:54px; padding-top:28px; border-top:1px solid rgba(255,255,255,.16) }
+    .fact b{ font-family:'aurora','Montserrat',sans-serif; font-weight:800; font-size:26px; display:block }
+    .fact span{ font-size:14px; color:rgba(255,255,255,.7) }
+
+    section{ padding:74px 0 }
+    .sec-h{ text-align:center; max-width:660px; margin:0 auto 44px }
+    .sec-h .eyebrow{ color:#0E9E86; margin-bottom:12px }
+    .sec-h h2{ font-size:clamp(26px,3.6vw,38px); margin-bottom:12px }
+    .sec-h p{ color:var(--muted); font-size:17px }
+
+    .why-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:20px }
+    .why{ background:var(--card); border:1px solid var(--line); border-radius:16px; padding:26px }
+    .why-i{ width:44px; height:44px; border-radius:11px; display:grid; place-items:center; color:#04121c; background:linear-gradient(135deg,var(--cyan),var(--green)); font-size:20px; margin-bottom:16px }
+    .why h3{ font-size:19px; margin-bottom:8px }
+    .why p{ color:var(--muted); font-size:15px }
+
+    .pk-wrap{ background:#fff }
+    .pk-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:22px }
+    .pk{ border:1px solid var(--line); border-radius:16px; overflow:hidden; background:#fff; transition:transform .16s, box-shadow .16s }
+    .pk:hover{ transform:translateY(-4px); box-shadow:0 16px 40px rgba(23,34,58,.12) }
+    .pk-img{ aspect-ratio:16/11; background-size:cover; background-position:center }
+    .pk-b{ padding:16px 18px 20px }
+    .pk-b h3{ font-size:18px; margin-bottom:4px }
+    .pk-b p{ color:var(--muted); font-size:14px; margin-bottom:10px }
+    .pk-p{ font-weight:800; color:var(--ink) }
+    .pk-p em{ font-style:normal; font-weight:600; color:#0E9E86; font-size:13px }
+    .pk-note{ text-align:center; color:var(--muted); font-size:14px; margin-top:26px }
+
+    .steps{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:22px }
+    .step{ display:flex; gap:16px; align-items:flex-start }
+    .step-n{ flex:none; width:44px; height:44px; border-radius:50%; background:var(--navy); color:#fff; font-family:'aurora'; font-weight:800; font-size:20px; display:grid; place-items:center }
+    .step h3{ font-size:19px; margin-bottom:6px }
+    .step p{ color:var(--muted); font-size:15px }
+
+    .seg-wrap{ background:#fff }
+    .seg-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:20px }
+    .seg{ border:1px solid var(--line); border-left:4px solid var(--cyan); border-radius:12px; padding:24px }
+    .seg h3{ font-size:19px; margin-bottom:8px }
+    .seg p{ color:var(--muted); font-size:15px }
+
+    .cta{ background:var(--navy); color:#fff }
+    .cta-grid{ display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center }
+    .cta h2{ font-size:clamp(26px,3.4vw,36px); margin-bottom:14px }
+    .cta > .wrap > div > p{ color:rgba(255,255,255,.82); font-size:17px; margin-bottom:22px }
+    .form{ background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.14); border-radius:18px; padding:28px }
+    .form label{ display:block; font-size:13px; color:rgba(255,255,255,.7); margin:0 0 6px }
+    .form .row{ display:flex; gap:14px }
+    .form .fg{ margin-bottom:16px; flex:1 }
+    .form input, .form textarea{ width:100%; padding:12px 14px; border-radius:10px; border:1px solid rgba(255,255,255,.2); background:rgba(255,255,255,.06); color:#fff; font-size:15px; font-family:inherit }
+    .form input::placeholder, .form textarea::placeholder{ color:#8695a8 }
+    .form input:focus, .form textarea:focus{ outline:none; border-color:var(--green) }
+    .form textarea{ resize:vertical; min-height:84px }
+    .form .btn{ width:100%; margin-top:6px }
+    .form-consent{ font-size:12px; color:#8695a8; line-height:1.5; margin-top:12px; display:flex; gap:8px; align-items:flex-start }
+    .form-consent a{ color:rgba(255,255,255,.8) }
+
+    .site-footer{ background:#070C15; color:rgba(255,255,255,.62); padding:44px 0 34px; font-size:14px }
+    .ft-row{ display:flex; flex-wrap:wrap; gap:30px 60px; justify-content:space-between; align-items:flex-start }
+    .ft-brand{ font-family:'aurora','Montserrat',sans-serif; font-weight:800; font-size:22px; color:#fff; margin-bottom:10px }
+    .ft-legal{ line-height:1.7; font-size:13px; color:rgba(255,255,255,.5) }
+    .ft-col p.lbl{ font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:rgba(255,255,255,.45); margin-bottom:8px }
+    .ft-col a{ color:rgba(255,255,255,.85); text-decoration:none; display:block; margin-bottom:6px }
+    .ft-bottom{ margin-top:30px; padding-top:20px; border-top:1px solid rgba(255,255,255,.1); font-size:13px; color:rgba(255,255,255,.42) }
+
+    @media(max-width:820px){
+      .nav-links, .nav-phone{ display:none }
+      .nav-burger{ display:flex }
+      .nav-mobile.open{ display:flex }
+      .cta-grid{ grid-template-columns:1fr }
+      .form .row{ flex-direction:column }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-sc"></div>
+    <div class="wrap hero-in">
+      <nav class="nav">
+        <a href="/" class="nav-l"><img src="images/logo_white.png" alt="Aurora Trip"></a>
+        <ul class="nav-links">
+          <li><a href="/">Главная</a></li>
+          <li><a href="tury.html">Экскурсии</a></li>
+          <li><a href="contacts.html">Контакты</a></li>
+          <li><a href="/#blog">Блог</a></li>
+          <li><a href="partners.html" class="active">Партнёрам</a></li>
+        </ul>
+        <a href="tel:+79211663315" class="nav-phone">+7 (921) 166-33-15</a>
+        <button class="nav-burger" onclick="var m=document.getElementById('navM');m.classList.toggle('open')" aria-label="Меню"><span></span><span></span><span></span></button>
+      </nav>
+      <div class="nav-mobile" id="navM">
+        <a href="/">Главная</a>
+        <a href="tury.html">Экскурсии</a>
+        <a href="contacts.html">Контакты</a>
+        <a href="/#blog">Блог</a>
+        <a href="partners.html">Партнёрам</a>
+        <a href="tel:+79211663315">+7 (921) 166-33-15 · Михаил</a>
+      </div>
+
+      <div class="eyebrow cyan">Партнёрам · B2B</div>
+      <h1>Принимающий оператор по Кольскому полуострову</h1>
+      <p class="lead">Нетто-цены, комиссия <span class="cyan">до 20%</span>, готовые пакеты под перепродажу и приём под ключ — от Мурманска и Териберки до охоты за северным сиянием.</p>
+      <div class="cta-row">
+        <a href="#agent-form" class="btn btn-p">Стать партнёром</a>
+        <a href="#packages" class="btn btn-g">Посмотреть пакеты</a>
+      </div>
+      <div class="facts">
+        <div class="fact"><b>Сен–Мар</b><span>сезон северного сияния</span></div>
+        <div class="fact"><b>1–4 дня</b><span>готовые пакеты</span></div>
+        <div class="fact"><b>FIT + группы</b><span>и MICE</span></div>
+        <div class="fact"><b>Под ключ</b><span>трансфер · гид · питание</span></div>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-h"><div class="eyebrow">Почему мы</div><h2>Надёжный приём на земле, а не посредник</h2>
+        <p>Свой транспорт, гиды и отработанные маршруты по всему Кольскому полуострову.</p></div>
+      <div class="why-grid">
+        <div class="why"><div class="why-i">◆</div><h3>Локальный DMC</h3><p>Мы на земле в Мурманске — свой транспорт, гиды и маршруты. Не посредник.</p></div>
+        <div class="why"><div class="why-i">◆</div><h3>Нетто + комиссия</h3><p>Прозрачные нетто-тарифы и комиссия до 20%. Вы формируете свою цену.</p></div>
+        <div class="why"><div class="why-i">◆</div><h3>Готовые пакеты</h3><p>Программы под перепродажу «под ключ» — от 1 дня до туров на 4 дня.</p></div>
+        <div class="why"><div class="why-i">◆</div><h3>Приём под ключ</h3><p>Трансферы, гид, питание, размещение и страховка — всё берём на себя.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pk-wrap" id="packages">
+    <div class="wrap">
+      <div class="sec-h"><div class="eyebrow">Продукт под перепродажу</div><h2>Готовые пакеты и экскурсии</h2>
+        <p>Цены указаны ориентировочно. Полный нетто-тариф по сезонам высылаем партнёрам.</p></div>
+      <div class="pk-grid">
+        <article class="pk"><div class="pk-img" style="background-image:url('images/murmansk_hero.jpeg')"></div><div class="pk-b"><h3>Выходные в Мурманске</h3><p>3 дня · Мурманск + Териберка + водопады</p><span class="pk-p">от 20 000 ₽ <em>нетто</em></span></div></article>
+        <article class="pk"><div class="pk-img" style="background-image:url('images/aurora-bg.jpg')"></div><div class="pk-b"><h3>Большое путешествие</h3><p>4 дня · море, водопады, горы</p><span class="pk-p">от 28 000 ₽ <em>нетто</em></span></div></article>
+        <article class="pk"><div class="pk-img" style="background-image:url('images/teriberka_whales.jpg')"></div><div class="pk-b"><h3>Териберка + киты</h3><p>1 день · выход в море</p><span class="pk-p">от 10 000 ₽ <em>нетто</em></span></div></article>
+        <article class="pk"><div class="pk-img" style="background-image:url('images/gallery/khib_1.jpg')"></div><div class="pk-b"><h3>Хибины и Кировск</h3><p>1 день · горы, канатная дорога</p><span class="pk-p">от 10 000 ₽ <em>нетто</em></span></div></article>
+        <article class="pk"><div class="pk-img" style="background-image:url('images/waterfall_12.jpeg')"></div><div class="pk-b"><h3>Водопады Кольского</h3><p>1 день · дикая природа</p><span class="pk-p">от 7 000 ₽ <em>нетто</em></span></div></article>
+        <article class="pk"><div class="pk-img" style="background-image:url('images/saami_4.jpeg')"></div><div class="pk-b"><h3>К оленям и хаски</h3><p>1 день · саамы, животные</p><span class="pk-p">от 6 000 ₽ <em>нетто</em></span></div></article>
+      </div>
+      <p class="pk-note">Также собираем индивидуальные маршруты и MICE-программы под запрос агента.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-h"><div class="eyebrow">Условия</div><h2>Как начать работать — 3 шага</h2></div>
+      <div class="steps">
+        <div class="step"><span class="step-n">1</span><div><h3>Заявка</h3><p>Оставляете заявку — высылаем презентацию и нетто-тариф по сезонам.</p></div></div>
+        <div class="step"><span class="step-n">2</span><div><h3>Договор</h3><p>Подписываем агентское соглашение, фиксируем комиссию и условия.</p></div></div>
+        <div class="step"><span class="step-n">3</span><div><h3>Бронь и приём</h3><p>Бронируете группу или FIT — мы обеспечиваем приём на Кольском.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="seg-wrap">
+    <div class="wrap">
+      <div class="sec-h"><div class="eyebrow">Кому подходит</div><h2>С кем мы работаем</h2></div>
+      <div class="seg-grid">
+        <div class="seg"><h3>Туроператоры РФ и СНГ</h3><p>Продаёте «Мурманск», но нет земли на Кольском? Мы — ваш приём.</p></div>
+        <div class="seg"><h3>MICE и корпоратив</h3><p>Инсентив, тимбилдинг и события в Арктике под ключ.</p></div>
+        <div class="seg"><h3>Зарубежные агенты</h3><p>Китай, Залив, Индия, ЮВА — сияние и киты. Мультиязычный приём.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="agent-form">
+    <div class="wrap cta-grid">
+      <div>
+        <div class="eyebrow cyan">Стать партнёром</div>
+        <h2>Оставьте заявку — вышлем презентацию и нетто-тариф</h2>
+        <p>Ответим в течение рабочего дня. Обсудим комиссию, сезоны и гарантированные заезды.</p>
+        <div class="facts">
+          <div class="fact"><b>&lt;24ч</b><span>ответ на заявку</span></div>
+          <div class="fact"><b>RU · EN</b><span>языки приёма</span></div>
+        </div>
+      </div>
+      <form class="form" data-tg="Заявка агента — Партнёрам">
+        <div class="row">
+          <div class="fg"><label>Имя</label><input name="name" placeholder="Иван" required></div>
+          <div class="fg"><label>Компания</label><input name="company" placeholder="Туроператор"></div>
+        </div>
+        <div class="row">
+          <div class="fg"><label>Страна / город</label><input name="country" placeholder="Москва"></div>
+          <div class="fg"><label>Телефон / Telegram</label><input name="phone" placeholder="+7…" required></div>
+        </div>
+        <div class="fg"><label>Запрос</label><textarea name="message" placeholder="Интересуют пакеты на сияние для групп из…"></textarea></div>
+        <button type="submit" class="btn btn-p">Отправить заявку</button>
+        <label class="form-consent"><input type="checkbox" required style="width:auto;margin-top:3px"> <span>Согласен на обработку персональных данных согласно <a href="privacy.html" target="_blank">политике конфиденциальности</a>.</span></label>
+      </form>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="ft-row">
+        <div class="ft-col">
+          <div class="ft-brand">Aurora Trip</div>
+          <div class="ft-legal">ИП Трофименко Михаил Сергеевич<br>ОГРНИП 321519000010954<br>ИНН 519091956005</div>
+        </div>
+        <div class="ft-col">
+          <p class="lbl">Контакты</p>
+          <a href="tel:+79211663315">+7 (921) 166-33-15 · Михаил</a>
+          <a href="mailto:auroratrip3@gmail.com">auroratrip3@gmail.com</a>
+          <span style="color:rgba(255,255,255,.5)">График: с 9:00 до 21:00</span>
+        </div>
+        <div class="ft-col">
+          <p class="lbl">Разделы</p>
+          <a href="/">Главная</a>
+          <a href="tury.html">Экскурсии</a>
+          <a href="contacts.html">Контакты</a>
+          <a href="partners.html">Партнёрам</a>
+        </div>
+        <div class="ft-col">
+          <p class="lbl">Мессенджеры</p>
+          <a href="https://t.me/aurora_trip51" target="_blank">Telegram</a>
+          <a href="https://wa.me/79211663315" target="_blank">WhatsApp</a>
+          <a href="https://vk.com/aurora_trip" target="_blank">ВКонтакте</a>
+        </div>
+      </div>
+      <div class="ft-bottom">© 2026 Aurora Trip · Принимающий туроператор по Кольскому полуострову · Мурманск</div>
+    </div>
+  </footer>
+
+  <script src="js/telegram-forms.js" defer></script>
+  <script src="js/cookie-banner.js" defer></script>
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+  (function(m,e,t,r,i,k,a){
+  m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+  m[i].l=1*new Date();
+  for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+  k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+  })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=110644445', 'ym');
+  ym(110644445, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/110644445" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <!-- /Yandex.Metrika counter -->
+</body>
+</html>
