@@ -92,6 +92,7 @@
         if (btn) { btn.disabled = false; btn.textContent = oldText; }
         showStatus(form, ok);
         if (ok) {
+          if (window.ym) ym(110644445, 'reachGoal', 'zayavka');
           form.querySelectorAll('input, select, textarea').forEach(function (el) {
             if (el.type === 'checkbox') return;
             if (el.id === 'sidebar-guests') { el.value = '1'; return; }
@@ -117,5 +118,15 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('form[data-tg]').forEach(handle);
+  });
+
+  // Цель на клики по кнопкам мессенджеров (tel / WhatsApp / Telegram)
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href]');
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    if (/^tel:|wa\.me|api\.whatsapp\.com|whatsapp:|t\.me|tg:\/\//i.test(href)) {
+      if (window.ym) ym(110644445, 'reachGoal', 'messenger_click');
+    }
   });
 })();

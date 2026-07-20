@@ -123,6 +123,7 @@
     "publisher": { "@type": "TravelAgency", "name": "Aurora Trip", "url": "https://auroratrip.ru/" }
   }
   </script>
+  <link rel="preload" as="image" href="images/tour5.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -155,25 +156,10 @@
     /* =========================================================
        HERO
     ========================================================= */
-    /* Единый фон: одно фото-аврора стоит НЕПОДВИЖНО (fixed) за hero + блоком сияния */
-    .sky-continuum {
-      position: relative;
-      background: #0a1220 url('images/tour5.jpg') center/cover no-repeat fixed;
-    }
-    /* Затемнение только слева (там текст) → справа аврора остаётся яркой.
-       По вертикали слой однородный, поэтому стыков нет. */
-    .sky-continuum::before {
-      content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none;
-      background: linear-gradient(90deg, rgba(6,10,20,.62) 0%, rgba(6,10,20,.46) 30%, rgba(6,10,20,.14) 62%, rgba(6,10,20,.03) 100%);
-    }
-    .sky-continuum > .hero, .sky-continuum > .aurb { position: relative; z-index: 1; }
-    /* На мобильных fixed-фон часто глючит — там оставляем обычный скролл */
-    @media (max-width: 768px) {
-      .sky-continuum { background-attachment: scroll; }
-    }
     .hero {
       min-height: 100vh;
-      background: transparent;
+      /* Замени на свою фотографию: background-image: url('images/aurora-bg.jpg'); */
+      background: #1a1c22 url('images/tour5.webp') center/cover no-repeat;
       display: flex;
       flex-direction: column;
       color: #fff;
@@ -181,9 +167,34 @@
       overflow: hidden;
     }
 
-    /* Оверлеи сияния убраны из hero: фон-фото уже настоящая аврора, а свой
-       оверлей давал складку на стыке с блоком сияния. Тёмный слой — единый на .sky-continuum. */
-    .hero::before, .hero::after { content: none; }
+    /* Фолбэк-градиент если фото нет */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 60% 40%, rgba(40,120,80,0.35) 0%, transparent 60%),
+                  radial-gradient(ellipse at 30% 70%, rgba(20,80,60,0.25) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    /* Живое сияние — переливающийся градиент поверх фото */
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: -25%;
+      z-index: 1;
+      pointer-events: none;
+      background:
+        radial-gradient(38% 55% at 28% 38%, rgba(46,255,160,0.62) 0%, transparent 68%),
+        radial-gradient(42% 52% at 62% 30%, rgba(0,214,255,0.55) 0%, transparent 70%),
+        radial-gradient(48% 60% at 52% 62%, rgba(150,90,255,0.45) 0%, transparent 72%),
+        radial-gradient(40% 45% at 80% 55%, rgba(46,255,190,0.42) 0%, transparent 70%);
+      mix-blend-mode: screen;
+      filter: blur(34px);
+      opacity: 1;
+      will-change: transform, opacity;
+      animation: auroraFlow 7s ease-in-out infinite alternate;
+    }
     @keyframes auroraFlow {
       0%   { transform: translate3d(-6%, -3%, 0) scale(1.05) rotate(0deg);  opacity: .7; }
       50%  { transform: translate3d(5%, 4%, 0)   scale(1.22) rotate(4deg);  opacity: 1; }
@@ -1031,6 +1042,25 @@
        FOOTER
     ========================================================= */
     :root { --aurora: linear-gradient(135deg, #3DDC84 0%, #00D4FF 100%); }
+
+    /* Нижняя липкая панель заявки (только моб.) */
+    .mobile-cta { display: none; }
+    @media (max-width: 900px) {
+      .mobile-cta {
+        display: flex; position: fixed; bottom: 0; left: 0; right: 0; z-index: 9998;
+        align-items: center; justify-content: center;
+        background: rgba(255,255,255,.98);
+        backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+        border-top: 1px solid rgba(0,0,0,.1); padding: 11px 18px;
+        box-shadow: 0 -6px 20px rgba(0,0,0,.08);
+      }
+      .mcta-btn {
+        flex: 1; padding: 14px 12px; border: none; border-radius: 7px;
+        background: var(--aurora); color: #fff; font-weight: 700; font-size: 15px;
+        font-family: inherit; cursor: pointer; white-space: nowrap; text-align: center;
+      }
+      body { padding-bottom: 74px; }
+    }
     .site-footer {
       background: #0E1626; color: #fff; margin-top: 90px;
       padding: 70px 0 60px;
@@ -1367,15 +1397,14 @@
 <body>
 
 <!-- ========================================================
-     HERO SECTION + БЛОК СИЯНИЯ (единый фон-континуум)
+     HERO SECTION
 ======================================================== -->
-<div class="sky-continuum">
 <section class="hero">
 
   <!-- Навигация -->
   <nav class="nav">
     <a href="/" class="logo">
-      <img src="images/logo_white.png" alt="Aurora Trip" style="width:92px;height:auto;">
+      <img src="images/logo_white.webp" alt="Aurora Trip" style="width:92px;height:auto;">
     </a>
 
     <ul class="nav-links">
@@ -1460,7 +1489,7 @@
       <a href="#tours" class="btn-programs">ВСЕ ПРОГРАММЫ</a>
     </div>
 
-    <form class="hero-form" data-tg="Главная — форма на первом экране">
+    <form class="hero-form" id="zayavka-form" data-tg="Главная — форма на первом экране">
       <h3>Напишите нам и мы организуем ваше идеальное путешествие!</h3>
       <p class="wait-label">Время ожидания ответа 30 минут</p>
       <input type="tel" name="phone" class="form-field" placeholder="Ваш номер телефона" required>
@@ -1515,9 +1544,19 @@
      БЛОК-ГЕРОЙ «СЕВЕРНОЕ СИЯНИЕ» (флагман)
 ======================================================== -->
 <style>
-  .aurb { position: relative; overflow: hidden; margin: 0; padding: 78px 24px 84px; background: transparent; isolation: isolate; }
-  .aurb::before { content: none; }
-  .aurb::after { content: none; }
+  .aurb { position: relative; overflow: hidden; margin: 8px 0 0; padding: 78px 24px; background: #070d1c; isolation: isolate; }
+  .aurb::before {
+    content: ""; position: absolute; inset: -30% -10% auto -10%; height: 90%; z-index: -2;
+    background:
+      radial-gradient(60% 80% at 30% 40%, rgba(61,220,132,.55), transparent 60%),
+      radial-gradient(55% 75% at 70% 30%, rgba(0,212,255,.45), transparent 62%),
+      radial-gradient(50% 70% at 55% 55%, rgba(139,92,246,.40), transparent 60%);
+    filter: blur(30px); opacity: .85; transform: translateZ(0);
+  }
+  .aurb::after {
+    content: ""; position: absolute; inset: 0; z-index: -1;
+    background: linear-gradient(180deg, rgba(7,13,28,.35) 0%, rgba(7,13,28,.65) 55%, #070d1c 100%);
+  }
   @media (prefers-reduced-motion: no-preference) {
     .aurb::before { animation: aurbWave 12s ease-in-out infinite alternate; }
     @keyframes aurbWave {
@@ -1578,15 +1617,14 @@
       </div>
     </div>
     <div class="aurb-mosaic">
-      <a href="page-severnoe-siyanie.html" class="aurb-big"><img src="images/aurora/aurora-23.jpg" alt="Северное сияние над лесом под Мурманском" loading="lazy"></a>
-      <a href="page-severnoe-siyanie.html"><img src="images/aurora/aurora-01.jpg" alt="Гость под северным сиянием" loading="lazy"></a>
-      <a href="page-severnoe-siyanie.html"><img src="images/aurora/aurora-16.jpg" alt="Аврора над Кольским полуостровом" loading="lazy"></a>
-      <a href="page-severnoe-siyanie.html" class="aurb-wide"><img src="images/aurora/aurora-08.jpg" alt="Яркое зелёное сияние в ночном небе" loading="lazy"><span class="aurb-count">+ 26 фото из туров →</span></a>
-      <a href="page-severnoe-siyanie.html"><img src="images/aurora/aurora-19.jpg" alt="Компания под северным сиянием" loading="lazy"></a>
+      <a href="page-severnoe-siyanie.html" class="aurb-big"><img src="images/aurora/aurora-23.webp" alt="Северное сияние над лесом под Мурманском" loading="lazy"></a>
+      <a href="page-severnoe-siyanie.html"><img src="images/aurora/aurora-01.webp" alt="Гость под северным сиянием" loading="lazy"></a>
+      <a href="page-severnoe-siyanie.html"><img src="images/aurora/aurora-16.webp" alt="Аврора над Кольским полуостровом" loading="lazy"></a>
+      <a href="page-severnoe-siyanie.html" class="aurb-wide"><img src="images/aurora/aurora-08.webp" alt="Яркое зелёное сияние в ночном небе" loading="lazy"><span class="aurb-count">+ 26 фото из туров →</span></a>
+      <a href="page-severnoe-siyanie.html"><img src="images/aurora/aurora-19.webp" alt="Компания под северным сиянием" loading="lazy"></a>
     </div>
   </div>
 </section>
-</div><!-- /sky-continuum -->
 
 <!-- Разделитель: стрелочки вниз -->
 <div class="divider-chevrons">
@@ -1634,7 +1672,7 @@
 
       <!-- ===== ПАКЕТНЫЕ ТУРЫ ===== -->
       <a href="page-vyhodnye-murmansk.html" class="tour-card" data-season="package">
-        <div class="card-bg" style="background: #1a3a4a url('images/murmansk_hero.jpeg') center/cover no-repeat;"></div>
+        <div class="card-bg" style="background: #1a3a4a url('images/murmansk_hero.webp') center/cover no-repeat;"></div>
         <div class="card-overlay"></div>
         <div class="card-inner">
           <div class="badges">
@@ -1653,7 +1691,7 @@
       </a>
 
       <a href="page-bolshoe-puteshestvie.html" class="tour-card" data-season="package">
-        <div class="card-bg" style="background: #1a3a4a url('images/gallery/khib_1.jpg') center/cover no-repeat;"></div>
+        <div class="card-bg" style="background: #1a3a4a url('images/gallery/khib_1.webp') center/cover no-repeat;"></div>
         <div class="card-overlay"></div>
         <div class="card-inner">
           <div class="badges">
@@ -1673,7 +1711,7 @@
 
       <!-- ===== ЛЕТНИЕ ТУРЫ ===== -->
       <a href="page-vyhodnye-murmansk.html" class="tour-card visible" data-season="summer">
-        <div class="card-bg" style="background: #1a3a4a url('images/murmansk_hero.jpeg') center/cover no-repeat;"></div>
+        <div class="card-bg" style="background: #1a3a4a url('images/murmansk_hero.webp') center/cover no-repeat;"></div>
         <div class="card-overlay"></div>
         <div class="card-inner">
           <div class="badges">
@@ -1692,7 +1730,7 @@
       </a>
 
       <a href="page-kity-teriberka.html" class="tour-card visible" data-season="summer">
-        <div class="card-bg" style="background: #1a3a4a url('images/teriberka_whales.jpg') center/cover no-repeat;"></div>
+        <div class="card-bg" style="background: #1a3a4a url('images/teriberka_whales.webp') center/cover no-repeat;"></div>
         <div class="card-overlay"></div>
         <div class="card-inner">
           <div class="badges">
@@ -1711,7 +1749,7 @@
       </a>
 
       <a href="page-teriberka-1den.html" class="tour-card visible" data-season="summer">
-        <div class="card-bg" style="background: #1a3a4a url('images/gallery/ter_2.jpg') center/cover no-repeat;"></div>
+        <div class="card-bg" style="background: #1a3a4a url('images/gallery/ter_2.webp') center/cover no-repeat;"></div>
         <div class="card-overlay"></div>
         <div class="card-inner">
           <div class="badges">
@@ -1729,7 +1767,7 @@
       </a>
 
       <a href="page-murmansk-obzor.html" class="tour-card visible" data-season="summer">
-        <div class="card-bg" style="background: #3a5a7a url('images/aurora-bg2.jpg') center/cover no-repeat;"></div>
+        <div class="card-bg" style="background: #3a5a7a url('images/aurora-bg2.webp') center/cover no-repeat;"></div>
         <div class="card-overlay"></div>
         <div class="card-inner">
           <div class="badges">
@@ -1747,7 +1785,7 @@
       </a>
 
       <a href="page-vodopady.html" class="tour-card visible" data-season="summer">
-        <div class="card-bg" style="background: #1a4a3a url('images/waterfall_12.jpeg') center/cover no-repeat;"></div>
+        <div class="card-bg" style="background: #1a4a3a url('images/waterfall_12.webp') center/cover no-repeat;"></div>
         <div class="card-overlay"></div>
         <div class="card-inner">
           <div class="badges">
@@ -1765,7 +1803,7 @@
       </a>
 
       <a href="page-hibiny-kirovsk.html" class="tour-card visible" data-season="summer">
-        <div class="card-bg" style="background: #1a3a4a url('images/gallery/khib_1.jpg') center/cover no-repeat;"></div>
+        <div class="card-bg" style="background: #1a3a4a url('images/gallery/khib_1.webp') center/cover no-repeat;"></div>
         <div class="card-overlay"></div>
         <div class="card-inner">
           <div class="badges">
@@ -1784,7 +1822,7 @@
       </a>
 
       <a href="page-ogni-imandry.html" class="tour-card visible" data-season="summer">
-        <div class="card-bg" style="background: #1a3a4a url('images/gallery/khib_5.jpg') center/cover no-repeat;"></div>
+        <div class="card-bg" style="background: #1a3a4a url('images/gallery/khib_5.webp') center/cover no-repeat;"></div>
         <div class="card-overlay"></div>
         <div class="card-inner">
           <div class="badges">
@@ -1803,7 +1841,7 @@
       </a>
 
       <a href="page-saami.html" class="tour-card visible" data-season="summer">
-        <div class="card-bg" style="background: #3a2a4a url('images/saami_cover.jpeg') center/cover no-repeat;"></div>
+        <div class="card-bg" style="background: #3a2a4a url('images/saami_cover.webp') center/cover no-repeat;"></div>
         <div class="card-overlay"></div>
         <div class="card-inner">
           <div class="badges">
@@ -1822,7 +1860,7 @@
 
       <!-- ===== ОСЕННИЕ ТУРЫ ===== -->
       <a href="page-severnoe-siyanie.html" class="tour-card" data-season="autumn">
-        <div class="card-bg" style="background: #0a1428 url('images/aurora/aurora-23.jpg') center/cover no-repeat;"></div>
+        <div class="card-bg" style="background: #0a1428 url('images/aurora/aurora-23.webp') center/cover no-repeat;"></div>
         <div class="card-overlay"></div>
         <div class="card-inner">
           <div class="badges">
@@ -1840,7 +1878,7 @@
       </a>
 
       <a href="page-kity-teriberka.html" class="tour-card" data-season="autumn">
-        <div class="card-bg" style="background: #1a3a4a url('images/aurora-bg.jpg') center/cover no-repeat;"></div>
+        <div class="card-bg" style="background: #1a3a4a url('images/aurora-bg.webp') center/cover no-repeat;"></div>
         <div class="card-overlay"></div>
         <div class="card-inner">
           <div class="badges">
@@ -1859,7 +1897,7 @@
       </a>
 
       <a href="page-murmansk-obzor.html" class="tour-card" data-season="autumn">
-        <div class="card-bg" style="background: #3a5a7a url('images/aurora-bg2.jpg') center/cover no-repeat;"></div>
+        <div class="card-bg" style="background: #3a5a7a url('images/aurora-bg2.webp') center/cover no-repeat;"></div>
         <div class="card-overlay"></div>
         <div class="card-inner">
           <div class="badges">
@@ -1877,7 +1915,7 @@
       </a>
 
       <a href="page-vodopady.html" class="tour-card" data-season="autumn">
-        <div class="card-bg" style="background: #1a4a3a url('images/waterfall_12.jpeg') center/cover no-repeat;"></div>
+        <div class="card-bg" style="background: #1a4a3a url('images/waterfall_12.webp') center/cover no-repeat;"></div>
         <div class="card-overlay"></div>
         <div class="card-inner">
           <div class="badges">
@@ -1895,7 +1933,7 @@
       </a>
 
       <a href="page-saami.html" class="tour-card" data-season="autumn">
-        <div class="card-bg" style="background: #3a2a4a url('images/saami_cover.jpeg') center/cover no-repeat;"></div>
+        <div class="card-bg" style="background: #3a2a4a url('images/saami_cover.webp') center/cover no-repeat;"></div>
         <div class="card-overlay"></div>
         <div class="card-inner">
           <div class="badges">
@@ -1914,7 +1952,7 @@
 
       <!-- ===== ЗИМНИЕ ТУРЫ ===== -->
       <a href="page-severnoe-siyanie.html" class="tour-card" data-season="winter">
-        <div class="card-bg" style="background: #0a1428 url('images/aurora/aurora-23.jpg') center/cover no-repeat;"></div>
+        <div class="card-bg" style="background: #0a1428 url('images/aurora/aurora-23.webp') center/cover no-repeat;"></div>
         <div class="card-overlay"></div>
         <div class="card-inner">
           <div class="badges">
@@ -1932,7 +1970,7 @@
       </a>
 
       <a href="page-kity-teriberka.html" class="tour-card" data-season="winter">
-        <div class="card-bg" style="background: #1a3a4a url('images/aurora-bg.jpg') center/cover no-repeat;"></div>
+        <div class="card-bg" style="background: #1a3a4a url('images/aurora-bg.webp') center/cover no-repeat;"></div>
         <div class="card-overlay"></div>
         <div class="card-inner">
           <div class="badges">
@@ -1951,7 +1989,7 @@
       </a>
 
       <a href="page-murmansk-obzor.html" class="tour-card" data-season="winter">
-        <div class="card-bg" style="background: #3a5a7a url('images/aurora-bg2.jpg') center/cover no-repeat;"></div>
+        <div class="card-bg" style="background: #3a5a7a url('images/aurora-bg2.webp') center/cover no-repeat;"></div>
         <div class="card-overlay"></div>
         <div class="card-inner">
           <div class="badges">
@@ -1969,7 +2007,7 @@
       </a>
 
       <a href="page-saami.html" class="tour-card" data-season="winter">
-        <div class="card-bg" style="background: #3a2a4a url('images/saami_cover.jpeg') center/cover no-repeat;"></div>
+        <div class="card-bg" style="background: #3a2a4a url('images/saami_cover.webp') center/cover no-repeat;"></div>
         <div class="card-overlay"></div>
         <div class="card-inner">
           <div class="badges">
@@ -1988,7 +2026,7 @@
 
       <!-- ===== ВЕСЕННИЕ ТУРЫ ===== -->
       <a href="page-severnoe-siyanie.html" class="tour-card" data-season="spring">
-        <div class="card-bg" style="background: #0a1428 url('images/aurora/aurora-23.jpg') center/cover no-repeat;"></div>
+        <div class="card-bg" style="background: #0a1428 url('images/aurora/aurora-23.webp') center/cover no-repeat;"></div>
         <div class="card-overlay"></div>
         <div class="card-inner">
           <div class="badges">
@@ -2006,7 +2044,7 @@
       </a>
 
       <a href="page-kity-teriberka.html" class="tour-card" data-season="spring">
-        <div class="card-bg" style="background: #1a3a4a url('images/aurora-bg.jpg') center/cover no-repeat;"></div>
+        <div class="card-bg" style="background: #1a3a4a url('images/aurora-bg.webp') center/cover no-repeat;"></div>
         <div class="card-overlay"></div>
         <div class="card-inner">
           <div class="badges">
@@ -2025,7 +2063,7 @@
       </a>
 
       <a href="page-murmansk-obzor.html" class="tour-card" data-season="spring">
-        <div class="card-bg" style="background: #3a5a7a url('images/aurora-bg2.jpg') center/cover no-repeat;"></div>
+        <div class="card-bg" style="background: #3a5a7a url('images/aurora-bg2.webp') center/cover no-repeat;"></div>
         <div class="card-overlay"></div>
         <div class="card-inner">
           <div class="badges">
@@ -2043,7 +2081,7 @@
       </a>
 
       <a href="page-vodopady.html" class="tour-card" data-season="spring">
-        <div class="card-bg" style="background: #1a4a3a url('images/waterfall_12.jpeg') center/cover no-repeat;"></div>
+        <div class="card-bg" style="background: #1a4a3a url('images/waterfall_12.webp') center/cover no-repeat;"></div>
         <div class="card-overlay"></div>
         <div class="card-inner">
           <div class="badges">
@@ -2061,7 +2099,7 @@
       </a>
 
       <a href="page-saami.html" class="tour-card" data-season="spring">
-        <div class="card-bg" style="background: #3a2a4a url('images/saami_cover.jpeg') center/cover no-repeat;"></div>
+        <div class="card-bg" style="background: #3a2a4a url('images/saami_cover.webp') center/cover no-repeat;"></div>
         <div class="card-overlay"></div>
         <div class="card-inner">
           <div class="badges">
@@ -2328,7 +2366,7 @@
   <div class="blog-grid">
 
     <a class="blog-card published" href="blog/kity-v-teriberke.html" style="text-decoration:none;color:inherit;">
-      <div class="blog-card-img"><img class="blog-card-photo" src="images/blog-kity-teriberka.jpg" alt="Хвост кита у берега Териберки в Баренцевом море"></div>
+      <div class="blog-card-img"><img class="blog-card-photo" src="images/blog-kity-teriberka.webp" alt="Хвост кита у берега Териберки в Баренцевом море"></div>
       <div class="blog-card-body">
         <span class="blog-cat">Путешествия</span>
         <h3 class="blog-card-title">Киты в Териберке: когда ехать и как увидеть</h3>
@@ -2338,7 +2376,7 @@
     </a>
 
     <a class="blog-card published" href="blog/severnoe-siyanie-gid.html" style="text-decoration:none;color:inherit;">
-      <div class="blog-card-img"><img class="blog-card-photo" src="images/aurora/aurora-23.jpg" alt="Северное сияние над заснеженным лесом под Мурманском"></div>
+      <div class="blog-card-img"><img class="blog-card-photo" src="images/aurora/aurora-23.webp" alt="Северное сияние над заснеженным лесом под Мурманском"></div>
       <div class="blog-card-body">
         <span class="blog-cat">Природа</span>
         <h3 class="blog-card-title">Северное сияние в Мурманске: гид охотника</h3>
@@ -2426,6 +2464,11 @@
 </script>
 
 <!-- FOOTER -->
+<!-- Нижняя липкая панель заявки (только моб.) -->
+<div class="mobile-cta">
+  <button type="button" class="mcta-btn" onclick="document.getElementById('zayavka-form').scrollIntoView({behavior:'smooth',block:'center'});">Оставить заявку</button>
+</div>
+
 <footer class="site-footer">
   <div class="ft-inner">
     <div class="ft-top">

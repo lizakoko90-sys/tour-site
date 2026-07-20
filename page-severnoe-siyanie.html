@@ -98,7 +98,7 @@
     :root { --aurora: linear-gradient(135deg, #3DDC84 0%, #00D4FF 100%); }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', Arial, sans-serif; background: #fff; color: #111; }
+    body { font-family: 'Montserrat', Arial, sans-serif; background: #fff; color: #111; }
 
     /* HEADER */
     .smart-header {
@@ -358,9 +358,9 @@
       color: transparent; background-size: cover; background-position: center;
       opacity: 0.55; pointer-events: none;
     }
-    .pw-put  { background-image: url('images/aurora/aurora-23.jpg'); }
-    .pw-more { background-image: url('images/aurora/aurora-24.jpg'); }
-    .pw-mosh { background-image: url('images/aurora/aurora-08.jpg'); }
+    .pw-put  { background-image: url('images/aurora/aurora-23.webp'); }
+    .pw-more { background-image: url('images/aurora/aurora-24.webp'); }
+    .pw-mosh { background-image: url('images/aurora/aurora-08.webp'); }
 
     /* Timeline */
     .timeline { display: flex; flex-direction: column; }
@@ -867,7 +867,7 @@
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://auroratrip.ru/" },
       { "@type": "ListItem", "position": 2, "name": "Экскурсии", "item": "https://auroratrip.ru/tury.html" },
-      { "@type": "ListItem", "position": 3, "name": "Вся Териберка за 1 день", "item": "https://auroratrip.ru/page-teriberka-1den.html" }
+      { "@type": "ListItem", "position": 3, "name": "Тур на северное сияние в Мурманске", "item": "https://auroratrip.ru/page-severnoe-siyanie.html" }
     ]
   }
   </script>
@@ -957,7 +957,7 @@
 <!-- HERO PHOTO -->
 <div class="hero-photo-wrap">
   <div class="hero-photo">
-    <img src="images/aurora/aurora-23.jpg" alt="Северное сияние над заснеженным лесом под Мурманском — тур-охота за авророй">
+    <img src="images/aurora/aurora-23.webp" alt="Северное сияние над заснеженным лесом под Мурманском — тур-охота за авророй">
     <div class="hero-tags">
       <span class="hero-tag">🌌 Северное сияние</span>
       <span class="hero-tag white">🌙 Ночная охота</span>
@@ -994,8 +994,8 @@
 
     <!-- description photos (2 equal) -->
     <div class="desc-photos">
-      <img src="images/aurora/aurora-16.jpg" alt="Наш турист под северным сиянием на Кольском полуострове">
-      <img src="images/aurora/aurora-08.jpg" alt="Яркая зелёная аврора в ночном небе под Мурманском">
+      <img src="images/aurora/aurora-16.webp" alt="Наш турист под северным сиянием на Кольском полуострове">
+      <img src="images/aurora/aurora-08.webp" alt="Яркая зелёная аврора в ночном небе под Мурманском">
     </div>
 
     <!-- gallery button -->
@@ -1005,32 +1005,32 @@
     <div id="gallery-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.88); z-index:99999; overflow-y:auto; padding:60px 20px 40px;">
       <button onclick="closeGallery()" style="position:fixed; top:20px; right:28px; background:none; border:none; color:#fff; font-size:36px; cursor:pointer; line-height:1; z-index:100000;">&times;</button>
       <div style="max-width:900px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:10px;">
-        <img src="images/aurora/aurora-01.jpg" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Северное сияние под Мурманском — фото 1 из тура Aurora Trip">
-        <img src="images/aurora/aurora-02.jpg" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Северное сияние под Мурманском — фото 2 из тура Aurora Trip">
-        <img src="images/aurora/aurora-03.jpg" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Северное сияние под Мурманском — фото 3 из тура Aurora Trip">
-        <img src="images/aurora/aurora-04.jpg" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Северное сияние под Мурманском — фото 4 из тура Aurora Trip">
-        <img src="images/aurora/aurora-05.jpg" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Северное сияние под Мурманском — фото 5 из тура Aurora Trip">
-        <img src="images/aurora/aurora-06.jpg" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Северное сияние под Мурманском — фото 6 из тура Aurora Trip">
-        <img src="images/aurora/aurora-07.jpg" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Северное сияние под Мурманском — фото 7 из тура Aurora Trip">
-        <img src="images/aurora/aurora-08.jpg" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Северное сияние под Мурманском — фото 8 из тура Aurora Trip">
-        <img src="images/aurora/aurora-09.jpg" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Северное сияние под Мурманском — фото 9 из тура Aurora Trip">
-        <img src="images/aurora/aurora-10.jpg" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Северное сияние под Мурманском — фото 10 из тура Aurora Trip">
-        <img src="images/aurora/aurora-11.jpg" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Северное сияние под Мурманском — фото 11 из тура Aurora Trip">
-        <img src="images/aurora/aurora-12.jpg" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Северное сияние под Мурманском — фото 12 из тура Aurora Trip">
-        <img src="images/aurora/aurora-13.jpg" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Северное сияние под Мурманском — фото 13 из тура Aurora Trip">
-        <img src="images/aurora/aurora-14.jpg" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Северное сияние под Мурманском — фото 14 из тура Aurora Trip">
-        <img src="images/aurora/aurora-15.jpg" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Северное сияние под Мурманском — фото 15 из тура Aurora Trip">
-        <img src="images/aurora/aurora-16.jpg" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Северное сияние под Мурманском — фото 16 из тура Aurora Trip">
-        <img src="images/aurora/aurora-17.jpg" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Северное сияние под Мурманском — фото 17 из тура Aurora Trip">
-        <img src="images/aurora/aurora-18.jpg" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Северное сияние под Мурманском — фото 18 из тура Aurora Trip">
-        <img src="images/aurora/aurora-19.jpg" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Северное сияние под Мурманском — фото 19 из тура Aurora Trip">
-        <img src="images/aurora/aurora-20.jpg" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Северное сияние под Мурманском — фото 20 из тура Aurora Trip">
-        <img src="images/aurora/aurora-21.jpg" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Северное сияние под Мурманском — фото 21 из тура Aurora Trip">
-        <img src="images/aurora/aurora-22.jpg" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Северное сияние под Мурманском — фото 22 из тура Aurora Trip">
-        <img src="images/aurora/aurora-23.jpg" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Северное сияние под Мурманском — фото 23 из тура Aurora Trip">
-        <img src="images/aurora/aurora-24.jpg" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Северное сияние под Мурманском — фото 24 из тура Aurora Trip">
-        <img src="images/aurora/aurora-25.jpg" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Северное сияние под Мурманском — фото 25 из тура Aurora Trip">
-        <img src="images/aurora/aurora-26.jpg" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Северное сияние под Мурманском — фото 26 из тура Aurora Trip">
+        <img src="images/aurora/aurora-01.webp" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Северное сияние под Мурманском — фото 1 из тура Aurora Trip">
+        <img src="images/aurora/aurora-02.webp" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Северное сияние под Мурманском — фото 2 из тура Aurora Trip">
+        <img src="images/aurora/aurora-03.webp" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Северное сияние под Мурманском — фото 3 из тура Aurora Trip">
+        <img src="images/aurora/aurora-04.webp" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Северное сияние под Мурманском — фото 4 из тура Aurora Trip">
+        <img src="images/aurora/aurora-05.webp" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Северное сияние под Мурманском — фото 5 из тура Aurora Trip">
+        <img src="images/aurora/aurora-06.webp" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Северное сияние под Мурманском — фото 6 из тура Aurora Trip">
+        <img src="images/aurora/aurora-07.webp" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Северное сияние под Мурманском — фото 7 из тура Aurora Trip">
+        <img src="images/aurora/aurora-08.webp" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Северное сияние под Мурманском — фото 8 из тура Aurora Trip">
+        <img src="images/aurora/aurora-09.webp" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Северное сияние под Мурманском — фото 9 из тура Aurora Trip">
+        <img src="images/aurora/aurora-10.webp" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Северное сияние под Мурманском — фото 10 из тура Aurora Trip">
+        <img src="images/aurora/aurora-11.webp" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Северное сияние под Мурманском — фото 11 из тура Aurora Trip">
+        <img src="images/aurora/aurora-12.webp" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Северное сияние под Мурманском — фото 12 из тура Aurora Trip">
+        <img src="images/aurora/aurora-13.webp" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Северное сияние под Мурманском — фото 13 из тура Aurora Trip">
+        <img src="images/aurora/aurora-14.webp" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Северное сияние под Мурманском — фото 14 из тура Aurora Trip">
+        <img src="images/aurora/aurora-15.webp" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Северное сияние под Мурманском — фото 15 из тура Aurora Trip">
+        <img src="images/aurora/aurora-16.webp" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Северное сияние под Мурманском — фото 16 из тура Aurora Trip">
+        <img src="images/aurora/aurora-17.webp" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Северное сияние под Мурманском — фото 17 из тура Aurora Trip">
+        <img src="images/aurora/aurora-18.webp" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Северное сияние под Мурманском — фото 18 из тура Aurora Trip">
+        <img src="images/aurora/aurora-19.webp" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Северное сияние под Мурманском — фото 19 из тура Aurora Trip">
+        <img src="images/aurora/aurora-20.webp" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Северное сияние под Мурманском — фото 20 из тура Aurora Trip">
+        <img src="images/aurora/aurora-21.webp" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Северное сияние под Мурманском — фото 21 из тура Aurora Trip">
+        <img src="images/aurora/aurora-22.webp" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Северное сияние под Мурманском — фото 22 из тура Aurora Trip">
+        <img src="images/aurora/aurora-23.webp" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Северное сияние под Мурманском — фото 23 из тура Aurora Trip">
+        <img src="images/aurora/aurora-24.webp" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Северное сияние под Мурманском — фото 24 из тура Aurora Trip">
+        <img src="images/aurora/aurora-25.webp" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Северное сияние под Мурманском — фото 25 из тура Aurora Trip">
+        <img src="images/aurora/aurora-26.webp" style="width:100%;border-radius: 7px;object-fit:cover;height:260px;" alt="Северное сияние под Мурманском — фото 26 из тура Aurora Trip">
       </div>
     </div>
 
@@ -1039,17 +1039,17 @@
       <h2 class="what-title">Что вас ждет</h2>
       <div class="what-grid">
         <div class="what-card">
-          <img src="images/aurora/aurora-24.jpg" alt="Танец северного сияния в небе">
+          <img src="images/aurora/aurora-24.webp" alt="Танец северного сияния в небе">
           <div class="what-card-title">Танец авроры вживую</div>
           <div class="what-card-desc">Увидите, как над сопками разгорается и переливается зелёное сияние — вживую это ярче любых фото</div>
         </div>
         <div class="what-card">
-          <img src="images/aurora/aurora-01.jpg" alt="Профессиональные фото на фоне северного сияния">
+          <img src="images/aurora/aurora-01.webp" alt="Профессиональные фото на фоне северного сияния">
           <div class="what-card-title">Профессиональные фото</div>
           <div class="what-card-desc">Снимаем вас на профессиональную камеру под сиянием — кадры на память останутся с вами навсегда</div>
         </div>
         <div class="what-card">
-          <img src="images/aurora/aurora-19.jpg" alt="Компания под северным сиянием — тёплый вечер">
+          <img src="images/aurora/aurora-19.webp" alt="Компания под северным сиянием — тёплый вечер">
           <div class="what-card-title">Тепло полярной ночи</div>
           <div class="what-card-desc">Согреваемся горячим чаем и северными настойками, пока ловим ясное окно в небе</div>
         </div>
@@ -1160,15 +1160,15 @@
           <h2 class="incl-title">Оплачивается дополнительно</h2>
           <div class="excl-card">
             <div class="excl-item">
-              <img src="images/icon_included2.png" alt="">
+              <img src="images/icon_included2.webp" alt="">
               <div class="excl-item-text">Авиа и ж/д билеты до Мурманска</div>
             </div>
             <div class="excl-item">
-              <img src="images/icon_included2.png" alt="">
+              <img src="images/icon_included2.webp" alt="">
               <div class="excl-item-text">Тёплая одежда и обувь по погоде (берёте свою)</div>
             </div>
             <div class="excl-item">
-              <img src="images/icon_included2.png" alt="">
+              <img src="images/icon_included2.webp" alt="">
               <div class="excl-item-text">Личные расходы и сувениры</div>
             </div>
           </div>
@@ -1269,7 +1269,7 @@
           </div>
           <p class="rev-text">Поездка супер! Ездили с Мишей, все было лампово и познавательно. Очень приятная компания и экскурсия такая же. Нет типичного «посмотрите налево, посмотрите направо». Классная дружеская атмосфера, всем советую, фото прилагается)</p>
           <div class="rev-photos">
-            <img src="images/review_photo_olga.jpg" alt="Фото из отзыва Ольги" onclick="openReviewPhoto('images/review_photo_olga.jpg')">
+            <img src="images/review_photo_olga.webp" alt="Фото из отзыва Ольги" onclick="openReviewPhoto('images/review_photo_olga.jpg')">
           </div>
         </div>
 
@@ -1287,7 +1287,7 @@
           </div>
           <p class="rev-text">Ездили с командой Аврора Трип в Кировск в сентябре. Очень все понравилось. Интересные рассказы. Мы узнали много нового. Ну и конечно же горы! Они великолепны! Погода была супер. Удивительно, что мы застали такую хорошую погоду в сентябре, думал будет снежно. Следующий раз поедем в Териберку с этой же командой. Но это уже будет зимой!</p>
           <div class="rev-photos">
-            <img src="images/review_photo_maxim.jpg" alt="Фото из отзыва Максима" onclick="openReviewPhoto('images/review_photo_maxim.jpg')">
+            <img src="images/review_photo_maxim.webp" alt="Фото из отзыва Максима" onclick="openReviewPhoto('images/review_photo_maxim.jpg')">
           </div>
         </div>
 
@@ -1305,7 +1305,7 @@
           </div>
           <p class="rev-text">Ездили с ребятами на поиск северного сияния еще в прошлом году, понравилась дружеская атмосфера поездки, как будто мы собрались друзьями на фотоохоту — Александра делилась разными интересными научными фактами и легендами, мы много общались, смеялись, и отлично провели время, плюс ко всему нам удалось поймать долгожданную Аврору! Сияло всё небо) К тому же ребята знали, в каких местах реже встречается облачность, поэтому шансы у нас были высокие! Фото прилагаю, но в живую это гораздо увлекательнее, ведь все свечение переливается ярким танцем — спасибо, рекомендую однозначно.</p>
           <div class="rev-photos">
-            <img src="images/review_photo_sergey.jpg" alt="Фото из отзыва Сергея" onclick="openReviewPhoto('images/review_photo_sergey.jpg')">
+            <img src="images/review_photo_sergey.webp" alt="Фото из отзыва Сергея" onclick="openReviewPhoto('images/review_photo_sergey.jpg')">
           </div>
         </div>
 
@@ -1323,7 +1323,7 @@
           </div>
           <p class="rev-text">Ездила с подругами в прошлом году. Только вот добралась до написания отзыва. Выражаю огромную благодарность всей команде гидов. Было чудесно! Мы побывали в Териберке и это был самый запоминающийся трип в моей жизни! Еще ездили ловить сияние. Гид был Ян. Поймали чудесное сияние и отдельное спасибо за фотографии)))</p>
           <div class="rev-photos">
-            <img src="images/review_photo_valeria.jpg" alt="Фото из отзыва Валерии" onclick="openReviewPhoto('images/review_photo_valeria.jpg')">
+            <img src="images/review_photo_valeria.webp" alt="Фото из отзыва Валерии" onclick="openReviewPhoto('images/review_photo_valeria.jpg')">
           </div>
         </div>
 

@@ -12,3 +12,8 @@ serve_simple.py
 
 # внутренний черновик статьи (не публиковать)
 blog/kity-v-teriberke.md
+
+# Хендофф-контекст для нового чата (не публиковать)
+chat-context.md
+.agents/
+.claude/
