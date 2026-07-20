@@ -1573,7 +1573,7 @@
   }
   .aurb::after {
     content: ""; position: absolute; inset: 0; z-index: -1;
-    background: linear-gradient(180deg, rgba(8,12,22,.30) 0%, rgba(8,12,22,.52) 55%, rgba(8,12,22,.78) 100%);
+    background: linear-gradient(180deg, rgba(8,12,22,0) 0%, rgba(8,12,22,0) 42%, rgba(8,12,22,.48) 80%, rgba(8,12,22,.82) 100%);
   }
   @media (prefers-reduced-motion: no-preference) {
     .aurb::before { animation: aurbWave 12s ease-in-out infinite alternate; }
@@ -1584,11 +1584,11 @@
     }
   }
   .aurb-inner { max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.15fr; gap: 44px; align-items: center; }
-  .aurb-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #8ff0c0; margin-bottom: 16px; }
+  .aurb-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #8ff0c0; margin-bottom: 16px; text-shadow: 0 2px 12px rgba(3,8,18,.85); }
   .aurb-eyebrow::before { content: "🌌"; }
-  .aurb h2 { font-family: 'aurora', 'Montserrat', sans-serif; font-size: clamp(32px, 4.6vw, 54px); line-height: 1.05; color: #fff; margin: 0 0 16px; letter-spacing: -.01em; }
+  .aurb h2 { font-family: 'aurora', 'Montserrat', sans-serif; font-size: clamp(32px, 4.6vw, 54px); line-height: 1.05; color: #fff; margin: 0 0 16px; letter-spacing: -.01em; text-shadow: 0 2px 18px rgba(3,8,18,.75); }
   .aurb h2 .g { background: linear-gradient(120deg, #3DDC84, #00D4FF); -webkit-background-clip: text; background-clip: text; color: transparent; }
-  .aurb-lead { color: #c7d3e6; font-size: 17px; line-height: 1.6; max-width: 46ch; margin: 0 0 22px; }
+  .aurb-lead { color: #eaf0fa; font-size: 17px; line-height: 1.6; max-width: 46ch; margin: 0 0 22px; text-shadow: 0 1px 12px rgba(3,8,18,.8); }
   .aurb-chips { display: flex; flex-wrap: wrap; gap: 9px; margin-bottom: 26px; }
   .aurb-chip { font-size: 13px; font-weight: 600; color: #eafff4; padding: 7px 13px; border-radius: 40px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.16); backdrop-filter: blur(4px); }
   .aurb-cta-row { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
