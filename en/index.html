@@ -2930,7 +2930,9 @@
     function stopA(){ running = false; if (raf) { cancelAnimationFrame(raf); raf = null; } }
     wrap.addEventListener('mouseenter', function(){ hover = true; });
     wrap.addEventListener('mouseleave', function(){ hover = false; });
-    wrap.addEventListener('touchstart', function(){ interacted = true; stopA(); }, { passive: true });
+    var resumeTimer = null;
+    wrap.addEventListener('touchstart', function(){ hover = true; if (resumeTimer) { clearTimeout(resumeTimer); resumeTimer = null; } }, { passive: true });
+    wrap.addEventListener('touchend', function(){ if (resumeTimer) clearTimeout(resumeTimer); resumeTimer = setTimeout(function(){ hover = false; }, 2500); }, { passive: true });
     if ('IntersectionObserver' in window) {
       new IntersectionObserver(function(entries){
         entries.forEach(function(en){ if (en.isIntersecting) startA(); else stopA(); });
