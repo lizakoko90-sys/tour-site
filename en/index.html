@@ -1061,24 +1061,6 @@
     ========================================================= */
     :root { --aurora: linear-gradient(135deg, #3DDC84 0%, #00D4FF 100%); }
 
-    /* Нижняя липкая панель заявки (только моб.) */
-    .mobile-cta { display: none; }
-    @media (max-width: 900px) {
-      .mobile-cta {
-        display: flex; position: fixed; bottom: 0; left: 0; right: 0; z-index: 9998;
-        align-items: center; justify-content: center;
-        background: rgba(255,255,255,.98);
-        backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-        border-top: 1px solid rgba(0,0,0,.1); padding: 11px 18px;
-        box-shadow: 0 -6px 20px rgba(0,0,0,.08);
-      }
-      .mcta-btn {
-        flex: 1; padding: 14px 12px; border: none; border-radius: 7px;
-        background: var(--aurora); color: #fff; font-weight: 700; font-size: 15px;
-        font-family: inherit; cursor: pointer; white-space: nowrap; text-align: center;
-      }
-      body { padding-bottom: 74px; }
-    }
     .site-footer {
       background: #0E1626; color: #fff; margin-top: 90px;
       padding: 70px 0 60px;
@@ -2514,10 +2496,6 @@
 </script>
 
 <!-- FOOTER -->
-<!-- Нижняя липкая панель заявки (только моб.) -->
-<div class="mobile-cta">
-  <button type="button" class="mcta-btn" onclick="document.getElementById('zayavka-form').scrollIntoView({behavior:'smooth',block:'center'});">Request a Call</button>
-</div>
 
 <footer class="site-footer">
   <div class="ft-inner">
