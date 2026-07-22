@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,22 +8,25 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <title>Экскурсии по Кольскому полуострову — цены и программы | Aurora Trip</title>
-  <meta name="description" content="9 авторских туров из Мурманска: киты и Териберка, обзорная по городу, водопады Кольского края, олени и хаски. Цены от 5 000 ₽, трансфер и гид включены.">
-  <link rel="canonical" href="https://auroratrip.ru/tury.html">
+  <title>Tours across the Kola Peninsula — prices and programmes | Aurora Trip</title>
+  <meta name="description" content="9 signature tours from Murmansk: whales in Teriberka, a Murmansk city tour, waterfalls of the Kola, reindeer and huskies. Prices from 5 000 ₽, transfer and guide included.">
+  <link rel="canonical" href="https://auroratrip.ru/en/tury.html">
+  <link rel="alternate" hreflang="ru" href="https://auroratrip.ru/tury.html">
+  <link rel="alternate" hreflang="en" href="https://auroratrip.ru/en/tury.html">
+  <link rel="alternate" hreflang="x-default" href="https://auroratrip.ru/tury.html">
   <meta name="robots" content="index, follow">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Aurora Trip">
-  <meta property="og:locale" content="ru_RU">
-  <meta property="og:title" content="Экскурсии по Кольскому полуострову — цены и программы">
-  <meta property="og:description" content="9 авторских туров из Мурманска: киты и Териберка, обзорная по городу, водопады, олени и хаски. От 5 000 ₽, трансфер и гид включены.">
-  <meta property="og:url" content="https://auroratrip.ru/tury.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Tours across the Kola Peninsula — prices and programmes">
+  <meta property="og:description" content="9 signature tours from Murmansk: whales, a city tour, waterfalls, reindeer and huskies. From 5 000 ₽, transfer and guide included.">
+  <meta property="og:url" content="https://auroratrip.ru/en/tury.html">
   <meta property="og:image" content="https://auroratrip.ru/images/teriberka_whales.jpg">
   <meta property="og:image:width" content="1300">
   <meta property="og:image:height" content="743">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Экскурсии по Кольскому полуострову — Aurora Trip">
-  <meta name="twitter:description" content="9 авторских туров из Мурманска: киты, обзорная, водопады, олени и хаски. От 5 000 ₽.">
+  <meta name="twitter:title" content="Tours across the Kola Peninsula — Aurora Trip">
+  <meta name="twitter:description" content="9 signature tours from Murmansk: whales, a city tour, waterfalls, reindeer and huskies. From 5 000 ₽.">
   <meta name="twitter:image" content="https://auroratrip.ru/images/teriberka_whales.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,12 +34,12 @@
   <style>
     @font-face {
       font-family: 'aurora';
-      src: url('fonts/aurora-heading.woff') format('woff');
+      src: url('../fonts/aurora-heading.woff') format('woff');
       font-weight: 400; font-style: normal; font-display: swap;
     }
     @font-face {
       font-family: 'aurora';
-      src: url('fonts/aurora-heading-bold.woff') format('woff');
+      src: url('../fonts/aurora-heading-bold.woff') format('woff');
       font-weight: 700; font-style: normal; font-display: swap;
     }
 
@@ -71,6 +74,16 @@
     .hdr-nav a:hover, .hdr-nav a.active { color: var(--teal); }
     .hdr-phone { font-size: 16px; font-weight: 700; color: var(--ink); white-space: nowrap; }
     .hdr-burger { display: none; }
+
+    /* Language switch RU | EN */
+    .lang-switch { display: inline-flex; align-items: center; gap: 4px; margin-left: 16px; flex-shrink: 0; }
+    .lang-opt {
+      color: var(--muted); font-size: 13px; font-weight: 700; letter-spacing: .5px;
+      padding: 3px 7px; border-radius: 6px; transition: color .2s, background .2s;
+    }
+    .lang-opt:hover { color: var(--teal); }
+    .lang-opt.active { color: #fff; background: var(--teal); }
+    .lang-sep { color: var(--line); font-size: 12px; }
 
     /* PAGE HEAD */
     .catalog { max-width: 1100px; margin: 0 auto; padding: 40px 24px 70px; }
@@ -234,18 +247,18 @@
   {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    "name": "Экскурсии по Кольскому полуострову",
+    "name": "Tours across the Kola Peninsula",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Тур на северное сияние — охота за авророй", "url": "https://auroratrip.ru/page-severnoe-siyanie.html" },
-      { "@type": "ListItem", "position": 2, "name": "Тур «Выходные в Мурманске» (3 дня)", "url": "https://auroratrip.ru/page-vyhodnye-murmansk.html" },
-      { "@type": "ListItem", "position": 3, "name": "«Большое путешествие по Кольскому» (4 дня)", "url": "https://auroratrip.ru/page-bolshoe-puteshestvie.html" },
-      { "@type": "ListItem", "position": 4, "name": "Тур в Териберку на поиски китов", "url": "https://auroratrip.ru/page-kity-teriberka.html" },
-      { "@type": "ListItem", "position": 5, "name": "Вся Териберка за 1 день", "url": "https://auroratrip.ru/page-teriberka-1den.html" },
-      { "@type": "ListItem", "position": 6, "name": "Обзорная экскурсия по Мурманску", "url": "https://auroratrip.ru/page-murmansk-obzor.html" },
-      { "@type": "ListItem", "position": 7, "name": "Экскурсия к водопадам Кольского края", "url": "https://auroratrip.ru/page-vodopady.html" },
-      { "@type": "ListItem", "position": 8, "name": "Знакомство с Хибинами. Кировск", "url": "https://auroratrip.ru/page-hibiny-kirovsk.html" },
-      { "@type": "ListItem", "position": 9, "name": "Кировск + этно-программа «Огни Имандры»", "url": "https://auroratrip.ru/page-ogni-imandry.html" },
-      { "@type": "ListItem", "position": 10, "name": "В гости к оленям и хаски", "url": "https://auroratrip.ru/page-saami.html" }
+      { "@type": "ListItem", "position": 1, "name": "Northern Lights hunt — chasing the aurora", "url": "https://auroratrip.ru/en/page-severnoe-siyanie.html" },
+      { "@type": "ListItem", "position": 2, "name": "“A Weekend in Murmansk” tour (3 days)", "url": "https://auroratrip.ru/en/page-vyhodnye-murmansk.html" },
+      { "@type": "ListItem", "position": 3, "name": "“The Grand Kola Journey” (4 days)", "url": "https://auroratrip.ru/en/page-bolshoe-puteshestvie.html" },
+      { "@type": "ListItem", "position": 4, "name": "Teriberka whale-watching tour", "url": "https://auroratrip.ru/en/page-kity-teriberka.html" },
+      { "@type": "ListItem", "position": 5, "name": "All of Teriberka in one day", "url": "https://auroratrip.ru/en/page-teriberka-1den.html" },
+      { "@type": "ListItem", "position": 6, "name": "Murmansk city tour", "url": "https://auroratrip.ru/en/page-murmansk-obzor.html" },
+      { "@type": "ListItem", "position": 7, "name": "Waterfalls of the Kola Peninsula", "url": "https://auroratrip.ru/en/page-vodopady.html" },
+      { "@type": "ListItem", "position": 8, "name": "Discover the Khibiny. Kirovsk", "url": "https://auroratrip.ru/en/page-hibiny-kirovsk.html" },
+      { "@type": "ListItem", "position": 9, "name": "Kirovsk + “Lights of Imandra” culture programme", "url": "https://auroratrip.ru/en/page-ogni-imandry.html" },
+      { "@type": "ListItem", "position": 10, "name": "Meet the reindeer and huskies", "url": "https://auroratrip.ru/en/page-saami.html" }
     ]
   }
   </script>
@@ -254,8 +267,8 @@
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://auroratrip.ru/" },
-      { "@type": "ListItem", "position": 2, "name": "Экскурсии", "item": "https://auroratrip.ru/tury.html" }
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://auroratrip.ru/en/" },
+      { "@type": "ListItem", "position": 2, "name": "Tours", "item": "https://auroratrip.ru/en/tury.html" }
     ]
   }
   </script>
@@ -278,384 +291,389 @@
 <!-- HEADER -->
 <header class="hdr">
   <div class="hdr-in">
-    <a href="/" class="hdr-logo"><img src="images/logo.webp" alt="Aurora Trip"></a>
+    <a href="index.html" class="hdr-logo"><img src="../images/logo.webp" alt="Aurora Trip"></a>
     <nav class="hdr-nav">
-      <a href="#">Наша команда</a>
-      <a href="tury.html" class="active">Экскурсии</a>
-      <a href="contacts.html">Контакты</a>
-      <a href="#">Блог</a>
-      <a href="partners.html">Партнёрам</a>
+      <a href="#">Our Team</a>
+      <a href="tury.html" class="active">Tours</a>
+      <a href="contacts.html">Contacts</a>
+      <a href="#">Blog</a>
+      <a href="../partners.html">For Partners</a>
     </nav>
-    <a href="tel:+79211663315" class="hdr-phone">+7 (921) 166-33-15 · Михаил</a>
+    <a href="tel:+79211663315" class="hdr-phone">+7 (921) 166-33-15 · Mikhail</a>
+    <div class="lang-switch">
+      <a href="../tury.html" data-setlang="ru" class="lang-opt">RU</a>
+      <span class="lang-sep">|</span>
+      <a href="tury.html" data-setlang="en" class="lang-opt active">EN</a>
+    </div>
   </div>
 </header>
 
 <!-- CATALOG -->
 <main class="catalog">
   <div class="crumb">
-    <a href="/">Главная</a><span class="sep">/</span>Экскурсии
+    <a href="index.html">Home</a><span class="sep">/</span>Tours
   </div>
-  <h1 class="cat-title">Туры на Кольский полуостров</h1>
-  <p class="cat-sub">Авторские экскурсии по Мурманску и Кольскому Заполярью с опытными гидами.</p>
-  <div class="cat-count">Найдено: <b>9 туров</b></div>
+  <h1 class="cat-title">Tours across the Kola Peninsula</h1>
+  <p class="cat-sub">Signature small-group tours around Murmansk and the Arctic Kola Peninsula, led by experienced local guides.</p>
+  <div class="cat-count">Found: <b>9 tours</b></div>
 
   <div class="tc-list">
 
-    <!-- Северное сияние -->
+    <!-- Northern Lights -->
     <article class="tc-card">
       <a class="tc-photo" href="page-severnoe-siyanie.html">
-        <img src="images/tour5.webp" alt="Тур на северное сияние под Мурманском — охота за авророй">
+        <img src="../images/tour5.webp" alt="Northern lights tour near Murmansk — hunting the aurora">
         <div class="tc-tags">
-          <span class="tc-tag">🌌 Аврора</span>
-          <span class="tc-tag">🌙 Ночь</span>
+          <span class="tc-tag">🌌 Aurora</span>
+          <span class="tc-tag">🌙 Night</span>
         </div>
       </a>
       <div class="tc-info">
-        <a href="page-severnoe-siyanie.html"><h3 class="tc-name">Охота за северным сиянием</h3></a>
-        <p class="tc-desc">Настоящая ночная охота за авророй под Мурманском. Выезжаем за город на поиски сияния, ловим ясное небо, снимаем вас на профессиональную камеру, угощаем чаем и северными настойками. Забираем от отеля и привозим обратно.</p>
+        <a href="page-severnoe-siyanie.html"><h3 class="tc-name">Hunting the Northern Lights</h3></a>
+        <p class="tc-desc">A genuine night-time aurora hunt near Murmansk. We drive out of the city chasing the lights and clear skies, photograph you on a professional camera, and treat you to tea and northern berry liqueurs. Hotel pick-up and drop-off included.</p>
         <div class="tc-meta">
           <div class="tc-meta-item">
-            <span class="tc-meta-label">Длительность</span>
-            <span class="tc-meta-val">Вечер–ночь</span>
+            <span class="tc-meta-label">Duration</span>
+            <span class="tc-meta-val">Evening–night</span>
           </div>
           <div class="tc-meta-item">
-            <span class="tc-meta-label">Сложность</span>
-            <div class="tc-bars"><i class="on"></i><i></i><i></i><i></i><span class="tc-lvl">Лёгкий</span></div>
+            <span class="tc-meta-label">Difficulty</span>
+            <div class="tc-bars"><i class="on"></i><i></i><i></i><i></i><span class="tc-lvl">Easy</span></div>
           </div>
         </div>
       </div>
       <div class="tc-price">
         <div>
-          <div class="tc-price-sub">Стоимость</div>
+          <div class="tc-price-sub">Price</div>
           <div class="tc-price-val">4 000 ₽</div>
-          <div class="tc-price-sub">за человека</div>
+          <div class="tc-price-sub">per person</div>
         </div>
         <a class="tc-btn" href="page-severnoe-siyanie.html">
-          Подробнее
+          See details
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
     </article>
 
-    <!-- Пакетный тур: Выходные в Мурманске -->
+    <!-- Package tour: A Weekend in Murmansk -->
     <article class="tc-card">
       <a class="tc-photo" href="page-vyhodnye-murmansk.html">
-        <img src="images/murmansk_hero.webp" alt="Выходные в Мурманске — пакетный тур на 3 дня">
+        <img src="../images/murmansk_hero.webp" alt="A Weekend in Murmansk — 3-day package tour">
         <div class="tc-tags">
-          <span class="tc-tag">🗓 3 дня</span>
-          <span class="tc-tag">💎 Пакет</span>
+          <span class="tc-tag">🗓 3 days</span>
+          <span class="tc-tag">💎 Package</span>
         </div>
       </a>
       <div class="tc-info">
-        <a href="page-vyhodnye-murmansk.html"><h3 class="tc-name">Выходные в Мурманске</h3></a>
-        <p class="tc-desc">Пакетный тур на три дня: обзорная экскурсия по Мурманску, Териберка с поиском китов и водопады Кольского края. Трансфер и местный гид на все дни. Авиабилеты и проживание не входят — поможем подобрать отель.</p>
+        <a href="page-vyhodnye-murmansk.html"><h3 class="tc-name">A Weekend in Murmansk</h3></a>
+        <p class="tc-desc">A three-day package: a city tour of Murmansk, Teriberka with whale watching, and the waterfalls of the Kola Peninsula. Transfers and a local guide for all three days. Flights and accommodation are not included — we will help you choose a hotel.</p>
         <div class="tc-meta">
           <div class="tc-meta-item">
-            <span class="tc-meta-label">Длительность</span>
-            <span class="tc-meta-val">3 дня</span>
+            <span class="tc-meta-label">Duration</span>
+            <span class="tc-meta-val">3 days</span>
           </div>
           <div class="tc-meta-item">
-            <span class="tc-meta-label">Сложность</span>
-            <div class="tc-bars"><i class="on"></i><i class="on"></i><i></i><i></i><span class="tc-lvl">Средний</span></div>
+            <span class="tc-meta-label">Difficulty</span>
+            <div class="tc-bars"><i class="on"></i><i class="on"></i><i></i><i></i><span class="tc-lvl">Moderate</span></div>
           </div>
         </div>
       </div>
       <div class="tc-price">
         <div>
-          <div class="tc-price-sub">Стоимость</div>
+          <div class="tc-price-sub">Price</div>
           <div class="tc-price-val">20 000 ₽</div>
-          <div class="tc-price-sub">за человека</div>
+          <div class="tc-price-sub">per person</div>
         </div>
         <a class="tc-btn" href="page-vyhodnye-murmansk.html">
-          Подробнее
+          See details
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
     </article>
 
-    <!-- Пакетный тур: Большое путешествие по Кольскому (4 дня) -->
+    <!-- Package tour: The Grand Kola Journey (4 days) -->
     <article class="tc-card">
       <a class="tc-photo" href="page-bolshoe-puteshestvie.html">
-        <img src="images/gallery/khib_1.webp" alt="Большое путешествие по Кольскому — 4 дня">
+        <img src="../images/gallery/khib_1.webp" alt="The Grand Kola Journey — 4 days">
         <div class="tc-tags">
-          <span class="tc-tag">🗓 4 дня</span>
-          <span class="tc-tag">💎 Пакет</span>
+          <span class="tc-tag">🗓 4 days</span>
+          <span class="tc-tag">💎 Package</span>
         </div>
       </a>
       <div class="tc-info">
-        <a href="page-bolshoe-puteshestvie.html"><h3 class="tc-name">Большое путешествие по Кольскому</h3></a>
-        <p class="tc-desc">Пакетный тур на четыре дня: обзорная по Мурманску, Териберка с поиском китов, водопады Кольского края и Хибины (Кировск). Трансфер и местный гид на все дни. Авиабилеты и проживание не входят — поможем подобрать отель.</p>
+        <a href="page-bolshoe-puteshestvie.html"><h3 class="tc-name">The Grand Kola Journey</h3></a>
+        <p class="tc-desc">A four-day package: a Murmansk city tour, Teriberka with whale watching, the waterfalls of the Kola Peninsula and the Khibiny Mountains (Kirovsk). Transfers and a local guide for all four days. Flights and accommodation are not included — we will help you choose a hotel.</p>
         <div class="tc-meta">
           <div class="tc-meta-item">
-            <span class="tc-meta-label">Длительность</span>
-            <span class="tc-meta-val">4 дня</span>
+            <span class="tc-meta-label">Duration</span>
+            <span class="tc-meta-val">4 days</span>
           </div>
           <div class="tc-meta-item">
-            <span class="tc-meta-label">Сложность</span>
-            <div class="tc-bars"><i class="on"></i><i class="on"></i><i></i><i></i><span class="tc-lvl">Средний</span></div>
+            <span class="tc-meta-label">Difficulty</span>
+            <div class="tc-bars"><i class="on"></i><i class="on"></i><i></i><i></i><span class="tc-lvl">Moderate</span></div>
           </div>
         </div>
       </div>
       <div class="tc-price">
         <div>
-          <div class="tc-price-sub">Стоимость</div>
+          <div class="tc-price-sub">Price</div>
           <div class="tc-price-val">28 000 ₽</div>
-          <div class="tc-price-sub">за человека</div>
+          <div class="tc-price-sub">per person</div>
         </div>
         <a class="tc-btn" href="page-bolshoe-puteshestvie.html">
-          Подробнее
+          See details
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
     </article>
 
-    <!-- Тур 1: В Териберку на поиски китов -->
+    <!-- Tour 1: Teriberka whale watching -->
     <article class="tc-card">
       <a class="tc-photo" href="page-kity-teriberka.html">
-        <img src="images/tour_teriberka_hero.webp" alt="В Териберку на поиски китов">
+        <img src="../images/tour_teriberka_hero.webp" alt="Teriberka whale-watching tour">
         <div class="tc-tags">
-          <span class="tc-tag">🐋 Поиски китов</span>
-          <span class="tc-tag">⭐ Хит продаж</span>
+          <span class="tc-tag">🐋 Whale watching</span>
+          <span class="tc-tag">⭐ Bestseller</span>
         </div>
       </a>
       <div class="tc-info">
-        <a href="page-kity-teriberka.html"><h3 class="tc-name">В Териберку на поиски китов</h3></a>
-        <p class="tc-desc">Насыщенная экспедиция на край земли: двухчасовой поиск китов в открытом Баренцевом море и все знаковые локации Териберки за один день.</p>
+        <a href="page-kity-teriberka.html"><h3 class="tc-name">Teriberka Whale Watching</h3></a>
+        <p class="tc-desc">An action-packed expedition to the edge of the world: a two-hour whale search in the open Barents Sea and all of Teriberka's landmark spots in a single day.</p>
         <div class="tc-meta">
           <div class="tc-meta-item">
-            <span class="tc-meta-label">Длительность</span>
-            <span class="tc-meta-val">10–12 часов</span>
+            <span class="tc-meta-label">Duration</span>
+            <span class="tc-meta-val">10–12 hours</span>
           </div>
           <div class="tc-meta-item">
-            <span class="tc-meta-label">Сложность</span>
-            <div class="tc-bars"><i class="on"></i><i class="on"></i><i></i><i></i><span class="tc-lvl">Средний</span></div>
+            <span class="tc-meta-label">Difficulty</span>
+            <div class="tc-bars"><i class="on"></i><i class="on"></i><i></i><i></i><span class="tc-lvl">Moderate</span></div>
           </div>
         </div>
       </div>
       <div class="tc-price">
         <div>
-          <div class="tc-price-sub">Стоимость</div>
+          <div class="tc-price-sub">Price</div>
           <div class="tc-price-val">10 000 ₽</div>
-          <div class="tc-price-sub">за человека</div>
+          <div class="tc-price-sub">per person</div>
         </div>
         <a class="tc-btn" href="page-kity-teriberka.html">
-          Подробнее
+          See details
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
     </article>
 
-    <!-- Тур 1.5: Вся Териберка за 1 день (без моря) -->
+    <!-- Tour 1.5: All of Teriberka in one day (no boat trip) -->
     <article class="tc-card">
       <a class="tc-photo" href="page-teriberka-1den.html">
-        <img src="images/gallery/ter_2.webp" alt="Вся Териберка за 1 день">
+        <img src="../images/gallery/ter_2.webp" alt="All of Teriberka in one day">
         <div class="tc-tags">
-          <span class="tc-tag">🥾 Без выхода в море</span>
-          <span class="tc-tag">💰 Выгодная цена</span>
+          <span class="tc-tag">🥾 No boat trip</span>
+          <span class="tc-tag">💰 Great value</span>
         </div>
       </a>
       <div class="tc-info">
-        <a href="page-teriberka-1den.html"><h3 class="tc-name">Вся Териберка за 1 день</h3></a>
-        <p class="tc-desc">Все знаковые локации Териберки за один день без выхода в море: кладбище кораблей, «Яйца дракона», Батарейский водопад и арктическое побережье края земли.</p>
+        <a href="page-teriberka-1den.html"><h3 class="tc-name">All of Teriberka in One Day</h3></a>
+        <p class="tc-desc">Every landmark of Teriberka in one day, without going out to sea: the ship graveyard, the &laquo;Dragon's Eggs&raquo; beach, Batareysky Waterfall and the Arctic coast at the edge of the world.</p>
         <div class="tc-meta">
           <div class="tc-meta-item">
-            <span class="tc-meta-label">Длительность</span>
-            <span class="tc-meta-val">8–10 часов</span>
+            <span class="tc-meta-label">Duration</span>
+            <span class="tc-meta-val">8–10 hours</span>
           </div>
           <div class="tc-meta-item">
-            <span class="tc-meta-label">Сложность</span>
-            <div class="tc-bars"><i class="on"></i><i class="on"></i><i></i><i></i><span class="tc-lvl">Средний</span></div>
+            <span class="tc-meta-label">Difficulty</span>
+            <div class="tc-bars"><i class="on"></i><i class="on"></i><i></i><i></i><span class="tc-lvl">Moderate</span></div>
           </div>
         </div>
       </div>
       <div class="tc-price">
         <div>
-          <div class="tc-price-sub">Стоимость</div>
+          <div class="tc-price-sub">Price</div>
           <div class="tc-price-val">6 000 ₽</div>
-          <div class="tc-price-sub">за человека</div>
+          <div class="tc-price-sub">per person</div>
         </div>
         <a class="tc-btn" href="page-teriberka-1den.html">
-          Подробнее
+          See details
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
     </article>
 
-    <!-- Тур 2: Обзорная экскурсия по Мурманску -->
+    <!-- Tour 2: Murmansk city tour -->
     <article class="tc-card">
       <a class="tc-photo" href="page-murmansk-obzor.html">
-        <img src="images/murmansk_hero.webp" alt="Обзорная экскурсия по Мурманску">
+        <img src="../images/murmansk_hero.webp" alt="Murmansk city tour">
         <div class="tc-tags">
-          <span class="tc-tag">🌅 Панорамный вид</span>
-          <span class="tc-tag">🏛 История</span>
+          <span class="tc-tag">🌅 Panoramic views</span>
+          <span class="tc-tag">🏛 History</span>
         </div>
       </a>
       <div class="tc-info">
-        <a href="page-murmansk-obzor.html"><h3 class="tc-name">Обзорная экскурсия по Мурманску</h3></a>
-        <p class="tc-desc">Комфортное знакомство со столицей Заполярья: смотровые площадки, легендарный «Алёша», атомный ледокол «Ленин» и лучшие панорамы Кольского залива.</p>
+        <a href="page-murmansk-obzor.html"><h3 class="tc-name">Murmansk City Tour</h3></a>
+        <p class="tc-desc">A relaxed introduction to the capital of the Arctic: scenic viewpoints, the legendary &laquo;Alyosha&raquo; monument, the nuclear icebreaker Lenin and the finest panoramas of the Kola Bay.</p>
         <div class="tc-meta">
           <div class="tc-meta-item">
-            <span class="tc-meta-label">Длительность</span>
-            <span class="tc-meta-val">4–5 часов</span>
+            <span class="tc-meta-label">Duration</span>
+            <span class="tc-meta-val">4–5 hours</span>
           </div>
           <div class="tc-meta-item">
-            <span class="tc-meta-label">Сложность</span>
-            <div class="tc-bars"><i class="on"></i><i></i><i></i><i></i><span class="tc-lvl">Лёгкий</span></div>
+            <span class="tc-meta-label">Difficulty</span>
+            <div class="tc-bars"><i class="on"></i><i></i><i></i><i></i><span class="tc-lvl">Easy</span></div>
           </div>
         </div>
       </div>
       <div class="tc-price">
         <div>
-          <div class="tc-price-sub">Стоимость</div>
-          <div class="tc-price-val">от 5 000 ₽</div>
-          <div class="tc-price-sub">за человека</div>
+          <div class="tc-price-sub">Price</div>
+          <div class="tc-price-val">from 5 000 ₽</div>
+          <div class="tc-price-sub">per person</div>
         </div>
         <a class="tc-btn" href="page-murmansk-obzor.html">
-          Подробнее
+          See details
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
     </article>
 
-    <!-- Тур 3: Водопады Кольского края -->
+    <!-- Tour 3: Waterfalls of the Kola Peninsula -->
     <article class="tc-card">
       <a class="tc-photo" href="page-vodopady.html">
-        <img src="images/waterfall_12.webp" alt="Водопады Кольского края">
+        <img src="../images/waterfall_12.webp" alt="Waterfalls of the Kola Peninsula">
         <div class="tc-tags">
-          <span class="tc-tag">💧 Водопады</span>
-          <span class="tc-tag">🎖 Боевая слава</span>
+          <span class="tc-tag">💧 Waterfalls</span>
+          <span class="tc-tag">🎖 WWII heritage</span>
         </div>
       </a>
       <div class="tc-info">
-        <a href="page-vodopady.html"><h3 class="tc-name">Водопады Кольского края</h3></a>
-        <p class="tc-desc">Живописный маршрут в сторону Норвегии: два мощных водопада на реках Ура и Титовка, места боевой славы и первозданная северная природа за один день.</p>
+        <a href="page-vodopady.html"><h3 class="tc-name">Waterfalls of the Kola Peninsula</h3></a>
+        <p class="tc-desc">A scenic route towards Norway: two powerful waterfalls on the Ura and Titovka rivers, WWII memorial sites and pristine northern wilderness, all in a single day.</p>
         <div class="tc-meta">
           <div class="tc-meta-item">
-            <span class="tc-meta-label">Длительность</span>
-            <span class="tc-meta-val">6–7 часов</span>
+            <span class="tc-meta-label">Duration</span>
+            <span class="tc-meta-val">6–7 hours</span>
           </div>
           <div class="tc-meta-item">
-            <span class="tc-meta-label">Сложность</span>
-            <div class="tc-bars"><i class="on"></i><i class="on"></i><i></i><i></i><span class="tc-lvl">Средний</span></div>
+            <span class="tc-meta-label">Difficulty</span>
+            <div class="tc-bars"><i class="on"></i><i class="on"></i><i></i><i></i><span class="tc-lvl">Moderate</span></div>
           </div>
         </div>
       </div>
       <div class="tc-price">
         <div>
-          <div class="tc-price-sub">Стоимость</div>
-          <div class="tc-price-val">от 7 000 ₽</div>
-          <div class="tc-price-sub">за человека</div>
+          <div class="tc-price-sub">Price</div>
+          <div class="tc-price-val">from 7 000 ₽</div>
+          <div class="tc-price-sub">per person</div>
         </div>
         <a class="tc-btn" href="page-vodopady.html">
-          Подробнее
+          See details
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
     </article>
 
-    <!-- Тур: Знакомство с Хибинами. Кировск -->
+    <!-- Tour: Discover the Khibiny. Kirovsk -->
     <article class="tc-card">
       <a class="tc-photo" href="page-hibiny-kirovsk.html">
-        <img src="images/gallery/khib_1.webp" alt="Знакомство с Хибинами — экскурсия в Кировск">
+        <img src="../images/gallery/khib_1.webp" alt="Discover the Khibiny — tour to Kirovsk">
         <div class="tc-tags">
-          <span class="tc-tag">⛰ Хибины</span>
-          <span class="tc-tag">🚠 Канатка</span>
+          <span class="tc-tag">⛰ Khibiny</span>
+          <span class="tc-tag">🚠 Cable car</span>
         </div>
       </a>
       <div class="tc-info">
-        <a href="page-hibiny-kirovsk.html"><h3 class="tc-name">Знакомство с Хибинами. Кировск</h3></a>
-        <p class="tc-desc">Кировск и Хибинские горы за один день: канатная дорога на гору Айкуайвенчорр, панорама массива, горное озеро Малый Вудъявр, Музей камня и светящийся арт-парк «Таинственный лес».</p>
+        <a href="page-hibiny-kirovsk.html"><h3 class="tc-name">Discover the Khibiny. Kirovsk</h3></a>
+        <p class="tc-desc">Kirovsk and the Khibiny Mountains in one day: the cable car up Mount Aikuaivenchorr, sweeping panoramas of the range, the mountain lake Maly Vudyavr, the Stone Museum and the glowing &laquo;Enchanted Forest&raquo; art park.</p>
         <div class="tc-meta">
           <div class="tc-meta-item">
-            <span class="tc-meta-label">Длительность</span>
-            <span class="tc-meta-val">12–13 часов</span>
+            <span class="tc-meta-label">Duration</span>
+            <span class="tc-meta-val">12–13 hours</span>
           </div>
           <div class="tc-meta-item">
-            <span class="tc-meta-label">Сложность</span>
-            <div class="tc-bars"><i class="on"></i><i></i><i></i><i></i><span class="tc-lvl">Лёгкий</span></div>
+            <span class="tc-meta-label">Difficulty</span>
+            <div class="tc-bars"><i class="on"></i><i></i><i></i><i></i><span class="tc-lvl">Easy</span></div>
           </div>
         </div>
       </div>
       <div class="tc-price">
         <div>
-          <div class="tc-price-sub">Стоимость</div>
+          <div class="tc-price-sub">Price</div>
           <div class="tc-price-val">10 000 ₽</div>
-          <div class="tc-price-sub">за человека</div>
+          <div class="tc-price-sub">per person</div>
         </div>
         <a class="tc-btn" href="page-hibiny-kirovsk.html">
-          Подробнее
+          See details
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
     </article>
 
-    <!-- Тур: Кировск + этно-программа «Огни Имандры» -->
+    <!-- Tour: Kirovsk + the "Lights of Imandra" culture programme -->
     <article class="tc-card">
       <a class="tc-photo" href="page-ogni-imandry.html">
-        <img src="images/gallery/khib_5.webp" alt="Кировск + этно-программа «Огни Имандры»">
+        <img src="../images/gallery/khib_5.webp" alt="Kirovsk + the &laquo;Lights of Imandra&raquo; culture programme">
         <div class="tc-tags">
-          <span class="tc-tag">🦌 Этно + горы</span>
-          <span class="tc-tag">🍲 Обед включён</span>
+          <span class="tc-tag">🦌 Culture + mountains</span>
+          <span class="tc-tag">🍲 Lunch included</span>
         </div>
       </a>
       <div class="tc-info">
-        <a href="page-ogni-imandry.html"><h3 class="tc-name">Кировск + этно-программа «Огни Имандры»</h3></a>
-        <p class="tc-desc">Саамский этнопарк «Огни Имандры» на озере Имандра (самый большой чум России, олени, саамские игры) и Хибины: канатная дорога, горное озеро Малый Вудъявр и Музей камня. Обед включён.</p>
+        <a href="page-ogni-imandry.html"><h3 class="tc-name">Kirovsk + the &laquo;Lights of Imandra&raquo; Culture Programme</h3></a>
+        <p class="tc-desc">The Sami ethno-park &laquo;Lights of Imandra&raquo; on Lake Imandra (Russia's largest chum tent, reindeer, Sami games) plus the Khibiny: the cable car, the mountain lake Maly Vudyavr and the Stone Museum. Lunch included.</p>
         <div class="tc-meta">
           <div class="tc-meta-item">
-            <span class="tc-meta-label">Длительность</span>
-            <span class="tc-meta-val">12–13 часов</span>
+            <span class="tc-meta-label">Duration</span>
+            <span class="tc-meta-val">12–13 hours</span>
           </div>
           <div class="tc-meta-item">
-            <span class="tc-meta-label">Сложность</span>
-            <div class="tc-bars"><i class="on"></i><i></i><i></i><i></i><span class="tc-lvl">Лёгкий</span></div>
+            <span class="tc-meta-label">Difficulty</span>
+            <div class="tc-bars"><i class="on"></i><i></i><i></i><i></i><span class="tc-lvl">Easy</span></div>
           </div>
         </div>
       </div>
       <div class="tc-price">
         <div>
-          <div class="tc-price-sub">Стоимость</div>
+          <div class="tc-price-sub">Price</div>
           <div class="tc-price-val">13 000 ₽</div>
-          <div class="tc-price-sub">за человека</div>
+          <div class="tc-price-sub">per person</div>
         </div>
         <a class="tc-btn" href="page-ogni-imandry.html">
-          Подробнее
+          See details
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
     </article>
 
-    <!-- Тур 4: В гости к оленям и хаски -->
+    <!-- Tour 4: Meet the reindeer and huskies -->
     <article class="tc-card">
       <a class="tc-photo" href="page-saami.html">
-        <img src="images/saami_cover.webp" alt="В гости к оленям и хаски">
+        <img src="../images/saami_cover.webp" alt="Meet the reindeer and huskies">
         <div class="tc-tags">
-          <span class="tc-tag">🦌 Хаски и олени</span>
-          <span class="tc-tag">🔥 Обряд у костра</span>
+          <span class="tc-tag">🦌 Huskies & reindeer</span>
+          <span class="tc-tag">🔥 Campfire ritual</span>
         </div>
       </a>
       <div class="tc-info">
-        <a href="page-saami.html"><h3 class="tc-name">В гости к оленям и хаски</h3></a>
-        <p class="tc-desc">Погружение в традиции Севера в часе езды от Мурманска: хаски и олени, обряд у костра в тёплом чуме и зимние катания — за один день.</p>
+        <a href="page-saami.html"><h3 class="tc-name">Meet the Reindeer &amp; Huskies</h3></a>
+        <p class="tc-desc">Immerse yourself in northern traditions an hour's drive from Murmansk: huskies and reindeer, a campfire ritual inside a warm chum tent and winter rides — all in a single day.</p>
         <div class="tc-meta">
           <div class="tc-meta-item">
-            <span class="tc-meta-label">Длительность</span>
-            <span class="tc-meta-val">4–5 часов</span>
+            <span class="tc-meta-label">Duration</span>
+            <span class="tc-meta-val">4–5 hours</span>
           </div>
           <div class="tc-meta-item">
-            <span class="tc-meta-label">Сложность</span>
-            <div class="tc-bars"><i class="on"></i><i></i><i></i><i></i><span class="tc-lvl">Лёгкий</span></div>
+            <span class="tc-meta-label">Difficulty</span>
+            <div class="tc-bars"><i class="on"></i><i></i><i></i><i></i><span class="tc-lvl">Easy</span></div>
           </div>
         </div>
       </div>
       <div class="tc-price">
         <div>
-          <div class="tc-price-sub">Стоимость</div>
-          <div class="tc-price-val">от 6 000 ₽</div>
-          <div class="tc-price-sub">за человека</div>
+          <div class="tc-price-sub">Price</div>
+          <div class="tc-price-val">from 6 000 ₽</div>
+          <div class="tc-price-sub">per person</div>
         </div>
         <a class="tc-btn" href="page-saami.html">
-          Подробнее
+          See details
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
@@ -671,22 +689,22 @@
       <div class="ft-col-brand">
         <h3 class="ft-brand">Aurora Trip</h3>
         <div class="ft-legal">
-          ИП Трофименко Михаил Сергеевич<br>
-          ОГРНИП 321519000010954<br>
-          ИНН 519091956005
+          Sole proprietor Mikhail S. Trofimenko<br>
+          OGRNIP 321519000010954<br>
+          INN 519091956005
         </div>
       </div>
       <div class="ft-col-phone">
-        <div class="ft-phone">+7 (921) 166-33-15 · Михаил</div>
-        <a class="ft-callback" href="tel:+79211663315">Заказать звонок</a>
-        <div class="ft-schedule">График работы: с 9:00 до 21:00</div>
+        <div class="ft-phone">+7 (921) 166-33-15 · Mikhail</div>
+        <a class="ft-callback" href="tel:+79211663315">Request a call</a>
+        <div class="ft-schedule">Open daily 9:00 – 21:00</div>
       </div>
       <div class="ft-col-email">
-        <p class="ft-label">E-mail для заявок</p>
+        <p class="ft-label">Email for enquiries</p>
         <a class="ft-email" href="mailto:auroratrip3@gmail.com">auroratrip3@gmail.com</a>
       </div>
       <div class="ft-col-social">
-        <p class="ft-label">Написать нам в<br>мессенджерах</p>
+        <p class="ft-label">Message us on<br>social apps</p>
         <div class="ft-socials">
           <a class="ft-social" href="https://wa.me/79211663315" target="_blank" aria-label="WhatsApp">
             <svg viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.74-.86-2-.96-.27-.1-.47-.15-.66.15-.2.3-.76.96-.93 1.16-.17.2-.34.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.6.13-.14.3-.34.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.66-1.6-.9-2.18-.24-.57-.48-.5-.66-.5l-.57-.01c-.2 0-.52.07-.8.37s-1.05 1.02-1.05 2.5 1.08 2.9 1.23 3.1c.15.2 2.12 3.24 5.13 4.54.72.3 1.27.5 1.7.64.72.23 1.37.2 1.88.12.57-.08 1.74-.71 1.99-1.4.24-.68.24-1.27.17-1.4-.07-.12-.27-.19-.57-.34zM12.04 21.5h-.01a9.4 9.4 0 01-4.8-1.32l-.34-.2-3.57.94.95-3.48-.22-.36a9.42 9.42 0 01-1.44-5.02c0-5.2 4.24-9.44 9.46-9.44 2.52 0 4.9.99 6.68 2.77a9.38 9.38 0 012.77 6.68c-.01 5.2-4.24 9.44-9.44 9.44zm8.04-17.48A11.32 11.32 0 0012.04.7C5.8.7.72 5.77.72 12.02c0 1.99.52 3.94 1.51 5.65L.63 23.5l6-1.57a11.3 11.3 0 005.4 1.38h.01c6.24 0 11.32-5.08 11.32-11.32a11.25 11.25 0 00-3.3-8z"/></svg>
@@ -702,50 +720,61 @@
     </div>
     <div class="ft-cols">
       <div>
-        <p class="ft-col-title">Популярные туры</p>
+        <p class="ft-col-title">Popular tours</p>
         <ul class="ft-links">
-          <li><a href="page-kity-teriberka.html">В Териберку на поиски китов</a></li>
-          <li><a href="page-murmansk-obzor.html">Обзорная экскурсия по Мурманску</a></li>
-          <li><a href="#">В гости к оленям и хаски</a></li>
+          <li><a href="page-kity-teriberka.html">Teriberka Whale Watching</a></li>
+          <li><a href="page-murmansk-obzor.html">Murmansk City Tour</a></li>
+          <li><a href="page-saami.html">Meet the Reindeer &amp; Huskies</a></li>
         </ul>
       </div>
       <div>
-        <p class="ft-col-title">Для туристов</p>
+        <p class="ft-col-title">For travellers</p>
         <ul class="ft-links">
-          <li><a href="#">Прогноз северного сияния</a></li>
-          <li><a href="#">ТОП отелей Мурманска</a></li>
-          <li><a href="#">ТОП ресторанов Мурманска</a></li>
-          <li><a href="#">Где позавтракать в Мурманске</a></li>
-          <li><a href="#">Горнолыжные курорты Мурманской области</a></li>
+          <li><a href="#">Northern lights forecast</a></li>
+          <li><a href="#">Top hotels in Murmansk</a></li>
+          <li><a href="#">Top restaurants in Murmansk</a></li>
+          <li><a href="#">Where to have breakfast in Murmansk</a></li>
+          <li><a href="#">Ski resorts of the Murmansk Region</a></li>
         </ul>
       </div>
       <div>
-        <p class="ft-col-title">О нас</p>
+        <p class="ft-col-title">About us</p>
         <ul class="ft-links">
-          <li><a href="#">О компании</a></li>
-          <li><a href="#">Календарь туров</a></li>
-          <li><a href="#">Наша команда</a></li>
-          <li><a href="partners.html">Партнёрам</a></li>
-          <li><a href="#">Блог</a></li>
-          <li><a href="#">Отзывы наших гостей</a></li>
-          <li><a href="contacts.html">Контакты</a></li>
+          <li><a href="#">About the company</a></li>
+          <li><a href="#">Tour calendar</a></li>
+          <li><a href="#">Our Team</a></li>
+          <li><a href="../partners.html">For Partners</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">What Our Guests Say</a></li>
+          <li><a href="contacts.html">Contacts</a></li>
         </ul>
       </div>
       <div>
-        <p class="ft-col-title">Правовая информация</p>
+        <p class="ft-col-title">Legal</p>
         <ul class="ft-links">
-          <li><a href="oferta.html">Договор-оферта</a></li>
-          <li><a href="privacy.html">Политика обработки персональных данных</a></li>
-          <li><a href="consent.html">Согласие на обработку персональных данных</a></li>
-          <li><a href="marketing-consent.html">Согласие на получение рекламной рассылки</a></li>
-          <li><a href="cookies.html">Политика cookies</a></li>
-          <li><a href="terms.html">Определения и термины</a></li>
+          <li><a href="../oferta.html">Public offer agreement</a></li>
+          <li><a href="../privacy.html">Personal data processing policy</a></li>
+          <li><a href="../consent.html">Consent to personal data processing</a></li>
+          <li><a href="../marketing-consent.html">Consent to marketing communications</a></li>
+          <li><a href="../cookies.html">Cookie policy</a></li>
+          <li><a href="../terms.html">Definitions and terms</a></li>
         </ul>
       </div>
     </div>
   </div>
 </footer>
 
-<script src="js/cookie-banner.js" defer></script>
+<!-- Remember the chosen language when the switcher is clicked -->
+<script>
+(function(){
+  document.querySelectorAll('a[data-setlang]').forEach(function(a){
+    a.addEventListener('click', function(){
+      try { localStorage.setItem('lang', a.getAttribute('data-setlang')); } catch(e){}
+    });
+  });
+})();
+</script>
+
+<script src="../js/cookie-banner.js" defer></script>
 </body>
 </html>
