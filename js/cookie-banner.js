@@ -29,12 +29,22 @@
       '#cookie-banner .cb-btns button{flex:1}}';
     document.head.appendChild(css);
 
+    var isEN = (document.documentElement.lang || '').toLowerCase().indexOf('en') === 0 ||
+               location.pathname.indexOf('/en/') !== -1;
     var b = document.createElement('div');
     b.id = 'cookie-banner';
-    b.innerHTML =
+    b.innerHTML = isEN ?
+      '<p>We use cookies to make the site work properly and improve your experience. ' +
+      'By continuing to browse, you agree to our <a href="/cookies.html">Cookie Policy</a> ' +
+      'and <a href="/privacy.html">personal data processing</a>.</p>' +
+      '<div class="cb-btns">' +
+      '<button id="cb-decline" type="button">Essential only</button>' +
+      '<button id="cb-accept" type="button">Accept</button>' +
+      '</div>'
+      :
       '<p>Мы используем файлы cookie, чтобы сайт работал корректно и был удобнее. ' +
-      'Продолжая пользоваться сайтом, вы соглашаетесь с <a href="cookies.html">Политикой cookie</a> ' +
-      'и <a href="privacy.html">обработкой персональных данных</a>.</p>' +
+      'Продолжая пользоваться сайтом, вы соглашаетесь с <a href="/cookies.html">Политикой cookie</a> ' +
+      'и <a href="/privacy.html">обработкой персональных данных</a>.</p>' +
       '<div class="cb-btns">' +
       '<button id="cb-decline" type="button">Только необходимые</button>' +
       '<button id="cb-accept" type="button">Принять</button>' +

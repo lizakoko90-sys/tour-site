@@ -68,14 +68,20 @@
       box.style.cssText = 'margin-top:12px;font-size:14px;font-weight:600;line-height:1.4;border-radius:7px;padding:12px 14px;';
       form.appendChild(box);
     }
+    var isEN = (document.documentElement.lang || '').toLowerCase().indexOf('en') === 0 ||
+               location.pathname.indexOf('/en/') !== -1;
     if (ok) {
       box.style.background = 'rgba(61,220,132,.15)';
       box.style.color = '#12A67E';
-      box.textContent = '✓ Спасибо! Заявка отправлена — мы свяжемся с вами в ближайшее время.';
+      box.textContent = isEN
+        ? '✓ Thank you! Your request has been sent — we’ll get back to you shortly.'
+        : '✓ Спасибо! Заявка отправлена — мы свяжемся с вами в ближайшее время.';
     } else {
       box.style.background = 'rgba(234,102,95,.15)';
       box.style.color = '#D64B44';
-      box.textContent = 'Не удалось отправить. Позвоните нам: +7 (921) 166-33-15 или напишите в Telegram.';
+      box.textContent = isEN
+        ? 'Could not send. Please call us: +7 (921) 166-33-15 or message us on Telegram.'
+        : 'Не удалось отправить. Позвоните нам: +7 (921) 166-33-15 или напишите в Telegram.';
     }
   }
 
@@ -86,7 +92,9 @@
 
       var btn = form.querySelector('button[type="submit"], .btn-send, .asf-btn-submit, .modal-submit');
       var oldText = btn ? btn.textContent : '';
-      if (btn) { btn.disabled = true; btn.textContent = 'Отправляем…'; }
+      var _isEN = (document.documentElement.lang || '').toLowerCase().indexOf('en') === 0 ||
+                  location.pathname.indexOf('/en/') !== -1;
+      if (btn) { btn.disabled = true; btn.textContent = _isEN ? 'Sending…' : 'Отправляем…'; }
 
       var done = function (ok) {
         if (btn) { btn.disabled = false; btn.textContent = oldText; }
