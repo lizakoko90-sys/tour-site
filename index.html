@@ -1083,6 +1083,15 @@
       text-decoration: none;
     }
     .ft-callback:hover { background: var(--aurora); color: #0E1626; }
+    .ft-call {
+      display: block; width: 100%; text-align: center; padding: 16px;
+      border: 1.5px solid transparent; border-radius: 7px;
+      background: var(--aurora); color: #0E1626;
+      font-size: 16px; font-weight: 700; font-family: inherit;
+      cursor: pointer; transition: filter .2s; margin-bottom: 12px;
+      text-decoration: none;
+    }
+    .ft-call:hover { filter: brightness(1.08); }
     .ft-schedule { font-size: 14px; color: #7E8A99; }
     .ft-label {
       font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
@@ -1493,7 +1502,7 @@
       <a href="https://t.me/aurora_trip51" class="social-btn" title="Telegram">
         <svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
       </a>
-      <a href="tel:+79211663315" class="nav-phone">+7 (921) 166-33-15 · Михаил</a>
+      <a href="tel:+79211663315" class="nav-phone">+7 (921) 166-33-15</a>
       <div class="lang-switch">
         <a href="index.html" data-setlang="ru" class="lang-opt active">RU</a>
         <span class="lang-sep">|</span>
@@ -1509,7 +1518,7 @@
       <a href="contacts.html">Контакты</a>
       <a href="#blog" onclick="closeNav()">Блог</a>
       <a href="partners.html">Партнёрам</a>
-      <a href="tel:+79211663315" class="nav-mobile-phone">+7 (921) 166-33-15 · Михаил</a>
+      <a href="tel:+79211663315" class="nav-mobile-phone">+7 (921) 166-33-15</a>
       <div class="lang-switch">
         <a href="index.html" data-setlang="ru" class="lang-opt active">RU</a>
         <span class="lang-sep">|</span>
@@ -1557,7 +1566,7 @@
       <h1 class="hero-title">Путешествие<br>на Север России</h1>
       <p class="hero-desc">
         Туры и экскурсии по Мурманской области<br>
-        и самым интересным местам Кольского Заполярья<br>
+        и самым интересным местам Кольского Заполярья.<br>
         Охота за Северным Сиянием, Териберка, Хибины,<br>
         хаски и северные олени
       </p>
@@ -1608,7 +1617,7 @@
       <p>Возьмем все заботы на себя, чтобы вы могли наслаждаться отдыхом и заряжаться энергией Крайнего Севера.</p>
     </div>
     <div class="stat">
-      <h4>Приняли более 1000+ гостей</h4>
+      <h4>Приняли более 2000 гостей</h4>
       <p>Работаем с мини-группами до 40+ человек. В нашем автопарке более 10 современных машин.</p>
     </div>
   </div>
@@ -1684,6 +1693,7 @@
         <span class="aurb-chip">🌙 Ночная охота</span>
         <span class="aurb-chip">📸 Профессиональные фото</span>
         <span class="aurb-chip">🚙 Забираем от отеля</span>
+        <span class="aurb-chip">👥 Малые группы — без больших автобусов</span>
       </div>
       <div class="aurb-cta-row">
         <a href="page-severnoe-siyanie.html" class="aurb-btn">
@@ -2556,8 +2566,9 @@
       </div>
 
       <div class="ft-col-phone">
-        <div class="ft-phone">+7 (921) 166-33-15 · Михаил</div>
-        <a class="ft-callback" href="tel:+79211663315">Заказать звонок</a>
+        <div class="ft-phone">+7 (921) 166-33-15</div>
+        <a class="ft-call" href="tel:+79211663315">Позвонить</a>
+        <a class="ft-callback" href="#zayavka-form">Заказать звонок</a>
         <div class="ft-schedule">График работы: с 9:00 до 21:00</div>
       </div>
 
