@@ -1518,7 +1518,13 @@
       font-size: 13px; line-height: 1.45; color: #12A67E; font-weight: 700; margin: 0 0 12px;
       min-height: 2.9em;   /* держим 2 строки, чтобы описания начинались на одной линии */
     }
-    .team-lead { font-size: 14.5px; line-height: 1.66; color: #5B6B7A; margin: 0; }
+    /* видимый текст у всех ровно 4 строки — карточки одинаковые; при раскрытии обрезка снимается */
+    .team-lead {
+      font-size: 14.5px; line-height: 1.66; color: #5B6B7A; margin: 0;
+      display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 4;
+      line-clamp: 4; overflow: hidden;
+    }
+    .team-card.open .team-lead { display: block; overflow: visible; }
     .team-more {
       max-height: 0; overflow: hidden;
       transition: max-height .42s cubic-bezier(.2,.6,.2,1);
@@ -2516,10 +2522,9 @@
       <div class="team-body">
         <h3 class="team-name">Mikhail</h3>
         <p class="team-role">A guide in love with the history of the North</p>
-        <p class="team-lead">A passionate history buff and dedicated traveller. Mikhail is convinced that behind every place there are remarkable stories of people, events and discoveries.</p>
+        <p class="team-lead">A passionate history buff and dedicated traveller. Mikhail is convinced that behind every place there are remarkable stories of people, events and discoveries. He does not simply recite facts — he brings the past back to life, turning an ordinary drive into genuine time travel.</p>
         <div class="team-more" id="team-more-1">
           <div class="team-more-in">
-            <p>He does not simply recite facts — he brings the past back to life, turning an ordinary drive into genuine time travel.</p>
             <p>For him the North is not just beautiful scenery. It is a land with character, with human destinies and legends he wants to share with every guest.</p>
           </div>
         </div>
@@ -2540,10 +2545,9 @@
       <div class="team-body">
         <h3 class="team-name">Aleksandra</h3>
         <p class="team-role">The pearl of our team</p>
-        <p class="team-lead">Aleksandra can wake up even the sleepiest traveller on the road with nothing but her smile.</p>
+        <p class="team-lead">Aleksandra can wake up even the sleepiest traveller on the road with nothing but her smile. Her stories about the Pomors, northern traditions and everyday life on the Kola Peninsula turn a trip into a captivating tale.</p>
         <div class="team-more" id="team-more-2">
           <div class="team-more-in">
-            <p>Her stories about the Pomors, northern traditions and everyday life on the Kola Peninsula turn a trip into a captivating tale.</p>
             <p>Bright, sharp and truly one of a kind, Aleksandra creates a special atmosphere of warmth in which guests feel less like tourists and more like real travellers.</p>
           </div>
         </div>
@@ -2588,10 +2592,10 @@
       <div class="team-body">
         <h3 class="team-name">Roman</h3>
         <p class="team-role">The heart of the team and a true expert on the North</p>
-        <p class="team-lead">With Roman it is never boring. He is the kind of guide you click with in the very first minutes.</p>
+        <p class="team-lead">With Roman it is never boring. He is the kind of guide you click with in the very first minutes. The best of company, an attentive host and a real expert on the North.</p>
         <div class="team-more" id="team-more-4">
           <div class="team-more-in">
-            <p>The best of company, an attentive host and a real expert on the North. His sense of humour, his calm and his love for what he does make every journey easy and memorable.</p>
+            <p>His sense of humour, his calm and his love for what he does make every journey easy and memorable.</p>
             <p>Roman knows how to set the mood on any trip and to show you a North that is not only beautiful, but alive.</p>
           </div>
         </div>
