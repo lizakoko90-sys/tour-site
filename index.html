@@ -53,6 +53,40 @@
       "https://vk.com/aurora_trip",
       "https://t.me/aurora_trip51"
     ],
+    "employee": [
+      {
+        "@type": "Person",
+        "name": "Елизавета",
+        "jobTitle": "Аттестованный гид",
+        "image": "https://auroratrip.ru/images/team/elizaveta.jpg",
+        "worksFor": { "@type": "TravelAgency", "name": "Aurora Trip" },
+        "description": "Опытный гид Aurora Trip: делает каждое путешествие комфортным и безопасным, безупречное вождение на северных дорогах."
+      },
+      {
+        "@type": "Person",
+        "name": "Михаил",
+        "jobTitle": "Аттестованный гид",
+        "image": "https://auroratrip.ru/images/team/mikhail.jpg",
+        "worksFor": { "@type": "TravelAgency", "name": "Aurora Trip" },
+        "description": "Гид Aurora Trip, знаток истории Кольского Севера: оживляет прошлое края, его судьбы и легенды."
+      },
+      {
+        "@type": "Person",
+        "name": "Александра",
+        "jobTitle": "Аттестованный гид",
+        "image": "https://auroratrip.ru/images/team/aleksandra.jpg",
+        "worksFor": { "@type": "TravelAgency", "name": "Aurora Trip" },
+        "description": "Гид Aurora Trip: рассказывает о поморах, северных традициях и жизни людей на Кольском полуострове."
+      },
+      {
+        "@type": "Person",
+        "name": "Роман",
+        "jobTitle": "Аттестованный гид",
+        "image": "https://auroratrip.ru/images/team/roman.jpg",
+        "worksFor": { "@type": "TravelAgency", "name": "Aurora Trip" },
+        "description": "Гид Aurora Trip и знаток Севера: лёгкие, живые и запоминающиеся поездки по Кольскому полуострову."
+      }
+    ],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "Экскурсии по Кольскому полуострову",
@@ -1360,6 +1394,128 @@
       .hm-chip { font-size: 11.5px; }
     }
 
+    /* =========================================================
+       НАША КОМАНДА
+    ========================================================= */
+    .team {
+      background: #0E1626; color: #fff;
+      padding: 76px 60px 82px;
+      position: relative; overflow: hidden;
+    }
+    .team::before {
+      content: ''; position: absolute; top: -140px; left: 50%; transform: translateX(-50%);
+      width: 720px; height: 280px; pointer-events: none;
+      background: radial-gradient(ellipse at center, rgba(61,220,132,.18) 0%, rgba(0,212,255,.10) 45%, transparent 72%);
+      filter: blur(18px);
+    }
+    .team-head { position: relative; max-width: 760px; margin-bottom: 44px; }
+    .team-eyebrow {
+      display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 1.6px;
+      text-transform: uppercase; margin-bottom: 14px;
+      background: var(--aurora); -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .team-title {
+      font-family: 'aurora', 'Montserrat', sans-serif;
+      font-size: 34px; font-weight: 800; color: #fff; line-height: 1.15; margin: 0 0 14px;
+    }
+    .team-sub { font-size: 16px; color: #C4D0DB; line-height: 1.65; margin: 0 0 12px; }
+    .team-sub b { color: #fff; font-weight: 700; }
+    .team-badge {
+      display: inline-flex; align-items: center; gap: 9px; margin-top: 8px;
+      padding: 10px 16px; border-radius: 8px;
+      background: rgba(61,220,132,.10); border: 1px solid rgba(61,220,132,.28);
+      font-size: 13.5px; font-weight: 600; color: #8FE9BC;
+    }
+    .team-badge svg { width: 17px; height: 17px; flex-shrink: 0; }
+
+    .team-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px;
+      position: relative;
+    }
+    .team-card {
+      display: flex; flex-direction: column;
+      background: #131E31; border: 1px solid rgba(255,255,255,.07);
+      border-radius: 12px; overflow: hidden;
+      transition: transform .35s cubic-bezier(.2,.6,.2,1), border-color .35s, box-shadow .35s;
+    }
+    .team-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(61,220,132,.34);
+      box-shadow: 0 18px 40px rgba(0,0,0,.35);
+    }
+    .team-photo { position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: #1A2942; }
+    .team-photo img {
+      width: 100%; height: 100%; object-fit: cover; object-position: center 22%;
+      display: block; transition: transform .55s cubic-bezier(.2,.6,.2,1);
+    }
+    .team-card:hover .team-photo img { transform: scale(1.06); }
+    .team-photo::after {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: linear-gradient(to top, rgba(11,18,31,.94) 0%, rgba(11,18,31,.55) 26%, transparent 58%);
+    }
+    .team-id { position: absolute; left: 18px; right: 18px; bottom: 15px; z-index: 2; }
+    .team-name {
+      font-family: 'aurora', 'Montserrat', sans-serif;
+      font-size: 23px; font-weight: 800; color: #fff; margin: 0 0 5px; line-height: 1.1;
+    }
+    .team-role {
+      font-size: 13px; line-height: 1.45; color: #9FE7C6; font-weight: 600; margin: 0;
+      min-height: 2.9em;   /* держим 2 строки, чтобы имена в карточках были на одной линии */
+    }
+
+    .team-body { display: flex; flex-direction: column; flex: 1; padding: 18px 18px 20px; }
+    .team-lead { font-size: 14.5px; line-height: 1.62; color: #B9C6D3; margin: 0; }
+    .team-more {
+      max-height: 0; overflow: hidden;
+      transition: max-height .42s cubic-bezier(.2,.6,.2,1);
+    }
+    .team-more-in p { font-size: 14.5px; line-height: 1.62; color: #B9C6D3; margin: 12px 0 0; }
+    .team-toggle {
+      align-self: flex-start; margin-top: auto; padding: 14px 0 0;
+      background: none; border: 0; cursor: pointer; font-family: inherit;
+      font-size: 13.5px; font-weight: 700; color: #3DDC84;
+      display: inline-flex; align-items: center; gap: 6px;
+      transition: color .2s;
+    }
+    .team-toggle:hover { color: #7BEDB4; }
+    .team-toggle svg { width: 13px; height: 13px; transition: transform .35s; }
+    .team-card.open .team-toggle svg { transform: rotate(180deg); }
+    .team-toggle .t-less { display: none; }
+    .team-card.open .team-toggle .t-more { display: none; }
+    .team-card.open .team-toggle .t-less { display: inline; }
+
+    .team-foot {
+      margin-top: 40px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,.09);
+      display: flex; flex-wrap: wrap; align-items: center; gap: 18px 26px;
+    }
+    .team-foot p { font-size: 15.5px; color: #C4D0DB; margin: 0; line-height: 1.6; flex: 1 1 320px; }
+    .team-foot-btn {
+      display: inline-flex; align-items: center; gap: 9px;
+      padding: 14px 26px; border-radius: 8px; text-decoration: none;
+      background: var(--aurora); color: #0E1626;
+      font-size: 15px; font-weight: 700; transition: filter .2s, transform .2s;
+    }
+    .team-foot-btn:hover { filter: brightness(1.08); transform: translateY(-2px); }
+
+    @media (max-width: 1100px) {
+      .team-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    }
+    @media (max-width: 900px) {
+      .team { padding: 60px 34px 66px; }
+      .team-title { font-size: 29px; }
+    }
+    @media (max-width: 640px) {
+      .team { padding: 52px 20px 58px; }
+      .team-title { font-size: 27px; }
+      .team-sub { font-size: 15px; }
+      .team-grid { grid-template-columns: 1fr; gap: 16px; }
+      .team-photo { aspect-ratio: 4 / 3; }
+      .team-photo img { object-position: center 20%; }
+      .team-name { font-size: 21px; }
+      .team-foot { margin-top: 30px; padding-top: 24px; }
+      .team-foot-btn { width: 100%; justify-content: center; }
+    }
+
     /* ===== Оживление сайта: появление, ховеры, снег ===== */
     .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s cubic-bezier(.2,.6,.2,1), transform .7s cubic-bezier(.2,.6,.2,1); }
     .reveal.reveal-in { opacity: 1; transform: none; }
@@ -1482,7 +1638,7 @@
     </a>
 
     <ul class="nav-links">
-      <li><a href="#">Наша команда</a></li>
+      <li><a href="#team">Наша команда</a></li>
       <li><a href="tury.html">Экскурсии</a></li>
       <li><a href="contacts.html">Контакты</a></li>
       <li><a href="#blog">Блог</a></li>
@@ -1513,7 +1669,7 @@
       </button>
     </div>
     <div class="nav-mobile" id="navMobile">
-      <a href="#" onclick="closeNav()">Наша команда</a>
+      <a href="#team" onclick="closeNav()">Наша команда</a>
       <a href="tury.html">Экскурсии</a>
       <a href="contacts.html">Контакты</a>
       <a href="#blog" onclick="closeNav()">Блог</a>
@@ -2315,6 +2471,127 @@
 
 
 <!-- ========================================================
+     НАША КОМАНДА
+======================================================== -->
+<section class="team" id="team" aria-labelledby="team-title">
+  <div class="team-head">
+    <span class="team-eyebrow">Кто поведёт вас</span>
+    <h2 class="team-title" id="team-title">Наша команда</h2>
+    <p class="team-sub">За каждым путешествием стоят люди. Люди, которые любят Север, знают его историю и умеют показать его таким, каким видят сами.</p>
+    <p class="team-sub">Но для нас важно не только знание маршрутов и исторических фактов. Важно отношение к людям, искренняя любовь к своему краю и желание подарить гостям <b>настоящее северное приключение</b>.</p>
+    <span class="team-badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
+      Все гиды прошли официальную аттестацию
+    </span>
+  </div>
+
+  <div class="team-grid">
+
+    <article class="team-card">
+      <div class="team-photo">
+        <img loading="lazy" src="images/team/elizaveta.jpg" width="800" height="1000" alt="Елизавета — аттестованный гид Aurora Trip по Мурманску и Кольскому полуострову">
+        <div class="team-id">
+          <h3 class="team-name">Елизавета</h3>
+          <p class="team-role">Надёжный гид и уверенный проводник по Северу</p>
+        </div>
+      </div>
+      <div class="team-body">
+        <p class="team-lead">Елизавета — надёжная, как швейцарские часы. Молодая, красивая и невероятно ответственная. Но главное — опытный гид, который умеет сделать каждое путешествие комфортным, интересным и наполненным приятными впечатлениями.</p>
+        <div class="team-more" id="team-more-1">
+          <div class="team-more-in">
+            <p>Её спокойствие, внимательность и любовь к людям помогают гостям чувствовать себя уверенно с первых минут знакомства. А безупречное вождение делает любую дорогу лёгкой и безопасной.</p>
+            <p>С Елизаветой вы получаете не просто сопровождающего в поездке, а настоящего друга, которому можно доверить своё северное приключение.</p>
+          </div>
+        </div>
+        <button class="team-toggle" type="button" aria-expanded="false" aria-controls="team-more-1">
+          <span class="t-more">Подробнее</span><span class="t-less">Свернуть</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+      </div>
+    </article>
+
+    <article class="team-card">
+      <div class="team-photo">
+        <img loading="lazy" src="images/team/mikhail.jpg" width="800" height="1000" alt="Михаил — гид Aurora Trip, знаток истории Кольского Севера">
+        <div class="team-id">
+          <h3 class="team-name">Михаил</h3>
+          <p class="team-role">Гид, который влюблён в историю Севера</p>
+        </div>
+      </div>
+      <div class="team-body">
+        <p class="team-lead">Большой любитель истории и увлечённый путешественник. Михаил уверен, что за каждым местом стоят удивительные истории людей, событий и открытий.</p>
+        <div class="team-more" id="team-more-2">
+          <div class="team-more-in">
+            <p>Он умеет не просто рассказывать факты, а оживлять прошлое, превращая обычную поездку в настоящее путешествие во времени.</p>
+            <p>Для него Север — это не просто красивые пейзажи. Это край с характером, судьбами и легендами, которыми хочется делиться с каждым гостем.</p>
+          </div>
+        </div>
+        <button class="team-toggle" type="button" aria-expanded="false" aria-controls="team-more-2">
+          <span class="t-more">Подробнее</span><span class="t-less">Свернуть</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+      </div>
+    </article>
+
+    <article class="team-card">
+      <div class="team-photo">
+        <img loading="lazy" src="images/team/aleksandra.jpg" width="800" height="1000" alt="Александра — гид Aurora Trip, рассказчица о поморах и северных традициях">
+        <div class="team-id">
+          <h3 class="team-name">Александра</h3>
+          <p class="team-role">Жемчужина нашей команды</p>
+        </div>
+      </div>
+      <div class="team-body">
+        <p class="team-lead">Александра — человек, который способен своей улыбкой разбудить даже самого сонного туриста в дороге.</p>
+        <div class="team-more" id="team-more-3">
+          <div class="team-more-in">
+            <p>Её рассказы о поморах, северных традициях и жизни людей на Кольском полуострове превращают путешествие в увлекательную историю.</p>
+            <p>Красивая, умная и неповторимая, Александра умеет создавать особую атмосферу тепла и уюта, благодаря которой гости чувствуют себя не просто туристами, а настоящими путешественниками.</p>
+          </div>
+        </div>
+        <button class="team-toggle" type="button" aria-expanded="false" aria-controls="team-more-3">
+          <span class="t-more">Подробнее</span><span class="t-less">Свернуть</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+      </div>
+    </article>
+
+    <article class="team-card">
+      <div class="team-photo">
+        <img loading="lazy" src="images/team/roman.jpg" width="800" height="1000" alt="Роман — гид Aurora Trip по Кольскому полуострову">
+        <div class="team-id">
+          <h3 class="team-name">Роман</h3>
+          <p class="team-role">Душа компании и знаток Севера</p>
+        </div>
+      </div>
+      <div class="team-body">
+        <p class="team-lead">С Романом точно не будет скучно! Он — тот самый гид, с которым легко найти общий язык с первых минут.</p>
+        <div class="team-more" id="team-more-4">
+          <div class="team-more-in">
+            <p>Самый приятный собеседник, внимательный проводник и настоящий знаток Севера. Его чувство юмора, спокойствие и любовь к своему делу делают каждое путешествие лёгким и запоминающимся.</p>
+            <p>Роман умеет создать настроение в любой поездке и показать Север не только красивым, но и живым.</p>
+          </div>
+        </div>
+        <button class="team-toggle" type="button" aria-expanded="false" aria-controls="team-more-4">
+          <span class="t-more">Подробнее</span><span class="t-less">Свернуть</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="team-foot">
+    <p>Мы — команда профессионалов, которая объединяет опыт, заботу и любовь к путешествиям.</p>
+    <a href="tury.html" class="team-foot-btn">
+      Выбрать путешествие
+      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</section>
+
+
+<!-- ========================================================
      ОТЗЫВЫ ГОСТЕЙ
 ======================================================== -->
 <section class="reviews" id="reviews">
@@ -2620,7 +2897,7 @@
         <ul class="ft-links">
           <li><a href="#">О компании</a></li>
           <li><a href="#">Календарь туров</a></li>
-          <li><a href="#">Наша команда</a></li>
+          <li><a href="#team">Наша команда</a></li>
           <li><a href="partners.html">Партнёрам</a></li>
           <li><a href="#blog">Блог</a></li>
           <li><a href="#">Отзывы наших гостей</a></li>
@@ -3021,6 +3298,34 @@
 </script>
 
 <script>
+  // ═══ Наша команда: раскрытие подробного рассказа о гиде ═══
+  (function(){
+    var cards = document.querySelectorAll('.team-card');
+    if (!cards.length) return;
+    function fit(card){
+      var box = card.querySelector('.team-more');
+      var inner = card.querySelector('.team-more-in');
+      box.style.maxHeight = card.classList.contains('open') ? inner.offsetHeight + 'px' : '0px';
+    }
+    cards.forEach(function(card){
+      var btn = card.querySelector('.team-toggle');
+      if (!btn) return;
+      btn.addEventListener('click', function(){
+        var open = card.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        fit(card);
+      });
+    });
+    // при смене ширины пересчитываем открытые карточки (текст мог перетечь)
+    var t;
+    window.addEventListener('resize', function(){
+      clearTimeout(t);
+      t = setTimeout(function(){
+        cards.forEach(function(c){ if (c.classList.contains('open')) fit(c); });
+      }, 150);
+    });
+  })();
+
   // ═══ Оживление сайта: появление при прокрутке, волна календаря, снег ═══
   (function(){
     var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -3033,12 +3338,12 @@
       });
     }, { threshold: 0.14, rootMargin: '0px 0px -6% 0px' });
 
-    var singles = ['.tours-title', '.tours-desc', '.gal-title', '.gal-sub', '.rev-title', '.sc-title', '.sc-sub', '.blog-title', '.blog-sub'];
+    var singles = ['.tours-title', '.tours-desc', '.gal-title', '.gal-sub', '.rev-title', '.sc-title', '.sc-sub', '.blog-title', '.blog-sub', '.team-head'];
     singles.forEach(function(sel){
       document.querySelectorAll(sel).forEach(function(el){ el.classList.add('reveal'); io.observe(el); });
     });
     // группы с каскадом (задержка по позиции в строке)
-    [['.stat', 90], ['.usp-item', 100], ['.sc-card', 100], ['.blog-card', 100]].forEach(function(g){
+    [['.stat', 90], ['.usp-item', 100], ['.sc-card', 100], ['.blog-card', 100], ['.team-card', 110]].forEach(function(g){
       document.querySelectorAll(g[0]).forEach(function(el, i){
         el.classList.add('reveal');
         el.style.transitionDelay = ((i % 4) * g[1]) + 'ms';
