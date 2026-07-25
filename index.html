@@ -56,18 +56,13 @@
     "employee": [
       {
         "@type": "Person",
-        "name": "Елизавета",
-        "jobTitle": "Аттестованный гид",
-        "image": "https://auroratrip.ru/images/team/elizaveta.jpg",
-        "worksFor": { "@type": "TravelAgency", "name": "Aurora Trip" },
-        "description": "Опытный гид Aurora Trip: делает каждое путешествие комфортным и безопасным, безупречное вождение на северных дорогах."
-      },
-      {
-        "@type": "Person",
         "name": "Михаил",
         "jobTitle": "Аттестованный гид",
         "image": "https://auroratrip.ru/images/team/mikhail.jpg",
-        "worksFor": { "@type": "TravelAgency", "name": "Aurora Trip" },
+        "worksFor": {
+          "@type": "TravelAgency",
+          "name": "Aurora Trip"
+        },
         "description": "Гид Aurora Trip, знаток истории Кольского Севера: оживляет прошлое края, его судьбы и легенды."
       },
       {
@@ -75,15 +70,32 @@
         "name": "Александра",
         "jobTitle": "Аттестованный гид",
         "image": "https://auroratrip.ru/images/team/aleksandra.jpg",
-        "worksFor": { "@type": "TravelAgency", "name": "Aurora Trip" },
+        "worksFor": {
+          "@type": "TravelAgency",
+          "name": "Aurora Trip"
+        },
         "description": "Гид Aurora Trip: рассказывает о поморах, северных традициях и жизни людей на Кольском полуострове."
+      },
+      {
+        "@type": "Person",
+        "name": "Елизавета",
+        "jobTitle": "Аттестованный гид",
+        "image": "https://auroratrip.ru/images/team/elizaveta.jpg",
+        "worksFor": {
+          "@type": "TravelAgency",
+          "name": "Aurora Trip"
+        },
+        "description": "Опытный гид Aurora Trip: делает каждое путешествие комфортным и безопасным, безупречное вождение на северных дорогах."
       },
       {
         "@type": "Person",
         "name": "Роман",
         "jobTitle": "Аттестованный гид",
         "image": "https://auroratrip.ru/images/team/roman.jpg",
-        "worksFor": { "@type": "TravelAgency", "name": "Aurora Trip" },
+        "worksFor": {
+          "@type": "TravelAgency",
+          "name": "Aurora Trip"
+        },
         "description": "Гид Aurora Trip и знаток Севера: лёгкие, живые и запоминающиеся поездки по Кольскому полуострову."
       }
     ],
@@ -1437,28 +1449,56 @@
     .team-badge svg { width: 17px; height: 17px; flex-shrink: 0; }
 
     .team-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 34px 30px; position: relative;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 34px 56px; position: relative;
     }
-    .team-card { position: relative; display: flex; flex-direction: column; }
-    /* зигзаг: чётные карточки ниже — уходим от «ровной линейки» */
-    .team-card:nth-child(even) { margin-top: 46px; }
+    .team-card { position: relative; z-index: 1; display: flex; flex-direction: column; }
+    /* сопки на горизонте — пунктиром на заднем плане */
+    .team-hills {
+      position: absolute; z-index: 0; pointer-events: none;
+      left: -70px; right: -70px; top: 76px; height: 238px;
+      background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%201200%20320%27%20preserveAspectRatio%3D%27none%27%3E%3Cg%20fill%3D%27none%27%20stroke-linecap%3D%27round%27%20stroke-dasharray%3D%278%2012%27%3E%3Cpath%20d%3D%27M0%20149%20Q100%20173%20150%20163%20Q200%20152%20250%20167%20Q300%20182%20350%20176%20Q400%20170%20450%20176%20Q500%20182%20550%20167%20Q600%20152%20650%20163%20Q700%20173%20750%20161%20Q800%20149%20850%20165%20Q900%20180%20950%20175%20Q1000%20170%201050%20177%20Q1100%20183%201150%20170%20L1200%20156%27%20%20stroke%3D%27%239FBACB%27%20stroke-width%3D%272.4%27%20opacity%3D%27.9%27%2F%3E%3Cpath%20d%3D%27M0%20188%20Q120%20249%20180%20227%20Q240%20204%20300%20226%20Q360%20248%20420%20208%20Q480%20168%20540%20208%20Q600%20248%20660%20215%20Q720%20182%20780%20215%20Q840%20249%20900%20228%20Q960%20207%201020%20228%20Q1080%20248%201140%20211%20L1200%20173%27%20%20stroke%3D%27%237C9FB4%27%20stroke-width%3D%272.6%27%20opacity%3D%27.88%27%2F%3E%3Cpath%20d%3D%27M0%20283%20Q150%20251%20225%20260%20Q300%20269%20375%20259%20Q450%20249%20525%20265%20Q600%20281%20675%20278%20Q750%20274%20825%20279%20Q900%20285%20975%20270%20Q1050%20256%201125%20262%20L1200%20269%27%20stroke%3D%27%235E869E%27%20stroke-width%3D%272.8%27%20opacity%3D%27.82%27%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E") no-repeat center / 100% 100%;
+    }
+    /* тундровая флора: полупрозрачные силуэты грибов, кустиков и ягод */
+    .team-decor { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+    .team-decor span { position: absolute; display: block; background-repeat: no-repeat; background-size: contain; }
+    .tf-mush  { background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2040%2048%27%3E%3Cpath%20fill%3D%27%232E5468%27%20d%3D%27M20%205%20C32%205%2039%2014%2039%2020%20C39%2023.5%2032%2025%2020%2025%20C8%2025%201%2023.5%201%2020%20C1%2014%208%205%2020%205%20Z%27%2F%3E%3Cpath%20fill%3D%27%232E5468%27%20d%3D%27M16%2025%20C16%2034%2014.5%2041%2013.5%2046%20L26.5%2046%20C25.5%2041%2024%2034%2024%2025%20Z%27%2F%3E%3C%2Fsvg%3E"); }
+    .tf-bush  { background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2056%2044%27%3E%3Cpath%20fill%3D%27%232E5468%27%20d%3D%27M9%2040%20C2%2040%200%2033%204.5%2029%20C1.5%2023%206.5%2017%2012.5%2019%20C14.5%2011%2024.5%209%2028.5%2015%20C33.5%209%2044%2011%2045%2019%20C52%2018%2056%2025%2051.5%2030%20C54.5%2035%2050%2041%2044%2039.5%20Z%27%2F%3E%3Cpath%20stroke%3D%27%232E5468%27%20stroke-width%3D%272%27%20d%3D%27M28%2040%20L28%2044%20M20%2041%20L18%2044%20M36%2041%20L38%2044%27%2F%3E%3C%2Fsvg%3E"); }
+    .tf-berry { background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2034%2046%27%3E%3Cpath%20stroke%3D%27%232E5468%27%20stroke-width%3D%272.2%27%20fill%3D%27none%27%20d%3D%27M17%2045%20C17%2036%2017%2027%2017%2017%27%2F%3E%3Cpath%20fill%3D%27%232E5468%27%20d%3D%27M17%2027%20C11%2025%206%2028%205%2032%20C10.5%2034.5%2016%2032%2017%2027%20Z%27%2F%3E%3Cpath%20fill%3D%27%232E5468%27%20d%3D%27M17%2033%20C23%2031%2028%2034%2029%2038%20C23.5%2040.5%2018%2038%2017%2033%20Z%27%2F%3E%3Ccircle%20cx%3D%2710.5%27%20cy%3D%2713%27%20r%3D%274.8%27%20fill%3D%27%232E5468%27%2F%3E%3Ccircle%20cx%3D%2723%27%20cy%3D%2711%27%20r%3D%274.2%27%20fill%3D%27%232E5468%27%2F%3E%3Ccircle%20cx%3D%2717%27%20cy%3D%275%27%20r%3D%273.8%27%20fill%3D%27%232E5468%27%2F%3E%3C%2Fsvg%3E"); }
+    .tf-1 { top: 5%;  right: 7%;  width: 46px; height: 36px; opacity: .16; transform: rotate(-4deg); }
+    .tf-2 { top: 15%; right: 21%; width: 30px; height: 41px; opacity: .14; transform: rotate(6deg); }
+    .tf-3 { top: 30%; left: 1.5%; width: 26px; height: 31px; opacity: .13; transform: rotate(-8deg); }
+    .tf-4 { top: 60%; right: 2%;  width: 34px; height: 44px; opacity: .13; transform: rotate(5deg); }
+    .tf-5 { bottom: 7%;  left: 27%; width: 40px; height: 31px; opacity: .15; transform: rotate(3deg); }
+    .tf-6 { bottom: 13%; right: 24%; width: 27px; height: 37px; opacity: .13; transform: rotate(-6deg); }
+    .tf-7 { bottom: 4%;  left: 6%;  width: 24px; height: 33px; opacity: .15; transform: rotate(9deg); }
+    .tf-8 { top: 44%; left: 49%; width: 22px; height: 27px; opacity: .10; transform: rotate(-5deg); }
+    /* камни легли на разной высоте — как разбросаны по тундре */
+    .team-card { margin-top: var(--drop); }
 
-    /* портрет в «северном окне»: тонкая аврора-рамка + мягкая тень */
+    /* ── портреты-валуны: неровные камни тундры, каждый со своей формой и наклоном ── */
+    .team-card:nth-of-type(1) { --tilt: -2.2deg; --drop: 32px; --stone: 42% 58% 46% 54% / 34% 32% 44% 40%; }
+    .team-card:nth-of-type(2) { --tilt:  2.4deg; --drop: 0px;  --stone: 56% 44% 38% 62% / 40% 36% 32% 44%; }
+    .team-card:nth-of-type(3) { --tilt: -2.8deg; --drop: 46px; --stone: 38% 62% 52% 48% / 30% 42% 38% 34%; }
+    .team-card:nth-of-type(4) { --tilt:  1.9deg; --drop: 14px; --stone: 52% 48% 44% 56% / 42% 30% 40% 36%; }
+
     .team-shot {
       position: relative; padding: 3px;
-      border-radius: 116px 116px 23px 23px;
-      background: var(--aurora);
-      box-shadow: 0 16px 34px rgba(20,40,60,.13);
-      transition: box-shadow .45s, transform .45s;
+      border-radius: var(--stone);
+      background: linear-gradient(135deg, rgba(61,220,132,.65) 0%, rgba(0,212,255,.65) 100%);
+      box-shadow: 0 18px 36px rgba(20,40,60,.15);
+      transform: rotate(var(--tilt));
+      transition: box-shadow .45s, transform .5s cubic-bezier(.2,.6,.2,1);
     }
     .team-photo {
       position: relative; aspect-ratio: 4 / 5; overflow: hidden;
-      border-radius: 113px 113px 20px 20px;      /* арка — «северное окно» */
+      border-radius: var(--stone);               /* камень, а не прямоугольник */
       background: #E1EBF2;
     }
     .team-photo img {
       width: 100%; height: 100%; object-fit: cover; object-position: center 20%;
-      display: block; transition: transform .6s cubic-bezier(.2,.6,.2,1);
+      display: block;
+      transform: rotate(calc(-1 * var(--tilt))) scale(1.16);   /* лицо остаётся ровным, камень наклонён */
+      transition: transform .6s cubic-bezier(.2,.6,.2,1);
     }
     .team-num {
       position: absolute; z-index: 3; bottom: -16px; left: 20px;
@@ -1472,8 +1512,9 @@
       background: var(--aurora); -webkit-background-clip: text; background-clip: text;
       color: transparent; transition: -webkit-text-fill-color .35s, color .35s;
     }
-    .team-card:hover .team-photo img { transform: scale(1.07); }
-    .team-card:hover .team-shot { transform: translateY(-6px); box-shadow: 0 24px 46px rgba(20,40,60,.2); }
+    /* при наведении камень «встаёт ровно» и приподнимается */
+    .team-card:hover .team-shot { transform: rotate(0deg) translateY(-7px); box-shadow: 0 26px 48px rgba(20,40,60,.22); }
+    .team-card:hover .team-photo img { transform: rotate(0deg) scale(1.2); }
     .team-card:hover .team-num { background: linear-gradient(135deg, #3DDC84 0%, #00D4FF 100%); }
     .team-card:hover .team-num span { -webkit-text-fill-color: #0E1626; color: #0E1626; }
 
@@ -1520,7 +1561,10 @@
     .team-foot-btn:hover { filter: brightness(1.06); transform: translateY(-2px); }
 
     @media (max-width: 1100px) {
-      .team-grid { grid-template-columns: repeat(2, 1fr); gap: 30px 26px; }
+      .team-grid { grid-template-columns: repeat(2, 1fr); gap: 34px 30px; }
+      .team-hills { top: 54px; height: 196px; }
+      .team-card { margin-top: 0; }
+      .team-card:nth-of-type(even) { margin-top: 42px; }
     }
     @media (max-width: 900px) {
       .team { padding: 66px 34px 74px; }
@@ -1530,9 +1574,14 @@
       .team { padding: 56px 20px 64px; }
       .team-title { font-size: 27px; }
       .team-sub { font-size: 15px; }
-      .team-grid { grid-template-columns: 1fr; gap: 36px; }
-      .team-card:nth-child(even) { margin-top: 0; }
-      .team-shot { max-width: 265px; }
+      .team-grid { grid-template-columns: 1fr; gap: 30px; }
+      .team-card, .team-card:nth-of-type(even) { margin-top: 0; }
+      .team-shot { max-width: 262px; margin-left: 6px; }
+      /* тропа между камнями — вертикальный завиток под каждой карточкой */
+      .team-card:not(:last-of-type)::after {
+        content: ''; display: block; width: 54px; height: 104px; margin: 6px 0 -18px 26px;
+        background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2754%27%20height%3D%27104%27%20viewBox%3D%270%200%2054%20104%27%3E%3Cpath%20d%3D%27M14%203%20C14%2024%2042%2027%2026%2046%20C12%2062%2034%2068%2026%20101%27%20fill%3D%27none%27%20stroke%3D%27%233DDC84%27%20stroke-width%3D%272.6%27%20stroke-linecap%3D%27round%27%20stroke-dasharray%3D%276%2012%27%20opacity%3D%27.5%27%2F%3E%3C%2Fsvg%3E") no-repeat center / contain;
+      }
       .team-body { padding-top: 26px; }
       .team-name { font-size: 22px; }
       .team-role { min-height: 0; margin-bottom: 10px; }
@@ -2498,6 +2547,7 @@
      НАША КОМАНДА
 ======================================================== -->
 <section class="team" id="team" aria-labelledby="team-title">
+  <div class="team-decor" aria-hidden="true"><span class="tf-bush tf-1"></span><span class="tf-mush tf-2"></span><span class="tf-bush tf-3"></span><span class="tf-berry tf-4"></span><span class="tf-bush tf-5"></span><span class="tf-mush tf-6"></span><span class="tf-berry tf-7"></span><span class="tf-mush tf-8"></span></div>
   <div class="team-head">
     <span class="team-eyebrow">Кто поведёт вас</span>
     <h2 class="team-title" id="team-title">Наша <em>команда</em></h2>
@@ -2510,22 +2560,23 @@
   </div>
 
   <div class="team-grid">
+    <div class="team-hills" aria-hidden="true"></div>
 
     <article class="team-card">
       <div class="team-shot">
         <div class="team-photo">
-          <img loading="lazy" src="images/team/elizaveta.jpg" width="800" height="1000" alt="Елизавета — аттестованный гид Aurora Trip по Мурманску и Кольскому полуострову">
+          <img loading="lazy" src="images/team/mikhail.jpg" width="800" height="1000" alt="Михаил — гид Aurora Trip, знаток истории Кольского Севера">
         </div>
         <span class="team-num" aria-hidden="true"><span>01</span></span>
       </div>
       <div class="team-body">
-        <h3 class="team-name">Елизавета</h3>
-        <p class="team-role">Надёжный гид и уверенный проводник по Северу</p>
-        <p class="team-lead">Елизавета — надёжная, как швейцарские часы. Молодая, красивая и невероятно ответственная. Но главное — опытный гид, который умеет сделать каждое путешествие комфортным, интересным и наполненным приятными впечатлениями.</p>
+        <h3 class="team-name">Михаил</h3>
+        <p class="team-role">Гид, который влюблён в историю Севера</p>
+        <p class="team-lead">Большой любитель истории и увлечённый путешественник. Михаил уверен, что за каждым местом стоят удивительные истории людей, событий и открытий.</p>
         <div class="team-more" id="team-more-1">
           <div class="team-more-in">
-            <p>Её спокойствие, внимательность и любовь к людям помогают гостям чувствовать себя уверенно с первых минут знакомства. А безупречное вождение делает любую дорогу лёгкой и безопасной.</p>
-            <p>С Елизаветой вы получаете не просто сопровождающего в поездке, а настоящего друга, которому можно доверить своё северное приключение.</p>
+            <p>Он умеет не просто рассказывать факты, а оживлять прошлое, превращая обычную поездку в настоящее путешествие во времени.</p>
+            <p>Для него Север — это не просто красивые пейзажи. Это край с характером, судьбами и легендами, которыми хочется делиться с каждым гостем.</p>
           </div>
         </div>
         <button class="team-toggle" type="button" aria-expanded="false" aria-controls="team-more-1">
@@ -2538,18 +2589,18 @@
     <article class="team-card">
       <div class="team-shot">
         <div class="team-photo">
-          <img loading="lazy" src="images/team/mikhail.jpg" width="800" height="1000" alt="Михаил — гид Aurora Trip, знаток истории Кольского Севера">
+          <img loading="lazy" src="images/team/aleksandra.jpg" width="800" height="1000" alt="Александра — гид Aurora Trip, рассказчица о поморах и северных традициях">
         </div>
         <span class="team-num" aria-hidden="true"><span>02</span></span>
       </div>
       <div class="team-body">
-        <h3 class="team-name">Михаил</h3>
-        <p class="team-role">Гид, который влюблён в историю Севера</p>
-        <p class="team-lead">Большой любитель истории и увлечённый путешественник. Михаил уверен, что за каждым местом стоят удивительные истории людей, событий и открытий.</p>
+        <h3 class="team-name">Александра</h3>
+        <p class="team-role">Жемчужина нашей команды</p>
+        <p class="team-lead">Александра — человек, который способен своей улыбкой разбудить даже самого сонного туриста в дороге.</p>
         <div class="team-more" id="team-more-2">
           <div class="team-more-in">
-            <p>Он умеет не просто рассказывать факты, а оживлять прошлое, превращая обычную поездку в настоящее путешествие во времени.</p>
-            <p>Для него Север — это не просто красивые пейзажи. Это край с характером, судьбами и легендами, которыми хочется делиться с каждым гостем.</p>
+            <p>Её рассказы о поморах, северных традициях и жизни людей на Кольском полуострове превращают путешествие в увлекательную историю.</p>
+            <p>Красивая, умная и неповторимая, Александра умеет создавать особую атмосферу тепла и уюта, благодаря которой гости чувствуют себя не просто туристами, а настоящими путешественниками.</p>
           </div>
         </div>
         <button class="team-toggle" type="button" aria-expanded="false" aria-controls="team-more-2">
@@ -2562,18 +2613,18 @@
     <article class="team-card">
       <div class="team-shot">
         <div class="team-photo">
-          <img loading="lazy" src="images/team/aleksandra.jpg" width="800" height="1000" alt="Александра — гид Aurora Trip, рассказчица о поморах и северных традициях">
+          <img loading="lazy" src="images/team/elizaveta.jpg" width="800" height="1000" alt="Елизавета — аттестованный гид Aurora Trip по Мурманску и Кольскому полуострову">
         </div>
         <span class="team-num" aria-hidden="true"><span>03</span></span>
       </div>
       <div class="team-body">
-        <h3 class="team-name">Александра</h3>
-        <p class="team-role">Жемчужина нашей команды</p>
-        <p class="team-lead">Александра — человек, который способен своей улыбкой разбудить даже самого сонного туриста в дороге.</p>
+        <h3 class="team-name">Елизавета</h3>
+        <p class="team-role">Надёжный гид и уверенный проводник по Северу</p>
+        <p class="team-lead">Елизавета — надёжная, как швейцарские часы. Молодая, красивая и невероятно ответственная. Но главное — опытный гид, который умеет сделать каждое путешествие комфортным, интересным и наполненным приятными впечатлениями.</p>
         <div class="team-more" id="team-more-3">
           <div class="team-more-in">
-            <p>Её рассказы о поморах, северных традициях и жизни людей на Кольском полуострове превращают путешествие в увлекательную историю.</p>
-            <p>Красивая, умная и неповторимая, Александра умеет создавать особую атмосферу тепла и уюта, благодаря которой гости чувствуют себя не просто туристами, а настоящими путешественниками.</p>
+            <p>Её спокойствие, внимательность и любовь к людям помогают гостям чувствовать себя уверенно с первых минут знакомства. А безупречное вождение делает любую дорогу лёгкой и безопасной.</p>
+            <p>С Елизаветой вы получаете не просто сопровождающего в поездке, а настоящего друга, которому можно доверить своё северное приключение.</p>
           </div>
         </div>
         <button class="team-toggle" type="button" aria-expanded="false" aria-controls="team-more-3">
