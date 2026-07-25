@@ -1389,17 +1389,21 @@
        НАША КОМАНДА
     ========================================================= */
     .team {
-      background: #0E1626; color: #fff;
-      padding: 76px 60px 82px;
-      position: relative; overflow: hidden;
+      background: #fff; color: #1A2330;
+      padding: 84px 60px 92px; position: relative; overflow: hidden;
     }
+    /* северное свечение по углам — чтобы белый фон не был плоским */
+    .team::before, .team::after { content: ''; position: absolute; pointer-events: none; }
     .team::before {
-      content: ''; position: absolute; top: -140px; left: 50%; transform: translateX(-50%);
-      width: 720px; height: 280px; pointer-events: none;
-      background: radial-gradient(ellipse at center, rgba(61,220,132,.18) 0%, rgba(0,212,255,.10) 45%, transparent 72%);
-      filter: blur(18px);
+      top: -200px; right: -150px; width: 620px; height: 520px;
+      background: radial-gradient(circle at center, rgba(0,212,255,.16), rgba(61,220,132,.08) 46%, transparent 72%);
     }
-    .team-head { position: relative; max-width: 760px; margin-bottom: 44px; }
+    .team::after {
+      bottom: -220px; left: -170px; width: 580px; height: 500px;
+      background: radial-gradient(circle at center, rgba(61,220,132,.15), transparent 70%);
+    }
+
+    .team-head { position: relative; max-width: 800px; margin-bottom: 54px; }
     .team-eyebrow {
       display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 1.6px;
       text-transform: uppercase; margin-bottom: 14px;
@@ -1407,68 +1411,86 @@
     }
     .team-title {
       font-family: 'aurora', 'Montserrat', sans-serif;
-      font-size: 34px; font-weight: 800; color: #fff; line-height: 1.15; margin: 0 0 14px;
+      font-size: 36px; font-weight: 800; color: #1A2330; line-height: 1.12; margin: 0 0 16px;
     }
-    .team-sub { font-size: 16px; color: #C4D0DB; line-height: 1.65; margin: 0 0 12px; }
-    .team-sub b { color: #fff; font-weight: 700; }
+    .team-title em {
+      font-style: normal;
+      background: var(--aurora); -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .team-sub { font-size: 16px; color: #5B6B7A; line-height: 1.68; margin: 0 0 12px; max-width: 720px; }
+    .team-sub b { color: #1A2330; font-weight: 700; }
     .team-badge {
-      display: inline-flex; align-items: center; gap: 9px; margin-top: 8px;
-      padding: 10px 16px; border-radius: 8px;
-      background: rgba(61,220,132,.10); border: 1px solid rgba(61,220,132,.28);
-      font-size: 13.5px; font-weight: 600; color: #8FE9BC;
+      display: inline-flex; align-items: center; gap: 9px; margin-top: 10px;
+      padding: 11px 18px; border-radius: 999px;
+      background: rgba(61,220,132,.09); border: 1.5px solid rgba(61,220,132,.34);
+      font-size: 13.5px; font-weight: 700; color: #12A67E;
     }
     .team-badge svg { width: 17px; height: 17px; flex-shrink: 0; }
 
     .team-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px;
-      position: relative;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 34px 30px; position: relative;
     }
-    .team-card {
-      display: flex; flex-direction: column;
-      background: #131E31; border: 1px solid rgba(255,255,255,.07);
-      border-radius: 12px; overflow: hidden;
-      transition: transform .35s cubic-bezier(.2,.6,.2,1), border-color .35s, box-shadow .35s;
+    .team-card { position: relative; display: flex; flex-direction: column; }
+    /* зигзаг: чётные карточки ниже — уходим от «ровной линейки» */
+    .team-card:nth-child(even) { margin-top: 46px; }
+
+    /* портрет в «северном окне»: тонкая аврора-рамка + мягкая тень */
+    .team-shot {
+      position: relative; padding: 3px;
+      border-radius: 116px 116px 23px 23px;
+      background: var(--aurora);
+      box-shadow: 0 16px 34px rgba(20,40,60,.13);
+      transition: box-shadow .45s, transform .45s;
     }
-    .team-card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(61,220,132,.34);
-      box-shadow: 0 18px 40px rgba(0,0,0,.35);
+    .team-photo {
+      position: relative; aspect-ratio: 4 / 5; overflow: hidden;
+      border-radius: 113px 113px 20px 20px;      /* арка — «северное окно» */
+      background: #E1EBF2;
     }
-    .team-photo { position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: #1A2942; }
     .team-photo img {
-      width: 100%; height: 100%; object-fit: cover; object-position: center 22%;
-      display: block; transition: transform .55s cubic-bezier(.2,.6,.2,1);
+      width: 100%; height: 100%; object-fit: cover; object-position: center 20%;
+      display: block; transition: transform .6s cubic-bezier(.2,.6,.2,1);
     }
-    .team-card:hover .team-photo img { transform: scale(1.06); }
-    .team-photo::after {
-      content: ''; position: absolute; inset: 0; pointer-events: none;
-      background: linear-gradient(to top, rgba(11,18,31,.94) 0%, rgba(11,18,31,.55) 26%, transparent 58%);
+    .team-num {
+      position: absolute; z-index: 3; bottom: -16px; left: 20px;
+      width: 46px; height: 46px; border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+      background: #fff; box-shadow: 0 6px 18px rgba(20,40,60,.18);
+      font-family: 'aurora', 'Montserrat', sans-serif; font-size: 16px; font-weight: 800;
+      transition: background .35s;
     }
-    .team-id { position: absolute; left: 18px; right: 18px; bottom: 15px; z-index: 2; }
+    .team-num span {
+      background: var(--aurora); -webkit-background-clip: text; background-clip: text;
+      color: transparent; transition: -webkit-text-fill-color .35s, color .35s;
+    }
+    .team-card:hover .team-photo img { transform: scale(1.07); }
+    .team-card:hover .team-shot { transform: translateY(-6px); box-shadow: 0 24px 46px rgba(20,40,60,.2); }
+    .team-card:hover .team-num { background: linear-gradient(135deg, #3DDC84 0%, #00D4FF 100%); }
+    .team-card:hover .team-num span { -webkit-text-fill-color: #0E1626; color: #0E1626; }
+
+    .team-body { display: flex; flex-direction: column; flex: 1; padding: 30px 2px 0; }
     .team-name {
       font-family: 'aurora', 'Montserrat', sans-serif;
-      font-size: 23px; font-weight: 800; color: #fff; margin: 0 0 5px; line-height: 1.1;
+      font-size: 24px; font-weight: 800; color: #1A2330; margin: 0 0 6px; line-height: 1.1;
     }
     .team-role {
-      font-size: 13px; line-height: 1.45; color: #9FE7C6; font-weight: 600; margin: 0;
-      min-height: 2.9em;   /* держим 2 строки, чтобы имена в карточках были на одной линии */
+      font-size: 13px; line-height: 1.45; color: #12A67E; font-weight: 700; margin: 0 0 12px;
+      min-height: 2.9em;   /* держим 2 строки, чтобы описания начинались на одной линии */
     }
-
-    .team-body { display: flex; flex-direction: column; flex: 1; padding: 18px 18px 20px; }
-    .team-lead { font-size: 14.5px; line-height: 1.62; color: #B9C6D3; margin: 0; }
+    .team-lead { font-size: 14.5px; line-height: 1.66; color: #5B6B7A; margin: 0; }
     .team-more {
       max-height: 0; overflow: hidden;
       transition: max-height .42s cubic-bezier(.2,.6,.2,1);
     }
-    .team-more-in p { font-size: 14.5px; line-height: 1.62; color: #B9C6D3; margin: 12px 0 0; }
+    .team-more-in p { font-size: 14.5px; line-height: 1.66; color: #5B6B7A; margin: 12px 0 0; }
     .team-toggle {
       align-self: flex-start; margin-top: auto; padding: 14px 0 0;
       background: none; border: 0; cursor: pointer; font-family: inherit;
-      font-size: 13.5px; font-weight: 700; color: #3DDC84;
+      font-size: 13.5px; font-weight: 700; color: #12A67E;
       display: inline-flex; align-items: center; gap: 6px;
       transition: color .2s;
     }
-    .team-toggle:hover { color: #7BEDB4; }
+    .team-toggle:hover { color: #0E9E78; }
     .team-toggle svg { width: 13px; height: 13px; transition: transform .35s; }
     .team-card.open .team-toggle svg { transform: rotate(180deg); }
     .team-toggle .t-less { display: none; }
@@ -1476,34 +1498,36 @@
     .team-card.open .team-toggle .t-less { display: inline; }
 
     .team-foot {
-      margin-top: 40px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,.09);
+      position: relative; margin-top: 54px; padding-top: 32px; border-top: 1px solid #E4EAEF;
       display: flex; flex-wrap: wrap; align-items: center; gap: 18px 26px;
     }
-    .team-foot p { font-size: 15.5px; color: #C4D0DB; margin: 0; line-height: 1.6; flex: 1 1 320px; }
+    .team-foot p { font-size: 16px; color: #3A4652; margin: 0; line-height: 1.6; flex: 1 1 340px; font-weight: 500; }
     .team-foot-btn {
       display: inline-flex; align-items: center; gap: 9px;
-      padding: 14px 26px; border-radius: 8px; text-decoration: none;
+      padding: 15px 28px; border-radius: 8px; text-decoration: none;
       background: var(--aurora); color: #0E1626;
       font-size: 15px; font-weight: 700; transition: filter .2s, transform .2s;
     }
-    .team-foot-btn:hover { filter: brightness(1.08); transform: translateY(-2px); }
+    .team-foot-btn:hover { filter: brightness(1.06); transform: translateY(-2px); }
 
     @media (max-width: 1100px) {
-      .team-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+      .team-grid { grid-template-columns: repeat(2, 1fr); gap: 30px 26px; }
     }
     @media (max-width: 900px) {
-      .team { padding: 60px 34px 66px; }
-      .team-title { font-size: 29px; }
+      .team { padding: 66px 34px 74px; }
+      .team-title { font-size: 30px; }
     }
     @media (max-width: 640px) {
-      .team { padding: 52px 20px 58px; }
+      .team { padding: 56px 20px 64px; }
       .team-title { font-size: 27px; }
       .team-sub { font-size: 15px; }
-      .team-grid { grid-template-columns: 1fr; gap: 16px; }
-      .team-photo { aspect-ratio: 4 / 3; }
-      .team-photo img { object-position: center 20%; }
-      .team-name { font-size: 21px; }
-      .team-foot { margin-top: 30px; padding-top: 24px; }
+      .team-grid { grid-template-columns: 1fr; gap: 36px; }
+      .team-card:nth-child(even) { margin-top: 0; }
+      .team-shot { max-width: 265px; }
+      .team-body { padding-top: 26px; }
+      .team-name { font-size: 22px; }
+      .team-role { min-height: 0; margin-bottom: 10px; }
+      .team-foot { margin-top: 40px; padding-top: 26px; }
       .team-foot-btn { width: 100%; justify-content: center; }
     }
 
@@ -2420,7 +2444,7 @@
 <section class="team" id="team" aria-labelledby="team-title">
   <div class="team-head">
     <span class="team-eyebrow">Who will guide you</span>
-    <h2 class="team-title" id="team-title">Our Team</h2>
+    <h2 class="team-title" id="team-title">Our <em>Team</em></h2>
     <p class="team-sub">Behind every journey there are people — people who love the North, know its history and can show it to you the way they see it themselves.</p>
     <p class="team-sub">For us it is not only about routes and historical facts. What matters is how we treat people, a genuine love for this land and the wish to give our guests <b>a real northern adventure</b>.</p>
     <span class="team-badge">
@@ -2432,14 +2456,15 @@
   <div class="team-grid">
 
     <article class="team-card">
-      <div class="team-photo">
-        <img loading="lazy" src="../images/team/elizaveta.jpg" width="800" height="1000" alt="Elizaveta — certified Aurora Trip guide in Murmansk and the Kola Peninsula">
-        <div class="team-id">
-          <h3 class="team-name">Elizaveta</h3>
-          <p class="team-role">A dependable guide and confident driver in the North</p>
+      <div class="team-shot">
+        <div class="team-photo">
+          <img loading="lazy" src="../images/team/elizaveta.jpg" width="800" height="1000" alt="Elizaveta — certified Aurora Trip guide in Murmansk and the Kola Peninsula">
         </div>
+        <span class="team-num" aria-hidden="true"><span>01</span></span>
       </div>
       <div class="team-body">
+        <h3 class="team-name">Elizaveta</h3>
+        <p class="team-role">A dependable guide and confident driver in the North</p>
         <p class="team-lead">Elizaveta is as dependable as a Swiss watch — and, above all, an experienced guide who knows how to make every journey comfortable, engaging and full of good moments.</p>
         <div class="team-more" id="team-more-1">
           <div class="team-more-in">
@@ -2455,14 +2480,15 @@
     </article>
 
     <article class="team-card">
-      <div class="team-photo">
-        <img loading="lazy" src="../images/team/mikhail.jpg" width="800" height="1000" alt="Mikhail — Aurora Trip guide and expert on the history of the Kola North">
-        <div class="team-id">
-          <h3 class="team-name">Mikhail</h3>
-          <p class="team-role">A guide in love with the history of the North</p>
+      <div class="team-shot">
+        <div class="team-photo">
+          <img loading="lazy" src="../images/team/mikhail.jpg" width="800" height="1000" alt="Mikhail — Aurora Trip guide and expert on the history of the Kola North">
         </div>
+        <span class="team-num" aria-hidden="true"><span>02</span></span>
       </div>
       <div class="team-body">
+        <h3 class="team-name">Mikhail</h3>
+        <p class="team-role">A guide in love with the history of the North</p>
         <p class="team-lead">A passionate history buff and dedicated traveller. Mikhail is convinced that behind every place there are remarkable stories of people, events and discoveries.</p>
         <div class="team-more" id="team-more-2">
           <div class="team-more-in">
@@ -2478,14 +2504,15 @@
     </article>
 
     <article class="team-card">
-      <div class="team-photo">
-        <img loading="lazy" src="../images/team/aleksandra.jpg" width="800" height="1000" alt="Aleksandra — Aurora Trip guide, storyteller of Pomor culture and northern traditions">
-        <div class="team-id">
-          <h3 class="team-name">Aleksandra</h3>
-          <p class="team-role">The pearl of our team</p>
+      <div class="team-shot">
+        <div class="team-photo">
+          <img loading="lazy" src="../images/team/aleksandra.jpg" width="800" height="1000" alt="Aleksandra — Aurora Trip guide, storyteller of Pomor culture and northern traditions">
         </div>
+        <span class="team-num" aria-hidden="true"><span>03</span></span>
       </div>
       <div class="team-body">
+        <h3 class="team-name">Aleksandra</h3>
+        <p class="team-role">The pearl of our team</p>
         <p class="team-lead">Aleksandra can wake up even the sleepiest traveller on the road with nothing but her smile.</p>
         <div class="team-more" id="team-more-3">
           <div class="team-more-in">
@@ -2501,14 +2528,15 @@
     </article>
 
     <article class="team-card">
-      <div class="team-photo">
-        <img loading="lazy" src="../images/team/roman.jpg" width="800" height="1000" alt="Roman — Aurora Trip guide across the Kola Peninsula">
-        <div class="team-id">
-          <h3 class="team-name">Roman</h3>
-          <p class="team-role">The heart of the team and a true expert on the North</p>
+      <div class="team-shot">
+        <div class="team-photo">
+          <img loading="lazy" src="../images/team/roman.jpg" width="800" height="1000" alt="Roman — Aurora Trip guide across the Kola Peninsula">
         </div>
+        <span class="team-num" aria-hidden="true"><span>04</span></span>
       </div>
       <div class="team-body">
+        <h3 class="team-name">Roman</h3>
+        <p class="team-role">The heart of the team and a true expert on the North</p>
         <p class="team-lead">With Roman it is never boring. He is the kind of guide you click with in the very first minutes.</p>
         <div class="team-more" id="team-more-4">
           <div class="team-more-in">
