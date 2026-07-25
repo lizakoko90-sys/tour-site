@@ -1402,20 +1402,20 @@
     ========================================================= */
     .team {
       background: #fff; color: #1A2330;
-      padding: 84px 60px 92px; position: relative; overflow: hidden;
+      padding: 46px 60px 52px; position: relative; z-index: 2;
     }
-    /* северное свечение по углам — чтобы белый фон не был плоским */
-    .team::before, .team::after { content: ''; position: absolute; pointer-events: none; }
-    .team::before {
+    /* северное свечение по углам — чтобы белый фон не был плоским (обрезается слоем декора) */
+    .team-decor::before, .team-decor::after { content: ''; position: absolute; pointer-events: none; }
+    .team-decor::before {
       top: -200px; right: -150px; width: 620px; height: 520px;
       background: radial-gradient(circle at center, rgba(0,212,255,.16), rgba(61,220,132,.08) 46%, transparent 72%);
     }
-    .team::after {
+    .team-decor::after {
       bottom: -220px; left: -170px; width: 580px; height: 500px;
       background: radial-gradient(circle at center, rgba(61,220,132,.15), transparent 70%);
     }
 
-    .team-head { position: relative; max-width: 800px; margin-bottom: 54px; }
+    .team-head { position: relative; max-width: 800px; margin-bottom: 40px; }
     .team-eyebrow {
       display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 1.6px;
       text-transform: uppercase; margin-bottom: 14px;
@@ -1446,25 +1446,47 @@
     /* сопки на горизонте — пунктиром на заднем плане */
     .team-hills {
       position: absolute; z-index: 0; pointer-events: none;
-      left: -70px; right: -70px; top: 76px; height: 238px;
+      left: -48px; right: -48px; top: 76px; height: 238px;
       background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%201200%20320%27%20preserveAspectRatio%3D%27none%27%3E%3Cg%20fill%3D%27none%27%20stroke-linecap%3D%27round%27%20stroke-dasharray%3D%278%2012%27%3E%3Cpath%20d%3D%27M0%20149%20Q100%20173%20150%20163%20Q200%20152%20250%20167%20Q300%20182%20350%20176%20Q400%20170%20450%20176%20Q500%20182%20550%20167%20Q600%20152%20650%20163%20Q700%20173%20750%20161%20Q800%20149%20850%20165%20Q900%20180%20950%20175%20Q1000%20170%201050%20177%20Q1100%20183%201150%20170%20L1200%20156%27%20%20stroke%3D%27%239FBACB%27%20stroke-width%3D%272.4%27%20opacity%3D%27.9%27%2F%3E%3Cpath%20d%3D%27M0%20188%20Q120%20249%20180%20227%20Q240%20204%20300%20226%20Q360%20248%20420%20208%20Q480%20168%20540%20208%20Q600%20248%20660%20215%20Q720%20182%20780%20215%20Q840%20249%20900%20228%20Q960%20207%201020%20228%20Q1080%20248%201140%20211%20L1200%20173%27%20%20stroke%3D%27%237C9FB4%27%20stroke-width%3D%272.6%27%20opacity%3D%27.88%27%2F%3E%3Cpath%20d%3D%27M0%20283%20Q150%20251%20225%20260%20Q300%20269%20375%20259%20Q450%20249%20525%20265%20Q600%20281%20675%20278%20Q750%20274%20825%20279%20Q900%20285%20975%20270%20Q1050%20256%201125%20262%20L1200%20269%27%20stroke%3D%27%235E869E%27%20stroke-width%3D%272.8%27%20opacity%3D%27.82%27%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E") no-repeat center / 100% 100%;
     }
-    /* тундровая флора: полупрозрачные силуэты грибов, кустиков и ягод */
+    /* тундровая флора: грибы, морошка, черника, зверобой, иван-чай, вереск, камушки, облака */
     .team-decor { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
     .team-decor span { position: absolute; display: block; background-repeat: no-repeat; background-size: contain; }
-    .tf-mush  { background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2040%2048%27%3E%3Cpath%20fill%3D%27%232E5468%27%20d%3D%27M20%205%20C32%205%2039%2014%2039%2020%20C39%2023.5%2032%2025%2020%2025%20C8%2025%201%2023.5%201%2020%20C1%2014%208%205%2020%205%20Z%27%2F%3E%3Cpath%20fill%3D%27%232E5468%27%20d%3D%27M16%2025%20C16%2034%2014.5%2041%2013.5%2046%20L26.5%2046%20C25.5%2041%2024%2034%2024%2025%20Z%27%2F%3E%3C%2Fsvg%3E"); }
-    .tf-bush  { background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2056%2044%27%3E%3Cpath%20fill%3D%27%232E5468%27%20d%3D%27M9%2040%20C2%2040%200%2033%204.5%2029%20C1.5%2023%206.5%2017%2012.5%2019%20C14.5%2011%2024.5%209%2028.5%2015%20C33.5%209%2044%2011%2045%2019%20C52%2018%2056%2025%2051.5%2030%20C54.5%2035%2050%2041%2044%2039.5%20Z%27%2F%3E%3Cpath%20stroke%3D%27%232E5468%27%20stroke-width%3D%272%27%20d%3D%27M28%2040%20L28%2044%20M20%2041%20L18%2044%20M36%2041%20L38%2044%27%2F%3E%3C%2Fsvg%3E"); }
-    .tf-berry { background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2034%2046%27%3E%3Cpath%20stroke%3D%27%232E5468%27%20stroke-width%3D%272.2%27%20fill%3D%27none%27%20d%3D%27M17%2045%20C17%2036%2017%2027%2017%2017%27%2F%3E%3Cpath%20fill%3D%27%232E5468%27%20d%3D%27M17%2027%20C11%2025%206%2028%205%2032%20C10.5%2034.5%2016%2032%2017%2027%20Z%27%2F%3E%3Cpath%20fill%3D%27%232E5468%27%20d%3D%27M17%2033%20C23%2031%2028%2034%2029%2038%20C23.5%2040.5%2018%2038%2017%2033%20Z%27%2F%3E%3Ccircle%20cx%3D%2710.5%27%20cy%3D%2713%27%20r%3D%274.8%27%20fill%3D%27%232E5468%27%2F%3E%3Ccircle%20cx%3D%2723%27%20cy%3D%2711%27%20r%3D%274.2%27%20fill%3D%27%232E5468%27%2F%3E%3Ccircle%20cx%3D%2717%27%20cy%3D%275%27%20r%3D%273.8%27%20fill%3D%27%232E5468%27%2F%3E%3C%2Fsvg%3E"); }
-    .tf-1 { top: 5%;  right: 7%;  width: 46px; height: 36px; opacity: .16; transform: rotate(-4deg); }
-    .tf-2 { top: 15%; right: 21%; width: 30px; height: 41px; opacity: .14; transform: rotate(6deg); }
-    .tf-3 { top: 30%; left: 1.5%; width: 26px; height: 31px; opacity: .13; transform: rotate(-8deg); }
-    .tf-4 { top: 60%; right: 2%;  width: 34px; height: 44px; opacity: .13; transform: rotate(5deg); }
-    .tf-5 { bottom: 7%;  left: 27%; width: 40px; height: 31px; opacity: .15; transform: rotate(3deg); }
-    .tf-6 { bottom: 13%; right: 24%; width: 27px; height: 37px; opacity: .13; transform: rotate(-6deg); }
-    .tf-7 { bottom: 4%;  left: 6%;  width: 24px; height: 33px; opacity: .15; transform: rotate(9deg); }
-    .tf-8 { top: 44%; left: 49%; width: 22px; height: 27px; opacity: .10; transform: rotate(-5deg); }
-    /* камни легли на разной высоте — как разбросаны по тундре */
-    .team-card { margin-top: var(--drop); }
+    .tf-mush { background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2040%2048%27%3E%3Cpath%20fill%3D%27%232E5468%27%20d%3D%27M20%205%20C32%205%2039%2014%2039%2020%20C39%2023.5%2032%2025%2020%2025%20C8%2025%201%2023.5%201%2020%20C1%2014%208%205%2020%205%20Z%27%2F%3E%3Cpath%20fill%3D%27%232E5468%27%20d%3D%27M16%2025%20C16%2034%2014.5%2041%2013.5%2046%20L26.5%2046%20C25.5%2041%2024%2034%2024%2025%20Z%27%2F%3E%3C%2Fsvg%3E"); }
+    .tf-cloud { background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2058%2034%27%3E%3Cpath%20fill%3D%27%232E5468%27%20d%3D%27M9%2031%20C2.5%2031%200%2024.5%204.5%2020.5%20C2%2013.5%209.5%208%2015.5%2011%20C18.5%204%2030.5%203%2034.5%2010%20C42.5%208%2049%2014.5%2046.5%2021.5%20C53%2022.5%2055%2031%2047%2031%20Z%27%2F%3E%3C%2Fsvg%3E"); }
+    .tf-stone { background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2050%2038%27%3E%3Cpath%20fill%3D%27%232E5468%27%20d%3D%27M6%2027%20C1.5%2020.5%204%2010%2012.5%206%20C21%202%2035%203.5%2041%2010%20C47%2016.5%2046%2026.5%2039%2030.5%20C31%2035.5%2011%2034%206%2027%20Z%27%2F%3E%3C%2Fsvg%3E"); }
+    .tf-moroshka { background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2034%2048%27%3E%3Cpath%20stroke%3D%27%232E5468%27%20stroke-width%3D%272.2%27%20fill%3D%27none%27%20d%3D%27M17%2047%20L17%2022%27%2F%3E%3Cpath%20fill%3D%27%232E5468%27%20d%3D%27M17%2035%20C10%2033%205%2036%204%2041%20C10%2043%2016%2040%2017%2035%20Z%27%2F%3E%3Ccircle%20cx%3D%2717%27%20cy%3D%2713%27%20r%3D%275.2%27%20fill%3D%27%232E5468%27%2F%3E%3Ccircle%20cx%3D%2710.6%27%20cy%3D%2716%27%20r%3D%273.7%27%20fill%3D%27%232E5468%27%2F%3E%3Ccircle%20cx%3D%2723.4%27%20cy%3D%2716%27%20r%3D%273.7%27%20fill%3D%27%232E5468%27%2F%3E%3Ccircle%20cx%3D%2713.4%27%20cy%3D%277.6%27%20r%3D%273.5%27%20fill%3D%27%232E5468%27%2F%3E%3Ccircle%20cx%3D%2720.8%27%20cy%3D%277.6%27%20r%3D%273.5%27%20fill%3D%27%232E5468%27%2F%3E%3C%2Fsvg%3E"); }
+    .tf-chernika { background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2036%2046%27%3E%3Cpath%20stroke%3D%27%232E5468%27%20stroke-width%3D%272.2%27%20fill%3D%27none%27%20d%3D%27M18%2045%20C18%2035%2018%2026%2018%2015%27%2F%3E%3Cpath%20fill%3D%27%232E5468%27%20d%3D%27M18%2030%20C12%2028%207%2031%206%2036%20C12%2038%2017%2035%2018%2030%20Z%27%2F%3E%3Cpath%20fill%3D%27%232E5468%27%20d%3D%27M18%2036%20C24%2034%2029%2037%2030%2042%20C24%2044%2019%2041%2018%2036%20Z%27%2F%3E%3Ccircle%20cx%3D%2711.5%27%20cy%3D%2721%27%20r%3D%274.2%27%20fill%3D%27%232E5468%27%2F%3E%3Ccircle%20cx%3D%2724.5%27%20cy%3D%2724%27%20r%3D%273.8%27%20fill%3D%27%232E5468%27%2F%3E%3Ccircle%20cx%3D%2718%27%20cy%3D%2713%27%20r%3D%274.4%27%20fill%3D%27%232E5468%27%2F%3E%3C%2Fsvg%3E"); }
+    .tf-zveroboy { background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2030%2050%27%3E%3Cpath%20stroke%3D%27%232E5468%27%20stroke-width%3D%272%27%20fill%3D%27none%27%20d%3D%27M15%2049%20L15%2013%27%2F%3E%3Cellipse%20cx%3D%278%27%20cy%3D%2732%27%20rx%3D%276%27%20ry%3D%272.6%27%20fill%3D%27%232E5468%27%2F%3E%3Cellipse%20cx%3D%2722%27%20cy%3D%2727%27%20rx%3D%276%27%20ry%3D%272.6%27%20fill%3D%27%232E5468%27%2F%3E%3Cellipse%20cx%3D%278.5%27%20cy%3D%2722%27%20rx%3D%275.4%27%20ry%3D%272.4%27%20fill%3D%27%232E5468%27%2F%3E%3Ccircle%20cx%3D%2715%27%20cy%3D%277%27%20r%3D%272.9%27%20fill%3D%27%232E5468%27%2F%3E%3Ccircle%20cx%3D%2711.6%27%20cy%3D%275.4%27%20r%3D%271.5%27%20fill%3D%27%232E5468%27%2F%3E%3Ccircle%20cx%3D%2718.4%27%20cy%3D%275.4%27%20r%3D%271.5%27%20fill%3D%27%232E5468%27%2F%3E%3Ccircle%20cx%3D%2715%27%20cy%3D%273.2%27%20r%3D%271.5%27%20fill%3D%27%232E5468%27%2F%3E%3Ccircle%20cx%3D%278%27%20cy%3D%2711%27%20r%3D%272.9%27%20fill%3D%27%232E5468%27%2F%3E%3Ccircle%20cx%3D%274.6%27%20cy%3D%279.4%27%20r%3D%271.5%27%20fill%3D%27%232E5468%27%2F%3E%3Ccircle%20cx%3D%2711.4%27%20cy%3D%279.4%27%20r%3D%271.5%27%20fill%3D%27%232E5468%27%2F%3E%3Ccircle%20cx%3D%278%27%20cy%3D%277.2%27%20r%3D%271.5%27%20fill%3D%27%232E5468%27%2F%3E%3Ccircle%20cx%3D%2722%27%20cy%3D%2710%27%20r%3D%272.9%27%20fill%3D%27%232E5468%27%2F%3E%3Ccircle%20cx%3D%2718.6%27%20cy%3D%278.4%27%20r%3D%271.5%27%20fill%3D%27%232E5468%27%2F%3E%3Ccircle%20cx%3D%2725.4%27%20cy%3D%278.4%27%20r%3D%271.5%27%20fill%3D%27%232E5468%27%2F%3E%3Ccircle%20cx%3D%2722%27%20cy%3D%276.2%27%20r%3D%271.5%27%20fill%3D%27%232E5468%27%2F%3E%3C%2Fsvg%3E"); }
+    .tf-ivanchay { background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2026%2058%27%3E%3Cpath%20stroke%3D%27%232E5468%27%20stroke-width%3D%272%27%20fill%3D%27none%27%20d%3D%27M13%2057%20L13%209%27%2F%3E%3Cellipse%20cx%3D%277%27%20cy%3D%2740%27%20rx%3D%275.6%27%20ry%3D%272.2%27%20fill%3D%27%232E5468%27%20transform%3D%27rotate%28-24%207%2040%29%27%2F%3E%3Cellipse%20cx%3D%2719%27%20cy%3D%2734%27%20rx%3D%275.6%27%20ry%3D%272.2%27%20fill%3D%27%232E5468%27%20transform%3D%27rotate%2824%2019%2034%29%27%2F%3E%3Cellipse%20cx%3D%277.5%27%20cy%3D%2729%27%20rx%3D%275%27%20ry%3D%272%27%20fill%3D%27%232E5468%27%20transform%3D%27rotate%28-22%207.5%2029%29%27%2F%3E%3Ccircle%20cx%3D%278%27%20cy%3D%2722%27%20r%3D%273.1%27%20fill%3D%27%232E5468%27%2F%3E%3Ccircle%20cx%3D%2718%27%20cy%3D%2719%27%20r%3D%272.9%27%20fill%3D%27%232E5468%27%2F%3E%3Ccircle%20cx%3D%278.5%27%20cy%3D%2715%27%20r%3D%272.5%27%20fill%3D%27%232E5468%27%2F%3E%3Ccircle%20cx%3D%2717.5%27%20cy%3D%2713%27%20r%3D%272.3%27%20fill%3D%27%232E5468%27%2F%3E%3Ccircle%20cx%3D%2713%27%20cy%3D%278.5%27%20r%3D%272.1%27%20fill%3D%27%232E5468%27%2F%3E%3C%2Fsvg%3E"); }
+    .tf-veresk { background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2030%2050%27%3E%3Cpath%20stroke%3D%27%232E5468%27%20stroke-width%3D%272%27%20fill%3D%27none%27%20d%3D%27M15%2049%20C15%2038%2014%2028%2015.5%2017%27%2F%3E%3Cpath%20stroke%3D%27%232E5468%27%20stroke-width%3D%271.7%27%20fill%3D%27none%27%20d%3D%27M15%2032%20C11%2028%209%2024%209%2019%27%2F%3E%3Cpath%20stroke%3D%27%232E5468%27%20stroke-width%3D%271.7%27%20fill%3D%27none%27%20d%3D%27M15%2036%20C19.5%2032%2021.5%2027%2021%2022%27%2F%3E%3Cellipse%20cx%3D%2715.5%27%20cy%3D%2715%27%20rx%3D%272.2%27%20ry%3D%272.8%27%20fill%3D%27%232E5468%27%2F%3E%3Cellipse%20cx%3D%279%27%20cy%3D%2717%27%20rx%3D%272.2%27%20ry%3D%272.8%27%20fill%3D%27%232E5468%27%2F%3E%3Cellipse%20cx%3D%2721%27%20cy%3D%2720%27%20rx%3D%272.2%27%20ry%3D%272.8%27%20fill%3D%27%232E5468%27%2F%3E%3Cellipse%20cx%3D%2712.5%27%20cy%3D%2723%27%20rx%3D%272.2%27%20ry%3D%272.8%27%20fill%3D%27%232E5468%27%2F%3E%3Cellipse%20cx%3D%2718%27%20cy%3D%2726%27%20rx%3D%272.2%27%20ry%3D%272.8%27%20fill%3D%27%232E5468%27%2F%3E%3Cellipse%20cx%3D%2715%27%20cy%3D%2729%27%20rx%3D%272.2%27%20ry%3D%272.8%27%20fill%3D%27%232E5468%27%2F%3E%3C%2Fsvg%3E"); }
+    .tf-1 { top:3%;right:6%; width: 86px; height: 50px; opacity: 0.1; transform: rotate(-3deg); }
+    .tf-2 { top:12%;right:20%; width: 46px; height: 55px; opacity: 0.12; transform: rotate(5deg); }
+    .tf-3 { top:5%;right:33%; width: 34px; height: 76px; opacity: 0.09; transform: rotate(-4deg); }
+    .tf-4 { top:17%;right:4%; width: 42px; height: 70px; opacity: 0.1; transform: rotate(6deg); }
+    .tf-5 { top:24%;left:1%; width: 40px; height: 56px; opacity: 0.1; transform: rotate(-7deg); }
+    .tf-6 { top:33%;right:12%; width: 62px; height: 47px; opacity: 0.09; transform: rotate(4deg); }
+    .tf-7 { top:7%;left:62%; width: 42px; height: 54px; opacity: 0.08; transform: rotate(8deg); }
+    .tf-8 { top:20%;left:70%; width: 36px; height: 60px; opacity: 0.09; transform: rotate(-5deg); }
+    .tf-9 { top:43%;left:1%; width: 44px; height: 53px; opacity: 0.11; transform: rotate(-8deg); }
+    .tf-10 { top:46%;right:1.5%; width: 44px; height: 73px; opacity: 0.1; transform: rotate(3deg); }
+    .tf-11 { top:40%;left:33%; width: 38px; height: 48px; opacity: 0.09; transform: rotate(-6deg); }
+    .tf-12 { top:51%;left:60%; width: 36px; height: 50px; opacity: 0.09; transform: rotate(7deg); }
+    .tf-13 { top:57%;left:46%; width: 54px; height: 41px; opacity: 0.08; transform: rotate(-3deg); }
+    .tf-14 { top:42%;left:86%; width: 32px; height: 71px; opacity: 0.09; transform: rotate(5deg); }
+    .tf-15 { top:65%;left:3%; width: 74px; height: 43px; opacity: 0.08; transform: rotate(2deg); }
+    .tf-16 { bottom:22%;right:30%; width: 40px; height: 48px; opacity: 0.1; transform: rotate(6deg); }
+    .tf-17 { bottom:25%;left:24%; width: 34px; height: 57px; opacity: 0.09; transform: rotate(-6deg); }
+    .tf-18 { bottom:13%;left:45%; width: 44px; height: 73px; opacity: 0.1; transform: rotate(4deg); }
+    .tf-19 { bottom:7%;left:8%; width: 38px; height: 54px; opacity: 0.11; transform: rotate(-5deg); }
+    .tf-20 { bottom:5%;right:12%; width: 40px; height: 51px; opacity: 0.1; transform: rotate(7deg); }
+    .tf-21 { bottom:4%;left:66%; width: 58px; height: 44px; opacity: 0.09; transform: rotate(-4deg); }
+    .tf-22 { bottom:9%;right:3%; width: 32px; height: 71px; opacity: 0.09; transform: rotate(3deg); }
+    .tf-23 { bottom:29%;right:47%; width: 68px; height: 40px; opacity: 0.07; transform: rotate(-2deg); }
+    .tf-24 { bottom:2%;left:36%; width: 36px; height: 43px; opacity: 0.09; transform: rotate(8deg); }
+    @media (max-width: 640px) {
+      .tf-2, .tf-4, .tf-6, .tf-8, .tf-10, .tf-12, .tf-14, .tf-16, .tf-18, .tf-20, .tf-22, .tf-24 { display: none; }
+    }
 
     /* ── портреты-валуны: неровные камни тундры, каждый со своей формой и наклоном ── */
     .team-card:nth-of-type(1) { --tilt: -2.2deg; --drop: 32px; --stone: 42% 58% 46% 54% / 34% 32% 44% 40%; }
@@ -1518,34 +1540,59 @@
       font-size: 13px; line-height: 1.45; color: #12A67E; font-weight: 700; margin: 0 0 12px;
       min-height: 2.9em;   /* держим 2 строки, чтобы описания начинались на одной линии */
     }
-    /* видимый текст у всех ровно 4 строки — карточки одинаковые; при раскрытии обрезка снимается */
-    .team-lead {
-      font-size: 14.5px; line-height: 1.66; color: #5B6B7A; margin: 0;
+    .team-lead { font-size: 14.5px; line-height: 1.66; color: #5B6B7A; margin: 0;
       display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 4;
-      line-clamp: 4; overflow: hidden;
-    }
-    .team-card.open .team-lead { display: block; overflow: visible; }
-    .team-more {
-      max-height: 0; overflow: hidden;
-      transition: max-height .42s cubic-bezier(.2,.6,.2,1);
-    }
-    .team-more-in p { font-size: 14.5px; line-height: 1.66; color: #5B6B7A; margin: 12px 0 0; }
+      line-clamp: 4; overflow: hidden; }
+    .team-src { display: none; }            /* источник полного текста для окошка */
+    .team-more-wrap { position: relative; align-self: flex-start; margin-top: 14px; }
     .team-toggle {
-      align-self: flex-start; margin-top: 14px; padding: 0;   /* сразу под текстом, без пустоты */
-      background: none; border: 0; cursor: pointer; font-family: inherit;
+      padding: 0; background: none; border: 0; cursor: pointer; font-family: inherit;
       font-size: 13.5px; font-weight: 700; color: #12A67E;
-      display: inline-flex; align-items: center; gap: 6px;
-      transition: color .2s;
+      display: inline-flex; align-items: center; gap: 6px; transition: color .2s;
     }
     .team-toggle:hover { color: #0E9E78; }
     .team-toggle svg { width: 13px; height: 13px; transition: transform .35s; }
-    .team-card.open .team-toggle svg { transform: rotate(180deg); }
+    .team-card.pop-open .team-toggle svg { transform: rotate(180deg); }
     .team-toggle .t-less { display: none; }
-    .team-card.open .team-toggle .t-more { display: none; }
-    .team-card.open .team-toggle .t-less { display: inline; }
+    .team-card.pop-open .team-toggle .t-more { display: none; }
+    .team-card.pop-open .team-toggle .t-less { display: inline; }
+
+    /* рассказ о гиде — в небольшом всплывающем окошке (как подсказки «Сложность»/«Комфорт») */
+    .team-pop {
+      position: absolute; top: calc(100% + 12px); left: 0; z-index: 60;
+      width: min(360px, calc(100vw - 36px));
+      background: #fff; border-radius: 10px; padding: 20px 22px 22px; box-sizing: border-box;
+      box-shadow: 0 18px 40px rgba(20,40,60,.18), 0 4px 12px rgba(20,40,60,.08);
+      max-height: min(520px, 62vh); overflow-y: auto; text-align: left;
+      opacity: 0; visibility: hidden; transform: translateY(8px);
+      transition: opacity .28s, transform .28s, visibility .28s;
+    }
+    .team-card.pop-open { z-index: 40; }
+    .team-card.pop-open .team-pop { opacity: 1; visibility: visible; transform: translateY(0); }
+    .team-pop::before {
+      content: ''; position: absolute; top: -6px; left: 26px; width: 13px; height: 13px;
+      background: #fff; transform: rotate(45deg); border-radius: 2px;
+    }
+    .team-pop-x {
+      position: absolute; top: 7px; right: 9px; width: 28px; height: 28px;
+      border: 0; background: none; cursor: pointer; font-size: 23px; line-height: 1;
+      color: #9DACB9; font-family: inherit; transition: color .2s;
+    }
+    .team-pop-x:hover { color: #1A2330; }
+    .team-pop-name {
+      font-family: 'aurora', 'Montserrat', sans-serif;
+      font-size: 18px; font-weight: 800; color: #1A2330; margin: 0 0 4px; padding-right: 26px;
+    }
+    .team-pop-role { font-size: 12.5px; font-weight: 700; color: #12A67E; margin: 0 0 12px; }
+    .team-pop p { font-size: 14px; line-height: 1.62; color: #5B6B7A; margin: 0 0 10px; }
+    .team-pop p:last-child { margin-bottom: 0; }
+    /* правые колонки — окошко раскрывается влево, чтобы не уезжало за край */
+    .team-card:nth-of-type(3) .team-pop, .team-card:nth-of-type(4) .team-pop { left: auto; right: 0; }
+    .team-card:nth-of-type(3) .team-pop::before,
+    .team-card:nth-of-type(4) .team-pop::before { left: auto; right: 26px; }
 
     .team-foot {
-      position: relative; margin-top: 54px; padding-top: 32px; border-top: 1px solid #E4EAEF;
+      position: relative; margin-top: 40px; padding-top: 26px; border-top: 1px solid #E4EAEF;
       display: flex; flex-wrap: wrap; align-items: center; gap: 18px 26px;
     }
     .team-foot p { font-size: 16px; color: #3A4652; margin: 0; line-height: 1.6; flex: 1 1 340px; font-weight: 500; }
@@ -1562,17 +1609,22 @@
       .team-hills { top: 54px; height: 196px; }
       .team-card { margin-top: 0; }
       .team-card:nth-of-type(even) { margin-top: 42px; }
+      .team-card:nth-of-type(3) .team-pop { left: 0; right: auto; }
+      .team-card:nth-of-type(3) .team-pop::before { left: 26px; right: auto; }
     }
     @media (max-width: 900px) {
-      .team { padding: 66px 34px 74px; }
+      .team { padding: 40px 34px 44px; }
       .team-title { font-size: 30px; }
     }
     @media (max-width: 640px) {
-      .team { padding: 56px 20px 64px; }
+      .team { padding: 34px 20px 38px; }
       .team-title { font-size: 27px; }
       .team-sub { font-size: 15px; }
       .team-grid { grid-template-columns: 1fr; gap: 30px; }
       .team-card, .team-card:nth-of-type(even) { margin-top: 0; }
+      .team-card:nth-of-type(3) .team-pop, .team-card:nth-of-type(4) .team-pop { left: 0; right: auto; }
+      .team-card:nth-of-type(3) .team-pop::before,
+      .team-card:nth-of-type(4) .team-pop::before { left: 26px; right: auto; }
       .team-shot { max-width: 262px; margin-left: 6px; }
       /* тропа между камнями — вертикальный завиток под каждой карточкой */
       .team-card:not(:last-of-type)::after {
@@ -2497,7 +2549,7 @@
      НАША КОМАНДА (EN)
 ======================================================== -->
 <section class="team" id="team" aria-labelledby="team-title">
-  <div class="team-decor" aria-hidden="true"><span class="tf-bush tf-1"></span><span class="tf-mush tf-2"></span><span class="tf-bush tf-3"></span><span class="tf-berry tf-4"></span><span class="tf-bush tf-5"></span><span class="tf-mush tf-6"></span><span class="tf-berry tf-7"></span><span class="tf-mush tf-8"></span></div>
+  <div class="team-decor" aria-hidden="true"><span class="tf-cloud tf-1"></span><span class="tf-mush tf-2"></span><span class="tf-ivanchay tf-3"></span><span class="tf-veresk tf-4"></span><span class="tf-moroshka tf-5"></span><span class="tf-stone tf-6"></span><span class="tf-chernika tf-7"></span><span class="tf-zveroboy tf-8"></span><span class="tf-mush tf-9"></span><span class="tf-veresk tf-10"></span><span class="tf-chernika tf-11"></span><span class="tf-moroshka tf-12"></span><span class="tf-stone tf-13"></span><span class="tf-ivanchay tf-14"></span><span class="tf-cloud tf-15"></span><span class="tf-mush tf-16"></span><span class="tf-zveroboy tf-17"></span><span class="tf-veresk tf-18"></span><span class="tf-moroshka tf-19"></span><span class="tf-chernika tf-20"></span><span class="tf-stone tf-21"></span><span class="tf-ivanchay tf-22"></span><span class="tf-cloud tf-23"></span><span class="tf-mush tf-24"></span></div>
   <div class="team-head">
     <span class="team-eyebrow">Who will guide you</span>
     <h2 class="team-title" id="team-title">Our <em>Team</em></h2>
@@ -2523,15 +2575,20 @@
         <h3 class="team-name">Mikhail</h3>
         <p class="team-role">A guide in love with the history of the North</p>
         <p class="team-lead">A passionate history buff and dedicated traveller. Mikhail is convinced that behind every place there are remarkable stories of people, events and discoveries. He does not simply recite facts — he brings the past back to life, turning an ordinary drive into genuine time travel.</p>
-        <div class="team-more" id="team-more-1">
-          <div class="team-more-in">
+        <div class="team-src" data-for="1">
             <p>For him the North is not just beautiful scenery. It is a land with character, with human destinies and legends he wants to share with every guest.</p>
+        </div>
+        <div class="team-more-wrap">
+          <button class="team-toggle" type="button" aria-expanded="false" aria-controls="team-pop-1">
+            <span class="t-more">Read more</span><span class="t-less">Show less</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+  
+          <div class="team-pop" id="team-pop-1" role="dialog" aria-label="About the guide">
+            <button class="team-pop-x" type="button" aria-label="Close">&times;</button>
+            <div class="team-pop-body"></div>
           </div>
         </div>
-        <button class="team-toggle" type="button" aria-expanded="false" aria-controls="team-more-1">
-          <span class="t-more">Read more</span><span class="t-less">Show less</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
       </div>
     </article>
 
@@ -2546,15 +2603,20 @@
         <h3 class="team-name">Aleksandra</h3>
         <p class="team-role">The pearl of our team</p>
         <p class="team-lead">Aleksandra can wake up even the sleepiest traveller on the road with nothing but her smile. Her stories about the Pomors, northern traditions and everyday life on the Kola Peninsula turn a trip into a captivating tale.</p>
-        <div class="team-more" id="team-more-2">
-          <div class="team-more-in">
+        <div class="team-src" data-for="2">
             <p>Bright, sharp and truly one of a kind, Aleksandra creates a special atmosphere of warmth in which guests feel less like tourists and more like real travellers.</p>
+        </div>
+        <div class="team-more-wrap">
+          <button class="team-toggle" type="button" aria-expanded="false" aria-controls="team-pop-2">
+            <span class="t-more">Read more</span><span class="t-less">Show less</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+  
+          <div class="team-pop" id="team-pop-2" role="dialog" aria-label="About the guide">
+            <button class="team-pop-x" type="button" aria-label="Close">&times;</button>
+            <div class="team-pop-body"></div>
           </div>
         </div>
-        <button class="team-toggle" type="button" aria-expanded="false" aria-controls="team-more-2">
-          <span class="t-more">Read more</span><span class="t-less">Show less</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
       </div>
     </article>
 
@@ -2569,16 +2631,21 @@
         <h3 class="team-name">Elizaveta</h3>
         <p class="team-role">A dependable guide and confident driver in the North</p>
         <p class="team-lead">Elizaveta is as dependable as a Swiss watch — and, above all, an experienced guide who knows how to make every journey comfortable, engaging and full of good moments.</p>
-        <div class="team-more" id="team-more-3">
-          <div class="team-more-in">
+        <div class="team-src" data-for="3">
             <p>Her calm, her attentiveness and her warmth towards people help guests feel at ease from the very first minutes. And her flawless driving makes any road easy and safe.</p>
             <p>With Elizaveta you get more than someone accompanying you on a trip — you get a real friend you can trust with your northern adventure.</p>
+        </div>
+        <div class="team-more-wrap">
+          <button class="team-toggle" type="button" aria-expanded="false" aria-controls="team-pop-3">
+            <span class="t-more">Read more</span><span class="t-less">Show less</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+  
+          <div class="team-pop" id="team-pop-3" role="dialog" aria-label="About the guide">
+            <button class="team-pop-x" type="button" aria-label="Close">&times;</button>
+            <div class="team-pop-body"></div>
           </div>
         </div>
-        <button class="team-toggle" type="button" aria-expanded="false" aria-controls="team-more-3">
-          <span class="t-more">Read more</span><span class="t-less">Show less</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
       </div>
     </article>
 
@@ -2593,16 +2660,21 @@
         <h3 class="team-name">Roman</h3>
         <p class="team-role">The heart of the team and a true expert on the North</p>
         <p class="team-lead">With Roman it is never boring. He is the kind of guide you click with in the very first minutes. The best of company, an attentive host and a real expert on the North.</p>
-        <div class="team-more" id="team-more-4">
-          <div class="team-more-in">
+        <div class="team-src" data-for="4">
             <p>His sense of humour, his calm and his love for what he does make every journey easy and memorable.</p>
             <p>Roman knows how to set the mood on any trip and to show you a North that is not only beautiful, but alive.</p>
+        </div>
+        <div class="team-more-wrap">
+          <button class="team-toggle" type="button" aria-expanded="false" aria-controls="team-pop-4">
+            <span class="t-more">Read more</span><span class="t-less">Show less</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+  
+          <div class="team-pop" id="team-pop-4" role="dialog" aria-label="About the guide">
+            <button class="team-pop-x" type="button" aria-label="Close">&times;</button>
+            <div class="team-pop-body"></div>
           </div>
         </div>
-        <button class="team-toggle" type="button" aria-expanded="false" aria-controls="team-more-4">
-          <span class="t-more">Read more</span><span class="t-less">Show less</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
       </div>
     </article>
 
@@ -3324,32 +3396,55 @@
 </script>
 
 <script>
-  // ═══ Наша команда: раскрытие подробного рассказа о гиде ═══
+  // ═══ Наша команда: рассказ о гиде во всплывающем окошке ═══
   (function(){
-    var cards = document.querySelectorAll('.team-card');
+    var cards = Array.prototype.slice.call(document.querySelectorAll('.team-card'));
     if (!cards.length) return;
-    function fit(card){
-      var box = card.querySelector('.team-more');
-      var inner = card.querySelector('.team-more-in');
-      box.style.maxHeight = card.classList.contains('open') ? inner.offsetHeight + 'px' : '0px';
+
+    function build(card){
+      var body = card.querySelector('.team-pop-body');
+      if (!body || body.getAttribute('data-ready')) return;
+      var h = document.createElement('h4');
+      h.className = 'team-pop-name';
+      h.textContent = card.querySelector('.team-name').textContent;
+      var r = document.createElement('p');
+      r.className = 'team-pop-role';
+      r.textContent = card.querySelector('.team-role').textContent;
+      body.appendChild(h); body.appendChild(r);
+      var texts = [card.querySelector('.team-lead').textContent];
+      card.querySelectorAll('.team-src p').forEach(function(p){ texts.push(p.textContent); });
+      texts.forEach(function(t){
+        var p = document.createElement('p'); p.textContent = t; body.appendChild(p);
+      });
+      body.setAttribute('data-ready', '1');
     }
+    function close(card){
+      card.classList.remove('pop-open');
+      var b = card.querySelector('.team-toggle');
+      if (b) b.setAttribute('aria-expanded', 'false');
+    }
+    function closeAll(except){ cards.forEach(function(c){ if (c !== except) close(c); }); }
+
     cards.forEach(function(card){
       var btn = card.querySelector('.team-toggle');
-      if (!btn) return;
-      btn.addEventListener('click', function(){
-        var open = card.classList.toggle('open');
-        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-        fit(card);
+      var pop = card.querySelector('.team-pop');
+      var x   = card.querySelector('.team-pop-x');
+      if (!btn || !pop) return;
+      btn.addEventListener('click', function(e){
+        e.stopPropagation();
+        var wasOpen = card.classList.contains('pop-open');
+        closeAll(null);
+        if (wasOpen) return;
+        build(card);
+        card.classList.add('pop-open');
+        btn.setAttribute('aria-expanded', 'true');
+        pop.scrollTop = 0;
       });
+      pop.addEventListener('click', function(e){ e.stopPropagation(); });
+      if (x) x.addEventListener('click', function(e){ e.stopPropagation(); close(card); });
     });
-    // при смене ширины пересчитываем открытые карточки (текст мог перетечь)
-    var t;
-    window.addEventListener('resize', function(){
-      clearTimeout(t);
-      t = setTimeout(function(){
-        cards.forEach(function(c){ if (c.classList.contains('open')) fit(c); });
-      }, 150);
-    });
+    document.addEventListener('click', function(){ closeAll(null); });
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeAll(null); });
   })();
 
   // ═══ Оживление сайта: появление при прокрутке, волна календаря, снег ═══
