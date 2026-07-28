@@ -59,13 +59,13 @@
       padding: 0 24px; display: flex; align-items: center;
       justify-content: space-between; gap: 16px;
     }
-    .hdr-left { display: flex; flex-direction: column; flex-shrink: 0; }
+    .hdr-left { display: flex; flex-direction: column; min-width: 0; }
     .hdr-crumb { display: flex; align-items: center; gap: 6px; font-size: 14px; }
     .hdr-crumb a { font-weight: 800; color: #10B981; text-decoration: none; }
     .hdr-crumb .sep { color: #bbb; }
-    .hdr-crumb .cur { font-weight: 700; color: #111; }
+    .hdr-crumb .cur { font-weight: 700; color: #111; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     .hdr-sub { font-size: 12px; color: #718096; margin-top: 2px; }
-    .hdr-nav { display: flex; align-items: center; gap: 20px; flex: 1; justify-content: center; }
+    .hdr-nav { display: flex; align-items: center; gap: 20px; flex: 1; justify-content: center; min-width: 0; }
     .hdr-nav a {
       font-size: 11px; font-weight: 700; color: #4A5568; letter-spacing: .06em;
       text-decoration: none; border-bottom: 2px solid transparent;
@@ -261,6 +261,10 @@
       .ft-top { grid-template-columns: 1fr 1fr; gap: 28px; }
     }
     @media (max-width: 560px) {
+      /* узкие экраны: длинные реквизиты (ОГРНИП/ИНН) не должны распирать карточку */
+      .req-card { padding: 22px 18px; }
+      .req-list li { flex-wrap: wrap; gap: 4px 12px; }
+      .req-list .v { text-align: left; word-break: break-word; }
       .cards { grid-template-columns: 1fr; }
       .ft-top { grid-template-columns: 1fr; }
       .ft-brand { font-size: 24px; margin-bottom: 16px; }

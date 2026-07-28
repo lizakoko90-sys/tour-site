@@ -108,17 +108,19 @@
       padding: 0 24px; display: flex; align-items: center;
       justify-content: space-between; gap: 16px;
     }
-    .hdr-left { display: flex; flex-direction: column; flex-shrink: 0; }
+    .hdr-left { display: flex; flex-direction: column; min-width: 0; }
     .hdr-crumb {
-      display: flex; align-items: center; gap: 6px; font-size: 14px;
+      display: flex; align-items: center; gap: 6px; font-size: 14px; min-width: 0;
     }
+    .hdr-crumb a, .hdr-crumb .sep { flex-shrink: 0; }
+    .hdr-crumb .cur { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     .hdr-crumb a { font-weight: 800; color: #10B981; text-decoration: none; }
     .hdr-crumb .sep { color: #bbb; }
     .hdr-crumb .cur { font-weight: 700; color: #111; }
-    .hdr-price { font-size: 12px; color: #718096; }
+    .hdr-price { font-size: 12px; color: #718096; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .hdr-price span { font-weight: 700; color: #e67e22; font-size: 14px; }
     .hdr-nav {
-      display: flex; align-items: center; gap: 20px; flex: 1; justify-content: center;
+      display: flex; align-items: center; gap: 20px; flex: 1; justify-content: center; min-width: 0;
     }
     .hdr-nav a {
       font-size: 11px; font-weight: 700; color: #4A5568; letter-spacing: .06em;
@@ -157,7 +159,7 @@
     .hdr-burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .hdr-burger.open span:nth-child(2) { opacity: 0; }
     .hdr-burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    @media (max-width:860px) {
+    @media (max-width:1200px) {
       .hdr-nav {
         display: none; position: fixed; top: 70px; left: 0; right: 0;
         flex-direction: column; align-items: stretch; gap: 0;
@@ -350,7 +352,7 @@
 
     .phase-banner {
       position: relative; min-height: 240px;
-      overflow: visible;
+      overflow: hidden;   /* декоративное слово не должно вылезать за экран (в EN слова длиннее) */
       display: flex; align-items: center; margin-bottom: 32px;
     }
     .phase-heading {

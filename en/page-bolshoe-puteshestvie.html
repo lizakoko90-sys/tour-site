@@ -118,17 +118,19 @@
       padding: 0 24px; display: flex; align-items: center;
       justify-content: space-between; gap: 16px;
     }
-    .hdr-left { display: flex; flex-direction: column; flex-shrink: 0; }
+    .hdr-left { display: flex; flex-direction: column; min-width: 0; }
     .hdr-crumb {
-      display: flex; align-items: center; gap: 6px; font-size: 14px;
+      display: flex; align-items: center; gap: 6px; font-size: 14px; min-width: 0;
     }
+    .hdr-crumb a, .hdr-crumb .sep { flex-shrink: 0; }
+    .hdr-crumb .cur { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     .hdr-crumb a { font-weight: 800; color: #10B981; text-decoration: none; }
     .hdr-crumb .sep { color: #bbb; }
     .hdr-crumb .cur { font-weight: 700; color: #111; }
-    .hdr-price { font-size: 12px; color: #718096; }
+    .hdr-price { font-size: 12px; color: #718096; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .hdr-price span { font-weight: 700; color: #e67e22; font-size: 14px; }
     .hdr-nav {
-      display: flex; align-items: center; gap: 20px; flex: 1; justify-content: center;
+      display: flex; align-items: center; gap: 20px; flex: 1; justify-content: center; min-width: 0;
     }
     .hdr-nav a {
       font-size: 11px; font-weight: 700; color: #4A5568; letter-spacing: .06em;
@@ -178,7 +180,7 @@
     .hdr-burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .hdr-burger.open span:nth-child(2) { opacity: 0; }
     .hdr-burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    @media (max-width:860px) {
+    @media (max-width:1200px) {
       .hdr-nav {
         display: none; position: fixed; top: 70px; left: 0; right: 0;
         flex-direction: column; align-items: stretch; gap: 0;
@@ -358,7 +360,7 @@
 
     .phase-banner {
       position: relative; min-height: 240px;
-      overflow: visible;
+      overflow: hidden;   /* декоративное слово не должно вылезать за экран (в EN слова длиннее) */
       display: flex; align-items: center; margin-bottom: 32px;
     }
     .phase-heading {
@@ -944,7 +946,7 @@
         <span class="lang-sep">|</span>
         <a href="page-bolshoe-puteshestvie.html" data-setlang="en" class="lang-opt active">EN</a>
       </div>
-      <a href="tel:+79211663315" class="hdr-phone">+7 (921) 166 33 15 · Mikhail</a>
+      <a href="tel:+79211663315" class="hdr-phone">+7 (921) 166 33 15</a>
       <div class="hdr-socials">
         <a href="https://t.me/aurora_trip51" target="_blank" class="soc-link">
           <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.37.08 0 .27.02.39.12a.4.4 0 01.12.25c0 .06.01.21 0 .33z"/></svg>
@@ -1881,7 +1883,7 @@
       </div>
 
       <div class="ft-col-phone">
-        <div class="ft-phone">+7 (921) 166-33-15 · Mikhail</div>
+        <div class="ft-phone">+7 (921) 166-33-15</div>
         <button class="ft-callback" onclick="openModal()">Request a call</button>
         <div class="ft-schedule">Open daily 9:00 – 21:00</div>
       </div>
