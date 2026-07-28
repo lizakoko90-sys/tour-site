@@ -1043,9 +1043,16 @@
     .blog-sub { font-size: 15px; color: #5B6B7A; max-width: 580px; line-height: 1.6; }
     .blog-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-auto-flow: column;
+      grid-auto-columns: 340px;
       gap: 20px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      scroll-snap-type: x proximity;
+      padding-bottom: 10px;
+      scrollbar-width: none; -ms-overflow-style: none;
     }
+    .blog-grid::-webkit-scrollbar { display: none; }
     .blog-card {
       background: #fff;
       border: 1px solid #E7EDF1;
@@ -1053,6 +1060,7 @@
       overflow: hidden;
       display: flex;
       flex-direction: column;
+      scroll-snap-align: start;
       transition: box-shadow .22s, transform .22s;
     }
     .blog-card:hover { box-shadow: 0 10px 32px rgba(14,22,38,.09); transform: translateY(-3px); }
@@ -1092,14 +1100,15 @@
     .blog-card.published .blog-card-img::after { display: none; }
     .blog-card.published .blog-read { opacity: 1; cursor: pointer; }
     .blog-card-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .blog-nav { display: flex; gap: 14px; margin-top: 22px; }
 
     @media (max-width: 900px) {
       .blog { padding: 48px 20px 60px; }
-      .blog-grid { grid-template-columns: 1fr 1fr; }
+      .blog-grid { grid-auto-columns: min(82vw, 340px); }
       .blog-title { font-size: 27px; }
     }
     @media (max-width: 560px) {
-      .blog-grid { grid-template-columns: 1fr; }
+      .blog-grid { grid-auto-columns: min(82vw, 340px); }
     }
 
     /* =========================================================
@@ -2898,7 +2907,7 @@
     <p class="blog-sub">Статьи, гиды и советы от нашей команды — чтобы подготовиться к поездке и узнать Заполярье глубже.</p>
   </div>
 
-  <div class="blog-grid">
+  <div class="blog-grid" id="blog-grid">
 
     <a class="blog-card published" href="blog/kogda-ehat-za-siyaniem.html" style="text-decoration:none;color:inherit;">
       <div class="blog-card-img"><img class="blog-card-photo" src="images/aurora/aurora-13.webp" alt="Северное сияние над Кольским полуостровом зимней ночью"></div>
@@ -2940,6 +2949,11 @@
       </div>
     </div>
 
+  </div>
+
+  <div class="blog-nav">
+    <button class="gal-arrow" onclick="blogScroll(-1)" aria-label="Назад">&#8249;</button>
+    <button class="gal-arrow" onclick="blogScroll(1)" aria-label="Вперёд">&#8250;</button>
   </div>
 
 </section>
@@ -3242,6 +3256,12 @@
       var first = grid.querySelector('.gal-item');
       var step = first ? (first.offsetWidth + 14) * 2 : grid.offsetWidth * 0.8;
       grid.scrollBy({ left: dir * step, behavior: 'smooth' });
+    };
+    // листание слайдера блога стрелками
+    window.blogScroll = function(dir){
+      var bgrid = document.getElementById('blog-grid');
+      if (!bgrid) return;
+      bgrid.scrollBy({ left: dir * 360, behavior: 'smooth' });
     };
     grid.addEventListener('wheel', function(){ pauseAuto(5000); }, { passive: true });
     grid.addEventListener('pointerdown', function(){ pauseAuto(6000); }, { passive: true });
