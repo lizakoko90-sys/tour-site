@@ -3221,12 +3221,18 @@
   (function(){
     var grid = document.getElementById('gal-grid');
     if (!grid) return;
+    // пауза авто-движения: пока она активна, лента слушается только пользователя
+    var autoPauseTill = 0;
+    function pauseAuto(ms){ autoPauseTill = performance.now() + (ms || 5000); }
     // листание слайдера стрелками
     window.galScroll = function(dir){
+      pauseAuto(5000);                       // иначе авто-движение затрёт плавную прокрутку
       var first = grid.querySelector('.gal-item');
       var step = first ? (first.offsetWidth + 14) * 2 : grid.offsetWidth * 0.8;
       grid.scrollBy({ left: dir * step, behavior: 'smooth' });
     };
+    grid.addEventListener('wheel', function(){ pauseAuto(5000); }, { passive: true });
+    grid.addEventListener('pointerdown', function(){ pauseAuto(6000); }, { passive: true });
     var PHOTOS = [
       { c:'aurora', s:'images/gallery/aurora_1.jpeg' },  { c:'aurora', s:'images/gallery/aurora_2.jpeg' },
       { c:'aurora', s:'images/gallery/aurora_3.jpeg' },  { c:'aurora', s:'images/gallery/aurora_4.jpeg' },
@@ -3375,6 +3381,7 @@
         if (!last) last = now;
         var dt = now - last; last = now;
         if (dt > 60) dt = 60; // защита от рывка после простоя вкладки
+        if (now < autoPauseTill) { last = 0; raf = requestAnimationFrame(frame); return; }  // пользователь листает сам
         if (!hover && !(lb && lb.classList.contains('open'))) {
           var max = grid.scrollWidth - grid.clientWidth;
           if (max > 4) {
@@ -3386,11 +3393,11 @@
         }
         raf = requestAnimationFrame(frame);
       }
-      function start(){ if (running || interacted) return; running = true; last = 0; raf = requestAnimationFrame(frame); }
+      function start(){ if (running) return; running = true; last = 0; raf = requestAnimationFrame(frame); }
       function stop(){ running = false; if (raf) { cancelAnimationFrame(raf); raf = null; } }
       grid.addEventListener('mouseenter', function(){ hover = true; });
       grid.addEventListener('mouseleave', function(){ hover = false; });
-      grid.addEventListener('touchstart', function(){ interacted = true; stop(); }, { passive: true });
+      grid.addEventListener('touchstart', function(){ pauseAuto(6000); }, { passive: true });
       if ('IntersectionObserver' in window) {
         new IntersectionObserver(function(entries){
           entries.forEach(function(en){ if (en.isIntersecting) start(); else stop(); });
@@ -3441,8 +3448,12 @@
       var c = track.querySelector('.rev-card');
       return c ? (c.offsetWidth + 20) * 2 : wrap.clientWidth * 0.8;
     }
-    if (prevBtn) { prevBtn.disabled = false; prevBtn.addEventListener('click', function(){ wrap.scrollBy({ left: -stepPx(), behavior: 'smooth' }); }); }
-    if (nextBtn) { nextBtn.disabled = false; nextBtn.addEventListener('click', function(){ wrap.scrollBy({ left: stepPx(), behavior: 'smooth' }); }); }
+    var revPauseTill = 0;
+    function pauseRev(ms){ revPauseTill = performance.now() + (ms || 5000); }
+    if (prevBtn) { prevBtn.disabled = false; prevBtn.addEventListener('click', function(){ pauseRev(5000); wrap.scrollBy({ left: -stepPx(), behavior: 'smooth' }); }); }
+    if (nextBtn) { nextBtn.disabled = false; nextBtn.addEventListener('click', function(){ pauseRev(5000); wrap.scrollBy({ left: stepPx(), behavior: 'smooth' }); }); }
+    wrap.addEventListener('wheel', function(){ pauseRev(5000); }, { passive: true });
+    wrap.addEventListener('pointerdown', function(){ pauseRev(6000); }, { passive: true });
 
     // ─── Плавное непрерывное авто-движение (как в галерее, чуть медленнее) ───
     var section = document.getElementById('reviews');
@@ -3455,6 +3466,7 @@
       if (!last) last = now;
       var dt = now - last; last = now;
       if (dt > 60) dt = 60;
+      if (now < revPauseTill) { last = 0; raf = requestAnimationFrame(frame); return; }  // пользователь листает сам
       if (!hover) {
         var max = wrap.scrollWidth - wrap.clientWidth;
         if (max > 4) {
@@ -3466,7 +3478,7 @@
       }
       raf = requestAnimationFrame(frame);
     }
-    function startA(){ if (running || interacted) return; running = true; last = 0; raf = requestAnimationFrame(frame); }
+    function startA(){ if (running) return; running = true; last = 0; raf = requestAnimationFrame(frame); }
     function stopA(){ running = false; if (raf) { cancelAnimationFrame(raf); raf = null; } }
     wrap.addEventListener('mouseenter', function(){ hover = true; });
     wrap.addEventListener('mouseleave', function(){ hover = false; });
