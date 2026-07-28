@@ -1606,7 +1606,7 @@
 
     @media (max-width: 1100px) {
       .team-grid { grid-template-columns: repeat(2, 1fr); gap: 34px 30px; }
-      .team-hills { top: 30px; height: 120px; }
+      .team-hills { top: 30px; height: 120px; left: 0; right: 0; }
       .team-card { margin-top: 0; }
       .team-card:nth-of-type(even) { margin-top: 42px; }
       .team-card:nth-of-type(3) .team-pop { left: 0; right: auto; }
@@ -1614,6 +1614,7 @@
     }
     @media (max-width: 900px) {
       .team { padding: 40px 34px 44px; }
+      .team-hills { left: 0; right: 0; }        /* не даём сопкам вылезать за края экрана */
       .team-title { font-size: 30px; }
     }
     @media (max-width: 640px) {
@@ -1636,6 +1637,11 @@
       .team-role { min-height: 0; margin-bottom: 10px; }
       .team-foot { margin-top: 40px; padding-top: 26px; }
       .team-foot-btn { width: 100%; justify-content: center; }
+    }
+
+    /* страховка: на узких экранах не даём странице ехать по горизонтали (та самая белая полоса справа) */
+    @media (max-width: 900px) {
+      html, body { overflow-x: hidden; }
     }
 
     /* ===== Оживление сайта: появление, ховеры, снег ===== */
