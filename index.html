@@ -51,8 +51,7 @@
     "areaServed": "Мурманская область",
     "sameAs": [
       "https://vk.com/aurora_trip",
-      "https://t.me/aurora_trip51",
-      "https://yandex.ru/maps/org/aurora_trip/12054263281/"
+      "https://t.me/aurora_trip51"
     ],
     "employee": [
       {
@@ -1654,51 +1653,6 @@
       html, body { overflow-x: hidden; }
     }
 
-    /* =========================================================
-       ОТЗЫВЫ НА ЯНДЕКС.КАРТАХ (официальный виджет)
-    ========================================================= */
-    .ymr {
-      margin-top: 54px; padding-top: 38px; border-top: 1px solid #E4EAEF;
-      display: grid; grid-template-columns: 1fr 560px; gap: 40px; align-items: start;
-    }
-    .ymr-eyebrow {
-      display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 1.5px;
-      text-transform: uppercase; margin-bottom: 12px;
-      background: var(--aurora); -webkit-background-clip: text; background-clip: text; color: transparent;
-    }
-    .ymr-title {
-      font-family: 'aurora', 'Montserrat', sans-serif;
-      font-size: 26px; font-weight: 800; color: #1A2330; line-height: 1.2; margin: 0 0 12px;
-    }
-    .ymr-sub { font-size: 15px; line-height: 1.65; color: #5B6B7A; margin: 0 0 10px; max-width: 460px; }
-    .ymr-note { font-size: 13.5px; line-height: 1.6; color: #7E8A99; margin: 0 0 22px; max-width: 460px; }
-    .ymr-actions { display: flex; flex-wrap: wrap; gap: 12px; }
-    .ymr-btn {
-      display: inline-flex; align-items: center; gap: 8px; padding: 13px 22px;
-      border-radius: 8px; text-decoration: none; font-size: 14.5px; font-weight: 700;
-      background: var(--aurora); color: #0E1626; transition: filter .2s, transform .2s;
-    }
-    .ymr-btn:hover { filter: brightness(1.06); transform: translateY(-2px); }
-    .ymr-btn-ghost {
-      background: #fff; color: #12A67E; border: 1.5px solid rgba(61,220,132,.5);
-    }
-    .ymr-btn-ghost:hover { background: rgba(61,220,132,.08); filter: none; }
-    .ymr-frame { position: relative; width: 100%; max-width: 560px; height: 540px; overflow: hidden; }
-    .ymr-frame iframe {
-      width: 100%; height: 100%; border: 1px solid #E1E7EC; border-radius: 8px;
-      box-sizing: border-box; background: #fff;
-    }
-    @media (max-width: 1100px) {
-      .ymr { grid-template-columns: 1fr; gap: 28px; }
-      .ymr-frame { max-width: 100%; }
-    }
-    @media (max-width: 640px) {
-      .ymr { margin-top: 38px; padding-top: 28px; }
-      .ymr-title { font-size: 22px; }
-      .ymr-frame { height: 500px; }
-      .ymr-btn { width: 100%; justify-content: center; }
-    }
-
     /* ===== Оживление сайта: появление, ховеры, снег ===== */
     .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s cubic-bezier(.2,.6,.2,1), transform .7s cubic-bezier(.2,.6,.2,1); }
     .reveal.reveal-in { opacity: 1; transform: none; }
@@ -2862,25 +2816,6 @@
   <div class="rev-controls">
     <button class="rev-arrow" id="revPrev" disabled>&#8810;</button>
     <button class="rev-arrow" id="revNext">&#8811;</button>
-  </div>
-
-
-  <!-- Отзывы на Яндекс.Картах: официальный виджет, рейтинг подтягивается сам -->
-  <div class="ymr">
-    <div class="ymr-text">
-      <span class="ymr-eyebrow">Мы на Яндекс.Картах</span>
-      <h3 class="ymr-title">Отзывы с карточки организации</h3>
-      <p class="ymr-sub">Это отзывы и оценки прямо с нашей карточки на Яндекс.Картах — мы не можем их изменить или удалить. Рейтинг в виджете обновляется автоматически.</p>
-      <p class="ymr-note">Ездили с нами? Отзыв на Картах — самая большая помощь: по нему нас находят другие путешественники.</p>
-      <div class="ymr-actions">
-        <a class="ymr-btn" href="https://yandex.ru/maps/org/aurora_trip/12054263281/reviews/" target="_blank" rel="noopener">Все отзывы на Картах</a>
-        <a class="ymr-btn ymr-btn-ghost" href="https://yandex.ru/maps/org/aurora_trip/12054263281/reviews?add-review" target="_blank" rel="noopener">Оставить отзыв</a>
-      </div>
-    </div>
-    <div class="ymr-frame">
-      <iframe loading="lazy" title="Отзывы об Aurora Trip на Яндекс.Картах"
-              src="https://yandex.ru/maps-reviews-widget/12054263281?comments"></iframe>
-    </div>
   </div>
 
 </section>
