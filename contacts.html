@@ -101,6 +101,29 @@
     .mob-menu a { padding: 12px 0; font-size: 15px; font-weight: 700; color: #2b3a4a; text-decoration: none; border-bottom: 1px solid #f0f2f5; }
     .mob-menu a:last-child { border-bottom: 0; }
 
+    /* ─── Карточка «Мы на Яндекс.Картах» ─────────────────── */
+    .ymo {
+      border-radius: 7px; border: 1px solid rgba(0,0,0,.09); min-height: 280px;
+      display: flex; flex-direction: column; justify-content: center; gap: 14px;
+      padding: 30px; background: radial-gradient(600px 220px at 50% 0%, rgba(0,212,255,.10), transparent 62%);
+    }
+    .ymo-eyebrow {
+      font-size: 12px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase;
+      background: var(--aurora); -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .ymo h3 { font-family: 'aurora','Montserrat',sans-serif; font-size: 22px; font-weight: 700; color: #1A2330; }
+    .ymo p { font-size: 14px; line-height: 1.6; color: #718096; }
+    .ymo-badge { height: 50px; }
+    .ymo-badge iframe { border: 0; width: 150px; height: 50px; display: block; }
+    .ymo-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
+    .ymo-links a {
+      display: inline-flex; align-items: center; padding: 11px 18px; border-radius: 7px;
+      font-size: 14px; font-weight: 700; text-decoration: none;
+      background: var(--aurora); color: #0E1626; transition: filter .2s;
+    }
+    .ymo-links a.ghost { background: #fff; color: #12A67E; border: 1.5px solid rgba(61,220,132,.5); }
+    .ymo-links a:hover { filter: brightness(1.06); }
+
     @media (max-width: 900px) {
       .hdr-nav { display: none; }
       .hdr-phone, .hdr-socials { display: none; }
@@ -437,11 +460,17 @@
           <span>Ежедневно с 9:00 до 21:00 (МСК)</span>
         </div>
       </div>
-      <div class="map-ph">
-        <div>
-          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          <div style="font-weight:700;color:#4A5568;">Карта появится здесь</div>
-          <div style="font-size:13px;margin-top:6px;">Добавим Яндекс.Карту с точкой встречи,<br>как только определим постоянное место сбора</div>
+      <div class="ymo">
+        <span class="ymo-eyebrow">Мы на Яндекс.Картах</span>
+        <h3>Карточка организации Aurora Trip</h3>
+        <p>Здесь наш рейтинг и отзывы гостей — их пишут прямо на Картах, мы не можем их изменить. Точку встречи согласуем при бронировании.</p>
+        <div class="ymo-badge">
+          <iframe loading="lazy" title="Рейтинг Aurora Trip на Яндекс.Картах"
+                  src="https://yandex.ru/sprav/widget/rating-badge/12054263281?type=rating"></iframe>
+        </div>
+        <div class="ymo-links">
+          <a href="https://yandex.ru/maps/org/aurora_trip/12054263281/" target="_blank" rel="noopener">Открыть на Картах</a>
+          <a class="ghost" href="https://yandex.ru/maps/org/aurora_trip/12054263281/reviews?add-review" target="_blank" rel="noopener">Оставить отзыв</a>
         </div>
       </div>
     </div>
