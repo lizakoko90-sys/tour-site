@@ -1446,7 +1446,7 @@
     /* сопки на горизонте — пунктиром на заднем плане */
     .team-hills {
       position: absolute; z-index: 0; pointer-events: none;
-      left: -48px; right: -48px; top: 76px; height: 238px;
+      left: -48px; right: -48px; top: 34px; height: 132px;
       background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%201200%20320%27%20preserveAspectRatio%3D%27none%27%3E%3Cg%20fill%3D%27none%27%20stroke-linecap%3D%27round%27%20stroke-dasharray%3D%278%2012%27%3E%3Cpath%20d%3D%27M0%20149%20Q100%20173%20150%20163%20Q200%20152%20250%20167%20Q300%20182%20350%20176%20Q400%20170%20450%20176%20Q500%20182%20550%20167%20Q600%20152%20650%20163%20Q700%20173%20750%20161%20Q800%20149%20850%20165%20Q900%20180%20950%20175%20Q1000%20170%201050%20177%20Q1100%20183%201150%20170%20L1200%20156%27%20%20stroke%3D%27%239FBACB%27%20stroke-width%3D%272.4%27%20opacity%3D%27.9%27%2F%3E%3Cpath%20d%3D%27M0%20188%20Q120%20249%20180%20227%20Q240%20204%20300%20226%20Q360%20248%20420%20208%20Q480%20168%20540%20208%20Q600%20248%20660%20215%20Q720%20182%20780%20215%20Q840%20249%20900%20228%20Q960%20207%201020%20228%20Q1080%20248%201140%20211%20L1200%20173%27%20%20stroke%3D%27%237C9FB4%27%20stroke-width%3D%272.6%27%20opacity%3D%27.88%27%2F%3E%3Cpath%20d%3D%27M0%20283%20Q150%20251%20225%20260%20Q300%20269%20375%20259%20Q450%20249%20525%20265%20Q600%20281%20675%20278%20Q750%20274%20825%20279%20Q900%20285%20975%20270%20Q1050%20256%201125%20262%20L1200%20269%27%20stroke%3D%27%235E869E%27%20stroke-width%3D%272.8%27%20opacity%3D%27.82%27%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E") no-repeat center / 100% 100%;
     }
     /* тундровая флора: грибы, морошка, черника, зверобой, иван-чай, вереск, камушки, облака */
@@ -1489,16 +1489,16 @@
     }
 
     /* ── портреты-валуны: неровные камни тундры, каждый со своей формой и наклоном ── */
-    .team-card:nth-of-type(1) { --tilt: -2.2deg; --drop: 32px; --stone: 42% 58% 46% 54% / 34% 32% 44% 40%; }
+    .team-card:nth-of-type(1) { --tilt: -2.2deg; --drop: 18px; --stone: 42% 58% 46% 54% / 34% 32% 44% 40%; }
     .team-card:nth-of-type(2) { --tilt:  2.4deg; --drop: 0px;  --stone: 56% 44% 38% 62% / 40% 36% 32% 44%; }
-    .team-card:nth-of-type(3) { --tilt: -2.8deg; --drop: 46px; --stone: 38% 62% 52% 48% / 30% 42% 38% 34%; }
-    .team-card:nth-of-type(4) { --tilt:  1.9deg; --drop: 14px; --stone: 52% 48% 44% 56% / 42% 30% 40% 36%; }
+    .team-card:nth-of-type(3) { --tilt: -2.8deg; --drop: 26px; --stone: 38% 62% 52% 48% / 30% 42% 38% 34%; }
+    .team-card:nth-of-type(4) { --tilt:  1.9deg; --drop: 8px; --stone: 52% 48% 44% 56% / 42% 30% 40% 36%; }
 
     .team-shot {
-      position: relative; padding: 3px;
+      position: relative; padding: 2px; max-width: 130px;   /* скромный размер: вдвое меньше карточки тура */
       border-radius: var(--stone);
       background: linear-gradient(135deg, rgba(61,220,132,.65) 0%, rgba(0,212,255,.65) 100%);
-      box-shadow: 0 18px 36px rgba(20,40,60,.15);
+      box-shadow: 0 10px 22px rgba(20,40,60,.14);
       transform: rotate(var(--tilt));
       transition: box-shadow .45s, transform .5s cubic-bezier(.2,.6,.2,1);
     }
@@ -1514,11 +1514,11 @@
       transition: transform .6s cubic-bezier(.2,.6,.2,1);
     }
     .team-num {
-      position: absolute; z-index: 3; bottom: -16px; left: 20px;
-      width: 46px; height: 46px; border-radius: 50%;
+      position: absolute; z-index: 3; bottom: -11px; left: 11px;
+      width: 34px; height: 34px; border-radius: 50%;
       display: inline-flex; align-items: center; justify-content: center;
       background: #fff; box-shadow: 0 6px 18px rgba(20,40,60,.18);
-      font-family: 'aurora', 'Montserrat', sans-serif; font-size: 16px; font-weight: 800;
+      font-family: 'aurora', 'Montserrat', sans-serif; font-size: 13px; font-weight: 800;
       transition: background .35s;
     }
     .team-num span {
@@ -1526,7 +1526,7 @@
       color: transparent; transition: -webkit-text-fill-color .35s, color .35s;
     }
     /* при наведении камень «встаёт ровно» и приподнимается */
-    .team-card:hover .team-shot { transform: rotate(0deg) translateY(-7px); box-shadow: 0 26px 48px rgba(20,40,60,.22); }
+    .team-card:hover .team-shot { transform: rotate(0deg) translateY(-5px); box-shadow: 0 16px 30px rgba(20,40,60,.2); }
     .team-card:hover .team-photo img { transform: rotate(0deg) scale(1.2); }
     .team-card:hover .team-num { background: linear-gradient(135deg, #3DDC84 0%, #00D4FF 100%); }
     .team-card:hover .team-num span { -webkit-text-fill-color: #0E1626; color: #0E1626; }
@@ -1606,7 +1606,7 @@
 
     @media (max-width: 1100px) {
       .team-grid { grid-template-columns: repeat(2, 1fr); gap: 34px 30px; }
-      .team-hills { top: 54px; height: 196px; }
+      .team-hills { top: 30px; height: 120px; }
       .team-card { margin-top: 0; }
       .team-card:nth-of-type(even) { margin-top: 42px; }
       .team-card:nth-of-type(3) .team-pop { left: 0; right: auto; }
@@ -1625,7 +1625,7 @@
       .team-card:nth-of-type(3) .team-pop, .team-card:nth-of-type(4) .team-pop { left: 0; right: auto; }
       .team-card:nth-of-type(3) .team-pop::before,
       .team-card:nth-of-type(4) .team-pop::before { left: 26px; right: auto; }
-      .team-shot { max-width: 262px; margin-left: 6px; }
+      .team-shot { max-width: 150px; margin-left: 4px; }
       /* тропа между камнями — вертикальный завиток под каждой карточкой */
       .team-card:not(:last-of-type)::after {
         content: ''; display: block; width: 54px; height: 104px; margin: 6px 0 -18px 26px;
