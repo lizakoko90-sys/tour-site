@@ -4,15 +4,15 @@ A simple landing page for a travel tour company.
 
 ## Features
 
-- Responsive desing
-- Tour catalog with filering
+- Responsive design
+- Tour catalog with filtering
 - Contact form
-- Booking calender
+- Booking calendar
 
 ## Getting Started
 
 Clone the repo and open `index.html` in your browser.
 
-## Contibuting
+## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first.
