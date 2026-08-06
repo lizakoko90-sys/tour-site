@@ -6,6 +6,11 @@
       "permanent": true
     },
     {
+      "source": "/en/index.html",
+      "destination": "/en/",
+      "permanent": true
+    },
+    {
       "source": "/page145318356.html",
       "destination": "/page-kity-teriberka.html",
       "permanent": true

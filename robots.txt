@@ -3,12 +3,6 @@
 
 User-agent: *
 Allow: /
-Disallow: /oferta.html
-Disallow: /privacy.html
-Disallow: /consent.html
-Disallow: /marketing-consent.html
-Disallow: /cookies.html
-Disallow: /terms.html
 
 # --- ИИ-поиск и ассистенты (явное разрешение) ---
 # ChatGPT / OpenAI
