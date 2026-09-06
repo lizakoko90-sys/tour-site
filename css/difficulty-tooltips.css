@@ -39,6 +39,16 @@
   margin-left: 3px;
 }
 
+/* The catalog card normally clips its rounded edges. While the tooltip is
+   open (or hovered on desktop), let the popover extend beyond the card. */
+.tc-card:has(.tc-info-wrap.is-open),
+.tc-card:has(.tc-info-wrap:hover) {
+  position: relative;
+  z-index: 20;
+  overflow: visible;
+  transform: none;
+}
+
 .tc-info-button {
   width: 20px;
   height: 20px;
