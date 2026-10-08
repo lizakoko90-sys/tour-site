@@ -91,7 +91,7 @@
         "@type": "Person",
         "name": "Roman",
         "jobTitle": "Certified tour guide",
-        "image": "https://auroratrip.ru/images/team/roman.jpg",
+        "image": "https://auroratrip.ru/images/team/roman-2026.webp",
         "worksFor": {
           "@type": "TravelAgency",
           "name": "Aurora Trip"
@@ -108,6 +108,12 @@
           "priceCurrency": "RUB",
           "price": "4500",
           "itemOffered": { "@type": "Service", "name": "Northern Lights hunt", "url": "https://auroratrip.ru/en/page-severnoe-siyanie.html" }
+        },
+        {
+          "@type": "Offer",
+          "priceCurrency": "RUB",
+          "price": "16000",
+          "itemOffered": { "@type": "Service", "name": "Three Days in the North winter tour", "url": "https://auroratrip.ru/en/page-tri-dnya-na-severe.html" }
         },
         {
           "@type": "Offer",
@@ -178,7 +184,7 @@
     "publisher": { "@type": "TravelAgency", "name": "Aurora Trip", "url": "https://auroratrip.ru/" }
   }
   </script>
-  <link rel="preload" as="image" href="../images/tour5.webp">
+  <link rel="preload" as="image" href="../images/aurora/aurora-drive-forest.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -217,7 +223,7 @@
        Общего затемняющего слоя НЕТ — фото остаётся ярким. */
     .sky-continuum {
       position: relative;
-      background: #0a1220 url('../images/tour5.webp') center/cover no-repeat fixed;
+      background: #0a1220 url('../images/aurora/aurora-drive-forest.webp') center/cover no-repeat fixed;
     }
     .sky-continuum > .hero, .sky-continuum > .aurb { position: relative; z-index: 1; }
     /* На мобильных fixed-фон часто глючит — там обычный скролл (фолбэк) */
@@ -1911,19 +1917,40 @@
   .aurb-price b { font-size: 20px; }
   .aurb-price .aurb-second { color: #a9bbd6; font-weight: 500; margin-left: 6px; text-decoration: none; }
 
-  .aurb-mosaic { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 118px; gap: 10px; }
-  .aurb-mosaic a { position: relative; overflow: hidden; border-radius: 10px; display: block; }
-  .aurb-mosaic img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s ease; }
-  .aurb-mosaic a:hover img { transform: scale(1.08); }
-  .aurb-mosaic a::after { content: ""; position: absolute; inset: 0; box-shadow: inset 0 0 0 1px rgba(255,255,255,.09); border-radius: 10px; }
-  .aurb-big { grid-column: span 2; grid-row: span 2; }
-  .aurb-wide { grid-column: span 2; }
-  .aurb-count { position: absolute; right: 8px; bottom: 8px; font-size: 12px; font-weight: 700; color: #fff; background: rgba(7,13,28,.7); padding: 5px 10px; border-radius: 30px; backdrop-filter: blur(4px); }
+  .aurb-carousel { min-width: 0; }
+  .aurb-stage {
+    position: relative; width: 100%; aspect-ratio: 4 / 3; padding: 0; overflow: hidden;
+    border: 1px solid rgba(255,255,255,.18); border-radius: 16px; background: #07101d;
+    box-shadow: 0 24px 65px rgba(0,0,0,.36); cursor: zoom-in;
+  }
+  .aurb-stage img { width: 100%; height: 100%; object-fit: cover; display: block; transition: opacity .22s ease, transform .5s ease; }
+  .aurb-stage:hover img { transform: scale(1.025); }
+  .aurb-stage::after { content: "Click to view full size"; position: absolute; left: 14px; bottom: 14px; padding: 7px 12px; border-radius: 999px; color: #fff; background: rgba(4,10,22,.72); backdrop-filter: blur(8px); font-size: 12px; font-weight: 700; }
+  .aurb-controls { display: grid; grid-template-columns: 44px 1fr 44px; align-items: center; gap: 12px; margin-top: 14px; }
+  .aurb-arrow { width: 44px; height: 44px; border: 1px solid rgba(255,255,255,.22); border-radius: 50%; background: rgba(255,255,255,.1); color: #fff; font-size: 26px; line-height: 1; cursor: pointer; transition: background .2s, transform .2s; }
+  .aurb-arrow:hover { background: rgba(255,255,255,.2); transform: translateY(-1px); }
+  .aurb-progress { display: flex; flex-direction: column; align-items: center; gap: 8px; min-width: 0; }
+  .aurb-counter { color: #eaf0fa; font-size: 13px; font-weight: 700; }
+  .aurb-dots { display: flex; justify-content: center; gap: 7px; }
+  .aurb-dot { width: 7px; height: 7px; padding: 0; border: 0; border-radius: 50%; background: rgba(255,255,255,.34); cursor: pointer; transition: width .2s, border-radius .2s, background .2s; }
+  .aurb-dot.active { width: 24px; border-radius: 99px; background: #70ebc4; }
+  .aurb-lightbox { position: fixed; inset: 0; z-index: 12000; display: none; align-items: center; justify-content: center; padding: 28px 76px; background: rgba(2,7,15,.94); }
+  .aurb-lightbox.open { display: flex; }
+  .aurb-lightbox img { max-width: min(1500px, 94vw); max-height: 90vh; object-fit: contain; border-radius: 8px; box-shadow: 0 24px 80px rgba(0,0,0,.55); }
+  .aurb-lightbox-close, .aurb-lightbox-arrow { position: absolute; border: 0; color: #fff; background: rgba(255,255,255,.12); cursor: pointer; }
+  .aurb-lightbox-close { top: 20px; right: 22px; width: 46px; height: 46px; border-radius: 50%; font-size: 30px; }
+  .aurb-lightbox-arrow { top: 50%; transform: translateY(-50%); width: 48px; height: 64px; border-radius: 12px; font-size: 34px; }
+  .aurb-lightbox-prev { left: 18px; }
+  .aurb-lightbox-next { right: 18px; }
 
   @media (max-width: 900px) {
     .aurb { padding: 56px 20px; }
     .aurb-inner { grid-template-columns: 1fr; gap: 30px; }
-    .aurb-mosaic { grid-auto-rows: 96px; }
+    .aurb-stage { aspect-ratio: 16 / 11; }
+    .aurb-lightbox { padding: 70px 14px 24px; }
+    .aurb-lightbox-arrow { width: 42px; height: 54px; }
+    .aurb-lightbox-prev { left: 8px; }
+    .aurb-lightbox-next { right: 8px; }
   }
 </style>
 <section class="aurb" id="aurora-flagman" aria-label="Northern lights">
@@ -1946,15 +1973,113 @@
         <span class="aurb-price"><b>from 4 500 ₽</b> <span class="aurb-second">second hunt — 3 000 ₽</span></span>
       </div>
     </div>
-    <div class="aurb-mosaic">
-      <a href="page-severnoe-siyanie.html" class="aurb-big"><img src="../images/aurora/aurora-23.webp" alt="Northern lights over the forest near Murmansk" loading="lazy"></a>
-      <a href="page-severnoe-siyanie.html"><img src="../images/aurora/aurora-01.webp" alt="A guest beneath the northern lights" loading="lazy"></a>
-      <a href="page-severnoe-siyanie.html"><img src="../images/aurora/aurora-16.webp" alt="Aurora over the Kola Peninsula" loading="lazy"></a>
-      <a href="page-severnoe-siyanie.html" class="aurb-wide"><img src="../images/aurora/aurora-08.webp" alt="Bright green aurora in the night sky" loading="lazy"><span class="aurb-count">+ 26 tour photos →</span></a>
-      <a href="page-severnoe-siyanie.html"><img src="../images/aurora/aurora-19.webp" alt="Friends together under the northern lights" loading="lazy"></a>
+    <div class="aurb-carousel" data-aurora-carousel>
+      <button class="aurb-stage" type="button" aria-label="Open this northern lights photo at full size">
+        <img src="../images/aurora/aurora-drive-group.webp" alt="Aurora Trip guests beneath bright northern lights" loading="lazy">
+      </button>
+      <div class="aurb-controls" aria-label="Northern lights photo carousel">
+        <button class="aurb-arrow aurb-prev" type="button" aria-label="Previous photo">‹</button>
+        <div class="aurb-progress">
+          <span class="aurb-counter" aria-live="polite">1 / 11</span>
+          <div class="aurb-dots" aria-label="Choose a photo"></div>
+        </div>
+        <button class="aurb-arrow aurb-next" type="button" aria-label="Next photo">›</button>
+      </div>
     </div>
   </div>
 </section>
+<div class="aurb-lightbox" id="aurora-lightbox" role="dialog" aria-modal="true" aria-label="Northern lights photos" aria-hidden="true">
+  <button class="aurb-lightbox-close" type="button" aria-label="Close">×</button>
+  <button class="aurb-lightbox-arrow aurb-lightbox-prev" type="button" aria-label="Previous photo">‹</button>
+  <img src="" alt="">
+  <button class="aurb-lightbox-arrow aurb-lightbox-next" type="button" aria-label="Next photo">›</button>
+</div>
+<script>
+(function () {
+  var root = document.querySelector('[data-aurora-carousel]');
+  var lightbox = document.getElementById('aurora-lightbox');
+  if (!root || !lightbox) return;
+  var items = [
+    { src: '../images/aurora/aurora-drive-group.webp', alt: 'Aurora Trip guests beneath bright northern lights' },
+    { src: '../images/aurora/aurora-drive-forest.webp', alt: 'Northern lights over a snow-covered forest on the Kola Peninsula' },
+    { src: '../images/aurora/aurora-drive-portrait.webp', alt: 'An Aurora Trip guest beneath the northern lights' },
+    { src: '../images/aurora/aurora-drive-friends.webp', alt: 'Friends during a northern lights hunt near Murmansk' },
+    { src: '../images/aurora/aurora-drive-guest.webp', alt: 'A guest greeting the northern lights near Murmansk' },
+    { src: '../images/aurora/aurora-03.webp', alt: 'A couple beneath green and violet aurora' },
+    { src: '../images/aurora/aurora-05.webp', alt: 'Bright northern lights above a tour guest' },
+    { src: '../images/aurora/aurora-19.webp', alt: 'Travellers together beneath the northern lights' },
+    { src: '../images/aurora/aurora-20.webp', alt: 'A couple admiring the aurora' },
+    { src: '../images/aurora/aurora-24.webp', alt: 'Green aurora ribbons above the forest' },
+    { src: '../images/aurora/aurora-26.webp', alt: 'Starry sky and aurora during a night hunt' }
+  ];
+  var index = 0;
+  var image = root.querySelector('.aurb-stage img');
+  var counter = root.querySelector('.aurb-counter');
+  var dots = root.querySelector('.aurb-dots');
+  var fullImage = lightbox.querySelector('img');
+  var touchStart = 0;
+
+  items.forEach(function (_, i) {
+    var dot = document.createElement('button');
+    dot.type = 'button';
+    dot.className = 'aurb-dot';
+    dot.setAttribute('aria-label', 'Show photo ' + (i + 1));
+    dot.addEventListener('click', function () { show(i); });
+    dots.appendChild(dot);
+  });
+
+  function show(next) {
+    index = (next + items.length) % items.length;
+    image.src = items[index].src;
+    image.alt = items[index].alt;
+    counter.textContent = (index + 1) + ' / ' + items.length;
+    dots.querySelectorAll('.aurb-dot').forEach(function (dot, i) {
+      dot.classList.toggle('active', i === index);
+      dot.setAttribute('aria-current', i === index ? 'true' : 'false');
+    });
+    if (lightbox.classList.contains('open')) {
+      fullImage.src = items[index].src;
+      fullImage.alt = items[index].alt;
+    }
+  }
+
+  function openLightbox() {
+    fullImage.src = items[index].src;
+    fullImage.alt = items[index].alt;
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    lightbox.querySelector('.aurb-lightbox-close').focus();
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    root.querySelector('.aurb-stage').focus();
+  }
+
+  root.querySelector('.aurb-prev').addEventListener('click', function () { show(index - 1); });
+  root.querySelector('.aurb-next').addEventListener('click', function () { show(index + 1); });
+  root.querySelector('.aurb-stage').addEventListener('click', openLightbox);
+  root.addEventListener('touchstart', function (event) { touchStart = event.changedTouches[0].clientX; }, { passive: true });
+  root.addEventListener('touchend', function (event) {
+    var delta = event.changedTouches[0].clientX - touchStart;
+    if (Math.abs(delta) > 45) show(index + (delta < 0 ? 1 : -1));
+  }, { passive: true });
+  lightbox.querySelector('.aurb-lightbox-close').addEventListener('click', closeLightbox);
+  lightbox.querySelector('.aurb-lightbox-prev').addEventListener('click', function () { show(index - 1); });
+  lightbox.querySelector('.aurb-lightbox-next').addEventListener('click', function () { show(index + 1); });
+  lightbox.addEventListener('click', function (event) { if (event.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', function (event) {
+    if (!lightbox.classList.contains('open')) return;
+    if (event.key === 'Escape') closeLightbox();
+    if (event.key === 'ArrowLeft') show(index - 1);
+    if (event.key === 'ArrowRight') show(index + 1);
+  });
+  show(0);
+})();
+</script>
 </div><!-- /sky-continuum -->
 
 <!-- Разделитель: стрелочки вниз -->
@@ -1990,8 +2115,8 @@
 
   <!-- Вкладки сезонов -->
   <div class="season-tabs">
-    <button class="tab active" data-season="autumn">AUTUMN</button>
-    <button class="tab" data-season="winter">WINTER</button>
+    <button class="tab active" data-season="winter">WINTER</button>
+    <button class="tab" data-season="autumn">AUTUMN</button>
     <button class="tab" data-season="spring">SPRING</button>
     <button class="tab" data-season="summer">SUMMER</button>
     <button class="tab" data-season="package">PACKAGES</button>
@@ -2283,7 +2408,7 @@
 
       <!-- ===== ЗИМНИЕ ТУРЫ ===== -->
       <a href="page-severnoe-siyanie.html" class="tour-card" data-season="winter">
-        <div class="card-bg" style="background: #0a1428 url('../images/aurora/aurora-23.webp') center/cover no-repeat;"></div>
+        <div class="card-bg" style="background: #0a1428 url('../images/aurora/aurora-drive-group.webp') center/cover no-repeat;"></div>
         <div class="card-overlay"></div>
         <div class="card-inner">
           <div class="badges">
@@ -2300,8 +2425,27 @@
         </div>
       </a>
 
+      <a href="page-tri-dnya-na-severe.html" class="tour-card" data-season="winter">
+        <div class="card-bg" style="background: #0a1428 url('../images/aurora/aurora-drive-forest.webp') center/cover no-repeat;"></div>
+        <div class="card-overlay"></div>
+        <div class="card-inner">
+          <div class="badges">
+            <span class="badge">❄️ WINTER PACKAGE</span>
+            <span class="badge">🗓 3 DAYS</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Three Days<br>in the North</h3>
+            <p class="card-text">Three northern highlights in one trip: a northern lights hunt, a full day in winter Teriberka and a guided sightseeing tour of Murmansk.</p>
+            <div class="card-footer">
+              <span>3 days</span>
+              <span>16 000 ₽</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
       <a href="page-teriberka-1den.html" class="tour-card" data-season="winter">
-        <div class="card-bg" style="background: #1a3a4a url('../images/gallery/ter_2.webp') center/cover no-repeat;"></div>
+        <div class="card-bg" style="background: #1a3a4a url('../images/winter/teriberka-winter.webp') center/cover no-repeat;"></div>
         <div class="card-overlay"></div>
         <div class="card-inner">
           <div class="badges">
@@ -2319,7 +2463,7 @@
       </a>
 
       <a href="page-kity-teriberka.html" class="tour-card" data-season="winter">
-        <div class="card-bg" style="background: #1a3a4a url('../images/aurora-bg.webp') center/cover no-repeat;"></div>
+        <div class="card-bg" style="background: #1a3a4a url('../images/gallery/ter_20.jpg') center/cover no-repeat;"></div>
         <div class="card-overlay"></div>
         <div class="card-inner">
           <div class="badges">
@@ -2338,7 +2482,7 @@
       </a>
 
       <a href="page-hibiny-kirovsk.html" class="tour-card" data-season="winter">
-        <div class="card-bg" style="background: #1a3a4a url('../images/gallery/khib_1.webp') center/cover no-repeat;"></div>
+        <div class="card-bg" style="background: #1a3a4a url('../images/winter/khibiny-winter.webp') center/cover no-repeat;"></div>
         <div class="card-overlay"></div>
         <div class="card-inner">
           <div class="badges">
@@ -2357,7 +2501,7 @@
       </a>
 
       <a href="page-murmansk-obzor.html" class="tour-card" data-season="winter">
-        <div class="card-bg" style="background: #3a5a7a url('../images/aurora-bg2.webp') center/cover no-repeat;"></div>
+        <div class="card-bg" style="background: #3a5a7a url('../images/winter/murmansk-winter.webp') center/cover no-repeat;"></div>
         <div class="card-overlay"></div>
         <div class="card-inner">
           <div class="badges">
@@ -2375,7 +2519,7 @@
       </a>
 
       <a href="page-saami.html" class="tour-card" data-season="winter">
-        <div class="card-bg" style="background: #3a2a4a url('../images/saami_cover.webp') center/cover no-repeat;"></div>
+        <div class="card-bg" style="background: #3a2a4a url('../images/saami.webp') center/cover no-repeat;"></div>
         <div class="card-overlay"></div>
         <div class="card-inner">
           <div class="badges">
@@ -2613,7 +2757,7 @@
     <article class="team-card">
       <div class="team-shot">
         <div class="team-photo">
-          <img loading="lazy" src="../images/team/roman.jpg" width="800" height="1000" alt="Roman — Aurora Trip guide across the Kola Peninsula">
+          <img loading="lazy" src="../images/team/roman-2026.webp" width="960" height="1200" alt="Roman — Aurora Trip guide across the Kola Peninsula">
         </div>
         <span class="team-num" aria-hidden="true"><span>04</span></span>
       </div>
@@ -2982,7 +3126,7 @@
   });
 
   // Инициализация — показываем летние туры
-  showSeason('autumn');
+  showSeason('winter');
 </script>
 
 <!-- FOOTER -->
