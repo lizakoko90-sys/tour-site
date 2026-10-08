@@ -359,6 +359,7 @@
 
     .phase-banner {
       position: relative; min-height: 240px;
+      container-type: inline-size;
       overflow: hidden;   /* декоративное слово не должно вылезать за экран (в EN слова длиннее) */
       display: flex; align-items: center; margin-bottom: 32px;
     }
@@ -369,8 +370,8 @@
     }
     .phase-word {
       position: absolute; left: 0; top: 50%; transform: translateY(-50%);
-      font-size: 190px; font-weight: 900; line-height: 0.85;
-      letter-spacing: 30px; white-space: nowrap; user-select: none;
+      font-size: min(190px, 20cqw); font-weight: 900; line-height: 0.85;
+      letter-spacing: 4px; white-space: nowrap; user-select: none;
       -webkit-background-clip: text; background-clip: text;
       color: transparent; background-size: cover; background-position: center;
       opacity: 0.55; pointer-events: none;
@@ -693,7 +694,7 @@
       .wgt-tooltip { max-width: calc(100vw - 48px); }
       /* Буквы ПУТЬ/МОРЕ/МОЩЬ: уменьшаем и обрезаем, чтобы не было гориз. прокрутки */
       .phase-banner { overflow: hidden; }
-      .phase-word { font-size: 120px; letter-spacing: 16px; }
+      .phase-word { font-size: min(120px, 20cqw); }
     }
     @media (max-width:640px) {
       .hero-inner, .hero-photo-wrap, .page-content { padding-left: 20px; padding-right: 20px; }
@@ -705,13 +706,13 @@
       .rev-title { font-size: 26px; }
       /* Большие буквы ПУТЬ/МОРЕ/МОЩЬ — уменьшаем и не даём вылезать за экран */
       .phase-banner { min-height: 150px; overflow: hidden; margin-bottom: 20px; }
-      .phase-word { font-size: 115px; letter-spacing: 6px; }
+      .phase-word { font-size: min(115px, 20cqw); }
       .phase-heading { max-width: 100%; font-size: 24px; }
       .tl-row { grid-template-columns: 58px 1fr; }
       .faq-question, .faq-num { font-size: 15px; }
     }
     @media (max-width:400px) {
-      .phase-word { font-size: 96px; letter-spacing: 3px; }
+      .phase-word { font-size: min(96px, 20cqw); }
       h1.hero-title { font-size: 25px; }
     }
 
