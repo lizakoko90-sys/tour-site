@@ -1698,6 +1698,36 @@
     .lang-opt:hover { color: #fff; }
     .lang-opt.active { color: #0E1626; background: var(--aurora); }
     .lang-sep { color: rgba(255,255,255,0.35); font-size: 12px; }
+    /* Route notes: horizontal scroll on desktop and mobile */
+    .route-notes { background: #F5F8FA; padding: 48px 60px 52px; color: #1A2330; }
+    .route-notes-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; max-width: 1200px; margin: 0 auto 22px; }
+    .route-notes-kicker { display: block; color: #0F9E86; font-size: 12px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8px; }
+    .route-notes-title { font-family: 'aurora', 'Montserrat', sans-serif; font-size: 34px; line-height: 1.15; margin: 0 0 8px; }
+    .route-notes-sub { color: #5B6B7A; font-size: 14px; line-height: 1.55; margin: 0; }
+    .route-notes-controls { display: flex; gap: 8px; flex: none; }
+    .route-notes-arrow { width: 42px; height: 42px; border: 1px solid #D7E2E7; border-radius: 50%; background: #fff; color: #1A2330; font-size: 20px; cursor: pointer; transition: background .2s, border-color .2s; }
+    .route-notes-arrow:hover:not(:disabled), .route-notes-arrow:focus-visible { background: #DDF9EE; border-color: #7BDFC2; }
+    .route-notes-arrow:disabled { opacity: .38; cursor: default; }
+    .route-notes-track { display: flex; gap: 16px; max-width: 1200px; margin: 0 auto; overflow-x: auto; overscroll-behavior-inline: contain; scroll-snap-type: x mandatory; scroll-padding-inline: 2px; scrollbar-width: thin; scrollbar-color: #B6C8CE transparent; padding: 2px 2px 14px; }
+    .route-note { flex: 0 0 min(420px, 82vw); min-width: 0; overflow: hidden; background: #fff; border: 1px solid #E3EBEF; border-radius: 16px; scroll-snap-align: start; }
+    .route-note-visual { display: block; position: relative; height: 166px; overflow: hidden; background: #123647; }
+    .route-note-visual img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .route-note-visual--pending { display: flex; align-items: end; padding: 18px; color: #E8FFF7; background: radial-gradient(circle at 72% 10%, rgba(65,237,153,.65), transparent 33%), linear-gradient(125deg, #0E2031, #195B62 65%, #093326); }
+    .route-note-visual--pending::before { content: ''; position: absolute; width: 130%; height: 90px; left: -10%; top: 15%; border-radius: 50%; border-top: 16px solid rgba(99,255,185,.32); transform: rotate(-12deg); filter: blur(12px); }
+    .route-note-visual--pending span { position: relative; z-index: 1; font-size: 13px; font-weight: 700; }
+    .route-note-body { padding: 18px 20px 20px; }
+    .route-note-meta { font-size: 12px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; color: #0F9E86; }
+    .route-note-title { font-family: 'aurora', 'Montserrat', sans-serif; font-size: 19px; line-height: 1.2; margin: 9px 0 8px; }
+    .route-note-text { font-size: 13.5px; color: #52616D; line-height: 1.55; margin: 0 0 13px; min-height: 42px; }
+    .route-note-link { color: #087E75; font-size: 13px; font-weight: 800; text-decoration: none; }
+    .route-note-link:hover, .route-note-link:focus-visible { text-decoration: underline; }
+    @media (max-width: 768px) {
+      .route-notes { padding: 36px 18px 38px; }
+      .route-notes-title { font-size: 27px; }
+      .route-notes-controls { display: none; }
+      .route-note { flex-basis: min(82vw, 350px); }
+      .route-note-visual { height: 150px; }
+    }
     @media (max-width: 768px) {
       /* В десктоп-шапке прячем — язык доступен в бургер-меню */
       .nav-right .lang-switch { display: none; }
@@ -2651,6 +2681,50 @@
 
 
 
+
+<!-- Only date verified trips; archive photos must not be presented as new. -->
+<section class="route-notes" id="route-notes" aria-labelledby="route-notes-title">
+  <div class="route-notes-head">
+    <div>
+      <span class="route-notes-kicker">Life at Aurora Trip</span>
+      <h2 class="route-notes-title" id="route-notes-title">Recently on the road</h2>
+      <p class="route-notes-sub">Short notes from our trips — and moments from the team's archive.</p>
+    </div>
+    <div class="route-notes-controls" aria-label="Scroll stories">
+      <button class="route-notes-arrow" type="button" data-route-notes-prev aria-label="Previous stories">←</button>
+      <button class="route-notes-arrow" type="button" data-route-notes-next aria-label="Next stories">→</button>
+    </div>
+  </div>
+  <div class="route-notes-track" id="route-notes-track" tabindex="0" aria-label="Stories from our trips">
+    <article class="route-note">
+      <div class="route-note-visual route-note-visual--pending" role="img" aria-label="Northern lights illustration; photos from this trip have not been published yet"><span>Trip photos coming soon</span></div>
+      <div class="route-note-body">
+        <div class="route-note-meta"><time datetime="2026-10-16">16 October 2026</time> · Northern lights</div>
+        <h3 class="route-note-title">Another night chasing the aurora</h3>
+        <p class="route-note-text">It was a memorable trip. We'll share the real photos and the story of the night soon.</p>
+        <a class="route-note-link" href="page-severnoe-siyanie.html">Explore the aurora tour →</a>
+      </div>
+    </article>
+    <article class="route-note">
+      <div class="route-note-visual"><img src="../images/aurora/aurora-drive-forest.webp" width="800" height="530" loading="lazy" alt="Northern lights above a forest — Aurora Trip archive"></div>
+      <div class="route-note-body">
+        <div class="route-note-meta">From the archive · Aurora</div>
+        <h3 class="route-note-title">A night worth stepping outside for</h3>
+        <p class="route-note-text">A frame from an earlier trip: dark skies, northern forest and ribbons of green overhead.</p>
+        <a class="route-note-link" href="page-severnoe-siyanie.html">Explore the aurora tour →</a>
+      </div>
+    </article>
+    <article class="route-note">
+      <div class="route-note-visual"><img src="../images/gallery/ter_2.jpg" width="800" height="530" loading="lazy" alt="Teriberka coastline — Aurora Trip archive"></div>
+      <div class="route-note-body">
+        <div class="route-note-meta">From the archive · Teriberka</div>
+        <h3 class="route-note-title">The North we love to share</h3>
+        <p class="route-note-text">A place we keep returning to: wide-open space, the Barents Sea coast and a different pace of life.</p>
+        <a class="route-note-link" href="page-teriberka-1den.html">Explore the Teriberka trip →</a>
+      </div>
+    </article>
+  </div>
+</section>
 
 <!-- ========================================================
      НАША КОМАНДА (EN)
@@ -3794,6 +3868,31 @@
 })();
 </script>
 
+<script>
+(function () {
+  var track = document.getElementById('route-notes-track');
+  if (!track) return;
+  var prev = document.querySelector('[data-route-notes-prev]');
+  var next = document.querySelector('[data-route-notes-next]');
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  function updateArrows() {
+    var end = track.scrollWidth - track.clientWidth;
+    prev.disabled = track.scrollLeft <= 2;
+    next.disabled = track.scrollLeft >= end - 2;
+  }
+  function move(direction) {
+    var card = track.querySelector('.route-note');
+    if (!card) return;
+    var gap = parseFloat(getComputedStyle(track).gap) || 0;
+    track.scrollBy({ left: direction * (card.getBoundingClientRect().width + gap), behavior: reduceMotion.matches ? 'instant' : 'smooth' });
+  }
+  prev.addEventListener('click', function () { move(-1); });
+  next.addEventListener('click', function () { move(1); });
+  track.addEventListener('scroll', updateArrows, { passive: true });
+  window.addEventListener('resize', updateArrows);
+  updateArrows();
+})();
+</script>
 <script src="../js/telegram-forms.js" defer></script>
 <script src="../js/cookie-banner.js" defer></script>
 <script src="/js/aurora-season-popup.js" defer></script>
