@@ -1730,9 +1730,7 @@
     .route-note { flex: 0 0 min(420px, 82vw); min-width: 0; overflow: hidden; background: #fff; border: 1px solid #E3EBEF; border-radius: 16px; scroll-snap-align: start; }
     .route-note-visual { display: block; position: relative; height: 166px; overflow: hidden; background: #123647; }
     .route-note-visual img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .route-note-visual--pending { display: flex; align-items: end; padding: 18px; color: #E8FFF7; background: radial-gradient(circle at 72% 10%, rgba(65,237,153,.65), transparent 33%), linear-gradient(125deg, #0E2031, #195B62 65%, #093326); }
-    .route-note-visual--pending::before { content: ''; position: absolute; width: 130%; height: 90px; left: -10%; top: 15%; border-radius: 50%; border-top: 16px solid rgba(99,255,185,.32); transform: rotate(-12deg); filter: blur(12px); }
-    .route-note-visual--pending span { position: relative; z-index: 1; font-size: 13px; font-weight: 700; }
+    .route-note-visual:focus-visible { outline: 3px solid #25B894; outline-offset: -3px; }
     .route-note-body { padding: 18px 20px 20px; }
     .route-note-meta { font-size: 12px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; color: #0F9E86; }
     .route-note-title { font-family: 'aurora', 'Montserrat', sans-serif; font-size: 19px; line-height: 1.2; margin: 9px 0 8px; }
@@ -2754,7 +2752,7 @@
     <div>
       <span class="route-notes-kicker">Жизнь Aurora Trip</span>
       <h2 class="route-notes-title" id="route-notes-title">Недавно на маршруте</h2>
-      <p class="route-notes-sub">Короткие заметки о наших выездах — и кадры из архива команды.</p>
+      <p class="route-notes-sub">Настоящие фотографии и короткие истории с наших выездов.</p>
     </div>
     <div class="route-notes-controls" aria-label="Прокрутка историй">
       <button class="route-notes-arrow" type="button" data-route-notes-prev aria-label="Предыдущие истории">←</button>
@@ -2763,30 +2761,39 @@
   </div>
   <div class="route-notes-track" id="route-notes-track" tabindex="0" aria-label="Истории с маршрутов">
     <article class="route-note">
-      <div class="route-note-visual route-note-visual--pending" role="img" aria-label="Иллюстрация северного сияния; фотографии с этого выезда пока не опубликованы"><span>Фотографии с выезда — скоро</span></div>
+      <a class="route-note-visual" href="images/route-notes/aurora-2026-10-16-guests.jpg" target="_blank" rel="noopener" aria-label="Открыть фото гостей под сиянием полностью"><img src="images/route-notes/aurora-2026-10-16-guests.jpg" width="1600" height="1068" loading="lazy" alt="Гости Aurora Trip под ярким северным сиянием на выезде 16 октября"></a>
       <div class="route-note-body">
-        <div class="route-note-meta"><time datetime="2026-10-16">16 октября 2026</time> · Сияние</div>
-        <h3 class="route-note-title">Снова вышли на охоту за сиянием</h3>
-        <p class="route-note-text">Получился мощный выезд. Скоро покажем настоящие кадры и расскажем, как прошла эта ночь.</p>
+        <div class="route-note-meta"><time datetime="2026-10-16">16 октября 2026</time> · Охота за сиянием</div>
+        <h3 class="route-note-title">Небо зажглось над нашей группой</h3>
+        <p class="route-note-text">На ночном выезде сияние развернулось прямо над гостями. Такой момент точно запомнится надолго.</p>
         <a class="route-note-link" href="page-severnoe-siyanie.html">О туре за сиянием →</a>
       </div>
     </article>
     <article class="route-note">
-      <div class="route-note-visual"><img src="images/aurora/aurora-drive-forest.webp" width="800" height="530" loading="lazy" alt="Северное сияние над лесом — архив Aurora Trip"></div>
+      <a class="route-note-visual" href="images/route-notes/aurora-2026-10-16-water.jpg" target="_blank" rel="noopener" aria-label="Открыть фото сияния над водой полностью"><img src="images/route-notes/aurora-2026-10-16-water.jpg" width="1600" height="1068" loading="lazy" alt="Яркое северное сияние над водой во время выезда 16 октября"></a>
       <div class="route-note-body">
-        <div class="route-note-meta">Из архива · Сияние</div>
-        <h3 class="route-note-title">Ночь, ради которой хочется выйти из дома</h3>
-        <p class="route-note-text">Один из кадров с наших прошлых выездов: тёмное небо, северный лес и зелёные ленты над головой.</p>
+        <div class="route-note-meta"><time datetime="2026-10-16">16 октября 2026</time> · Фотодневник</div>
+        <h3 class="route-note-title">Сияние освещало землю</h3>
+        <p class="route-note-text">Зелёные завитки были такими яркими, что их свет ложился на берег и воду.</p>
         <a class="route-note-link" href="page-severnoe-siyanie.html">О туре за сиянием →</a>
       </div>
     </article>
     <article class="route-note">
-      <div class="route-note-visual"><img src="images/gallery/ter_2.jpg" width="800" height="530" loading="lazy" alt="Пейзаж Териберки — архив Aurora Trip"></div>
+      <a class="route-note-visual" href="images/route-notes/aurora-2026-10-16-portrait.jpg" target="_blank" rel="noopener" aria-label="Открыть портрет гостьи под сиянием полностью"><img src="images/route-notes/aurora-2026-10-16-portrait.jpg" width="1600" height="1068" loading="lazy" alt="Гостья на фоне яркого северного сияния во время выезда 16 октября"></a>
       <div class="route-note-body">
-        <div class="route-note-meta">Из архива · Териберка</div>
-        <h3 class="route-note-title">Север, который мы показываем гостям</h3>
-        <p class="route-note-text">Место, к которому всегда хочется возвращаться: простор, берег Баренцева моря и совсем другой ритм.</p>
-        <a class="route-note-link" href="page-teriberka-1den.html">О поездке в Териберку →</a>
+        <div class="route-note-meta"><time datetime="2026-10-16">16 октября 2026</time> · Наши гости</div>
+        <h3 class="route-note-title">Поймали свой северный кадр</h3>
+        <p class="route-note-text">Ещё один момент той ночи: сияние прямо над головой, и гости успевают сохранить его на фото.</p>
+        <a class="route-note-link" href="page-severnoe-siyanie.html">О туре за сиянием →</a>
+      </div>
+    </article>
+    <article class="route-note">
+      <a class="route-note-visual" href="images/route-notes/aurora-2026-10-16-sky.jpg" target="_blank" rel="noopener" aria-label="Открыть фото сияния во всё небо полностью"><img src="images/route-notes/aurora-2026-10-16-sky.jpg" width="1600" height="1068" loading="lazy" alt="Зелёные полосы северного сияния заполняют ночное небо 16 октября"></a>
+      <div class="route-note-body">
+        <div class="route-note-meta"><time datetime="2026-10-16">16 октября 2026</time> · Фотодневник</div>
+        <h3 class="route-note-title">Аврора на всё небо</h3>
+        <p class="route-note-text">В какой-то момент было трудно выбрать, куда смотреть: сияние заняло почти весь небосвод.</p>
+        <a class="route-note-link" href="page-severnoe-siyanie.html">О туре за сиянием →</a>
       </div>
     </article>
   </div>

@@ -1712,9 +1712,7 @@
     .route-note { flex: 0 0 min(420px, 82vw); min-width: 0; overflow: hidden; background: #fff; border: 1px solid #E3EBEF; border-radius: 16px; scroll-snap-align: start; }
     .route-note-visual { display: block; position: relative; height: 166px; overflow: hidden; background: #123647; }
     .route-note-visual img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .route-note-visual--pending { display: flex; align-items: end; padding: 18px; color: #E8FFF7; background: radial-gradient(circle at 72% 10%, rgba(65,237,153,.65), transparent 33%), linear-gradient(125deg, #0E2031, #195B62 65%, #093326); }
-    .route-note-visual--pending::before { content: ''; position: absolute; width: 130%; height: 90px; left: -10%; top: 15%; border-radius: 50%; border-top: 16px solid rgba(99,255,185,.32); transform: rotate(-12deg); filter: blur(12px); }
-    .route-note-visual--pending span { position: relative; z-index: 1; font-size: 13px; font-weight: 700; }
+    .route-note-visual:focus-visible { outline: 3px solid #25B894; outline-offset: -3px; }
     .route-note-body { padding: 18px 20px 20px; }
     .route-note-meta { font-size: 12px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; color: #0F9E86; }
     .route-note-title { font-family: 'aurora', 'Montserrat', sans-serif; font-size: 19px; line-height: 1.2; margin: 9px 0 8px; }
@@ -2688,7 +2686,7 @@
     <div>
       <span class="route-notes-kicker">Life at Aurora Trip</span>
       <h2 class="route-notes-title" id="route-notes-title">Recently on the road</h2>
-      <p class="route-notes-sub">Short notes from our trips — and moments from the team's archive.</p>
+      <p class="route-notes-sub">Real photos and short stories from our trips.</p>
     </div>
     <div class="route-notes-controls" aria-label="Scroll stories">
       <button class="route-notes-arrow" type="button" data-route-notes-prev aria-label="Previous stories">←</button>
@@ -2697,30 +2695,39 @@
   </div>
   <div class="route-notes-track" id="route-notes-track" tabindex="0" aria-label="Stories from our trips">
     <article class="route-note">
-      <div class="route-note-visual route-note-visual--pending" role="img" aria-label="Northern lights illustration; photos from this trip have not been published yet"><span>Trip photos coming soon</span></div>
+      <a class="route-note-visual" href="../images/route-notes/aurora-2026-10-16-guests.jpg" target="_blank" rel="noopener" aria-label="Open the full photo of guests under the aurora"><img src="../images/route-notes/aurora-2026-10-16-guests.jpg" width="1600" height="1068" loading="lazy" alt="Aurora Trip guests under bright northern lights on the 16 October trip"></a>
       <div class="route-note-body">
-        <div class="route-note-meta"><time datetime="2026-10-16">16 October 2026</time> · Northern lights</div>
-        <h3 class="route-note-title">Another night chasing the aurora</h3>
-        <p class="route-note-text">It was a memorable trip. We'll share the real photos and the story of the night soon.</p>
+        <div class="route-note-meta"><time datetime="2026-10-16">16 October 2026</time> · Aurora hunt</div>
+        <h3 class="route-note-title">The sky lit up above our group</h3>
+        <p class="route-note-text">On our night trip, the aurora unfurled right above the guests. A moment to remember.</p>
         <a class="route-note-link" href="page-severnoe-siyanie.html">Explore the aurora tour →</a>
       </div>
     </article>
     <article class="route-note">
-      <div class="route-note-visual"><img src="../images/aurora/aurora-drive-forest.webp" width="800" height="530" loading="lazy" alt="Northern lights above a forest — Aurora Trip archive"></div>
+      <a class="route-note-visual" href="../images/route-notes/aurora-2026-10-16-water.jpg" target="_blank" rel="noopener" aria-label="Open the full aurora photo above the water"><img src="../images/route-notes/aurora-2026-10-16-water.jpg" width="1600" height="1068" loading="lazy" alt="Bright northern lights above the water on the 16 October trip"></a>
       <div class="route-note-body">
-        <div class="route-note-meta">From the archive · Aurora</div>
-        <h3 class="route-note-title">A night worth stepping outside for</h3>
-        <p class="route-note-text">A frame from an earlier trip: dark skies, northern forest and ribbons of green overhead.</p>
+        <div class="route-note-meta"><time datetime="2026-10-16">16 October 2026</time> · Photo diary</div>
+        <h3 class="route-note-title">The aurora lit the ground</h3>
+        <p class="route-note-text">The green swirls were so bright that their light fell across the shore and water.</p>
         <a class="route-note-link" href="page-severnoe-siyanie.html">Explore the aurora tour →</a>
       </div>
     </article>
     <article class="route-note">
-      <div class="route-note-visual"><img src="../images/gallery/ter_2.jpg" width="800" height="530" loading="lazy" alt="Teriberka coastline — Aurora Trip archive"></div>
+      <a class="route-note-visual" href="../images/route-notes/aurora-2026-10-16-portrait.jpg" target="_blank" rel="noopener" aria-label="Open the full guest portrait under the aurora"><img src="../images/route-notes/aurora-2026-10-16-portrait.jpg" width="1600" height="1068" loading="lazy" alt="Guest beneath bright northern lights on the 16 October trip"></a>
       <div class="route-note-body">
-        <div class="route-note-meta">From the archive · Teriberka</div>
-        <h3 class="route-note-title">The North we love to share</h3>
-        <p class="route-note-text">A place we keep returning to: wide-open space, the Barents Sea coast and a different pace of life.</p>
-        <a class="route-note-link" href="page-teriberka-1den.html">Explore the Teriberka trip →</a>
+        <div class="route-note-meta"><time datetime="2026-10-16">16 October 2026</time> · Our guests</div>
+        <h3 class="route-note-title">A northern moment to keep</h3>
+        <p class="route-note-text">Another moment from that night: the lights overhead, captured with our guests in the frame.</p>
+        <a class="route-note-link" href="page-severnoe-siyanie.html">Explore the aurora tour →</a>
+      </div>
+    </article>
+    <article class="route-note">
+      <a class="route-note-visual" href="../images/route-notes/aurora-2026-10-16-sky.jpg" target="_blank" rel="noopener" aria-label="Open the full photo of the aurora across the sky"><img src="../images/route-notes/aurora-2026-10-16-sky.jpg" width="1600" height="1068" loading="lazy" alt="Green northern lights spread across the night sky on 16 October"></a>
+      <div class="route-note-body">
+        <div class="route-note-meta"><time datetime="2026-10-16">16 October 2026</time> · Photo diary</div>
+        <h3 class="route-note-title">Aurora across the whole sky</h3>
+        <p class="route-note-text">At one point it was hard to know where to look: the lights filled almost the entire sky.</p>
+        <a class="route-note-link" href="page-severnoe-siyanie.html">Explore the aurora tour →</a>
       </div>
     </article>
   </div>
