@@ -717,8 +717,44 @@
     }
 
     /* =========================================================
-       ФОТОГАЛЕРЕЯ
+       НАШ ТРАНСПОРТ И ФОТОГАЛЕРЕЯ
     ========================================================= */
+    /* Наш транспорт: один крупный кадр и компактная лента снимков */
+    .fleet { padding: 62px 60px 58px; background: #F5F8FA; border-block: 1px solid #E7EDF1; }
+    .fleet-inner { max-width: 1320px; margin: 0 auto; display: grid; grid-template-columns: minmax(220px,.7fr) minmax(0,1.8fr); gap: clamp(28px,5vw,76px); align-items: start; }
+    .fleet-copy { padding-top: 12px; }
+    .fleet-eyebrow { display: inline-block; margin-bottom: 14px; color: #0B9D82; font-size: 12px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+    .fleet-title { margin: 0 0 18px; color: #1A2330; font-family: 'aurora','Montserrat',sans-serif; font-size: clamp(30px,3.4vw,48px); line-height: 1.08; font-weight: 800; }
+    .fleet-title::after { content: ''; display: block; width: 76px; height: 4px; margin-top: 20px; border-radius: 9px; background: var(--aurora); }
+    .fleet-intro { max-width: 330px; margin: 0; color: #5B6B7A; font-size: 15px; line-height: 1.7; }
+    .fleet-gallery { min-width: 0; }
+    .fleet-stage { position: relative; overflow: hidden; border-radius: 14px; background: #DDE5E8; box-shadow: 0 18px 42px rgba(28,49,62,.12); }
+    .fleet-stage-image { display: block; width: 100%; height: auto; aspect-ratio: 1672 / 941; object-fit: contain; }
+    .fleet-count { position: absolute; left: 18px; bottom: 17px; padding: 8px 11px; border-radius: 7px; background: rgba(14,22,38,.72); color: #fff; font-size: 13px; font-weight: 700; font-variant-numeric: tabular-nums; }
+    .fleet-arrow { position: absolute; top: 50%; width: 42px; height: 42px; transform: translateY(-50%); border: 1px solid rgba(255,255,255,.7); border-radius: 50%; background: rgba(14,22,38,.62); color: #fff; font: inherit; font-size: 30px; line-height: 1; cursor: pointer; display: grid; place-items: center; transition: background .2s; }
+    .fleet-arrow:hover { background: #0F9E86; }
+    .fleet-arrow:focus-visible, .fleet-thumb:focus-visible { outline: 3px solid #00BFA5; outline-offset: 3px; }
+    .fleet-arrow--prev { left: 15px; } .fleet-arrow--next { right: 15px; }
+    .fleet-thumbs { display: flex; gap: 10px; overflow-x: auto; scroll-snap-type: x proximity; padding: 5px 3px 12px; margin-top: 10px; scrollbar-width: thin; scrollbar-color: #B4C5C9 transparent; }
+    .fleet-thumb { flex: 0 0 112px; aspect-ratio: 1672 / 941; padding: 0; overflow: hidden; border: 3px solid transparent; border-radius: 9px; background: #DDE5E8; opacity: .7; cursor: pointer; scroll-snap-align: center; transition: opacity .2s, border-color .2s; }
+    .fleet-thumb img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .fleet-thumb:hover, .fleet-thumb[aria-pressed="true"] { opacity: 1; }
+    .fleet-thumb[aria-pressed="true"] { border-color: #12B99A; }
+    @media (max-width: 900px) {
+      .fleet { padding: 48px 20px; }
+      .fleet-inner { grid-template-columns: 1fr; gap: 26px; }
+      .fleet-copy { padding: 0; }
+      .fleet-intro { max-width: 650px; }
+    }
+    @media (max-width: 560px) {
+      .fleet { padding: 40px 18px; }
+      .fleet-title { font-size: 30px; }
+      .fleet-stage { border-radius: 10px; }
+      .fleet-arrow { width: 38px; height: 38px; font-size: 27px; }
+      .fleet-arrow--prev { left: 8px; } .fleet-arrow--next { right: 8px; }
+      .fleet-count { left: 10px; bottom: 9px; padding: 5px 8px; font-size: 11px; }
+      .fleet-thumb { flex-basis: 94px; }
+    }
     .gallery { background: #fff; padding: 64px 60px; }
     .gal-title {
       font-family: 'aurora', 'Montserrat', sans-serif;
@@ -2876,6 +2912,38 @@
 </section>
 
 
+<!-- Наш транспорт -->
+<section class="fleet" id="fleet" aria-labelledby="fleet-title">
+  <div class="fleet-inner">
+    <div class="fleet-copy">
+      <span class="fleet-eyebrow">On the road in the North</span>
+      <h2 class="fleet-title" id="fleet-title">Our vehicles</h2>
+      <p class="fleet-intro">Cars, crossovers, off-road vehicles and minibuses — we choose transport to suit the route and the group.</p>
+    </div>
+    <div class="fleet-gallery" data-fleet-gallery>
+      <div class="fleet-stage">
+        <img class="fleet-stage-image" src="../images/fleet/fleet-01.jpg" width="1672" height="941" loading="lazy" decoding="async" alt="Two Aurora Trip cars in a snowy forest">
+        <span class="fleet-count" aria-live="polite">1 / 12</span>
+        <button class="fleet-arrow fleet-arrow--prev" type="button" data-fleet-prev aria-label="Previous vehicle photo">&#8249;</button>
+        <button class="fleet-arrow fleet-arrow--next" type="button" data-fleet-next aria-label="Next vehicle photo">&#8250;</button>
+      </div>
+      <div class="fleet-thumbs" role="group" aria-label="Choose a vehicle photo">
+        <button class="fleet-thumb" type="button" aria-pressed="true"><img src="../images/fleet/fleet-01.jpg" width="1672" height="941" loading="lazy" decoding="async" alt="Two Aurora Trip cars in a snowy forest"></button>
+        <button class="fleet-thumb" type="button" aria-pressed="false"><img src="../images/fleet/fleet-02.jpg" width="1672" height="941" loading="lazy" decoding="async" alt="Aurora Trip off-road vehicle on a snowy road"></button>
+        <button class="fleet-thumb" type="button" aria-pressed="false"><img src="../images/fleet/fleet-03.jpg" width="1672" height="941" loading="lazy" decoding="async" alt="Black Aurora Trip off-road vehicle in winter"></button>
+        <button class="fleet-thumb" type="button" aria-pressed="false"><img src="../images/fleet/fleet-04.jpg" width="1672" height="941" loading="lazy" decoding="async" alt="Aurora Trip minivan on a winter route"></button>
+        <button class="fleet-thumb" type="button" aria-pressed="false"><img src="../images/fleet/fleet-05.jpg" width="1672" height="941" loading="lazy" decoding="async" alt="Dark Aurora Trip crossover in a snowy forest"></button>
+        <button class="fleet-thumb" type="button" aria-pressed="false"><img src="../images/fleet/fleet-06.jpg" width="1672" height="941" loading="lazy" decoding="async" alt="Black Aurora Trip crossover in the snow"></button>
+        <button class="fleet-thumb" type="button" aria-pressed="false"><img src="../images/fleet/fleet-07.jpg" width="1672" height="941" loading="lazy" decoding="async" alt="Grey Aurora Trip minivan in winter"></button>
+        <button class="fleet-thumb" type="button" aria-pressed="false"><img src="../images/fleet/fleet-08.jpg" width="1672" height="941" loading="lazy" decoding="async" alt="Aurora Trip minibus on a winter road"></button>
+        <button class="fleet-thumb" type="button" aria-pressed="false"><img src="../images/fleet/fleet-09.jpg" width="1672" height="941" loading="lazy" decoding="async" alt="Grey Aurora Trip crossover in winter"></button>
+        <button class="fleet-thumb" type="button" aria-pressed="false"><img src="../images/fleet/fleet-10.jpg" width="1672" height="941" loading="lazy" decoding="async" alt="White Aurora Trip crossover in the snow"></button>
+        <button class="fleet-thumb" type="button" aria-pressed="false"><img src="../images/fleet/fleet-11.jpg" width="1672" height="941" loading="lazy" decoding="async" alt="White Aurora Trip crossover on a winter route"></button>
+        <button class="fleet-thumb" type="button" aria-pressed="false"><img src="../images/fleet/fleet-12.jpg" width="1672" height="941" loading="lazy" decoding="async" alt="White Aurora Trip minivan in winter"></button>
+      </div>
+    </div>
+  </div>
+</section>
 <!-- ФОТОГАЛЕРЕЯ -->
 <section class="gallery" id="gallery">
   <h2 class="gal-title">Moments from Our Tours</h2>
@@ -3899,6 +3967,7 @@
 })();
 </script>
 <script src="../js/telegram-forms.js" defer></script>
+<script src="../js/fleet-gallery.js" defer></script>
 <script src="../js/cookie-banner.js" defer></script>
 <script src="/js/aurora-season-popup.js" defer></script>
 </body>
